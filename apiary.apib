@@ -10,33 +10,61 @@ Os atributos e parâmetros obrigatórios serão identificados com `*` no início
 
 ## Order [/rest/auth/v1/order]
 
-### Update order status [POST]
+### Update order status [PUT]
+
+Updates order status by order number.
 
 + Request (application/json)
 
         {
-            
+
         }
 
 + Response 200 (application/json)
 
+    + Body
+
         {
-        
+            "init": "init"
         }
 
 ### Order [GET]
 
+Returns an order by order number.
+
 + Request (application/json)
 
         {
-            
+
         }
 
 + Response 200 (application/json)
 
+    + Body
+
         {
-        
-        }        
+            "init": "init"
+        }
+
+## Received order [/rest/auth/v1/order/received]
+
+### Received order [PUT]
+
+Confirms the order was received and all its information was validated, specially its order itens stock.
+
++ Request (application/json)
+
+        {
+
+        }
+
++ Response 200 (application/json)
+
+    + Body
+
+        {
+            "init": "init"
+        }
 
 ## Orders [/rest/auth/v1/orders]
 
@@ -45,27 +73,53 @@ Os atributos e parâmetros obrigatórios serão identificados com `*` no início
 + Request (application/json)
 
         {
-            
+
         }
 
 + Response 200 (application/json)
 
+    + Body
+
         {
-        
+            "init": "init"
         }
 
 ## Order Item [/rest/auth/v1/order/item]
 
-### Update order item status [POST]
+### Update order item status [PUT]
 
 + Request (application/json)
 
         {
-            
+
         }
 
 + Response 200 (application/json)
 
+    + Body
+
         {
+            "init": "init"
+        }
         
+#Group Protocol
+
+## Protocol [/rest/auth/v1/protocol]
+
+### Open new Protocol [POST]
+
+Open new Protocol according the subject.
+
++ Request (application/json)
+
+        {
+
+        }
+
++ Response 200 (application/json)
+
+    + Body
+
+        {
+            "init": "init"
         }
