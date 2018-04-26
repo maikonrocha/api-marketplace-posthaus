@@ -123,3 +123,82 @@ Open new Protocol according the subject.
         {
             "init": "init"
         }
+        
+### Get Protocol [GET]
+
+Get a protocol by id.
+
++ Request (application/json)
+
+        {
+
+        }
+
++ Response 200 (application/json)
+
+    + Body
+
+        {
+            "init": "init"
+        }
+        
+### Answer Protocol [PUT]
+
+Post an answer to a protocol.
+
++ Request (application/json)
+
+        {
+
+        }
+
++ Response 200 (application/json)
+
+    + Body
+
+        {
+            "init": "init"
+        }
+
+## Protocols [/rest/auth/v1/protocols]
+
+### List protocols [GET]
+
+List protocols.
+
++ Request (application/json)
+
+        {
+
+        }
+
++ Response 200 (application/json)
+
+    + Body
+
+        {
+            "init": "init"
+        }
+
+#Group Protocol
+
+## Notification [/rest/auth/v1/notification]
+
+### Get the oldest notification unreaded [GET]
+
+The Marketplace Posthaus add notifications into a queue, the queue order is from the oldest to the newest notification added.
+These GET service is going to return the oldest notification, after these notification is going to mark as readed, the next notification is going to be avaliable to GET. 
+
++ Request (application/json)
+
+        {
+
+        }
+
++ Response 200 (application/json)
+
+    + Body
+
+        {
+            "init": "init"
+        }
