@@ -202,3 +202,99 @@ These GET service is going to return the oldest notification, after these notifi
         {
             "init": "init"
         }
+        
+#Group Notifications
+
+## Notification [/rest/auth/v1/notes{?offset,limit}]
+
+## Parameters
+  offset (int) Posição de início da paginação
+  limit (int) Número máximo de produtos
+
+### Paginated notifications list [GET]
+
+Get a paginated notifications list
+
+`Saída` 
++ notifications []
+  + token (string)
+  + type (string)
+  + additionalData
+    + orderId (number, 10)
+  + events []
+    + eventType (string)
+    + event (string)
+    + additionalData
+      + orderId (number, 10)
++ page
+  + size (int)
+  + totalElements (int)
+  + totalPages (int)
+  + number (int)
+
++ Request (application/json)
+    
+    + Headers
+
+            Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE0Mzg4Mjc0NDN9.POonh-FngFnKeCgDfjjoemmF3Mt8HP2CThHwDLYuYnQ
+
++ Response 200 (application/json)
+
+    + Body
+
+    {
+      "notifications": [
+        {
+          "token": ,
+          "type": "NEW_ORDER",
+          "additionalData": {
+            "orderId": 45687920
+          },
+          "events": [
+            {
+              "eventType": "getOrder",
+              "event": "https://www.sellercenter.api.ecosweb.com.br/rest/order/45687920",
+              "additionalData": {
+                "orderId": 45687920
+              }
+            },
+            {
+              "eventType": "markAsRead",
+              "event": "https://www.sellercenter.api.ecosweb.com.br/rest/notes/markAsRead/45g65d4sdf5465sdf5",
+              "additionalData": {
+                "token": "45g65d4sdf5465sdf5"
+              }        
+            }
+          ]
+        },
+        {
+          "token": "45g65d4sdf5465sdf5",
+          "type": "NEW_ORDER",
+          "additionalData": {
+            "orderId": 45687920
+          },
+          "events": [
+            {
+              "eventType": "getOrder",
+              "event": "https://www.sellercenter.api.ecosweb.com.br/rest/order/45687920",
+              "additionalData": {
+                "orderId": 45687920
+              }
+            },
+            {
+              "eventType": "markAsRead",
+              "event": "https://www.sellercenter.api.ecosweb.com.br/rest/notes/markAsRead/45g65d4sdf5465sdf5",
+              "additionalData": {
+                "token": "45g65d4sdf5465sdf5"
+              }        
+            }
+          ]
+        }
+      ],
+      "page": {
+        "size": 2,
+        "totalElements": 6,
+        "totalPages": 3,
+        "number": 1
+      }
+    }
