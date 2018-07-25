@@ -205,7 +205,7 @@ These GET service is going to return the oldest notification, after these notifi
         
 #Group Notifications
 
-## Notification [/rest/auth/v1/notes{?offset,limit}]
+## Notifications list [/rest/auth/v1/notes{?offset,limit}]
 
 ## Parameters
   offset (int) Posição de início da paginação
@@ -245,7 +245,7 @@ Get a paginated notifications list
     {
       "notifications": [
         {
-          "token": ,
+          "token": "45g65d4sdf5465sdf5",
           "type": "NEW_ORDER",
           "additionalData": {
             "orderId": 45687920
@@ -260,7 +260,7 @@ Get a paginated notifications list
             },
             {
               "eventType": "markAsRead",
-              "event": "https://www.sellercenter.api.ecosweb.com.br/rest/notes/markAsRead/45g65d4sdf5465sdf5",
+              "event": "https://www.sellercenter.api.ecosweb.com.br/rest/note/markAsRead/45g65d4sdf5465sdf5",
               "additionalData": {
                 "token": "45g65d4sdf5465sdf5"
               }        
@@ -283,7 +283,7 @@ Get a paginated notifications list
             },
             {
               "eventType": "markAsRead",
-              "event": "https://www.sellercenter.api.ecosweb.com.br/rest/notes/markAsRead/45g65d4sdf5465sdf5",
+              "event": "https://www.sellercenter.api.ecosweb.com.br/rest/note/markAsRead/45g65d4sdf5465sdf5",
               "additionalData": {
                 "token": "45g65d4sdf5465sdf5"
               }        
@@ -298,3 +298,26 @@ Get a paginated notifications list
         "number": 1
       }
     }
+
+## Mark as read [/rest/auth/v1/note/markAsRead]
+
+### Mark as read notification [PUT]
+
+Mark as read a notification. If the notification won't be readed during 30 days, the SellerCenter is going to automatically mark as read it.
+
+`Entrada`
++ token (string)
+
++ Request (application/json)
+    
+    + Headers
+
+            Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE0Mzg4Mjc0NDN9.POonh-FngFnKeCgDfjjoemmF3Mt8HP2CThHwDLYuYnQ
+
+            + Body
+
+                    {
+                        "token": "45g65d4sdf5465sdf5"
+                    }
+
+        + Response 204
