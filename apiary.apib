@@ -180,7 +180,7 @@ List protocols.
             "init": "init"
         }
 
-#Group Protocol
+#Group Notifications
 
 ## Notification [/rest/auth/v1/notification]
 
@@ -202,14 +202,12 @@ These GET service is going to return the oldest notification, after these notifi
         {
             "init": "init"
         }
-        
-#Group Notifications
 
 ## Notifications list [/rest/auth/v1/notes{?offset,limit}]
 
-## Parameters
-  offset (int) Posição de início da paginação
-  limit (int) Número máximo de produtos
++ Parameters
+    + offset (int) Posição de início da paginação
+    + limit (int) Número máximo de produtos
 
 ### Paginated notifications list [GET]
 
@@ -320,4 +318,4 @@ Mark as read a notification. If the notification won't be readed during 30 days,
                         "token": "45g65d4sdf5465sdf5"
                     }
 
-        + Response 204
++ Response 204
