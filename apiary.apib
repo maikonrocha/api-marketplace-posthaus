@@ -63,7 +63,7 @@ Objeto do pagamento do pedido
     - status (string, optional) - Status do pagamento
     - value (number) - Valor do pagamento
     - installments (number, optional) - Número de parcelas do meio do pagamento
-    - marketplaceFee (number, optional) - Taxa referente ao Marketplace. 
+    - marketplaceFee (number, optional) - Taxa referente ao Marketplace
 
 
 # OrderShippingItemGet (object)
@@ -223,99 +223,57 @@ Returns the order details by order number.
             "city": "Blumenau",
             "state": "SC",
             "country": "Brasil",
-            "address": "Rua Sete de Setembro",
-            Rua Sete de Setembro, 1069, 1º. Andar - Sala 10A - Edifício Dumóvel - 89.010-207 - Blumenau - SC 
+            "address": "Rua Sete de Setembro, 1069, 1º. Andar - Sala 10A - Edifício Dumóvel - 89.010-207 - Blumenau - SC ",
             "number": "1069",
             "neighborhood": "Centro",
-            "street": "string",
-            "comment": "string",
-            "reference": "string",
-            "zipCode": "string",
-            "receiverName": "string",
+            "street": "Rua Sete de Setembro",
+            "comment": "",
+            "reference": "Sala 10A - Edifício Dumóvel",
+            "zipCode": "89010207",
+            "receiverName": "João",
             "promisedShippingTime": "2018-08-08T10:40:32Z"
           },
-          "billingAddress": {
-            "city": "string",
-            "state": "string",
-            "stateNameNormalized": "string",
-            "country": "string",
-            "countryAcronymNormalized": "string",
-            "countryNameNormalized": "string",
-            "street": "string",
-            "number": "string",
-            "neighborhood": "string",
-            "comment": "string",
-            "reference": "string",
-            "zipCode": "string"
-          },
-          "anymarketAddress": {
-            "state": "string",
-            "city": "string",
-            "zipCode": "string",
-            "neighborhood": "string",
-            "address": "string",
-            "street": "string",
-            "number": "string",
-            "comment": "string",
-            "reference": "string",
-            "receiverName": "string",
-            "promisedShippingTime": "string"
-          },
           "buyer": {
-            "marketPlaceId": "string",
-            "name": "string",
-            "email": "string",
-            "document": "string",
-            "documentType": "string",
-            "phone": "string",
-            "cellPhone": "string",
-            "documentNumberNormalized": "string"
+            "name": "João",
+            "document": "56786132006",
+            "documentType": "CPF",
+            "phone": "554733385566",
+            "cellPhone": "5547988995566",
           },
-          "payments": [
-            {
-              "method": "string",
-              "status": "string",
-              "value": 0,
-              "installments": 0,
-              "marketplaceId": "string",
-              "gatewayFee": 0,
-              "marketplaceFee": 0,
-              "paymentMethodNormalized": "string",
-              "paymentDetailNormalized": "string"
-            }
-          ],
+          "payments": {
+              "method": "cartão",  //validar
+              "status": "aprovado", //validar
+              "value": 69.90,
+              "installments": 2,
+              "marketplaceFee": 5.0,
+          },
           "items": [
             {
               "product": {
-                "id": 0,
-                "title": "string"
+                "id": 568898,
+                "title": "Vestido da moda"
               },
               "sku": {
-                "id": 0,
-                "title": "string",
-                "partnerId": "string"
+                "id": 568898,
+                "title": "Vestido da moda",
+                "partnerId": "F7778458"
               },
-              "amount": 0,
-              "unit": 0,
-              "gross": 0,
-              "total": 0,
-              "discount": 0,
-              "shippings": [
-                {
-                  "id": 0,
-                  "shippingtype": "string",
-                  "shippingCarrierNormalized": "string",
-                  "shippingCarrierTypeNormalized": "string"
-                }
-              ],
-              "marketPlaceId": "string",
-              "orderItemId": "string"
+              "amount": 1,
+              "unit": 69.90,
+              "gross": 69.90,
+              "total": 67.91,
+              "discount": 1.99,
+              "shippings": {
+                  "id": 3,
+                  "shippingtype": "NORMAL",
+              },
+              "orderItemId": "1"
             }
           ],
           "tracking": {
-            "url": "string",
-            "number": "string",
-            "carrier": "string",
+            "url": "http://websro.correios.com.br/sro_bin",
+            "number": "SP89598599",
+            "carrier": "CORREIOS",
             "date": "2018-08-08T10:40:32Z",
             "deliveredDate": "2018-08-08T10:40:32Z",
             "estimateDate": "2018-08-08T10:40:32Z",
