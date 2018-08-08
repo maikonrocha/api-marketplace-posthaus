@@ -56,7 +56,7 @@ Objeto de endereco de entrega
 
 
 # OrderPaymentGet (object)
-Objeto dpo pagamento do pedido
+Objeto do pagamento do pedido
 
 ## Properties 
     - method (string) - Método de pagamento
@@ -65,10 +65,61 @@ Objeto dpo pagamento do pedido
     - installments (number, optional) - Número de parcelas do meio do pagamento
     - gatewayFee (number, optional): Taxa referente ao gateway de pagamento (Ex: MercadoPago)  //VALIDAR
     - marketplaceFee (number, optional): Taxa referente ao Marketplace.  //VALIDAR
-paymentMethodNormalized (string, optional): Método de pagamento padronizado internamente pelo AnyMarket. Caso for um valor desconhecido internamente irá retornar UNKNOWN. Se o method for nulo, este campo também será nulo. ,
-paymentDetailNormalized (string, optional): Detalhamento do método de pagamento padronizado internamente pelo AnyMarket. Caso for um valor desconhecido internamente irá retornar UNKNOWN. Se o method for nulo, este campo também será nulo.
-}    
+}   
 
+
+# OrderShippingItemGet (object)
+Objeto do item do pedido
+
+## Properties 
+    - product (SimpleProduct)  //VALIDAR
+    - sku (SimpleSku)
+    - amount (number) - Quantidade do item
+    - unit (number) - Preço do item
+    - gross (number) - Valor bruto do item (amount * unit)
+    - total (number) - Total do item com desconto aplicado (gross - discount)
+    - discount (number) - Desconto do item
+    - shippings (OrderItemShippingGet, optional)
+    - orderItemId (string): Id do item no pedido gerado pelo Posthaus
+}
+
+
+# OrderTracking (object)
+Objeto de rastreio do pedido
+
+## Properties
+    - url (string, optional) - URL para o rastreamento
+    - number (string, optional) - Número de rastreio
+    - carrier (string) - Nome da transportadora
+    - date: 2018-08-08T10:40:32Z (string, optional) - Data do rastreio
+    - deliveredDate: 2018-08-08T10:40:32Z (string, optional) - Data de entrega ao Cliente
+    - estimateDate: 2018-08-08T10:40:32Z (string) - Data estimada
+    - shippedDate: 2018-08-08T10:40:32Z (string) - Data em que foi entregue a transportadora
+}
+
+
+# SimpleProduct (object)
+Objeto do produto
+
+## Properties
+    - id (integer) - ID do produto no Posthaus
+    - title (string) - Título do produto
+
+# SimpleSku (object)
+Objeto do SKU
+
+## Properties
+     - id (integer) - ID do SKU gerado pelo Posthaus
+    - title (string): Título do SKU
+    - partnerId (string, optional): ID do SKU no parceiro
+
+
+# OrderItemShippingGet (object)
+Objeto da modalidade en dencio do item
+
+## Properties
+    - id (integer) - ID do tipo de envio
+    - shippingtype (string) - Forma de envio selecionado pelo cliente
 
 
 #Group Order
@@ -143,57 +194,6 @@ Returns the order details by order number.
     - items (Array[OrderShippingItemGet]) - Dados referente aos produtos comprados
     - tracking (OrderTracking, optional) - Dados referente a entrega
     - idAccount (number): Id de conta gerado automático pelo posthaus   REVISAR
-    
-
-
-
-
-
-OrderShippingItemGet {
-product (SimpleProduct),
-sku (SimpleSku),
-amount (number): Quantidade do item ,
-unit (number): Preço do item ,
-gross (number): Valor bruto do item (amount * unit) ,
-total (number): Total do item com desconto aplicado (gross - discount) ,
-discount (number): Desconto do item ,
-shippings (Array[OrderItemShippingGet], optional),
-marketPlaceId (string, optional): Id do item no marketplace / plataforma de e-commerce (Caso não informado, será o mesmo do sku) ,
-orderItemId (string): Id do item no pedido gerado pelo AnyMarket
-}
-OrderTracking {
-url (string, optional): URL para o rastreamento ,
-number (string, optional): Número de rastreio ,
-carrier (string): Nome da transportadora ,
-date (string, optional): Data do rastreio (Necessário informar o fuso horario) ,
-deliveredDate (string, optional): Data de entrega ao Cliente (Necessário informar o fuso horario) ,
-estimateDate (string): Data estimada (Necessário informar o fuso horario) ,
-shippedDate (string): Data em que foi entregue a transportadora (Necessário informar o fuso horario)
-}
-PickUp {
-id (integer, optional): Id da loja no ANYMARKET ,
-description (string, optional): Nome da loja ,
-partnerId (integer, optional): Código da loja no parceiro ,
-marketplaceId (string, optional): Id da loja no marketplace ,
-receiverName (string, optional): Nome de quem retira o pedido na loja
-}
-SimpleProduct {
-id (integer): ID do produto gerado pelo AnyMarket ,
-title (string): Título do produto
-}
-SimpleSku {
-id (integer): ID do SKU gerado pelo AnyMarket ,
-title (string): Título do SKU ,
-partnerId (string, optional): ID do SKU no parceiro
-}
-OrderItemShippingGet {
-id (integer): ID do tipo de envio ,
-shippingtype (string): Forma de envio selecionado pelo cliente (Campo original, cadastrado pelo Marketplace ou Ecommerce) ,
-shippingCarrierNormalized (string, optional): Nome da transportadora padronizado internamente pelo AnyMarket. Caso for um valor desconhecido internamente irá retornar UNKNOWN. Se o shippingType for nulo, este campo também será nulo. ,
-shippingCarrierTypeNormalized (string, optional): Serviço da transportadora padronizado internamente pelo AnyMarket. Caso for um valor desconhecido internamente irá retornar UNKNOWN. Se o shippingType for nulo, este campo também será nulo.
-}
-
-        
         
 
 + Request (application/json)
