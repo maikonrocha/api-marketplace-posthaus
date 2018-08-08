@@ -105,9 +105,9 @@ Objeto do produto
 Objeto do SKU
 
 ## Properties
-     - id (integer) - ID do SKU gerado pelo Posthaus
-    - title (string): Título do SKU
-    - partnerId (string, optional): ID do SKU no parceiro
+    - id (integer) - ID do SKU gerado pelo Posthaus
+    - title (string) - Título do SKU
+    - partnerId (string, optional) - ID do SKU no parceiro
 
 
 # OrderItemShippingGet (object)
@@ -203,45 +203,30 @@ Returns the order details by order number.
 
         {
           "id": 0,
-          "accountName": "string",
-          "marketPlaceId": "string",
-          "marketPlaceNumber": "string",
           "partnerId": "string",
-          "marketPlace": "string",
           "createdAt": "2018-08-08T10:40:32Z",
           "paymentDate": "2018-08-08T10:40:32Z",
           "cancelDate": "2018-08-08T10:40:32Z",
-          "shippingOptionId": "string",
-          "transmissionStatus": "string",
-          "status": "string",
-          "marketPlaceStatus": "string",
-          "marketplaceStatusComplement": "string",
-          "fulfillment": true,
-          "discount": 0,
-          "freight": 0,
-          "interestValue": 0,
-          "gross": 0,
-          "total": 0,
-          "marketPlaceUrl": "string",
-          "marketPlaceShipmentStatus": "string",
+          "transmissionStatus": "OK",
+          "status": "PENDING",
+          "discount": 2.10,
+          "freight": 9.90,
+          "gross": 60,
+          "total": 69.90,
           "invoice": {
-            "accessKey": "string",
-            "series": "string",
-            "number": "string",
+            "accessKey": "NFe35080599999090910270550010000000015180051273",
+            "series": "1",
+            "number": "35",
             "date": "2018-08-08T10:40:32Z",
-            "cfop": "string",
-            "companyStateTaxId": "string"
           },
           "shipping": {
-            "city": "string",
-            "state": "string",
-            "stateNameNormalized": "string",
-            "country": "string",
-            "countryAcronymNormalized": "string",
-            "countryNameNormalized": "string",
-            "address": "string",
-            "number": "string",
-            "neighborhood": "string",
+            "city": "Blumenau",
+            "state": "SC",
+            "country": "Brasil",
+            "address": "Rua Sete de Setembro",
+            Rua Sete de Setembro, 1069, 1º. Andar - Sala 10A - Edifício Dumóvel - 89.010-207 - Blumenau - SC 
+            "number": "1069",
+            "neighborhood": "Centro",
             "street": "string",
             "comment": "string",
             "reference": "string",
