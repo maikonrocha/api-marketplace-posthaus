@@ -14,6 +14,61 @@ Objeto de paginacao
     - totalElements (number)
     - totalPages (number)
     - number (number)
+    
+
+# OrderInvoice (object)
+Objeto de pagamento
+
+## Properties
+    - accessKey (string) - Chave de acesso da nota fiscal
+    - series (string, optional) - Número de série da nota fiscal
+    - number (string, optional) - Número da nota fiscal
+    - date: 2018-08-08T10:40:32Z (string) -Data de emissão da nota fiscal
+
+
+# BuyerGet (object)
+Objeto do comprador
+
+## Properties
+    - name (string) - Nome do comprador
+    - document (string) - Número do documento
+    - documentType (string) - Tipo do documento.
+        Valores possíveis. CPF, CNPJ, OTHER
+    - phone (string) - Telefone do comprador 
+    - cellPhone (string, optional) - Celular do comprador
+    
+
+# OrderShippingAddressGet (object)
+Objeto de endereco de entrega
+
+## Properties    
+    - city (string) - Cidade
+    - state (string) - Sigla do Estado 
+    - country (string) - País
+    - address (string) - Endereço
+    - number (string) - Número
+    - neighborhood (string) - Bairro
+    - street (string) - Rua
+    - comment (string, optional) - Complemento 
+    - zipCode (string) - CEP
+    - receiverName (string) - Nome do remetente para entrega
+    - promisedShippingTime (string) - Data acordada para entrega //VALIDAR
+
+
+# OrderPaymentGet (object)
+Objeto dpo pagamento do pedido
+
+## Properties 
+    - method (string) - Método de pagamento
+    - status (string, optional) - Status do pagamento
+    - value (number) - Valor do pagamento
+    - installments (number, optional) - Número de parcelas do meio do pagamento
+    - gatewayFee (number, optional): Taxa referente ao gateway de pagamento (Ex: MercadoPago)  //VALIDAR
+    - marketplaceFee (number, optional): Taxa referente ao Marketplace.  //VALIDAR
+paymentMethodNormalized (string, optional): Método de pagamento padronizado internamente pelo AnyMarket. Caso for um valor desconhecido internamente irá retornar UNKNOWN. Se o method for nulo, este campo também será nulo. ,
+paymentDetailNormalized (string, optional): Detalhamento do método de pagamento padronizado internamente pelo AnyMarket. Caso for um valor desconhecido internamente irá retornar UNKNOWN. Se o method for nulo, este campo também será nulo.
+}    
+
 
 
 #Group Order
@@ -46,13 +101,106 @@ Updates order status by order number.
 
 ### Read a Order [GET]
 
-Returns an order by order number.
+Returns the order details by order number.
+
+`Saída` 
+- notifications (array)
+    - token (string)
+    - type (string)
+    - additionalData
+        - orderId (number, 10)
+    - events (array)
+        - eventType (string)
+        - event (string)
+        - additionalData
+        - orderId (number, 10)
+        
+- Order
+    - id (number) - ID do pedido gerado pelo Posthaus
+    - partnerId (string, optional) - Código do pedido no parceiro. Uma vez informado, não poderá ser alterado
+    - createdAt: 2018-08-08T10:40:32Z (string) - Data de criação do pedido
+    - paymentDate: 2018-08-08T10:40:32Z (string, optional) - Data de pagamento do pedido
+    - cancelDate: 2018-08-08T10:40:32Z (string, optional) - Data de cancelamento do pedido
+    - transmissionStatus (string) - Status da transmissão
+        OK. Pedido sincronizado com sucesso com o Marketplace
+        ERROR. Ocorreu erro na sincronização com o Marketplace
+        WAITING. Aguardando sincronização com o Marketplace
+    - status (string) - Status do pedido
+        CONCLUDED. Pedido entregue
+        CANCELED. Cancelado
+        INVOICED. Faturado
+        PAID_WAITING_DELIVERY. Enviado (aguardando entrega)
+        PAID_WAITING_SHIP. Pago (está aguardando envio)
+        PENDING. Pendente (Ainda não foi pago)
+    - discount (number) - Desconto do pedido
+    - freight (number) - Valor de frete
+    - gross (number) - Total bruto sem o valor de frete
+    - total (number) - Total do pedido com o valor de frete
+    - invoice (OrderInvoice, optional) - Dados da nota fiscal
+    - shipping (OrderShippingAddressGet) - Endereço de entrega 
+    - buyer (BuyerGet) - Dados do comprador
+    - payments (OrderPaymentGet) - Dados referente a pagamento
+    - items (Array[OrderShippingItemGet]) - Dados referente aos produtos comprados
+    - tracking (OrderTracking, optional) - Dados referente a entrega
+    - idAccount (number): Id de conta gerado automático pelo posthaus   REVISAR
+    
+
+
+
+
+
+OrderShippingItemGet {
+product (SimpleProduct),
+sku (SimpleSku),
+amount (number): Quantidade do item ,
+unit (number): Preço do item ,
+gross (number): Valor bruto do item (amount * unit) ,
+total (number): Total do item com desconto aplicado (gross - discount) ,
+discount (number): Desconto do item ,
+shippings (Array[OrderItemShippingGet], optional),
+marketPlaceId (string, optional): Id do item no marketplace / plataforma de e-commerce (Caso não informado, será o mesmo do sku) ,
+orderItemId (string): Id do item no pedido gerado pelo AnyMarket
+}
+OrderTracking {
+url (string, optional): URL para o rastreamento ,
+number (string, optional): Número de rastreio ,
+carrier (string): Nome da transportadora ,
+date (string, optional): Data do rastreio (Necessário informar o fuso horario) ,
+deliveredDate (string, optional): Data de entrega ao Cliente (Necessário informar o fuso horario) ,
+estimateDate (string): Data estimada (Necessário informar o fuso horario) ,
+shippedDate (string): Data em que foi entregue a transportadora (Necessário informar o fuso horario)
+}
+PickUp {
+id (integer, optional): Id da loja no ANYMARKET ,
+description (string, optional): Nome da loja ,
+partnerId (integer, optional): Código da loja no parceiro ,
+marketplaceId (string, optional): Id da loja no marketplace ,
+receiverName (string, optional): Nome de quem retira o pedido na loja
+}
+SimpleProduct {
+id (integer): ID do produto gerado pelo AnyMarket ,
+title (string): Título do produto
+}
+SimpleSku {
+id (integer): ID do SKU gerado pelo AnyMarket ,
+title (string): Título do SKU ,
+partnerId (string, optional): ID do SKU no parceiro
+}
+OrderItemShippingGet {
+id (integer): ID do tipo de envio ,
+shippingtype (string): Forma de envio selecionado pelo cliente (Campo original, cadastrado pelo Marketplace ou Ecommerce) ,
+shippingCarrierNormalized (string, optional): Nome da transportadora padronizado internamente pelo AnyMarket. Caso for um valor desconhecido internamente irá retornar UNKNOWN. Se o shippingType for nulo, este campo também será nulo. ,
+shippingCarrierTypeNormalized (string, optional): Serviço da transportadora padronizado internamente pelo AnyMarket. Caso for um valor desconhecido internamente irá retornar UNKNOWN. Se o shippingType for nulo, este campo também será nulo.
+}
+
+        
+        
 
 + Request (application/json)
+    + Headers
 
-        {
-
-        }
+            Accept: application/json
+            Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE0Mzg4Mjc0NDN9.POonh-FngFnKeCgDfjjoemmF3Mt8HP2CThHwDLYuYnQ
 
 + Response 200 (application/json)
 
