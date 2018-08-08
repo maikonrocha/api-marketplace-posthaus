@@ -52,7 +52,7 @@ Objeto de endereco de entrega
     - comment (string, optional) - Complemento 
     - zipCode (string) - CEP
     - receiverName (string) - Nome do remetente para entrega
-    - promisedShippingTime (string) - Data acordada para entrega //VALIDAR
+    - promisedShippingTime (string) - Data acordada para entrega
 
 
 # OrderPaymentGet (object)
@@ -63,9 +63,7 @@ Objeto do pagamento do pedido
     - status (string, optional) - Status do pagamento
     - value (number) - Valor do pagamento
     - installments (number, optional) - Número de parcelas do meio do pagamento
-    - gatewayFee (number, optional): Taxa referente ao gateway de pagamento (Ex: MercadoPago)  //VALIDAR
-    - marketplaceFee (number, optional): Taxa referente ao Marketplace.  //VALIDAR
-}   
+    - marketplaceFee (number, optional) - Taxa referente ao Marketplace. 
 
 
 # OrderShippingItemGet (object)
@@ -81,7 +79,6 @@ Objeto do item do pedido
     - discount (number) - Desconto do item
     - shippings (OrderItemShippingGet, optional)
     - orderItemId (string): Id do item no pedido gerado pelo Posthaus
-}
 
 
 # OrderTracking (object)
@@ -95,7 +92,6 @@ Objeto de rastreio do pedido
     - deliveredDate: 2018-08-08T10:40:32Z (string, optional) - Data de entrega ao Cliente
     - estimateDate: 2018-08-08T10:40:32Z (string) - Data estimada
     - shippedDate: 2018-08-08T10:40:32Z (string) - Data em que foi entregue a transportadora
-}
 
 
 # SimpleProduct (object)
@@ -145,7 +141,7 @@ Updates order status by order number.
         }
 
 
-## Orders [/rest/auth/v1/orders/{id}]
+## Orders [/rest/auth/v1/orders/{order_id}]
 
 + Parameters
     + order_id (required, number, `999558695`) ... ID do pedido gerado pelo Posthaus
@@ -193,7 +189,6 @@ Returns the order details by order number.
     - payments (OrderPaymentGet) - Dados referente a pagamento
     - items (Array[OrderShippingItemGet]) - Dados referente aos produtos comprados
     - tracking (OrderTracking, optional) - Dados referente a entrega
-    - idAccount (number): Id de conta gerado automático pelo posthaus   REVISAR
         
 
 + Request (application/json)
@@ -207,7 +202,149 @@ Returns the order details by order number.
     + Body
 
         {
-            "init": "init"
+          "id": 0,
+          "accountName": "string",
+          "marketPlaceId": "string",
+          "marketPlaceNumber": "string",
+          "partnerId": "string",
+          "marketPlace": "string",
+          "createdAt": "2018-08-08T10:40:32Z",
+          "paymentDate": "2018-08-08T10:40:32Z",
+          "cancelDate": "2018-08-08T10:40:32Z",
+          "shippingOptionId": "string",
+          "transmissionStatus": "string",
+          "status": "string",
+          "marketPlaceStatus": "string",
+          "marketplaceStatusComplement": "string",
+          "fulfillment": true,
+          "discount": 0,
+          "freight": 0,
+          "interestValue": 0,
+          "gross": 0,
+          "total": 0,
+          "marketPlaceUrl": "string",
+          "marketPlaceShipmentStatus": "string",
+          "invoice": {
+            "accessKey": "string",
+            "series": "string",
+            "number": "string",
+            "date": "2018-08-08T10:40:32Z",
+            "cfop": "string",
+            "companyStateTaxId": "string"
+          },
+          "shipping": {
+            "city": "string",
+            "state": "string",
+            "stateNameNormalized": "string",
+            "country": "string",
+            "countryAcronymNormalized": "string",
+            "countryNameNormalized": "string",
+            "address": "string",
+            "number": "string",
+            "neighborhood": "string",
+            "street": "string",
+            "comment": "string",
+            "reference": "string",
+            "zipCode": "string",
+            "receiverName": "string",
+            "promisedShippingTime": "2018-08-08T10:40:32Z"
+          },
+          "billingAddress": {
+            "city": "string",
+            "state": "string",
+            "stateNameNormalized": "string",
+            "country": "string",
+            "countryAcronymNormalized": "string",
+            "countryNameNormalized": "string",
+            "street": "string",
+            "number": "string",
+            "neighborhood": "string",
+            "comment": "string",
+            "reference": "string",
+            "zipCode": "string"
+          },
+          "anymarketAddress": {
+            "state": "string",
+            "city": "string",
+            "zipCode": "string",
+            "neighborhood": "string",
+            "address": "string",
+            "street": "string",
+            "number": "string",
+            "comment": "string",
+            "reference": "string",
+            "receiverName": "string",
+            "promisedShippingTime": "string"
+          },
+          "buyer": {
+            "marketPlaceId": "string",
+            "name": "string",
+            "email": "string",
+            "document": "string",
+            "documentType": "string",
+            "phone": "string",
+            "cellPhone": "string",
+            "documentNumberNormalized": "string"
+          },
+          "payments": [
+            {
+              "method": "string",
+              "status": "string",
+              "value": 0,
+              "installments": 0,
+              "marketplaceId": "string",
+              "gatewayFee": 0,
+              "marketplaceFee": 0,
+              "paymentMethodNormalized": "string",
+              "paymentDetailNormalized": "string"
+            }
+          ],
+          "items": [
+            {
+              "product": {
+                "id": 0,
+                "title": "string"
+              },
+              "sku": {
+                "id": 0,
+                "title": "string",
+                "partnerId": "string"
+              },
+              "amount": 0,
+              "unit": 0,
+              "gross": 0,
+              "total": 0,
+              "discount": 0,
+              "shippings": [
+                {
+                  "id": 0,
+                  "shippingtype": "string",
+                  "shippingCarrierNormalized": "string",
+                  "shippingCarrierTypeNormalized": "string"
+                }
+              ],
+              "marketPlaceId": "string",
+              "orderItemId": "string"
+            }
+          ],
+          "tracking": {
+            "url": "string",
+            "number": "string",
+            "carrier": "string",
+            "date": "2018-08-08T10:40:32Z",
+            "deliveredDate": "2018-08-08T10:40:32Z",
+            "estimateDate": "2018-08-08T10:40:32Z",
+            "shippedDate": "2018-08-08T10:40:32Z"
+          },
+          "deliverStatus": "string",
+          "idAccount": 0,
+          "pickup": {
+            "id": 0,
+            "description": "string",
+            "partnerId": 0,
+            "marketplaceId": "string",
+            "receiverName": "string"
+          }
         }
 
 ## Received order [/rest/auth/v1/order/received]
