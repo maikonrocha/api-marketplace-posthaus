@@ -15,6 +15,49 @@ Esta API tem por objetivo Integrar os dados entre a Plataforma Posthaus Marketpl
 + totalPages (number)
 + number (number)
 
+## Notifications (object)
++ token (string)
++ type (string)
++ additionalData
+    + orderId (number)
++ events (array)
+    + eventType (string)
+    + event (string)
+    + additionalData
+    + orderId (number)
+
+## OrderGet (object)    
++ id (number) - ID do pedido gerado pelo Posthaus
++ partnerId (string, optional) - Código do pedido no parceiro. Uma vez informado, não poderá ser alterado
++ createdAt: `2018-08-08T10:40:32Z` (string) - Data de criação do pedido
++ paymentDate: `2018-08-08T10:40:32Z` (string, optional) - Data de pagamento do pedido
++ cancelDate: `2018-08-08T10:40:32Z` (string, optional) - Data de cancelamento do pedido
++ transmissionStatus (string) - Status da transmissão
+
+        OK. Pedido sincronizado com sucesso com o Marketplace
+        ERROR. Ocorreu erro na sincronização com o Marketplace
+        WAITING. Aguardando sincronização com o Marketplace
+    
++ status (string) - Status do pedido
+        
+        CONCLUDED. Pedido entregue
+        CANCELED. Cancelado
+        INVOICED. Faturado
+        PAID_WAITING_DELIVERY. Enviado (aguardando entrega)
+        PAID_WAITING_SHIP. Pago (está aguardando envio)
+        PENDING. Pendente (Ainda não foi pago)
+        
++ discount (number) - Desconto do pedido
++ freight (number) - Valor de frete
++ gross (number) - Total bruto sem o valor de frete
++ total (number) - Total do pedido com o valor de frete
++ invoice (OrderInvoice, optional) - Dados da nota fiscal
++ shipping (OrderShippingAddressGet) - Endereço de entrega 
++ buyer (BuyerGet) - Dados do comprador
++ payments (OrderPaymentGet) - Dados referente a pagamento
++ items (array[OrderShippingItemGet]) - Dados referente aos produtos comprados
++ tracking (OrderTracking, optional) - Dados referente a entrega    
+
 ## OrderInvoice (object)
 + accessKey (string) - Chave de acesso da nota fiscal
 + series (string, optional) - Número de série da nota fiscal
@@ -101,74 +144,16 @@ Esta API tem por objetivo Integrar os dados entre a Plataforma Posthaus Marketpl
 + shippingtype (string) - Forma de envio selecionado pelo cliente
 
 
-#Group Order
+# Group Order
 
-## Order [/rest/auth/v1/orders]
-
-### Update order status [PUT]
-
-Updates order status by order number.
-
-+ Request (application/json)
-
-        {
-
-        }
-
-+ Response 200 (application/json)
-
-        {
-            "init": "init"
-        }
-
-
-## Orders [/rest/auth/v1/orders/{order_id}]
+## Order [/rest/auth/v1/orders/{order_id}]
 
 + Parameters
     + order_id (required, number, `999558695`) ... ID do pedido gerado pelo Posthaus
 
 + Attributes (object)
-    + notifications
-        + token (string)
-        + type (string)
-        + additionalData
-            + orderId (number)
-        + events (array)
-            + eventType (string)
-            + event (string)
-            + additionalData
-            + orderId (number)
-    + Order
-        + id (number) - ID do pedido gerado pelo Posthaus
-        + partnerId (string, optional) - Código do pedido no parceiro. Uma vez informado, não poderá ser alterado
-        + createdAt: `2018-08-08T10:40:32Z` (string) - Data de criação do pedido
-        + paymentDate: `2018-08-08T10:40:32Z` (string, optional) - Data de pagamento do pedido
-        + cancelDate: `2018-08-08T10:40:32Z` (string, optional) - Data de cancelamento do pedido
-        + transmissionStatus (string) - Status da transmissão
-        
-                OK. Pedido sincronizado com sucesso com o Marketplace
-                ERROR. Ocorreu erro na sincronização com o Marketplace
-                WAITING. Aguardando sincronização com o Marketplace
-            
-        + status (string) - Status do pedido
-                
-                CONCLUDED. Pedido entregue
-                CANCELED. Cancelado
-                INVOICED. Faturado
-                PAID_WAITING_DELIVERY. Enviado (aguardando entrega)
-                PAID_WAITING_SHIP. Pago (está aguardando envio)
-                PENDING. Pendente (Ainda não foi pago)
-                
-        + discount (number) - Desconto do pedido
-        + freight (number) - Valor de frete
-        + gross (number) - Total bruto sem o valor de frete
-        + total (number) - Total do pedido com o valor de frete
-        + invoice (OrderInvoice, optional) - Dados da nota fiscal
-        + shipping (OrderShippingAddressGet) - Endereço de entrega 
-        + buyer (BuyerGet) - Dados do comprador
-        + payments (OrderPaymentGet) - Dados referente a pagamento
-        + items (array[OrderShippingItemGet]) - Dados referente aos produtos comprados
-        + tracking (OrderTracking, optional) - Dados referente a entrega
+    + notifications (Notifications)
+    + order (OrderGet)
 
 
 ### Read a Order [GET]
@@ -181,7 +166,8 @@ Returns the order details by order number.
             Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE0Mzg4Mjc0NDN9.POonh-FngFnKeCgDfjjoemmF3Mt8HP2CThHwDLYuYnQ
 
 + Response 200 (application/json)
-
+    + Attributes (Order)
+    
         {
             "order": {
               "id": 0,
@@ -263,6 +249,37 @@ Returns the order details by order number.
               }
             }
         }
+
+## Orders [/rest/auth/v1/orders{?offset,limit}]
+
++ Parameters
+    + offset (required, number, `40`) ... Posição de início da paginação
+    + limit (number, optional)
+
+        A limit on the number of objects to be returned. Limit can range
+        between 1 and 100 items.
+
+        + Default: `10`    
+
+
+### Update order status [PUT]
+
+Updates order status by order number.
+
++ Request (application/json)
+
+        {
+
+        }
+
++ Response 200 (application/json)
+
+        {
+            "init": "init"
+        }
+
+
+
 
 ## Received order [/rest/auth/v1/order/received]
 
@@ -394,19 +411,15 @@ These GET service is going to return the oldest notification, after these notifi
 
 + Parameters
     + offset (required, number, `40`) ... Posição de início da paginação
-    + limit (required, number, `150`) ... Número máximo de produtos
+    + limit (number, optional)
+
+        A limit on the number of objects to be returned. Limit can range
+        between 1 and 100 items.
+    
+        + Default: `10`
 
 + Attributes (object)
-    + notifications
-        + token (string)
-        + type (string)
-        + additionalData
-            + orderId (number)
-        + events (array)
-            + eventType (string)
-            + event (string)
-            + additionalData
-            + orderId (number)
+    + notifications (Notifications)
     + page (Page)
 
 
