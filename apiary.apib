@@ -4,59 +4,51 @@ HOST: http://polls.apiblueprint.org/
 # API Marketplace Posthaus
 
 Esta API tem por objetivo Integrar os dados entre a Plataforma Posthaus Marketplace e os Sellers.
-Os atributos e parâmetros não obrigatórios serão identificados com o "optional".
 
-# Page (object)
-Objeto de paginacao
-## Properties
-- size (number)
-- totalElements (number)
-- totalPages (number)
-- number (number)
-    
+**Note:** Os atributos e parâmetros não obrigatórios serão identificados com o "optional".
 
-# OrderInvoice (object)
-Objeto de pagamento
-## Properties
-- accessKey (string) - Chave de acesso da nota fiscal
-- series (string, optional) - Número de série da nota fiscal
-- number (string, optional) - Número da nota fiscal
-- date: 2018-08-08T10:40:32Z (string) -Data de emissão da nota fiscal
+# Data Structures
+
+## Page (object)
++ size (number)
++ totalElements (number)
++ totalPages (number)
++ number (number)
+
+## OrderInvoice (object)
++ accessKey (string) - Chave de acesso da nota fiscal
++ series (string, optional) - Número de série da nota fiscal
++ number (string, optional) - Número da nota fiscal
++ date: `2018-08-08T10:40:32Z` (string) - Data de emissão da nota fiscal
 
 
-# BuyerGet (object)
-Objeto do comprador
-## Properties
-- name (string) - Nome do comprador
-- document (string) - Número do documento
-- documentType (string) - Tipo do documento
+## BuyerGet (object)
++ name (string) - Nome do comprador
++ document (string) - Número do documento
++ documentType (string) - Tipo do documento
 
         Valores possíveis CPF, CNPJ, OTHER
         
-- phone (string) - Telefone do comprador 
-- cellPhone (string, optional) - Celular do comprador
++ phone (string) - Telefone do comprador 
++ cellPhone (string, optional) - Celular do comprador
     
 
-# OrderShippingAddressGet (object)
-Objeto de endereco de entrega
-## Properties    
-- city (string) - Cidade
-- state (string) - Sigla do Estado 
-- country (string) - País
-- address (string) - Endereço
-- number (string) - Número
-- neighborhood (string) - Bairro
-- street (string) - Rua
-- comment (string, optional) - Complemento 
-- zipCode (string) - CEP
-- receiverName (string) - Nome do remetente para entrega
-- promisedShippingTime (string) - Data acordada para entrega
+## OrderShippingAddressGet (object)
++ city (string) - Cidade
++ state (string) - Sigla do Estado 
++ country (string) - País
++ address (string) - Endereço
++ number (string) - Número
++ neighborhood (string) - Bairro
++ street (string) - Rua
++ comment (string, optional) - Complemento 
++ zipCode (string) - CEP
++ receiverName (string) - Nome do remetente para entrega
++ promisedShippingTime (string) - Data acordada para entrega
 
 
-# OrderPaymentGet (object)
-Objeto do pagamento do pedido
-## Properties 
-- method (string) - Método de pagamento
+## OrderPaymentGet (object)
++ method (string) - Método de pagamento
 
         CARTAO_CREDITO
         BOLETO
@@ -64,7 +56,7 @@ Objeto do pagamento do pedido
         PAGAMENTO_ANTECIPADO
         CARTAO_DEBITO
         
-- status (string, optional) - Status do pagamento
++ status (string, optional) - Status do pagamento
 
         AGUARDANDO_AUTORIZACAO
         AUTORIZADO
@@ -74,48 +66,44 @@ Objeto do pagamento do pedido
         PAGAMENTO_ANTECIPADO
         CANCELADO
 
-- value (number) - Valor do pagamento
-- installments (number, optional) - Número de parcelas do meio do pagamento
-- marketplaceFee (number, optional) - Taxa referente ao Marketplace
++ value (number) - Valor do pagamento
++ installments (number, optional) - Número de parcelas do meio do pagamento
++ marketplaceFee (number, optional) - Taxa referente ao Marketplace
 
 
-# OrderShippingItemGet (object)
-Objeto do item do pedido
-## Properties 
-- product (SimpleProduct)
-- sku (SimpleSku)
-- amount (number) - Quantidade do item
-- unit (number) - Preço do item
-- gross (number) - Valor bruto do item (amount * unit)
-- total (number) - Total do item com desconto aplicado (gross - discount)
-- discount (number) - Desconto do item
-- shippings (OrderItemShippingGet, optional)
-- orderItemId (string): Id do item no pedido gerado pelo Posthaus
+## OrderShippingItemGet (object)
++ product (SimpleProduct)
++ sku (SimpleSku)
++ amount (number) - Quantidade do item
++ unit (number) - Preço do item
++ gross (number) - Valor bruto do item (amount * unit)
++ total (number) - Total do item com desconto aplicado (gross - discount)
++ discount (number) - Desconto do item
++ shippings (OrderItemShippingGet, optional)
++ orderItemId (string): Id do item no pedido gerado pelo Posthaus
 
 
-# OrderTracking (object)
-Objeto de rastreio do pedido
-## Properties
-- url (string, optional) - URL para o rastreamento
-- number (string, optional) - Número de rastreio
-- carrier (string) - Nome da transportadora
-- date: 2018-08-08T10:40:32Z (string, optional) - Data do rastreio
-- deliveredDate: 2018-08-08T10:40:32Z (string, optional) - Data de entrega ao Cliente
-- estimateDate: 2018-08-08T10:40:32Z (string) - Data estimada
-- shippedDate: 2018-08-08T10:40:32Z (string) - Data em que foi entregue a transportadora
+## OrderTracking (object)
++ url (string, optional) - URL para o rastreamento
++ number (string, optional) - Número de rastreio
++ carrier (string) - Nome da transportadora
++ date: `2018-08-08T10:40:32Z` (string, optional) - Data do rastreio
++ deliveredDate: `2018-08-08T10:40:32Z` (string, optional) - Data de entrega ao Cliente
++ estimateDate: `2018-08-08T10:40:32Z` (string) - Data estimada
++ shippedDate: `2018-08-08T10:40:32Z` (string) - Data em que foi entregue a transportadora
 
 
 # SimpleProduct (object)
 Objeto do produto
 ## Properties
-- id (integer) - ID do produto no Posthaus
+- id (number) - ID do produto no Posthaus
 - title (string) - Título do produto
 
 
 # SimpleSku (object)
 Objeto do SKU
 ## Properties
-- id (integer) - ID do SKU gerado pelo Posthaus
+- id (number) - ID do SKU gerado pelo Posthaus
 - title (string) - Título do SKU
 - partnerId (string, optional) - ID do SKU no parceiro
 
@@ -123,7 +111,7 @@ Objeto do SKU
 # OrderItemShippingGet (object)
 Objeto da modalidade en dencio do item
 ## Properties
-- id (integer) - ID do tipo de envio
+- id (number) - ID do tipo de envio
 - shippingtype (string) - Forma de envio selecionado pelo cliente
 
 
@@ -142,8 +130,6 @@ Updates order status by order number.
         }
 
 + Response 200 (application/json)
-
-    + Body
 
         {
             "init": "init"
@@ -174,9 +160,9 @@ Returns the order details by order number.
 - Order
     - id (number) - ID do pedido gerado pelo Posthaus
     - partnerId (string, optional) - Código do pedido no parceiro. Uma vez informado, não poderá ser alterado
-    - createdAt: 2018-08-08T10:40:32Z (string) - Data de criação do pedido
-    - paymentDate: 2018-08-08T10:40:32Z (string, optional) - Data de pagamento do pedido
-    - cancelDate: 2018-08-08T10:40:32Z (string, optional) - Data de cancelamento do pedido
+    - createdAt: `2018-08-08T10:40:32Z` (string) - Data de criação do pedido
+    - paymentDate: `2018-08-08T10:40:32Z` (string, optional) - Data de pagamento do pedido
+    - cancelDate: `2018-08-08T10:40:32Z` (string, optional) - Data de cancelamento do pedido
     - transmissionStatus (string) - Status da transmissão
     
             OK. Pedido sincronizado com sucesso com o Marketplace
@@ -211,8 +197,6 @@ Returns the order details by order number.
             Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE0Mzg4Mjc0NDN9.POonh-FngFnKeCgDfjjoemmF3Mt8HP2CThHwDLYuYnQ
 
 + Response 200 (application/json)
-
-    + Body
 
         {
             "order": {
@@ -310,8 +294,6 @@ Confirms the order was received and all its information was validated, specially
 
 + Response 200 (application/json)
 
-    + Body
-
         {
             "init": "init"
         }
@@ -328,8 +310,6 @@ Confirms the order was received and all its information was validated, specially
         }
 
 + Response 200 (application/json)
-
-    + Body
 
         {
             "init": "init"
@@ -351,8 +331,6 @@ Open new Protocol according the subject.
 
 + Response 200 (application/json)
 
-    + Body
-
         {
             "init": "init"
         }
@@ -369,8 +347,6 @@ Get a protocol by id.
 
 + Response 200 (application/json)
 
-    + Body
-
         {
             "init": "init"
         }
@@ -386,8 +362,6 @@ Post an answer to a protocol.
         }
 
 + Response 200 (application/json)
-
-    + Body
 
         {
             "init": "init"
@@ -406,8 +380,6 @@ List protocols.
         }
 
 + Response 200 (application/json)
-
-    + Body
 
         {
             "init": "init"
@@ -430,8 +402,6 @@ These GET service is going to return the oldest notification, after these notifi
     
 + Response 200 (application/json)
 
-    + Body
-
         {
             "init": "init"
         }
@@ -442,23 +412,22 @@ These GET service is going to return the oldest notification, after these notifi
     + offset (required, number, `40`) ... Posição de início da paginação
     + limit (required, number, `150`) ... Número máximo de produtos
 
++ Attributes (object)
+    + notifications (array)
+        + token (string)
+        + type (string)
+        + additionalData - (object)
+            + orderId (number)
+        + events (array)
+            + eventType (string)
+            + event (string)
+            + additionalData
+            + orderId (number)
+    + page (Page)
+
 ### Paginated notifications list [GET]
 
 Get a paginated notifications list
-
-`Saída` 
-- notifications (array)
-    - token (string)
-    - type (string)
-    - additionalData
-        - orderId (number, 10)
-    - events (array)
-        - eventType (string)
-        - event (string)
-        - additionalData
-        - orderId (number, 10)
-- page (Page)
-
 
 + Request (application/json)
     + Headers
@@ -467,65 +436,64 @@ Get a paginated notifications list
             Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE0Mzg4Mjc0NDN9.POonh-FngFnKeCgDfjjoemmF3Mt8HP2CThHwDLYuYnQ
 
 + Response 200 (application/json)
+    + Attributes (Notifications list)
 
-    + Body
-
-    {
-      "notifications": [
         {
-          "token": "45g65d4sdf5465sdf5",
-          "type": "NEW_ORDER",
-          "additionalData": {
-            "orderId": 45687920
-          },
-          "events": [
+          "notifications": [
             {
-              "eventType": "getOrder",
-              "event": "https://www.sellercenter.api.ecosweb.com.br/rest/order/45687920",
+              "token": "45g65d4sdf5465sdf5",
+              "type": "NEW_ORDER",
               "additionalData": {
                 "orderId": 45687920
-              }
+              },
+              "events": [
+                {
+                  "eventType": "getOrder",
+                  "event": "https://www.sellercenter.api.ecosweb.com.br/rest/order/45687920",
+                  "additionalData": {
+                    "orderId": 45687920
+                  }
+                },
+                {
+                  "eventType": "markAsRead",
+                  "event": "https://www.sellercenter.api.ecosweb.com.br/rest/note/markAsRead/45g65d4sdf5465sdf5",
+                  "additionalData": {
+                    "token": "45g65d4sdf5465sdf5"
+                  }        
+                }
+              ]
             },
             {
-              "eventType": "markAsRead",
-              "event": "https://www.sellercenter.api.ecosweb.com.br/rest/note/markAsRead/45g65d4sdf5465sdf5",
-              "additionalData": {
-                "token": "45g65d4sdf5465sdf5"
-              }        
-            }
-          ]
-        },
-        {
-          "token": "45g65d4sdf5465sdf5",
-          "type": "NEW_ORDER",
-          "additionalData": {
-            "orderId": 45687920
-          },
-          "events": [
-            {
-              "eventType": "getOrder",
-              "event": "https://www.sellercenter.api.ecosweb.com.br/rest/order/45687920",
+              "token": "45g65d4sdf5465sdf5",
+              "type": "NEW_ORDER",
               "additionalData": {
                 "orderId": 45687920
-              }
-            },
-            {
-              "eventType": "markAsRead",
-              "event": "https://www.sellercenter.api.ecosweb.com.br/rest/note/markAsRead/45g65d4sdf5465sdf5",
-              "additionalData": {
-                "token": "45g65d4sdf5465sdf5"
-              }        
+              },
+              "events": [
+                {
+                  "eventType": "getOrder",
+                  "event": "https://www.sellercenter.api.ecosweb.com.br/rest/order/45687920",
+                  "additionalData": {
+                    "orderId": 45687920
+                  }
+                },
+                {
+                  "eventType": "markAsRead",
+                  "event": "https://www.sellercenter.api.ecosweb.com.br/rest/note/markAsRead/45g65d4sdf5465sdf5",
+                  "additionalData": {
+                    "token": "45g65d4sdf5465sdf5"
+                  }        
+                }
+              ]
             }
-          ]
+          ],
+          "page": {
+            "size": 2,
+            "totalElements": 6,
+            "totalPages": 3,
+            "number": 1
+          }
         }
-      ],
-      "page": {
-        "size": 2,
-        "totalElements": 6,
-        "totalPages": 3,
-        "number": 1
-      }
-    }
 
 ## Mark as read [/rest/auth/v1/notes/markAsRead]
 
@@ -539,11 +507,14 @@ Mark as read a notification. If the notification won't be readed during 30 days,
 - token: 45g65d4sdf5465sdf5 (string, required)
 
 + Request (application/json)
+
     + Headers
 
             Accept: application/json
             Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE0Mzg4Mjc0NDN9.POonh-FngFnKeCgDfjjoemmF3Mt8HP2CThHwDLYuYnQ
+
     + Body
+
             {
                 "token": "45g65d4sdf5465sdf5"
             }
