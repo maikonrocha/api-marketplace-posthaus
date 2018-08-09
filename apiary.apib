@@ -21,8 +21,7 @@ Esta API tem por objetivo Integrar os dados entre a Plataforma Posthaus Marketpl
 + number (string, optional) - Número da nota fiscal
 + date: `2018-08-08T10:40:32Z` (string) - Data de emissão da nota fiscal
 
-
-## BuyerGet (object)
+## BuyerGet (object) - Objeto do consumidor
 + name (string) - Nome do comprador
 + document (string) - Número do documento
 + documentType (string) - Tipo do documento
@@ -31,7 +30,6 @@ Esta API tem por objetivo Integrar os dados entre a Plataforma Posthaus Marketpl
         
 + phone (string) - Telefone do comprador 
 + cellPhone (string, optional) - Celular do comprador
-    
 
 ## OrderShippingAddressGet (object)
 + city (string) - Cidade
@@ -45,7 +43,6 @@ Esta API tem por objetivo Integrar os dados entre a Plataforma Posthaus Marketpl
 + zipCode (string) - CEP
 + receiverName (string) - Nome do remetente para entrega
 + promisedShippingTime (string) - Data acordada para entrega
-
 
 ## OrderPaymentGet (object)
 + method (string) - Método de pagamento
@@ -70,7 +67,6 @@ Esta API tem por objetivo Integrar os dados entre a Plataforma Posthaus Marketpl
 + installments (number, optional) - Número de parcelas do meio do pagamento
 + marketplaceFee (number, optional) - Taxa referente ao Marketplace
 
-
 ## OrderShippingItemGet (object)
 + product (SimpleProduct)
 + sku (SimpleSku)
@@ -82,7 +78,6 @@ Esta API tem por objetivo Integrar os dados entre a Plataforma Posthaus Marketpl
 + shippings (OrderItemShippingGet, optional)
 + orderItemId (string): Id do item no pedido gerado pelo Posthaus
 
-
 ## OrderTracking (object)
 + url (string, optional) - URL para o rastreamento
 + number (string, optional) - Número de rastreio
@@ -92,27 +87,18 @@ Esta API tem por objetivo Integrar os dados entre a Plataforma Posthaus Marketpl
 + estimateDate: `2018-08-08T10:40:32Z` (string) - Data estimada
 + shippedDate: `2018-08-08T10:40:32Z` (string) - Data em que foi entregue a transportadora
 
+## SimpleProduct (object)
++ id (number) - ID do produto no Posthaus
++ title (string) - Título do produto
 
-# SimpleProduct (object)
-Objeto do produto
-## Properties
-- id (number) - ID do produto no Posthaus
-- title (string) - Título do produto
+## SimpleSku (object)
++ id (number) - ID do SKU gerado pelo Posthaus
++ title (string) - Título do SKU
++ partnerId (string, optional) - ID do SKU no parceiro
 
-
-# SimpleSku (object)
-Objeto do SKU
-## Properties
-- id (number) - ID do SKU gerado pelo Posthaus
-- title (string) - Título do SKU
-- partnerId (string, optional) - ID do SKU no parceiro
-
-
-# OrderItemShippingGet (object)
-Objeto da modalidade en dencio do item
-## Properties
-- id (number) - ID do tipo de envio
-- shippingtype (string) - Forma de envio selecionado pelo cliente
+## OrderItemShippingGet (object)
++ id (number) - ID do tipo de envio
++ shippingtype (string) - Forma de envio selecionado pelo cliente
 
 
 #Group Order
@@ -141,54 +127,52 @@ Updates order status by order number.
 + Parameters
     + order_id (required, number, `999558695`) ... ID do pedido gerado pelo Posthaus
 
++ Attributes (object)
+    + notifications
+        + token (string)
+        + type (string)
+        + additionalData
+            + orderId (number)
+        + events (array)
+            + eventType (string)
+            + event (string)
+            + additionalData
+            + orderId (number)
+    + Order
+        + id (number) - ID do pedido gerado pelo Posthaus
+        + partnerId (string, optional) - Código do pedido no parceiro. Uma vez informado, não poderá ser alterado
+        + createdAt: `2018-08-08T10:40:32Z` (string) - Data de criação do pedido
+        + paymentDate: `2018-08-08T10:40:32Z` (string, optional) - Data de pagamento do pedido
+        + cancelDate: `2018-08-08T10:40:32Z` (string, optional) - Data de cancelamento do pedido
+        + transmissionStatus (string) - Status da transmissão
+        
+                OK. Pedido sincronizado com sucesso com o Marketplace
+                ERROR. Ocorreu erro na sincronização com o Marketplace
+                WAITING. Aguardando sincronização com o Marketplace
+            
+        + status (string) - Status do pedido
+                
+                CONCLUDED. Pedido entregue
+                CANCELED. Cancelado
+                INVOICED. Faturado
+                PAID_WAITING_DELIVERY. Enviado (aguardando entrega)
+                PAID_WAITING_SHIP. Pago (está aguardando envio)
+                PENDING. Pendente (Ainda não foi pago)
+                
+        + discount (number) - Desconto do pedido
+        + freight (number) - Valor de frete
+        + gross (number) - Total bruto sem o valor de frete
+        + total (number) - Total do pedido com o valor de frete
+        + invoice (OrderInvoice, optional) - Dados da nota fiscal
+        + shipping (OrderShippingAddressGet) - Endereço de entrega 
+        + buyer (BuyerGet) - Dados do comprador
+        + payments (OrderPaymentGet) - Dados referente a pagamento
+        + items (array[OrderShippingItemGet]) - Dados referente aos produtos comprados
+        + tracking (OrderTracking, optional) - Dados referente a entrega
+
+
 ### Read a Order [GET]
-
 Returns the order details by order number.
-
-`Saída` 
-- notifications (array)
-    - token (string)
-    - type (string)
-    - additionalData
-        - orderId (number, 10)
-    - events (array)
-        - eventType (string)
-        - event (string)
-        - additionalData
-        - orderId (number, 10)
-        
-- Order
-    - id (number) - ID do pedido gerado pelo Posthaus
-    - partnerId (string, optional) - Código do pedido no parceiro. Uma vez informado, não poderá ser alterado
-    - createdAt: `2018-08-08T10:40:32Z` (string) - Data de criação do pedido
-    - paymentDate: `2018-08-08T10:40:32Z` (string, optional) - Data de pagamento do pedido
-    - cancelDate: `2018-08-08T10:40:32Z` (string, optional) - Data de cancelamento do pedido
-    - transmissionStatus (string) - Status da transmissão
-    
-            OK. Pedido sincronizado com sucesso com o Marketplace
-            ERROR. Ocorreu erro na sincronização com o Marketplace
-            WAITING. Aguardando sincronização com o Marketplace
-        
-    - status (string) - Status do pedido
-            
-            CONCLUDED. Pedido entregue
-            CANCELED. Cancelado
-            INVOICED. Faturado
-            PAID_WAITING_DELIVERY. Enviado (aguardando entrega)
-            PAID_WAITING_SHIP. Pago (está aguardando envio)
-            PENDING. Pendente (Ainda não foi pago)
-            
-    - discount (number) - Desconto do pedido
-    - freight (number) - Valor de frete
-    - gross (number) - Total bruto sem o valor de frete
-    - total (number) - Total do pedido com o valor de frete
-    - invoice (OrderInvoice, optional) - Dados da nota fiscal
-    - shipping (OrderShippingAddressGet) - Endereço de entrega 
-    - buyer (BuyerGet) - Dados do comprador
-    - payments (OrderPaymentGet) - Dados referente a pagamento
-    - items (Array[OrderShippingItemGet]) - Dados referente aos produtos comprados
-    - tracking (OrderTracking, optional) - Dados referente a entrega
-        
 
 + Request (application/json)
     + Headers
@@ -413,10 +397,10 @@ These GET service is going to return the oldest notification, after these notifi
     + limit (required, number, `150`) ... Número máximo de produtos
 
 + Attributes (object)
-    + notifications (array)
+    + notifications
         + token (string)
         + type (string)
-        + additionalData - (object)
+        + additionalData
             + orderId (number)
         + events (array)
             + eventType (string)
@@ -425,8 +409,8 @@ These GET service is going to return the oldest notification, after these notifi
             + orderId (number)
     + page (Page)
 
-### Paginated notifications list [GET]
 
+### Paginated notifications list [GET]
 Get a paginated notifications list
 
 + Request (application/json)
@@ -495,16 +479,14 @@ Get a paginated notifications list
           }
         }
 
-## Mark as read [/rest/auth/v1/notes/markAsRead]
+## Mark as read [/rest/auth/v1/notes/markAsRead/{token}]
 
 ### Mark as read notification [PUT]
 
 Mark as read a notification. If the notification won't be readed during 30 days, the SellerCenter is going to automatically mark as read it.
 
-
-## Properties
-
-- token: 45g65d4sdf5465sdf5 (string, required)
++ Parameters
+    + token (required, string, `45g65d4sdf5465sdf5`) ... Token
 
 + Request (application/json)
 
@@ -512,12 +494,5 @@ Mark as read a notification. If the notification won't be readed during 30 days,
 
             Accept: application/json
             Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE0Mzg4Mjc0NDN9.POonh-FngFnKeCgDfjjoemmF3Mt8HP2CThHwDLYuYnQ
-
-    + Body
-
-            {
-                "token": "45g65d4sdf5465sdf5"
-            }
-
 
 + Response 204
