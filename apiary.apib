@@ -87,25 +87,29 @@ This API intends to integrate the data between the Posthaus Marketplace Platform
 + receiverName (string) - Sender's name for delivery
 + promisedShippingTime (string) - Date agreed for delivery
 
-## OrderPaymentGet (object)
-+ method (string) - Payment method 
+## PaymentMethod (object)
++ id (number) - ID
++ description (string) - Payment method 
 
-        CARTAO_CREDITO
-        BOLETO
-        TRANSFERENCIA
-        PAGAMENTO_ANTECIPADO
-        CARTAO_DEBITO
+        CREDIT CARD (0)
+        BILLET (1)
+        PAYMENT_ANTICIPATED (3)
         
-+ status (string, optional) - Payment status
+## PaymentStatus (object)
++ id (number) - ID
++ description (string) - Payment status 
 
-        AGUARDANDO_AUTORIZACAO
-        AUTORIZADO
-        NAO_AUTORIZADO
-        AGUARDANDO_CONFIRMACAO_PAGAMENTO
-        PAGAMENTO_CONFIRMADO
-        PAGAMENTO_ANTECIPADO
-        CANCELADO
+        WAITING_AUTORIZATION (1)
+        AUTHORIZED (2)
+        UNAPPROVED (3)
+        WAITING_CONFIMARTION_PAYMENT (4)
+        PAYMENT_CONFIRMED (5)
+        PAYMENT_ANTICIPATED (6)
+        CANCELED (7)
 
+## OrderPaymentGet (object)
++ method (PaymentMethod) 
++ status (PaymentStatus)
 + value (number) - Payment value 
 + installments (number, optional) - Payment installments
 + marketplaceFee (number, optional) - Markplace fee
