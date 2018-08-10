@@ -213,8 +213,14 @@ Returns the order details by order number.
                 "cellPhone": "5547988995566"
               },
               "payments": {
-                  "method": "CARTAO_CREDITO",
-                  "status": "AGUARDA_FATURAMENTO",
+                  "method": {
+                    "id": 0,
+                    "description": "CREDIT CARD"
+                  }
+                  "status": {
+                    "id": 1,
+                    "description": "WAITING_AUTORIZATION"
+                  }
                   "value": 69.90,
                   "installments": 2,
                   "marketplaceFee": 5.0
@@ -344,8 +350,14 @@ Returns the order details using the filters.
                 "cellPhone": "5547988995566"
               },
               "payments": {
-                  "method": "CARTAO_CREDITO",
-                  "status": "AGUARDA_FATURAMENTO",
+                  "method": {
+                    "id": 0,
+                    "description": "CREDIT CARD"
+                  }
+                  "status": {
+                    "id": 1,
+                    "description": "WAITING_AUTORIZATION"
+                  }
                   "value": 69.90,
                   "installments": 2,
                   "marketplaceFee": 5.0
