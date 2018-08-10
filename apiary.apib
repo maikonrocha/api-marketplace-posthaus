@@ -646,7 +646,7 @@ Mark as read a notification. If the notification won't be readed during 30 days,
 ## Stocks [/rest/auth/v1/stocks/]
 
 + Attributes (object)
-    + stocks (array[Stock])
+    + stocks (Stock)
 
 
 ### Read Stock [GET]
@@ -673,8 +673,8 @@ Returns stock from a list of items.
             ]
 
 + Response 200 (application/json)
-    + Attributes (array[Stocks])
- 
+    + Attributes (Stocks)
+    
         [
             {
                 "id": "458896-P",
