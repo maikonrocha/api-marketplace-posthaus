@@ -10,10 +10,10 @@ Esta API tem por objetivo Integrar os dados entre a Plataforma Posthaus Marketpl
 # Data Structures
 
 ## Page (object)
-+ size (number)
-+ totalElements (number)
-+ totalPages (number)
-+ number (number)
++ size (number) - Tamanho da página
++ totalElements (number) - Total de elementos existentes
++ totalPages (number) -  Total de páginas disponíveis
++ number (number) - Número da página atual
 
 ## Notifications (object)
 + token (string)
@@ -146,7 +146,7 @@ Esta API tem por objetivo Integrar os dados entre a Plataforma Posthaus Marketpl
 
 # Group Order
 
-## Order [/rest/auth/v1/orders/{order_id}]
+## Order by id [/rest/auth/v1/orders/{order_id}]
 
 + Parameters
     + order_id (required, number, `999558695`) ... ID do pedido gerado pelo Posthaus
@@ -166,7 +166,7 @@ Returns the order details by order number.
             Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE0Mzg4Mjc0NDN9.POonh-FngFnKeCgDfjjoemmF3Mt8HP2CThHwDLYuYnQ
 
 + Response 200 (application/json)
-    + Attributes (Order)
+    + Attributes (Order by id)
     
         {
             "order": {
@@ -250,26 +250,31 @@ Returns the order details by order number.
             }
         }
 
-## Orders [/rest/auth/v1/orders{?offset,limit,createdDate}]
+## Orders by created [/rest/auth/v1/orders{?offset,limit,createdAfter}]
 
 + Parameters
-    + offset (required, number, `40`) ... Posição de início da paginação
-    + limit (number, optional)
+    + createdAfter (required, string, `2018-08-08T10:40:32Z`) ... Atributo para filtrar pela data de Criação
+    + offset (optional, number)
+
+        Posição de início da paginação
+
+        + Default: `1`
+
+    + limit (optional, number)
 
         A limit on the number of objects to be returned. Limit can range
         between 1 and 100 items.
 
-        + Default: `10`    
-    + createdDate (required, string, `2018-08-08T10:40:32Z`) ... Posição de início da paginação        
-        
+        + Default: `10`
+
+
 + Attributes (object)
-    + notifications (Notifications)
     + order (OrderGet)
     + page (Page)
 
 
 ### Read a Order [GET]
-Returns the order details by order number.
+Returns the order details using the filters.
 
 + Request (application/json)
     + Headers
@@ -278,7 +283,7 @@ Returns the order details by order number.
             Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE0Mzg4Mjc0NDN9.POonh-FngFnKeCgDfjjoemmF3Mt8HP2CThHwDLYuYnQ
 
 + Response 200 (application/json)
-    + Attributes (Order)
+    + Attributes (Orders by created)
     
         {
             "order": {
@@ -359,7 +364,14 @@ Returns the order details by order number.
                 "estimateDate": "2018-08-08T10:40:32Z",
                 "shippedDate": "2018-08-08T10:40:32Z"
               }
+            },
+            "page": {
+                "size": 2,
+                "totalElements": 6,
+                "totalPages": 3,
+                "number": 1
             }
+          }
         }    
         
 
@@ -380,6 +392,131 @@ Updates order status by order number.
             "init": "init"
         }
 
+
+## Orders by status [/rest/auth/v1/orders{?offset,limit,status}]
+
++ Parameters
+    + status (required, string, `CONCLUDED`) ... Atributo para filtrar pelo status do pedido
+    + offset (optional, number)
+
+        Posição de início da paginação
+
+        + Default: `1`
+
+    + limit (optional, number)
+
+        A limit on the number of objects to be returned. Limit can range
+        between 1 and 100 items.
+
+        + Default: `10`
+
+
++ Attributes (object)
+    + order (OrderGet)
+    + page (Page)
+
+
+### Read a Order [GET]
+Returns the order details using the filters.
+
++ Request (application/json)
+    + Headers
+
+            Accept: application/json
+            Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE0Mzg4Mjc0NDN9.POonh-FngFnKeCgDfjjoemmF3Mt8HP2CThHwDLYuYnQ
+
++ Response 200 (application/json)
+    + Attributes (Orders by status)
+    
+        {
+            "order": {
+              "id": 0,
+              "partnerId": "string",
+              "createdAt": "2018-08-08T10:40:32Z",
+              "paymentDate": "2018-08-08T10:40:32Z",
+              "cancelDate": "2018-08-08T10:40:32Z",
+              "transmissionStatus": "OK",
+              "status": "PENDING",
+              "discount": 2.10,
+              "freight": 9.90,
+              "gross": 60,
+              "total": 69.90,
+              "invoice": {
+                "accessKey": "NFe35080599999090910270550010000000015180051273",
+                "series": "1",
+                "number": "35",
+                "date": "2018-08-08T10:40:32Z"
+              },
+              "shipping": {
+                "city": "Blumenau",
+                "state": "SC",
+                "country": "Brasil",
+                "address": "Rua Sete de Setembro, 1069, 1º. Andar - Sala 10A - Edifício Dumóvel - 89.010-207 - Blumenau - SC ",
+                "number": "1069",
+                "neighborhood": "Centro",
+                "street": "Rua Sete de Setembro",
+                "comment": "",
+                "reference": "Sala 10A - Edifício Dumóvel",
+                "zipCode": "89010207",
+                "receiverName": "João",
+                "promisedShippingTime": "2018-08-08T10:40:32Z"
+              },
+              "buyer": {
+                "name": "João",
+                "document": "56786132006",
+                "documentType": "CPF",
+                "phone": "554733385566",
+                "cellPhone": "5547988995566"
+              },
+              "payments": {
+                  "method": "CARTAO_CREDITO",
+                  "status": "AGUARDA_FATURAMENTO",
+                  "value": 69.90,
+                  "installments": 2,
+                  "marketplaceFee": 5.0
+              },
+              "items": [
+                {
+                  "product": {
+                    "id": 568898,
+                    "title": "Vestido da moda"
+                  },
+                  "sku": {
+                    "id": 568898,
+                    "title": "Vestido da moda",
+                    "partnerId": "F7778458"
+                  },
+                  "amount": 1,
+                  "unit": 69.90,
+                  "gross": 69.90,
+                  "total": 67.91,
+                  "discount": 1.99,
+                  "shippings": {
+                      "id": 3,
+                      "shippingtype": "NORMAL"
+                  },
+                  "orderItemId": "1"
+                }
+              ],
+              "tracking": {
+                "url": "http://websro.correios.com.br/sro_bin",
+                "number": "SP89598599",
+                "carrier": "CORREIOS",
+                "date": "2018-08-08T10:40:32Z",
+                "deliveredDate": "2018-08-08T10:40:32Z",
+                "estimateDate": "2018-08-08T10:40:32Z",
+                "shippedDate": "2018-08-08T10:40:32Z"
+              }
+            },
+            "page": {
+                "size": 2,
+                "totalElements": 6,
+                "totalPages": 3,
+                "number": 1
+            }
+          }
+        }    
+        
 
 
 
