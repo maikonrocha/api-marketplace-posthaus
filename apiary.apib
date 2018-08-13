@@ -8,6 +8,7 @@ This API intends to integrate the data between the Posthaus Marketplace Platform
 **Note:** Non-mandatory attributes and parameters will be identified with the "optional".
 
 # Group Order
+It will be used to read information about orders in Posthaus.
 
 ## Order by id [/rest/auth/v1/orders/{order_id}]
 
@@ -495,6 +496,8 @@ Mark as read a notification. If the notification won't be readed during 30 days,
 
 
 # Group Stock
+It will be used to perform stock update.
+The stock operation is performed in batch, it is possible to send one or more SKUs to update.
 
 ## Stocks [/rest/auth/v1/stocks/]
 
