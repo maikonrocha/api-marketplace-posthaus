@@ -653,8 +653,12 @@ Mark as read a notification. If the notification won't be readed during 30 days,
 
 ## Stocks [/rest/auth/v1/stocks/]
 
++ Parameters
+    + partnerId (required, number, `9995586`) ... Patner product ID
+    + quantity (required, number, `5`) ... Quantity to be updated
+
 ### Update Stock [PUT]
-Performs stock update based on partner SKU.
+Performs stock update based on partner SKU's.
 
 + Request (application/json)
     + Headers
