@@ -8,7 +8,7 @@ This API intends to integrate the data between the Posthaus Marketplace Platform
 **Note:** Non-mandatory attributes and parameters will be identified with the "optional".
 
 # Group Order
-It will be used to read information about orders in Posthaus.
+It will be used to read information about Orders in Posthaus.
 
 ## Order by id [/rest/auth/v1/orders/{order_id}]
 
@@ -20,7 +20,7 @@ It will be used to read information about orders in Posthaus.
     + order (OrderGet)
 
 ### Read a Order [GET]
-Returns the order details by order number.
+Returns the Order details by Order number.
 
 + Request (application/json)
     + Headers
@@ -119,9 +119,9 @@ Returns the order details by order number.
             }
         }
 
-### Update order status to Send [PUT]
+### Update Order status to Send [PUT]
 
-Updates order status by order number to Send. Body parameter `status` defines the new order status.
+Updates Order status by Order number to Send. Body parameter `status` defines the new Order status.
 Changing to this situation requires the following information: Tracking URL, Tracking Number, Carrier Name and Ship Date.
 
 + Request (application/json)
@@ -241,7 +241,7 @@ Changing to this situation requires the following information: Tracking URL, Tra
 
 ### Update order status to Delivered [PUT]
 
-Updates order status by order number to Delivered. Body parameter `status` defines the new order status.
+Updates Order status by Order number to Delivered. Body parameter `status` defines the new order status.
 It is the last situation of the request. Changing to this situation it is necessary to inform: date of delivery.
 
 + Request (application/json)
