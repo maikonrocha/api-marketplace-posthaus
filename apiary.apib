@@ -653,12 +653,8 @@ Mark as read a notification. If the notification won't be readed during 30 days,
 
 ## Stocks [/rest/auth/v1/stocks/]
 
-+ Attributes (object)
-    + stocks (array[Stock])
-
-
-### Read Stock [GET]
-Returns stock from a list of items.
+### Read Stock [PUT]
+Performs stock update based on partner SKU.
 
 + Request (application/json)
     + Headers
@@ -674,29 +670,9 @@ Returns stock from a list of items.
               ]
             }
 
-+ Response 200 (application/json)
-    + Attributes (Stocks)
-    
-        [
-            {
-                "id": "458896-P",
-                "partnerId": "8959860",
-                "quantity": 1,
-                "cost": 99.9
-            },
-            {
-                "id": "458896-P",
-                "partnerId": "8959861",
-                "quantity": 1,
-                "cost": 99.9
-            },
-            {
-                "id": "458896-P",
-                "partnerId": "8959862",
-                "quantity": 1,
-                "cost": 99.9
-            }
-        ]
++ Response 204 (application/json)
++ Response 400 (application/json)
+
 
 # Group SKU
 
