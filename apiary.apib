@@ -120,22 +120,466 @@ Returns the order details by order number.
             }
         }
 
-### Update order status [PUT]
+### Update order status to Send [PUT]
 
-Updates order status by order number.
+Updates order status by order number to Send. Body parameter `status` defines the new order status.
+Changing to this situation requires the following information: Tracking URL, Tracking Number, Carrier Name and Ship Date.
 
 + Request (application/json)
+    + Headers
 
-        {
-
-        }
+            Accept: application/json
+            Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE0Mzg4Mjc0NDN9.POonh-FngFnKeCgDfjjoemmF3Mt8HP2CThHwDLYuYnQ
+            
+    + Body  
+    
+            {
+                "status": "PAID_WAITING_DELIVERY",
+                "tracking": {
+                    "url": "http://websro.correios.com.br/sro_bin",
+                    "number": "SP89598599",
+                    "carrier": "CORREIOS",
+                    "date": "2018-08-08T10:40:32Z",
+                    "deliveredDate": "2018-08-08T10:40:32Z",
+                    "estimateDate": "2018-08-08T10:40:32Z",
+                    "shippedDate": "2018-08-08T10:40:32Z"
+              }
+            }
 
 + Response 200 (application/json)
-
+    + Attributes (Order by id)
+    
         {
-            "init": "init"
+            "order": {
+              "id": 0,
+              "partnerId": "string",
+              "createdAt": "2018-08-08T10:40:32Z",
+              "paymentDate": "2018-08-08T10:40:32Z",
+              "cancelDate": "2018-08-08T10:40:32Z",
+              "transmissionStatus": "OK",
+              "status": "PENDING",
+              "discount": 2.10,
+              "freight": 9.90,
+              "gross": 60,
+              "total": 69.90,
+              "invoice": {
+                "accessKey": "NFe35080599999090910270550010000000015180051273",
+                "series": "1",
+                "number": "35",
+                "date": "2018-08-08T10:40:32Z"
+              },
+              "shipping": {
+                "city": "Blumenau",
+                "state": "SC",
+                "country": "Brasil",
+                "address": "Rua Sete de Setembro, 1069, 1º. Andar - Sala 10A - Edifício Dumóvel - 89.010-207 - Blumenau - SC ",
+                "number": "1069",
+                "neighborhood": "Centro",
+                "street": "Rua Sete de Setembro",
+                "comment": "",
+                "reference": "Sala 10A - Edifício Dumóvel",
+                "zipCode": "89010207",
+                "receiverName": "João",
+                "promisedShippingTime": "2018-08-08T10:40:32Z"
+              },
+              "buyer": {
+                "name": "João",
+                "document": "56786132006",
+                "documentType": "CPF",
+                "phone": "554733385566",
+                "cellPhone": "5547988995566"
+              },
+              "payments": {
+                  "method": {
+                    "id": 0,
+                    "description": "CREDIT CARD"
+                  }
+                  "status": {
+                    "id": 1,
+                    "description": "WAITING_AUTORIZATION"
+                  }
+                  "value": 69.90,
+                  "installments": 2,
+                  "marketplaceFee": 5.0
+              },
+              "items": [
+                {
+                  "product": {
+                    "id": 568898,
+                    "title": "Vestido da moda"
+                  },
+                  "sku": {
+                    "id": 568898,
+                    "title": "Vestido da moda",
+                    "partnerId": "F7778458"
+                  },
+                  "amount": 1,
+                  "unit": 69.90,
+                  "gross": 69.90,
+                  "total": 67.91,
+                  "discount": 1.99,
+                  "shippings": {
+                      "id": 3,
+                      "shippingtype": "NORMAL"
+                  },
+                  "orderItemId": "1"
+                }
+              ],
+              "tracking": {
+                "url": "http://websro.correios.com.br/sro_bin",
+                "number": "SP89598599",
+                "carrier": "CORREIOS",
+                "date": "2018-08-08T10:40:32Z",
+                "deliveredDate": "2018-08-08T10:40:32Z",
+                "estimateDate": "2018-08-08T10:40:32Z",
+                "shippedDate": "2018-08-08T10:40:32Z"
+              }
+            }
         }
-        
+
++ Response 400 (application/json)
+
+
+### Update order status to Delivered [PUT]
+
+Updates order status by order number to Delivered. Body parameter `status` defines the new order status.
+It is the last situation of the request. Changing to this situation it is necessary to inform: date of delivery.
+
++ Request (application/json)
+    + Headers
+
+            Accept: application/json
+            Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE0Mzg4Mjc0NDN9.POonh-FngFnKeCgDfjjoemmF3Mt8HP2CThHwDLYuYnQ
+            
+    + Body  
+    
+            {
+                "status": "DELIVERED",
+                "tracking": {
+                    "deliveredDate": "2018-08-08T10:40:32Z"
+              }
+            }
+
++ Response 200 (application/json)
+    + Attributes (Order by id)
+    
+        {
+            "order": {
+              "id": 0,
+              "partnerId": "string",
+              "createdAt": "2018-08-08T10:40:32Z",
+              "paymentDate": "2018-08-08T10:40:32Z",
+              "cancelDate": "2018-08-08T10:40:32Z",
+              "transmissionStatus": "OK",
+              "status": "PENDING",
+              "discount": 2.10,
+              "freight": 9.90,
+              "gross": 60,
+              "total": 69.90,
+              "invoice": {
+                "accessKey": "NFe35080599999090910270550010000000015180051273",
+                "series": "1",
+                "number": "35",
+                "date": "2018-08-08T10:40:32Z"
+              },
+              "shipping": {
+                "city": "Blumenau",
+                "state": "SC",
+                "country": "Brasil",
+                "address": "Rua Sete de Setembro, 1069, 1º. Andar - Sala 10A - Edifício Dumóvel - 89.010-207 - Blumenau - SC ",
+                "number": "1069",
+                "neighborhood": "Centro",
+                "street": "Rua Sete de Setembro",
+                "comment": "",
+                "reference": "Sala 10A - Edifício Dumóvel",
+                "zipCode": "89010207",
+                "receiverName": "João",
+                "promisedShippingTime": "2018-08-08T10:40:32Z"
+              },
+              "buyer": {
+                "name": "João",
+                "document": "56786132006",
+                "documentType": "CPF",
+                "phone": "554733385566",
+                "cellPhone": "5547988995566"
+              },
+              "payments": {
+                  "method": {
+                    "id": 0,
+                    "description": "CREDIT CARD"
+                  }
+                  "status": {
+                    "id": 1,
+                    "description": "WAITING_AUTORIZATION"
+                  }
+                  "value": 69.90,
+                  "installments": 2,
+                  "marketplaceFee": 5.0
+              },
+              "items": [
+                {
+                  "product": {
+                    "id": 568898,
+                    "title": "Vestido da moda"
+                  },
+                  "sku": {
+                    "id": 568898,
+                    "title": "Vestido da moda",
+                    "partnerId": "F7778458"
+                  },
+                  "amount": 1,
+                  "unit": 69.90,
+                  "gross": 69.90,
+                  "total": 67.91,
+                  "discount": 1.99,
+                  "shippings": {
+                      "id": 3,
+                      "shippingtype": "NORMAL"
+                  },
+                  "orderItemId": "1"
+                }
+              ],
+              "tracking": {
+                "url": "http://websro.correios.com.br/sro_bin",
+                "number": "SP89598599",
+                "carrier": "CORREIOS",
+                "date": "2018-08-08T10:40:32Z",
+                "deliveredDate": "2018-08-08T10:40:32Z",
+                "estimateDate": "2018-08-08T10:40:32Z",
+                "shippedDate": "2018-08-08T10:40:32Z"
+              }
+            }
+        }
+
++ Response 400 (application/json)
+
+
+### Update order status to Calceled [PUT]
+
+Updates order status by order number to Calceled. Body parameter `status` defines the new order status.
+
++ Request (application/json)
+    + Headers
+
+            Accept: application/json
+            Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE0Mzg4Mjc0NDN9.POonh-FngFnKeCgDfjjoemmF3Mt8HP2CThHwDLYuYnQ
+            
+    + Body  
+    
+            {
+                "status": "CANCELED"
+            }
+
++ Response 200 (application/json)
+    + Attributes (Order by id)
+    
+        {
+            "order": {
+              "id": 0,
+              "partnerId": "string",
+              "createdAt": "2018-08-08T10:40:32Z",
+              "paymentDate": "2018-08-08T10:40:32Z",
+              "cancelDate": "2018-08-08T10:40:32Z",
+              "transmissionStatus": "OK",
+              "status": "PENDING",
+              "discount": 2.10,
+              "freight": 9.90,
+              "gross": 60,
+              "total": 69.90,
+              "invoice": {
+                "accessKey": "NFe35080599999090910270550010000000015180051273",
+                "series": "1",
+                "number": "35",
+                "date": "2018-08-08T10:40:32Z"
+              },
+              "shipping": {
+                "city": "Blumenau",
+                "state": "SC",
+                "country": "Brasil",
+                "address": "Rua Sete de Setembro, 1069, 1º. Andar - Sala 10A - Edifício Dumóvel - 89.010-207 - Blumenau - SC ",
+                "number": "1069",
+                "neighborhood": "Centro",
+                "street": "Rua Sete de Setembro",
+                "comment": "",
+                "reference": "Sala 10A - Edifício Dumóvel",
+                "zipCode": "89010207",
+                "receiverName": "João",
+                "promisedShippingTime": "2018-08-08T10:40:32Z"
+              },
+              "buyer": {
+                "name": "João",
+                "document": "56786132006",
+                "documentType": "CPF",
+                "phone": "554733385566",
+                "cellPhone": "5547988995566"
+              },
+              "payments": {
+                  "method": {
+                    "id": 0,
+                    "description": "CREDIT CARD"
+                  }
+                  "status": {
+                    "id": 1,
+                    "description": "WAITING_AUTORIZATION"
+                  }
+                  "value": 69.90,
+                  "installments": 2,
+                  "marketplaceFee": 5.0
+              },
+              "items": [
+                {
+                  "product": {
+                    "id": 568898,
+                    "title": "Vestido da moda"
+                  },
+                  "sku": {
+                    "id": 568898,
+                    "title": "Vestido da moda",
+                    "partnerId": "F7778458"
+                  },
+                  "amount": 1,
+                  "unit": 69.90,
+                  "gross": 69.90,
+                  "total": 67.91,
+                  "discount": 1.99,
+                  "shippings": {
+                      "id": 3,
+                      "shippingtype": "NORMAL"
+                  },
+                  "orderItemId": "1"
+                }
+              ],
+              "tracking": {
+                "url": "http://websro.correios.com.br/sro_bin",
+                "number": "SP89598599",
+                "carrier": "CORREIOS",
+                "date": "2018-08-08T10:40:32Z",
+                "deliveredDate": "2018-08-08T10:40:32Z",
+                "estimateDate": "2018-08-08T10:40:32Z",
+                "shippedDate": "2018-08-08T10:40:32Z"
+              }
+            }
+        }
+
++ Response 400 (application/json)
+
+
+### Update order status to Invoiced [PUT]
+
+Updates order status by order number to Invoiced. Body parameter `status` defines the new order status.
+Changing to this situation is necessary to inform: note number, serial number, date of issue and access key.
+
++ Request (application/json)
+    + Headers
+
+            Accept: application/json
+            Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE0Mzg4Mjc0NDN9.POonh-FngFnKeCgDfjjoemmF3Mt8HP2CThHwDLYuYnQ
+            
+    + Body  
+    
+            {
+                "status": "INVOICED",
+                "invoice": {
+                    "accessKey": "NFe35080599999090910270550010000000015180051273",
+                    "series": "1",
+                    "number": "35",
+                    "date": "2018-08-08T10:40:32Z"
+                }
+            }
+
++ Response 200 (application/json)
+    + Attributes (Order by id)
+    
+        {
+            "order": {
+              "id": 0,
+              "partnerId": "string",
+              "createdAt": "2018-08-08T10:40:32Z",
+              "paymentDate": "2018-08-08T10:40:32Z",
+              "cancelDate": "2018-08-08T10:40:32Z",
+              "transmissionStatus": "OK",
+              "status": "PENDING",
+              "discount": 2.10,
+              "freight": 9.90,
+              "gross": 60,
+              "total": 69.90,
+              "invoice": {
+                "accessKey": "NFe35080599999090910270550010000000015180051273",
+                "series": "1",
+                "number": "35",
+                "date": "2018-08-08T10:40:32Z"
+              },
+              "shipping": {
+                "city": "Blumenau",
+                "state": "SC",
+                "country": "Brasil",
+                "address": "Rua Sete de Setembro, 1069, 1º. Andar - Sala 10A - Edifício Dumóvel - 89.010-207 - Blumenau - SC ",
+                "number": "1069",
+                "neighborhood": "Centro",
+                "street": "Rua Sete de Setembro",
+                "comment": "",
+                "reference": "Sala 10A - Edifício Dumóvel",
+                "zipCode": "89010207",
+                "receiverName": "João",
+                "promisedShippingTime": "2018-08-08T10:40:32Z"
+              },
+              "buyer": {
+                "name": "João",
+                "document": "56786132006",
+                "documentType": "CPF",
+                "phone": "554733385566",
+                "cellPhone": "5547988995566"
+              },
+              "payments": {
+                  "method": {
+                    "id": 0,
+                    "description": "CREDIT CARD"
+                  }
+                  "status": {
+                    "id": 1,
+                    "description": "WAITING_AUTORIZATION"
+                  }
+                  "value": 69.90,
+                  "installments": 2,
+                  "marketplaceFee": 5.0
+              },
+              "items": [
+                {
+                  "product": {
+                    "id": 568898,
+                    "title": "Vestido da moda"
+                  },
+                  "sku": {
+                    "id": 568898,
+                    "title": "Vestido da moda",
+                    "partnerId": "F7778458"
+                  },
+                  "amount": 1,
+                  "unit": 69.90,
+                  "gross": 69.90,
+                  "total": 67.91,
+                  "discount": 1.99,
+                  "shippings": {
+                      "id": 3,
+                      "shippingtype": "NORMAL"
+                  },
+                  "orderItemId": "1"
+                }
+              ],
+              "tracking": {
+                "url": "http://websro.correios.com.br/sro_bin",
+                "number": "SP89598599",
+                "carrier": "CORREIOS",
+                "date": "2018-08-08T10:40:32Z",
+                "deliveredDate": "2018-08-08T10:40:32Z",
+                "estimateDate": "2018-08-08T10:40:32Z",
+                "shippedDate": "2018-08-08T10:40:32Z"
+              }
+            }
+        }
+
++ Response 400 (application/json)
+
 
 ## Orders [/rest/auth/v1/orders{?offset,limit,createdAfter,status,cpf}]
 
@@ -301,6 +745,7 @@ Confirms the order was received and all its information was validated, specially
         }
         
 #Group Protocol
+
 
 ## Protocol [/rest/auth/v1/protocol]
 
@@ -515,7 +960,7 @@ Performs stock update based on partner SKU's.
 
             Accept: application/json
             Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE0Mzg4Mjc0NDN9.POonh-FngFnKeCgDfjjoemmF3Mt8HP2CThHwDLYuYnQ
-            
+
     + Body            
 
             [
@@ -621,7 +1066,6 @@ Returns information about a SKU.
             "amount": 20,
             "price": 69.90
           }
-          
 
 
 # Data Structures
@@ -657,11 +1101,11 @@ Returns information about a SKU.
         
 + status (string) - Status do pedido
         
-        CONCLUDED. Order delivered
+        DELIVERED. Order delivered
         CANCELED. Canceled
         INVOICED. Billed
         PAID_WAITING_DELIVERY. Sent (awaiting delivery)
-        PAID_WAITING_SHIP. Payment (awaiting delivery)
+        PAID_WAITING_SHIP. Paid out (awaiting delivery)
         PENDING. Pending (Not yet paid)
  
 + discount (number) - Order discount
