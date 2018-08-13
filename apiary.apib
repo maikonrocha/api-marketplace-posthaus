@@ -653,7 +653,7 @@ Mark as read a notification. If the notification won't be readed during 30 days,
 
 ## Stocks [/rest/auth/v1/stocks/]
 
-### Read Stock [PUT]
+### Update Stock [PUT]
 Performs stock update based on partner SKU.
 
 + Request (application/json)
@@ -664,11 +664,20 @@ Performs stock update based on partner SKU.
             
     + Body            
     
+        [
             {
-              "sku" : [
-                "8959860", "8959861", "8959862"
-              ]
+                "partnerId": "8959860",
+                "quantity": 1
+            },
+            {
+                "partnerId": "8959861",
+                "quantity": 5
+            },
+            {
+                "partnerId": "8959862",
+                "quantity": 2
             }
+        ]
 
 + Response 204 (application/json)
 + Response 400 (application/json)
