@@ -119,9 +119,9 @@ Returns the Order details by Order number.
             }
         }
 
-### Update order status to Send [PUT]
+### Update order status to Sent [PUT]
 
-Updates Order status by Order number to Send. Body parameter `status` defines the new Order status.
+Updates Order status by Order number to Sent. Body parameter `status` defines the new Order status.
 Changing to this situation requires the following information: Tracking URL, Tracking Number, Carrier Name and Ship Date.
 
 + Request (application/json)
@@ -595,6 +595,7 @@ Changing to this situation requires the following information: List of canceled 
     
             {
                 "status": "INTEGRATED",
+                "partnerId": "959647497",
                 "canceledSku": [
                     "4984877987",
                     "4984877981",
@@ -1041,7 +1042,7 @@ Get a paginated notifications list
               "events": [
                 {
                   "eventType": "getOrder",
-                  "event": "https://www.sellercenter.api.ecosweb.com.br/rest/order/45687920",
+                  "event": "https://www.sellercenter.api.ecosweb.com.br/rest/orders/45687920",
                   "additionalData": {
                     "orderId": 45687920
                   }
@@ -1127,7 +1128,7 @@ Performs stock update based on partner SKU's.
 
 # Group SKU
 
-## SKUS [/rest/auth/v1/skus/{product_Id}]
+## SKUS [/rest/auth/v1/products/{product_Id}/skus/]
 
 + Parameters
     + product_Id (required, number, `9995586`) ... Patner product ID
@@ -1177,7 +1178,7 @@ Returns all SKU from a product.
         ]
 
 
-## SKU [/rest/auth/v1/skus/{product_Id}/{sku_id}]
+## SKU [/rest/auth/v1/products/{product_Id}/skus/{sku_id}]
 
 + Parameters
     + product_Id (required, number, `9995586`) ... Patner product ID
@@ -1222,10 +1223,16 @@ Returns information about a SKU.
 ## Notifications (object)
 + token (string)
 + type (string)
+
+    
+
 + additionalData
     + orderId (number)
 + events (array)
     + eventType (string)
+    
+        
+    
     + event (string)
     + additionalData
         + orderId (number)
