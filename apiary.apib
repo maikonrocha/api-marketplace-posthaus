@@ -996,7 +996,7 @@ These GET service is going to return the oldest notification, after these notifi
 
 
 ### Get notifications list [GET]
-Get a paginated notifications list
+Get a paginated notifications list for the events: NEW_ORDER, AUTHORIZED and CANCELED.
 
 + Request (application/json)
     + Headers
@@ -1032,28 +1032,51 @@ Get a paginated notifications list
               ]
             },
             {
-              "token": "45g65d4sdf5465sdf5",
-              "type": "NEW_ORDER",
+              "token": "45g65d4sdf5465sdrr",
+              "type": "CANCELED",
               "additionalData": {
-                "orderId": 45687920
+                "orderId": 45687918
               },
               "events": [
                 {
                   "eventType": "getOrder",
-                  "event": "https://www.sellercenter.api.ecosweb.com.br/rest/auth/v1/orders/45687920",
+                  "event": "https://www.sellercenter.api.ecosweb.com.br/rest/auth/v1/orders/45687918",
                   "additionalData": {
-                    "orderId": 45687920
+                    "orderId": 45687918
                   }
                 },
                 {
                   "eventType": "markAsRead",
-                  "event": "https://www.sellercenter.api.ecosweb.com.br/rest/auth/v1/orders/notes/45g65d4sdf5465sdf5",
+                  "event": "https://www.sellercenter.api.ecosweb.com.br/rest/auth/v1/orders/notes/45g65d4sdf5465sdrr",
                   "additionalData": {
-                    "token": "45g65d4sdf5465sdf5"
+                    "token": "45g65d4sdf5465sdrr"
                   }        
                 }
               ]
-            }
+            },
+            {
+              "token": "33g65d4sdf5465sdf5",
+              "type": "AUTHORIZED",
+              "additionalData": {
+                "orderId": 45687921
+              },
+              "events": [
+                {
+                  "eventType": "getOrder",
+                  "event": "https://www.sellercenter.api.ecosweb.com.br/rest/auth/v1/orders/45687921",
+                  "additionalData": {
+                    "orderId": 45687921
+                  }
+                },
+                {
+                  "eventType": "markAsRead",
+                  "event": "https://www.sellercenter.api.ecosweb.com.br/rest/auth/v1/orders/notes/33g65d4sdf5465sdf5",
+                  "additionalData": {
+                    "token": "33g65d4sdf5465sdf5"
+                  }        
+                }
+              ]
+            }            
           ],
           "page": {
             "size": 2,
@@ -1207,7 +1230,91 @@ Get a paginated notifications list
              }
             }
 
+
 ## Stock Notifications [/rest/auth/v1/stocks/notes/{token}]
+
+### Mark as read notification [PUT]
+Mark as read a notification. If the notification won't be readed during 30 days, the SellerCenter is going to automatically mark as read it.
+
++ Parameters
+    + token (required, string, `45g65d4sdf5465sdf5`) ... Token
+
++ Request (application/json)
+
+    + Headers
+
+            Accept: application/json
+            Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE0Mzg4Mjc0NDN9.POonh-FngFnKeCgDfjjoemmF3Mt8HP2CThHwDLYuYnQ
+
++ Response 204
+
+
+## Cancel Item Notifications [/rest/auth/v1/orders/cancelation/notes{?offset,limit}]
+
++ Parameters
+    + offset (required, number, `1`) ... Paging position
+    + limit (number, optional)
+
+        A limit on the number of objects to be returned. Limit can range
+        between 1 and 100 items.
+
+        + Default: `10`
+
++ Attributes (object)
+    + notifications (Notifications)
+    + page (Page)
+
+### Get notifications list [GET]
+Get a paginated notifications list
+
++ Request (application/json)
+    + Headers
+
+            Accept: application/json
+            Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE0Mzg4Mjc0NDN9.POonh-FngFnKeCgDfjjoemmF3Mt8HP2CThHwDLYuYnQ
+
++ Response 200 (application/json)
+
+        {
+             "notifications": [
+               {
+                 "token": "45g65d4sdf5465rr22",
+                 "type": "CANCELED_SKU",
+                 "additionalData": { 
+                    "orderId": 595998989,
+                    "canceledSku": [
+                        "4984877987",
+                        "4984877981",
+                        "4984877982"
+                    ]                   
+                 },
+                 "events": [
+                    {
+                      "eventType": "getOrder",
+                      "event": "https://www.sellercenter.api.ecosweb.com.br/rest/auth/v1/orders/595998989",
+                      "additionalData": {
+                        "orderId": 595998989
+                      }
+                    },
+                   {
+                     "eventType": "markAsRead",
+                     "event": "https://www.sellercenter.api.ecosweb.com.br/rest/orders/cancelation/notes/45g65d4sdf5465rr22",
+                     "additionalData": {
+                       "token": "45g65d4sdf5465rr22"
+                     }        
+                   }
+                 ]
+               }
+             ],
+             "page": {
+               "size": 2,
+               "totalElements": 6,
+               "totalPages": 3,
+               "number": 1
+             }
+            }
+
+## Cancel Item Notifications [/rest/auth/v1/orders/cancelation/notes/{token}]
 
 ### Mark as read notification [PUT]
 Mark as read a notification. If the notification won't be readed during 30 days, the SellerCenter is going to automatically mark as read it.
