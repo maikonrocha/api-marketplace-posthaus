@@ -995,7 +995,7 @@ These GET service is going to return the oldest notification, after these notifi
     + page (Page)
 
 
-### Paginated notifications list [GET]
+### Get notifications list [GET]
 Get a paginated notifications list
 
 + Request (application/json)
@@ -1017,14 +1017,14 @@ Get a paginated notifications list
               "events": [
                 {
                   "eventType": "getOrder",
-                  "event": "https://www.sellercenter.api.ecosweb.com.br/rest/order/45687920",
+                  "event": "https://www.sellercenter.api.ecosweb.com.br/rest/auth/v1/orders/45687920",
                   "additionalData": {
                     "orderId": 45687920
                   }
                 },
                 {
                   "eventType": "markAsRead",
-                  "event": "https://www.sellercenter.api.ecosweb.com.br/rest/note/markAsRead/45g65d4sdf5465sdf5",
+                  "event": "https://www.sellercenter.api.ecosweb.com.br/rest/auth/v1/notes/orders/markAsRead/45g65d4sdf5465sdf5",
                   "additionalData": {
                     "token": "45g65d4sdf5465sdf5"
                   }        
@@ -1040,14 +1040,14 @@ Get a paginated notifications list
               "events": [
                 {
                   "eventType": "getOrder",
-                  "event": "https://www.sellercenter.api.ecosweb.com.br/rest/orders/45687920",
+                  "event": "https://www.sellercenter.api.ecosweb.com.br/rest/auth/v1/orders/45687920",
                   "additionalData": {
                     "orderId": 45687920
                   }
                 },
                 {
                   "eventType": "markAsRead",
-                  "event": "https://www.sellercenter.api.ecosweb.com.br/rest/note/markAsRead/45g65d4sdf5465sdf5",
+                  "event": "https://www.sellercenter.api.ecosweb.com.br/rest/auth/v1/notes/orders/markAsRead/45g65d4sdf5465sdf5",
                   "additionalData": {
                     "token": "45g65d4sdf5465sdf5"
                   }        
@@ -1063,7 +1063,7 @@ Get a paginated notifications list
           }
         }
 
-## Mark as read [/rest/auth/v1/notes/markAsRead/{token}]
+## Mark as read [/rest/auth/v1/notes/orders/markAsRead/{token}]
 
 ### Mark as read notification [PUT]
 
