@@ -722,7 +722,7 @@ Requests the cancellation of items of a Order.
 
 
 ## Orders [/rest/auth/v1/orders{?offset,limit,createdAfter,status,cpf}]
-Returns the order details using the filters createdAfter, status and customer CPF. 
+Returns the order details using the filters: createdAfter, status and customer CPF. 
 
 + Parameters
     + createdAfter (required, string, `2018-08-08T10:40:32Z`) ... Order creation date
@@ -742,7 +742,7 @@ Returns the order details using the filters createdAfter, status and customer CP
 
 
 ### Read a Order [GET]
-Returns the order details by filters.
+Returns the order details.
 
 + Request (application/json)
     + Headers
@@ -846,24 +846,6 @@ Returns the order details by filters.
                 "number": 1
             }
           }
-        }
-
-
-## Received order [/rest/auth/v1/order/received]
-
-### Received order [PUT]
-Confirms the order was received and all its information was validated, specially its order itens stock.
-
-+ Request (application/json)
-
-        {
-
-        }
-
-+ Response 200 (application/json)
-
-        {
-            "init": "init"
         }
 
 
