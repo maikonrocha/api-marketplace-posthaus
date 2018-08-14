@@ -963,6 +963,8 @@ List protocols.
 The Marketplace Posthaus add notifications into a queue, the queue order is from the oldest to the newest notification added.
 These GET service is going to return the oldest notification, after these notification is going to mark as readed, the next notification is going to be avaliable to GET. 
 
+If the notification won't be readed during 30 days, the SellerCenter is going to automatically mark as read it.
+
 ## Order Notifications [/rest/auth/v1/orders/notes{?offset,limit}]
 
 + Parameters
@@ -1071,10 +1073,9 @@ Get a paginated notifications list. Events type supported: NEW_ORDER, AUTHORIZED
 
         }
 
-## Order Notifications [/rest/auth/v1/orders/notes/{token}]
 
-### Mark as read notification [PUT]
-Mark as read a notification. If the notification won't be readed during 30 days, the SellerCenter is going to automatically mark as read it.
+### Mark as read notification [PUT /rest/auth/v1/orders/notes/{token}]]
+Mark as read a notification.
 
 + Parameters
     + token (required, string, `45g65d4sdf5465sdf5`) ... Token
@@ -1105,7 +1106,7 @@ Mark as read a notification. If the notification won't be readed during 30 days,
     + page (Page)
 
 
-### Get notifications list [GET]
+### Get Stock inconsistency notifications list [GET]
 Get a paginated notifications list. Events type supported: STOCK_INCONSISTENCY.
 
 + Request (application/json)
@@ -1218,7 +1219,7 @@ Get a paginated notifications list. Events type supported: STOCK_INCONSISTENCY.
 ## Stock Notifications [/rest/auth/v1/stocks/notes/{token}]
 
 ### Mark as read notification [PUT]
-Mark as read a notification. If the notification won't be readed during 30 days, the SellerCenter is going to automatically mark as read it.
+Mark as read a notification. 
 
 + Parameters
     + token (required, string, `45g65d4sdf5465sdf5`) ... Token
@@ -1301,7 +1302,7 @@ Get a paginated notifications list. Events type supported: CANCELED_SKU.
 ## Cancel Item Notifications [/rest/auth/v1/orders/cancelation/notes/{token}]
 
 ### Mark as read notification [PUT]
-Mark as read a notification. If the notification won't be readed during 30 days, the SellerCenter is going to automatically mark as read it.
+Mark as read a notification.
 
 + Parameters
     + token (required, string, `45g65d4sdf5465sdf5`) ... Token
