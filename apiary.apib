@@ -979,7 +979,7 @@ These GET service is going to return the oldest notification, after these notifi
             "init": "init"
         }
 
-## Order Notifications [/rest/auth/v1/notes/orders{?offset,limit}]
+## Order Notifications [/rest/auth/v1/orders/notes{?offset,limit}]
 
 + Parameters
     + offset (required, number, `1`) ... Paging position
@@ -1024,7 +1024,7 @@ Get a paginated notifications list
                 },
                 {
                   "eventType": "markAsRead",
-                  "event": "https://www.sellercenter.api.ecosweb.com.br/rest/auth/v1/notes/orders/markAsRead/45g65d4sdf5465sdf5",
+                  "event": "https://www.sellercenter.api.ecosweb.com.br/rest/auth/v1/orders/notes/45g65d4sdf5465sdf5",
                   "additionalData": {
                     "token": "45g65d4sdf5465sdf5"
                   }        
@@ -1047,7 +1047,7 @@ Get a paginated notifications list
                 },
                 {
                   "eventType": "markAsRead",
-                  "event": "https://www.sellercenter.api.ecosweb.com.br/rest/auth/v1/notes/orders/markAsRead/45g65d4sdf5465sdf5",
+                  "event": "https://www.sellercenter.api.ecosweb.com.br/rest/auth/v1/orders/notes/45g65d4sdf5465sdf5",
                   "additionalData": {
                     "token": "45g65d4sdf5465sdf5"
                   }        
@@ -1061,12 +1061,155 @@ Get a paginated notifications list
             "totalPages": 3,
             "number": 1
           }
+
         }
 
-## Mark as read [/rest/auth/v1/notes/orders/markAsRead/{token}]
+## Order Notifications [/rest/auth/v1/orders/notes/{token}]
 
 ### Mark as read notification [PUT]
+Mark as read a notification. If the notification won't be readed during 30 days, the SellerCenter is going to automatically mark as read it.
 
++ Parameters
+    + token (required, string, `45g65d4sdf5465sdf5`) ... Token
+
++ Request (application/json)
+
+    + Headers
+
+            Accept: application/json
+            Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE0Mzg4Mjc0NDN9.POonh-FngFnKeCgDfjjoemmF3Mt8HP2CThHwDLYuYnQ
+
++ Response 204
+
+
+## Stock Notifications [/rest/auth/v1/stocks/notes{?offset,limit}]
+
++ Parameters
+    + offset (required, number, `1`) ... Paging position
+    + limit (number, optional)
+
+        A limit on the number of objects to be returned. Limit can range
+        between 1 and 100 items.
+
+        + Default: `10`
+
++ Attributes (object)
+    + notifications (Notifications)
+    + page (Page)
+
+
+### Get notifications list [GET]
+Get a paginated notifications list
+
++ Request (application/json)
+    + Headers
+
+            Accept: application/json
+            Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE0Mzg4Mjc0NDN9.POonh-FngFnKeCgDfjjoemmF3Mt8HP2CThHwDLYuYnQ
+
++ Response 200 (application/json)
+
+        {
+             "notifications": [
+               {
+                 "token": "45g65d4sdf5465sdf5",
+                 "type": "STOCK_INCONSISTENCY",
+                 "additionalData": { 
+                   "sku": {
+                     "partnerId" : "489764987",
+                     "worngAmount" : 2
+                   }
+                 },
+                 "events": [
+                   {
+                     "eventType": "readSku",
+                     "event": "https://www.sellercenter.api.ecosweb.com.br/rest/products/468764584/skus/489764987",
+                     "additionalData": {
+                       "product" : {
+                           "id": 657486,
+                           "partnerId" : "468764584",
+                           "sku": 
+                             {
+                               "id": "657486-P",
+                               "partnerId": "489764987",
+                             }
+                        }
+                     }
+                   },
+                   {
+                     "eventType": "updateStock",
+                     "event": "https://www.sellercenter.api.ecosweb.com.br/rest/stocks/",
+                     "additionalData": {
+                       "sku": {
+                           "partnerId": "489764987",
+                           "quantity" : 12
+                        }
+                     }
+                   },
+                   {
+                     "eventType": "markAsRead",
+                     "event": "https://www.sellercenter.api.ecosweb.com.br/rest/stocks/notes/45g65d4sdf5465sdf5",
+                     "additionalData": {
+                       "token": "45g65d4sdf5465sdf5"
+                     }        
+                   }
+                 ]
+               },
+               {
+                 "token": "45g65d4sdf5465sdf5",
+                 "type": "STOCK_INCONSISTENCY",
+                 "additionalData": {
+                   "sku": {
+                     "partnerId" : "489764987",
+                     "worngAmount" : 2
+                   }
+                 },
+                 "events": [
+                   {
+                     "eventType": "readSku",
+                     "event": "https://www.sellercenter.api.ecosweb.com.br/rest/products/468764584/skus/489764987",
+                     "additionalData": {
+                       "product" : {
+                           "id": 657486,
+                           "partnerId" : "468764584",
+                           "sku": {
+                               "id": "657486-P",
+                               "partnerId": "489764987",
+                             }
+                         }
+                     }
+                   },
+                   {
+                     "eventType": "updateStock",
+                     "event": "https://www.sellercenter.api.ecosweb.com.br/rest/stocks/",
+                     "additionalData": {
+                       "sku": {
+                           "partnerId": "489764987",
+                           "quantity" : 12
+                         }
+                     }
+                   },
+                   {
+                     "eventType": "markAsRead",
+                     "event": "https://www.sellercenter.api.ecosweb.com.br/rest/stocks/notes/45g65d4sdf5465sdf5",
+                     "additionalData": {
+                       "token": "45g65d4sdf5465sdf5"
+                     }        
+                   }
+                 ]
+               }
+             ],
+             "page": {
+               "size": 2,
+               "totalElements": 6,
+               "totalPages": 3,
+               "number": 1
+             }
+            }
+
+## Stock Notifications [/rest/auth/v1/stocks/notes/{token}]
+
+### Mark as read notification [PUT]
 Mark as read a notification. If the notification won't be readed during 30 days, the SellerCenter is going to automatically mark as read it.
 
 + Parameters
