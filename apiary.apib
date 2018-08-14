@@ -1311,6 +1311,98 @@ Mark as read a notification.
 + Response 204
 
 
+## Invoice Closed Notifications [/rest/auth/v1/invoices/notes{?offset,limit}]
+
++ Parameters
+    + offset (required, number, `1`) ... Paging position
+    + limit (number, optional)
+
+        A limit on the number of objects to be returned. Limit can range
+        between 1 and 100 items.
+
+        + Default: `10`
+
++ Attributes (object)
+    + notifications (Notifications)
+    + page (Page)
+
+### Get notifications list [GET]
+Get a paginated notifications list. Events type supported: INVOICE_CLOSED, INVOICE_PAID.
+
++ Request (application/json)
+    + Headers
+
+            Accept: application/json
+            Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE0Mzg4Mjc0NDN9.POonh-FngFnKeCgDfjjoemmF3Mt8HP2CThHwDLYuYnQ
+
++ Response 200 (application/json)
+
+        {
+             "notifications": [
+               {
+                 "token": "1234d4sdf5465rr22",
+                 "type": "INVOICE_CLOSED",
+                 "additionalData": { 
+                    "id": 3,                                     
+                    "closureDate" : "2018-08-08T10:40:32Z",
+                    "credit" : 99.96,
+                    "status" : "OPEN"
+                 },
+                 "events": [
+                   {
+                     "eventType": "markAsRead",
+                     "event": "https://www.sellercenter.api.ecosweb.com.br/rest/invoices/notes/1234d4sdf5465rr22",
+                     "additionalData": {
+                       "token": "1234d4sdf5465rr22"
+                     }        
+                   }
+                 ]
+               },
+               {
+                 "token": "88994sdf5465rr22",
+                 "type": "INVOICE_CLOSED",
+                 "additionalData": { 
+                    "id": 3,                                     
+                    "closureDate" : "2018-08-08T10:40:32Z",
+                    "credit" : 1400.96,
+                    "status" : "PAID"
+                 },
+                 "events": [
+                   {
+                     "eventType": "markAsRead",
+                     "event": "https://www.sellercenter.api.ecosweb.com.br/rest/invoices/notes/88994sdf5465rr22",
+                     "additionalData": {
+                       "token": "88994sdf5465rr22"
+                     }        
+                   }
+                 ]
+               }               
+             ],
+             "page": {
+               "size": 2,
+               "totalElements": 6,
+               "totalPages": 3,
+               "number": 1
+             }
+            }
+
+### Mark as read notification [PUT /rest/invoices/notes/{token}]
+Mark as read a notification.
+
++ Parameters
+    + token (required, string, `45g65d4sdf5465sdf5`) ... Token
+
++ Request (application/json)
+
+    + Headers
+
+            Accept: application/json
+            Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE0Mzg4Mjc0NDN9.POonh-FngFnKeCgDfjjoemmF3Mt8HP2CThHwDLYuYnQ
+
++ Response 204
+
+
+
 # Group Stock
 It will be used to perform stock update.
 The stock operation is performed in batch, it is possible to send one or more SKUs to update.
