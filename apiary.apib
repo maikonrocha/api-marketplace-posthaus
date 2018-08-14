@@ -958,26 +958,10 @@ List protocols.
             "init": "init"
         }
 
+
 #Group Notifications
-
-## Notification [/rest/auth/v1/notifications]
-
-### Get the oldest notification unreaded [GET]
-
 The Marketplace Posthaus add notifications into a queue, the queue order is from the oldest to the newest notification added.
 These GET service is going to return the oldest notification, after these notification is going to mark as readed, the next notification is going to be avaliable to GET. 
-
-+ Request (application/json)
-    + Headers
-
-            Accept: application/json
-            Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE0Mzg4Mjc0NDN9.POonh-FngFnKeCgDfjjoemmF3Mt8HP2CThHwDLYuYnQ
-    
-+ Response 200 (application/json)
-
-        {
-            "init": "init"
-        }
 
 ## Order Notifications [/rest/auth/v1/orders/notes{?offset,limit}]
 
@@ -996,7 +980,7 @@ These GET service is going to return the oldest notification, after these notifi
 
 
 ### Get notifications list [GET]
-Get a paginated notifications list. Events supported: NEW_ORDER, AUTHORIZED and CANCELED.
+Get a paginated notifications list. Events type supported: NEW_ORDER, AUTHORIZED and CANCELED.
 
 + Request (application/json)
     + Headers
@@ -1122,7 +1106,7 @@ Mark as read a notification. If the notification won't be readed during 30 days,
 
 
 ### Get notifications list [GET]
-Get a paginated notifications list
+Get a paginated notifications list. Events type supported: STOCK_INCONSISTENCY.
 
 + Request (application/json)
     + Headers
@@ -1265,7 +1249,7 @@ Mark as read a notification. If the notification won't be readed during 30 days,
     + page (Page)
 
 ### Get notifications list [GET]
-Get a paginated notifications list
+Get a paginated notifications list. Events type supported: CANCELED_SKU.
 
 + Request (application/json)
     + Headers
