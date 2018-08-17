@@ -691,6 +691,47 @@ Changing to this situation requires the following information: List of canceled 
 + Response 400 (application/json)
 
 
+### Send XML NF-e [PUT /rest/auth/v1/orders/{order_id}/nfe]
+Send the XMl from NF-e to the Marketplace. Only XML content should be sent.
+
++ Request (application/json)
+    + Headers
+
+            Accept: application/json
+            Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE0Mzg4Mjc0NDN9.POonh-FngFnKeCgDfjjoemmF3Mt8HP2CThHwDLYuYnQ
+            
+    + Body  
+    
+            {
+                <NFe xmlns="http://www.portalfiscal.inf.br/nfe">
+                    <infNFe Id="NFe35080599999090910270550010000000015180051273" versao="1.10">
+                        <ide>
+                            <cUF>35</cUF>
+                            <cNF>518005127</cNF>
+                            <natOp>Venda a vista</natOp>
+                            <indPag>0</indPag>
+                            <mod>55</mod>
+                            <serie>1</serie>
+                            <nNF>1</nNF>
+                            <dEmi>2008-05-06</dEmi>
+                            <dSaiEnt>2008-05-06</dSaiEnt>
+                            <tpNF>0</tpNF>
+                            <cMunFG>3550308</cMunFG>
+                            <tpImp>1</tpImp>
+                            <tpEmis>1</tpEmis>
+                            <cDV>3</cDV>
+                            <tpAmb>2</tpAmb>
+                            <finNFe>1</finNFe>
+                            <procEmi>0</procEmi>
+                            <verProc>NF-eletronica.com</verProc>
+                        </ide>
+                    </infNFe>
+                </NFe>
+            }
+
++ Response 204 (application/json)
+
+
 ## Orders [/rest/auth/v1/orders{?offset,limit,createdAfter,status,cpf}]
 Returns the order details using the filters: createdAfter, status and customer CPF. 
 
