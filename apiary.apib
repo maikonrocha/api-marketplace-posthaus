@@ -691,7 +691,7 @@ Changing to this situation requires the following information: List of canceled 
 + Response 400 (application/json)
 
 
-### Send XML NF-e [PUT /rest/v1/orders/{order_id}/nfe]
+### Send XML NF-e [PUT /rest/orders/v1/{order_id}/nfe]
 Send the XMl from NF-e to the Marketplace. Only XML content should be sent.
 
 + Request (application/json)
@@ -731,7 +731,7 @@ Send the XMl from NF-e to the Marketplace. Only XML content should be sent.
 + Response 500 (application/json)
 
 
-## Orders [/rest/v1/orders{?offset,limit,createdAfter,status,cpf}]
+## Orders [/rest/orders/v1{?offset,limit,createdAfter,status,cpf}]
 Returns the order details using the filters: createdAfter, status and customer CPF. 
 
 + Parameters
@@ -859,7 +859,7 @@ Returns the order details.
         }
 
 
-## Cancel Order Items [/rest/v1/orders/{order_id}/cancelation/]
+## Cancel Order Items [/rest/orders/v1/{order_id}/cancelation/]
 It will be used to requests the cancellation of items of a Order created by Posthaus.
 This trigger will to make items in the marketplace unavailable.
 
@@ -887,77 +887,6 @@ Requests the cancellation of items of a Order.
             }
 
 + Response 204 (application/json)
-
-
-#Group Protocol
-
-## Protocol [/rest/v1/protocol]
-
-### Open new Protocol [POST]
-
-Open new Protocol according the subject.
-
-+ Request (application/json)
-
-        {
-
-        }
-
-+ Response 200 (application/json)
-
-        {
-            "init": "init"
-        }
-        
-### Get Protocol [GET]
-
-Get a protocol by id.
-
-+ Request (application/json)
-
-        {
-
-        }
-
-+ Response 200 (application/json)
-
-        {
-            "init": "init"
-        }
-        
-### Answer Protocol [PUT]
-
-Post an answer to a protocol.
-
-+ Request (application/json)
-
-        {
-
-        }
-
-+ Response 200 (application/json)
-
-        {
-            "init": "init"
-        }
-
-## Protocols [/rest/v1/protocols]
-
-### List protocols [GET]
-
-List protocols.
-
-+ Request (application/json)
-
-        {
-
-        }
-
-+ Response 200 (application/json)
-
-        {
-            "init": "init"
-        }
 
 
 #Group Notifications
@@ -1011,7 +940,7 @@ Get a paginated notifications list. Events type supported: NEW_ORDER, AUTHORIZED
                 },
                 {
                   "eventType": "markAsRead",
-                  "event": "https://www.sellercenter.api.ecosweb.com.br/rest/feed/orders/v1/45g65d4sdf5465sdf5",
+                  "event": "https://www.sellercenter.api.ecosweb.com.br/rest/feed/v1/45g65d4sdf5465sdf5",
                   "additionalData": {
                     "token": "45g65d4sdf5465sdf5"
                   }        
@@ -1034,7 +963,7 @@ Get a paginated notifications list. Events type supported: NEW_ORDER, AUTHORIZED
                 },
                 {
                   "eventType": "markAsRead",
-                  "event": "https://www.sellercenter.api.ecosweb.com.br/rest/feed/orders/v1/45g65d4sdf5465sdrr",
+                  "event": "https://www.sellercenter.api.ecosweb.com.br/rest/feed/v1/45g65d4sdf5465sdrr",
                   "additionalData": {
                     "token": "45g65d4sdf5465sdrr"
                   }        
@@ -1057,7 +986,7 @@ Get a paginated notifications list. Events type supported: NEW_ORDER, AUTHORIZED
                 },
                 {
                   "eventType": "markAsRead",
-                  "event": "https://www.sellercenter.api.ecosweb.com.br/rest/feed/orders/v1/33g65d4sdf5465sdf5",
+                  "event": "https://www.sellercenter.api.ecosweb.com.br/rest/feed/v1/33g65d4sdf5465sdf5",
                   "additionalData": {
                     "token": "33g65d4sdf5465sdf5"
                   }        
@@ -1073,21 +1002,6 @@ Get a paginated notifications list. Events type supported: NEW_ORDER, AUTHORIZED
           }
 
         }
-
-### Mark as read notification [PUT /rest/feed/orders/v1/{token}]
-Mark as read a notification.
-
-+ Parameters
-    + token (required, string, `45g65d4sdf5465sdf5`) ... Token
-
-+ Request (application/json)
-
-    + Headers
-
-            Accept: application/json
-            Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE0Mzg4Mjc0NDN9.POonh-FngFnKeCgDfjjoemmF3Mt8HP2CThHwDLYuYnQ
-
-+ Response 204
 
 
 ## Stock Notifications [/rest/feed/stocks/v1{?offset,limit}]
@@ -1131,7 +1045,7 @@ Get a paginated notifications list. Events type supported: STOCK_INCONSISTENCY.
                  "events": [
                    {
                      "eventType": "readSku",
-                     "event": "https://www.sellercenter.api.ecosweb.com.br/rest/products/468764584/skus/489764987",
+                     "event": "https://www.sellercenter.api.ecosweb.com.br/rest/products/v1/468764584/skus/489764987",
                      "additionalData": {
                        "product" : {
                            "id": 657486,
@@ -1146,7 +1060,7 @@ Get a paginated notifications list. Events type supported: STOCK_INCONSISTENCY.
                    },
                    {
                      "eventType": "updateStock",
-                     "event": "https://www.sellercenter.api.ecosweb.com.br/rest/stocks/",
+                     "event": "https://www.sellercenter.api.ecosweb.com.br/rest/stocks/v1/",
                      "additionalData": {
                        "sku": {
                            "partnerId": "489764987",
@@ -1156,7 +1070,7 @@ Get a paginated notifications list. Events type supported: STOCK_INCONSISTENCY.
                    },
                    {
                      "eventType": "markAsRead",
-                     "event": "https://www.sellercenter.api.ecosweb.com.br/rest/feed/stocks/45g65d4sdf5465sdf5",
+                     "event": "https://www.sellercenter.api.ecosweb.com.br/rest/feed/v1/45g65d4sdf5465sdf5",
                      "additionalData": {
                        "token": "45g65d4sdf5465sdf5"
                      }        
@@ -1175,7 +1089,7 @@ Get a paginated notifications list. Events type supported: STOCK_INCONSISTENCY.
                  "events": [
                    {
                      "eventType": "readSku",
-                     "event": "https://www.sellercenter.api.ecosweb.com.br/rest/products/468764584/skus/489764987",
+                     "event": "https://www.sellercenter.api.ecosweb.com.br/rest/products/v1/468764584/skus/489764987",
                      "additionalData": {
                        "product" : {
                            "id": 657486,
@@ -1189,7 +1103,7 @@ Get a paginated notifications list. Events type supported: STOCK_INCONSISTENCY.
                    },
                    {
                      "eventType": "updateStock",
-                     "event": "https://www.sellercenter.api.ecosweb.com.br/rest/stocks/",
+                     "event": "https://www.sellercenter.api.ecosweb.com.br/rest/stocks/v1/",
                      "additionalData": {
                        "sku": {
                            "partnerId": "489764987",
@@ -1199,7 +1113,7 @@ Get a paginated notifications list. Events type supported: STOCK_INCONSISTENCY.
                    },
                    {
                      "eventType": "markAsRead",
-                     "event": "https://www.sellercenter.api.ecosweb.com.br/rest/feed/stocks/45g65d4sdf5465sdf5",
+                     "event": "https://www.sellercenter.api.ecosweb.com.br/rest/feed/v1/45g65d4sdf5465sdf5",
                      "additionalData": {
                        "token": "45g65d4sdf5465sdf5"
                      }        
@@ -1214,21 +1128,6 @@ Get a paginated notifications list. Events type supported: STOCK_INCONSISTENCY.
                "number": 1
             }
         }
-
-### Mark as read notification [PUT /rest/stocks/feed/v1/{token}]
-Mark as read a notification. 
-
-+ Parameters
-    + token (required, string, `45g65d4sdf5465sdf5`) ... Token
-
-+ Request (application/json)
-
-    + Headers
-
-            Accept: application/json
-            Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE0Mzg4Mjc0NDN9.POonh-FngFnKeCgDfjjoemmF3Mt8HP2CThHwDLYuYnQ
-
-+ Response 204
 
 
 ## Cancel Item Notifications [/rest/feed/orders/cancelation/v1{?offset,limit}]
@@ -1280,7 +1179,7 @@ Get a paginated notifications list. Events type supported: CANCELED_SKU.
                     },
                    {
                      "eventType": "markAsRead",
-                     "event": "https://www.sellercenter.api.ecosweb.com.br/rest/feed/orders/cancelation/45g65d4sdf5465rr22",
+                     "event": "https://www.sellercenter.api.ecosweb.com.br/rest/feed/v1/45g65d4sdf5465rr22",
                      "additionalData": {
                        "token": "45g65d4sdf5465rr22"
                      }        
@@ -1295,21 +1194,6 @@ Get a paginated notifications list. Events type supported: CANCELED_SKU.
                "number": 1
              }
             }
-
-### Mark as read notification [PUT /rest/feed/orders/cancelation/v1/{token}]
-Mark as read a notification.
-
-+ Parameters
-    + token (required, string, `45g65d4sdf5465sdf5`) ... Token
-
-+ Request (application/json)
-
-    + Headers
-
-            Accept: application/json
-            Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE0Mzg4Mjc0NDN9.POonh-FngFnKeCgDfjjoemmF3Mt8HP2CThHwDLYuYnQ
-
-+ Response 204
 
 
 ## Invoice Closed Notifications [/rest/feed/seller/invoices/v1{?offset,limit}]
@@ -1352,7 +1236,7 @@ Get a paginated notifications list. Events type supported: INVOICE_CLOSED, INVOI
                  "events": [
                    {
                      "eventType": "markAsRead",
-                     "event": "https://www.sellercenter.api.ecosweb.com.br/rest/feed/invoices/1234d4sdf5465rr22",
+                     "event": "https://www.sellercenter.api.ecosweb.com.br/rest/feed/v1/1234d4sdf5465rr22",
                      "additionalData": {
                        "token": "1234d4sdf5465rr22"
                      }        
@@ -1371,7 +1255,7 @@ Get a paginated notifications list. Events type supported: INVOICE_CLOSED, INVOI
                  "events": [
                    {
                      "eventType": "markAsRead",
-                     "event": "https://www.sellercenter.api.ecosweb.com.br/rest/feed/invoices/88994sdf5465rr22",
+                     "event": "https://www.sellercenter.api.ecosweb.com.br/rest/feed/v1/88994sdf5465rr22",
                      "additionalData": {
                        "token": "88994sdf5465rr22"
                      }        
@@ -1387,7 +1271,9 @@ Get a paginated notifications list. Events type supported: INVOICE_CLOSED, INVOI
              }
             }
 
-### Mark as read notification [PUT /rest/feed/seller/invoices/{token}]
+## Mark as read notification [/rest/feed/v1/{token}]
+
+### Mark as read notification [PUT]
 Mark as read a notification.
 
 + Parameters
@@ -1448,7 +1334,7 @@ Performs stock update based on partner SKU's.
 
 # Group SKU
 
-## SKUS [/rest/v1/products/{product_Id}/skus/]
+## SKUS [/rest/products/v1/{product_Id}/skus/]
 
 + Parameters
     + product_Id (required, number, `9995586`) ... Patner product ID
@@ -1498,7 +1384,7 @@ Returns all SKU from a product.
         ]
 
 
-## SKU [/rest/v1/products/{product_Id}/skus/{sku_id}]
+## SKU [/rest/products/v1/{product_Id}/skus/{sku_id}]
 
 + Parameters
     + product_Id (required, number, `9995586`) ... Patner product ID
