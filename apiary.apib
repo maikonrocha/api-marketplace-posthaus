@@ -112,8 +112,7 @@ Returns the Order details by Order number.
                 "url": "http://websro.correios.com.br/sro_bin",
                 "number": "SP89598599",
                 "carrier": "CORREIOS",
-                "date": "2018-08-08T10:40:32Z",
-                "deliveredDate": "2018-08-08T10:40:32Z",
+                "carrierDocument": "14317819000191",
                 "estimateDate": "2018-08-08T10:40:32Z",
                 "shippedDate": "2018-08-08T10:40:32Z"
               }
@@ -483,7 +482,8 @@ Changing to this situation is necessary to inform: note number, serial number, d
                         "accessKey": "NFe35080599999090910270550010000000015180051273",
                         "series": "1",
                         "number": "35",
-                        "date": "2018-08-08T10:40:32Z"
+                        "date": "2018-08-08T10:40:32Z",
+                        "value": "110.39"
                     }
                 ]
             }
@@ -509,7 +509,8 @@ Changing to this situation is necessary to inform: note number, serial number, d
                     "accessKey": "NFe35080599999090910270550010000000015180051273",
                     "series": "1",
                     "number": "35",
-                    "date": "2018-08-08T10:40:32Z"
+                    "date": "2018-08-08T10:40:32Z",
+                    "value": "110.39"
                 }
               ],
               "shipping": {
@@ -626,7 +627,8 @@ Changing to this situation requires the following information: List of canceled 
                 "accessKey": "NFe35080599999090910270550010000000015180051273",
                 "series": "1",
                 "number": "35",
-                "date": "2018-08-08T10:40:32Z"
+                "date": "2018-08-08T10:40:32Z",
+                "value": "110.39"
               },
               "shipping": {
                 "city": "Blumenau",
@@ -789,7 +791,8 @@ Returns the order details.
                 "accessKey": "NFe35080599999090910270550010000000015180051273",
                 "series": "1",
                 "number": "35",
-                "date": "2018-08-08T10:40:32Z"
+                "date": "2018-08-08T10:40:32Z",
+                "value": "110.39"
               },
               "shipping": {
                 "city": "Blumenau",
@@ -1487,9 +1490,10 @@ Returns information about a SKU.
 
 ## OrderInvoice (object)
 + accessKey (string) - Invoice access key
-+ series (string, optional) - Invoice serial number
-+ number (string, optional) - Invoice number
++ series (string) - Invoice serial number
++ number (string) - Invoice number
 + date: `2018-08-08T10:40:32Z` (string) - Date of invoice issue
++ value (number) - Invoice total value
 
 ## BuyerGet (object) - Objeto do consumidor
 + name (string) - Buyer name
@@ -1556,7 +1560,7 @@ Returns information about a SKU.
 + url (string, optional) - URL for tracking
 + number (string, optional) - Track number
 + carrier (string) - Carrier name
-+ date: `2018-08-08T10:40:32Z` (string, optional) - date of the tracking
++ carrierDocument (string) - Carrier Document (CNPJ),
 + deliveredDate: `2018-08-08T10:40:32Z` (string, optional) - Delivery date to customer
 + estimateDate: `2018-08-08T10:40:32Z` (string) - Estimate delivery date
 + shippedDate: `2018-08-08T10:40:32Z` (string) - Carrier received date 
