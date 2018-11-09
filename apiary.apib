@@ -354,6 +354,7 @@ It is the last situation of the request. Changing to this situation it is necess
 
 ### Update order status to Calceled [PUT]
 Updates order status by order number to Calceled. Body parameter `status` defines the new order status.
+Attribute canceledReason values, STOCK_UNAVAILABLE, DELIVERY_UNAVAILABLE or DELIVERY_REFUSED.
 
 + Request (application/json)
     + Headers
@@ -364,7 +365,8 @@ Updates order status by order number to Calceled. Body parameter `status` define
     + Body  
     
             {
-                "status": "CANCELED"
+                "status": "CANCELED",
+                "canceledReason": "STOCK_UNAVAILABLE"
             }
 
 + Response 200 (application/json)
