@@ -43,7 +43,7 @@ Returns the Order details by Order number.
               "freight": 9.90,
               "gross": 60,
               "total": 69.90,
-              "invoice": [
+              "invoices": [
                 {
                     "accessKey": "NFe35080599999090910270550010000000015180051273",
                     "series": "1",
@@ -159,7 +159,7 @@ Changing to this situation requires the following information: Tracking URL, Tra
               "freight": 9.90,
               "gross": 60,
               "total": 69.90,
-              "invoice": [
+              "invoices": [
                 {
                     "accessKey": "NFe35080599999090910270550010000000015180051273",
                     "series": "1",
@@ -273,7 +273,7 @@ It is the last situation of the request. Changing to this situation it is necess
               "freight": 9.90,
               "gross": 60,
               "total": 69.90,
-              "invoice": [
+              "invoices": [
                 {
                     "accessKey": "NFe35080599999090910270550010000000015180051273",
                     "series": "1",
@@ -385,7 +385,7 @@ Attribute canceledReason values, STOCK_UNAVAILABLE, DELIVERY_UNAVAILABLE or DELI
               "freight": 9.90,
               "gross": 60,
               "total": 69.90,
-              "invoice": [
+              "invoices": [
                 {
                     "accessKey": "NFe35080599999090910270550010000000015180051273",
                     "series": "1",
@@ -479,7 +479,7 @@ Changing to this situation is necessary to inform: note number, serial number, d
     
             {
                 "status": "INVOICED",
-                "invoice": [
+                "invoices": [
                     {
                         "accessKey": "NFe35080599999090910270550010000000015180051273",
                         "series": "1",
@@ -506,7 +506,7 @@ Changing to this situation is necessary to inform: note number, serial number, d
               "freight": 9.90,
               "gross": 60,
               "total": 69.90,
-              "invoice": [
+              "invoices": [
                 {
                     "accessKey": "NFe35080599999090910270550010000000015180051273",
                     "series": "1",
@@ -625,13 +625,13 @@ Changing to this situation requires the following information: List of canceled 
               "freight": 9.90,
               "gross": 60,
               "total": 69.90,
-              "invoice": {
+              "invoices": [{
                 "accessKey": "NFe35080599999090910270550010000000015180051273",
                 "series": "1",
                 "number": "35",
                 "date": "2018-08-08T10:40:32Z",
                 "value": "110.39"
-              },
+              }],
               "shipping": {
                 "city": "Blumenau",
                 "state": "SC",
@@ -789,13 +789,13 @@ Returns the order details.
               "freight": 9.90,
               "gross": 60,
               "total": 69.90,
-              "invoice": {
+              "invoices": [{
                 "accessKey": "NFe35080599999090910270550010000000015180051273",
                 "series": "1",
                 "number": "35",
                 "date": "2018-08-08T10:40:32Z",
                 "value": "110.39"
-              },
+              }],
               "shipping": {
                 "city": "Blumenau",
                 "state": "SC",
@@ -1483,7 +1483,7 @@ Returns information about a SKU.
 + freight (number) - Freight value
 + gross (number) - Gross total without the freight value
 + total (number) - Total order with the freight value
-+ invoice (OrderInvoice, optional) - Invoice data
++ invoices (array[OrderInvoice], optional) - Invoice data
 + shipping (OrderShippingAddressGet) - Delivery address
 + buyer (BuyerGet) - Customer data 
 + payments (OrderPaymentGet) - Payment data
