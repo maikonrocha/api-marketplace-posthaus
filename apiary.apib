@@ -121,7 +121,7 @@ Changing to this situation requires the following information: Tracking URL, Tra
     + Body  
     
             {
-                "status": "PAID_WAITING_DELIVERY",
+                "status": "SENT",
                 "tracking": {
                     "url": "http://websro.correios.com.br/sro_bin",
                     "number": "SP89598599",
@@ -1253,15 +1253,17 @@ Returns information about a SKU.
         ERROR. Error syncing to Marketplace
         WAITING. Waiting for synchronization with Marketplace
         
-+ status (string) - Status do pedido
++ status (string) - Order Status
         
-        DELIVERED. Order delivered
-        CANCELED. Canceled
-        INVOICED. Billed
-        PAID_WAITING_DELIVERY. Sent (awaiting delivery)
-        PAID_WAITING_SHIP. Paid out (awaiting delivery)
-        PENDING. Pending (Not yet paid)
-        INTEGRATED. Order integrated
+        
+        PENDING       
+        INTEGRATED     
+        WAITING_INVOICE     
+        CANCELED             
+        INVOICED               
+        SENT                    
+        DELIVERED 
+        
  
 + discount (number) - Order discount
 + freight (number) - Freight value
