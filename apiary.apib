@@ -945,7 +945,7 @@ Get a paginated notifications list. Events type supported: NEW_ORDER, AUTHORIZED
         }
 
 
-## Stock Notifications [/rest/feed/stocks/v1{?offset,limit}]
+## Stock Inconsistent Notifications [/rest/feed/stock/inconsistent/v1{?offset,limit}]
 
 + Parameters
     + offset (required, number, `1`) ... Paging position
@@ -961,7 +961,7 @@ Get a paginated notifications list. Events type supported: NEW_ORDER, AUTHORIZED
     + page (Page)
 
 
-### Get Stock inconsistency notifications list [GET]
+### Get Stock inconsistent notifications list [GET]
 Get a paginated notifications list. Events type supported: STOCK_INCONSISTENCY.
 
 + Request (application/json)
@@ -972,102 +972,225 @@ Get a paginated notifications list. Events type supported: STOCK_INCONSISTENCY.
 
 + Response 200 (application/json)
 
+        {  
+           "notifications":[  
+              {  
+                 "token":"45g65d4sdf5465sdf5",
+                 "type":"STOCK_INCONSISTENCY",
+                 "additionalData":{  
+                    "sku":{  
+                       "partnerId":"489764987",
+                       "worngAmount":2
+                    }
+                 },
+                 "events":[  
+                    {  
+                       "eventType":"readSku",
+                       "event":"https://www.sellercenter.api.ecosweb.com.br/rest/products/v1/468764584/skus/489764987",
+                       "additionalData":{  
+                          "product":{  
+                             "id":657486,
+                             "partnerId":"468764584",
+                             "sku":{  
+                                "id":"657486-P",
+                                "partnerId":"489764987",
+        
+                             }
+                          }
+                       }
+                    },
+                    {  
+                       "eventType":"updateStock",
+                       "event":"https://www.sellercenter.api.ecosweb.com.br/rest/stocks/v1/",
+                       "additionalData":{  
+                          "sku":{  
+                             "partnerId":"489764987",
+                             "quantity":12
+                          }
+                       }
+                    },
+                    {  
+                       "eventType":"markAsRead",
+                       "event":"https://www.sellercenter.api.ecosweb.com.br/rest/feed/v1/45g65d4sdf5465sdf5",
+                       "additionalData":{  
+                          "token":"45g65d4sdf5465sdf5"
+                       }
+                    }
+                 ]
+              },
+              {  
+                 "token":"45g65d4sdf5465sdf5",
+                 "type":"STOCK_INCONSISTENCY",
+                 "additionalData":{  
+                    "sku":{  
+                       "partnerId":"489764987",
+                       "worngAmount":2
+                    }
+                 },
+                 "events":[  
+                    {  
+                       "eventType":"readSku",
+                       "event":"https://www.sellercenter.api.ecosweb.com.br/rest/products/v1/468764584/skus/489764987",
+                       "additionalData":{  
+                          "product":{  
+                             "id":657486,
+                             "partnerId":"468764584",
+                             "sku":{  
+                                "id":"657486-P",
+                                "partnerId":"489764987",
+        
+                             }
+                          }
+                       }
+                    },
+                    {  
+                       "eventType":"updateStock",
+                       "event":"https://www.sellercenter.api.ecosweb.com.br/rest/stocks/v1/",
+                       "additionalData":{  
+                          "sku":{  
+                             "partnerId":"489764987",
+                             "quantity":12
+                          }
+                       }
+                    },
+                    {  
+                       "eventType":"markAsRead",
+                       "event":"https://www.sellercenter.api.ecosweb.com.br/rest/feed/v1/45g65d4sdf5465sdf5",
+                       "additionalData":{  
+                          "token":"45g65d4sdf5465sdf5"
+                       }
+                    }
+                 ]
+              }
+           ],
+           "page":{  
+              "size":4,
+              "totalElements":6,
+              "totalPages":3,
+              "number":1
+           }
+        }
+
+## Stock Notifications [/rest/feed/stock/v1{?offset,limit}]
+
++ Parameters
+    + offset (required, number, `1`) ... Paging position
+    + limit (number, optional)
+
+        A limit on the number of objects to be returned. Limit can range
+        between 1 and 100 items.
+
+        + Default: `10`
+
++ Attributes (object)
+    + notifications (Notifications)
+    + page (Page)
+
+
+### Get Stock notifications list [GET]
+Get a paginated notifications list. Events type supported: UPDATE_STOCK.
+
++ Request (application/json)
+    + Headers
+
+            Accept: application/json
+            Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE0Mzg4Mjc0NDN9.POonh-FngFnKeCgDfjjoemmF3Mt8HP2CThHwDLYuYnQ
+
++ Response 200 (application/json)
+
         {
-             "notifications": [
-               {
-                 "token": "45g65d4sdf5465sdf5",
-                 "type": "STOCK_INCONSISTENCY",
-                 "additionalData": { 
-                   "sku": {
-                     "partnerId" : "489764987",
-                     "worngAmount" : 2
-                   }
-                 },
-                 "events": [
-                   {
-                     "eventType": "readSku",
-                     "event": "https://www.sellercenter.api.ecosweb.com.br/rest/products/v1/468764584/skus/489764987",
-                     "additionalData": {
-                       "product" : {
-                           "id": 657486,
-                           "partnerId" : "468764584",
-                           "sku": 
-                             {
-                               "id": "657486-P",
-                               "partnerId": "489764987",
-                             }
-                        }
-                     }
-                   },
-                   {
-                     "eventType": "updateStock",
-                     "event": "https://www.sellercenter.api.ecosweb.com.br/rest/stocks/v1/",
-                     "additionalData": {
-                       "sku": {
-                           "partnerId": "489764987",
-                           "quantity" : 12
-                        }
-                     }
-                   },
-                   {
-                     "eventType": "markAsRead",
-                     "event": "https://www.sellercenter.api.ecosweb.com.br/rest/feed/v1/45g65d4sdf5465sdf5",
-                     "additionalData": {
-                       "token": "45g65d4sdf5465sdf5"
-                     }        
-                   }
-                 ]
-               },
-               {
-                 "token": "45g65d4sdf5465sdf5",
-                 "type": "STOCK_INCONSISTENCY",
-                 "additionalData": {
-                   "sku": {
-                     "partnerId" : "489764987",
-                     "worngAmount" : 2
-                   }
-                 },
-                 "events": [
-                   {
-                     "eventType": "readSku",
-                     "event": "https://www.sellercenter.api.ecosweb.com.br/rest/products/v1/468764584/skus/489764987",
-                     "additionalData": {
-                       "product" : {
-                           "id": 657486,
-                           "partnerId" : "468764584",
-                           "sku": {
-                               "id": "657486-P",
-                               "partnerId": "489764987",
-                             }
-                         }
-                     }
-                   },
-                   {
-                     "eventType": "updateStock",
-                     "event": "https://www.sellercenter.api.ecosweb.com.br/rest/stocks/v1/",
-                     "additionalData": {
-                       "sku": {
-                           "partnerId": "489764987",
-                           "quantity" : 12
-                         }
-                     }
-                   },
-                   {
-                     "eventType": "markAsRead",
-                     "event": "https://www.sellercenter.api.ecosweb.com.br/rest/feed/v1/45g65d4sdf5465sdf5",
-                     "additionalData": {
-                       "token": "45g65d4sdf5465sdf5"
-                     }        
-                   }
-                 ]
-               }
-             ],
-             "page": {
-               "size": 2,
-               "totalElements": 6,
-               "totalPages": 3,
-               "number": 1
+          "notifications": [
+            {
+              "token": "45g65d4sdf5465sdf5",
+              "type": "UPDATE_STOCK",
+              "additionalData": {
+                "updateStockID": 16579165,
+                "totalUpdateSKU": 1645,
+                "notFoundSku": [
+                  {
+                    "partnerId": "489764654"
+                  },
+                  {
+                    "partnerId": "489764965"
+                  },
+                  {
+                    "partnerId": "489764957"
+                  }
+                ]
+              },
+              "events": [
+                {
+                  "eventType": "markAsRead",
+                  "event": "https://www.sellercenter.api.ecosweb.com.br/rest/feed/v1/45g65d4sdf5465sdf5",
+                  "additionalData": {
+                    "token": "45g65d4sdf5465sdf5"
+                  }
+                }
+              ]
+            },
+            {
+              "token": "45g65d4sdf5465sdf5",
+              "type": "UPDATE_STOCK",
+              "additionalData": {
+                "updateStockID": 16579165,
+                "totalUpdateSKU": 1645,
+                "notFoundSku": [
+                  {
+                    "partnerId": "489764654"
+                  },
+                  {
+                    "partnerId": "489764965"
+                  },
+                  {
+                    "partnerId": "489764957"
+                  }
+                ]
+              },
+              "events": [
+                {
+                  "eventType": "markAsRead",
+                  "event": "https://www.sellercenter.api.ecosweb.com.br/rest/feed/v1/45g65d4sdf5465sdf5",
+                  "additionalData": {
+                    "token": "45g65d4sdf5465sdf5"
+                  }
+                }
+              ]
+            },
+            {
+              "token": "45g65d4sdf5465sdf5",
+              "type": "UPDATE_STOCK",
+              "additionalData": {
+                "updateStockID": 16579165,
+                "totalUpdateSKU": 1645,
+                "notFoundSku": [
+                  {
+                    "partnerId": "489764654"
+                  },
+                  {
+                    "partnerId": "489764965"
+                  },
+                  {
+                    "partnerId": "489764957"
+                  }
+                ]
+              },
+              "events": [
+                {
+                  "eventType": "markAsRead",
+                  "event": "https://www.sellercenter.api.ecosweb.com.br/rest/feed/v1/45g65d4sdf5465sdf5",
+                  "additionalData": {
+                    "token": "45g65d4sdf5465sdf5"
+                  }
+                }
+              ]
             }
+          ],
+          "page": {
+            "size": 3,
+            "totalElements": 6,
+            "totalPages": 3,
+            "number": 1
+          }
         }
 
 
