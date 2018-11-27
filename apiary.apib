@@ -56,7 +56,7 @@ Returns the Order details by Order number.
             "address": "Rua Sete de Setembro, 1069, 1º. Andar - Sala 10A - Edifício Dumóvel - 89.010-207 - Blumenau - SC ",
             "number": "1069",
             "neighborhood": "Centro",
-            "street": "Rua Sete de Setembro",
+            "street": "Rua Sete de Setembro", 
             "comment": "",
             "reference": "Sala 10A - Edifício Dumóvel",
             "zipCode": "89010207",
@@ -67,9 +67,9 @@ Returns the Order details by Order number.
             "name": "João",
             "document": "56786132006",
             "documentType": "CPF",
-            "phoneAreaCode": 47,
+            "dddPhone": 47,
             "phone": 33385566,
-            "cellPhoneAreaCode": 47
+            "dddCellPhone": 47
             "cellPhone": 988995566
           },
           "payments": {
@@ -174,9 +174,9 @@ Changing to this situation requires the following information: Tracking URL, Tra
             "name": "João",
             "document": "56786132006",
             "documentType": "CPF",
-            "phoneAreaCode": 47,
+            "dddPhone": 47,
             "phone": 33385566,
-            "cellPhoneAreaCode": 47
+            "dddCellPhone": 47
             "cellPhone": 988995566
           },
           "payments": {
@@ -279,9 +279,9 @@ It is the last situation of the request. Changing to this situation it is necess
             "name": "João",
             "document": "56786132006",
             "documentType": "CPF",
-            "phoneAreaCode": 47,
+            "dddPhone": 47,
             "phone": 33385566,
-            "cellPhoneAreaCode": 47
+            "dddCellPhone": 47
             "cellPhone": 988995566
           },
           "payments": {
@@ -382,9 +382,9 @@ Attribute canceledReason values, STOCK_UNAVAILABLE, DELIVERY_UNAVAILABLE or DELI
             "name": "João",
             "document": "56786132006",
             "documentType": "CPF",
-            "phoneAreaCode": 47,
+            "dddPhone": 47,
             "phone": 33385566,
-            "cellPhoneAreaCode": 47
+            "dddCellPhone": 47
             "cellPhone": 988995566
           },
           "payments": {
@@ -495,9 +495,9 @@ Changing to this situation is necessary to inform: note number, serial number, d
             "name": "João",
             "document": "56786132006",
             "documentType": "CPF",
-            "phoneAreaCode": 47,
+            "dddPhone": 47,
             "phone": 33385566,
-            "cellPhoneAreaCode": 47
+            "dddCellPhone": 47
             "cellPhone": 988995566
           },
           "payments": {
@@ -603,9 +603,9 @@ Changing to this situation requires the following information: List of canceled 
             "name": "João",
             "document": "56786132006",
             "documentType": "CPF",
-            "phoneAreaCode": 47,
+            "dddPhone": 47,
             "phone": 33385566,
-            "cellPhoneAreaCode": 47
+            "dddCellPhone": 47
             "cellPhone": 988995566
           },
           "payments": {
@@ -760,9 +760,9 @@ Returns the order details.
                     "name": "João",
                     "document": "56786132006",
                     "documentType": "CPF",
-                    "phoneAreaCode": 47,
+                    "dddPhone": 47,
                     "phone": 33385566,
-                    "cellPhoneAreaCode": 47
+                    "dddCellPhone": 47
                     "cellPhone": 988995566
                   },
                   "payments": {
@@ -1416,9 +1416,9 @@ Returns information about a SKU.
 
         Possibles values. CPF, CNPJ, OTHER
         
-+ o AreaCode (number) - Buyer's phone Area Code         
++ dddPhone (number) - Buyer's DDD phone Area Code         
 + phone (number) - Buyer's phone 
-+ cellPhoneAreaCode (number, optional) - Buyer's cellPhone Area Code
++ dddCellPhone (number, optional) - Buyer's DDD cellPhone Area Code
 + cellPhone (number, optional) - Buyer's cellphone
 
 ## OrderShippingAddressGet (object)
