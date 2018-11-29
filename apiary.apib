@@ -28,24 +28,25 @@ Returns the Order details by Order number.
             Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE0Mzg4Mjc0NDN9.POonh-FngFnKeCgDfjjoemmF3Mt8HP2CThHwDLYuYnQ
 
 + Response 200 (application/json)
-    + Attributes (Order by id)
+    
         {
           "id": 41432946,
           "partnerId": "",
           "createdAt": "2018-08-08T10:40:32Z",
           "paymentDate": "2018-08-08T10:40:32Z",
           "status": "PENDING",
-          "discount": 2.10,
+          "discount": 2.90,
           "freight": 9.90,
           "shippingtype": "NORMAL",
-          "gross": 60,
-          "total": 69.90,
+          "gross": 159.89,
+          "total": 166.89,
           "invoices": [
             {
                 "accessKey": "NFe35080599999090910270550010000000015180051273",
                 "series": "1",
                 "number": "35",
-                "date": "2018-08-08T10:40:32Z"
+                "date": "2018-08-08T10:40:32Z",
+                "value": 166.89
             }
           ],
           "shipping": {
@@ -55,9 +56,8 @@ Returns the Order details by Order number.
             "address": "Rua Sete de Setembro, 1069, 1º. Andar - Sala 10A - Edifício Dumóvel - 89.010-207 - Blumenau - SC ",
             "number": "1069",
             "neighborhood": "Centro",
-            "street": "Rua Sete de Setembro", 
-            "comment": "",
-            "reference": "Sala 10A - Edifício Dumóvel",
+            "street": "Rua Sete de Setembro",
+            "comment": "Sala 10A - Edifício Dumóvel",
             "zipCode": "89010207",
             "receiverName": "João",
             "promisedShippingTime": "2018-08-08T10:40:32Z"
@@ -76,20 +76,20 @@ Returns the Order details by Order number.
                 "id": 0,
                 "description": "CREDIT CARD"
               },
-              "value": 69.90,
+              "value": 166.89,
               "installments": 2,
               "marketplaceFee": 5.0
           },
           "items": [
             {
               "product": {
-                "id": 568898,
-                "title": "Vestido da moda"
+                "id": 5263430,
+                "title": "Tênis da Moda Cinza"
               },
-              "sku": {
-                "id": 568898,
-                "title": "Vestido da moda",
-                "partnerId": "F7778458"
+              "simpleSku": {
+                "id": 5263430M,
+                "title": "Tênis da Moda Cinza",
+                "partnerId": "6000641446"
               },
               "amount": 1,
               "unit": 69.90,
@@ -97,6 +97,23 @@ Returns the Order details by Order number.
               "total": 67.91,
               "discount": 1.99,
               "orderItemId": "1"
+            },
+            {
+              "product": {
+                "id": 1830320,
+                "title": "Sapato Peep Toe Listrado"
+              },
+              "simpleSku": {
+                "id": 183032039,
+                "title": "Sapato Peep Toe Listrado",
+                "partnerId": "4968641446",
+              },
+              "amount": 2,
+              "unit": 45.99,
+              "gross": 91.98,
+              "total": 91.98,
+              "discount": 0,
+              "orderItemId": "2"
             }
           ],
           "tracking": {
@@ -104,10 +121,12 @@ Returns the Order details by Order number.
             "number": "SP89598599",
             "carrier": "CORREIOS",
             "carrierDocument": "14317819000191",
-            "estimateDate": "2018-08-08T10:40:32Z",
+            "deliveredDate": "2018-08-17T10:40:32Z",
+            "estimateDate": "2018-08-15T10:40:32Z",
             "shippedDate": "2018-08-08T10:40:32Z"
           }
         }
+
 
 ### Update order status to Sent [PUT]
 Updates Order status by Order number to Sent. Body parameter `status` defines the new Order status.
@@ -134,24 +153,25 @@ Changing to this situation requires the following information: Tracking URL, Tra
             }
 
 + Response 200 (application/json)
-    + Attributes (Order by id)
+    
         {
           "id": 41432946,
           "partnerId": "",
           "createdAt": "2018-08-08T10:40:32Z",
           "paymentDate": "2018-08-08T10:40:32Z",
-          "status": "PENDING",
-          "discount": 2.10,
+          "status": "SENT",
+          "discount": 2.90,
           "freight": 9.90,
           "shippingtype": "NORMAL",
-          "gross": 60,
-          "total": 69.90,
+          "gross": 159.89,
+          "total": 166.89,
           "invoices": [
             {
                 "accessKey": "NFe35080599999090910270550010000000015180051273",
                 "series": "1",
                 "number": "35",
-                "date": "2018-08-08T10:40:32Z"
+                "date": "2018-08-08T10:40:32Z",
+                "value": 166.89
             }
           ],
           "shipping": {
@@ -162,8 +182,7 @@ Changing to this situation requires the following information: Tracking URL, Tra
             "number": "1069",
             "neighborhood": "Centro",
             "street": "Rua Sete de Setembro",
-            "comment": "",
-            "reference": "Sala 10A - Edifício Dumóvel",
+            "comment": "Sala 10A - Edifício Dumóvel",
             "zipCode": "89010207",
             "receiverName": "João",
             "promisedShippingTime": "2018-08-08T10:40:32Z"
@@ -182,20 +201,20 @@ Changing to this situation requires the following information: Tracking URL, Tra
                 "id": 0,
                 "description": "CREDIT CARD"
               },
-              "value": 69.90,
+              "value": 166.89,
               "installments": 2,
               "marketplaceFee": 5.0
           },
           "items": [
             {
               "product": {
-                "id": 568898,
-                "title": "Vestido da moda"
+                "id": 5263430,
+                "title": "Tênis da Moda Cinza"
               },
-              "sku": {
-                "id": 568898,
-                "title": "Vestido da moda",
-                "partnerId": "F7778458"
+              "simpleSku": {
+                "id": 5263430M,
+                "title": "Tênis da Moda Cinza",
+                "partnerId": "6000641446"
               },
               "amount": 1,
               "unit": 69.90,
@@ -203,6 +222,23 @@ Changing to this situation requires the following information: Tracking URL, Tra
               "total": 67.91,
               "discount": 1.99,
               "orderItemId": "1"
+            },
+            {
+              "product": {
+                "id": 1830320,
+                "title": "Sapato Peep Toe Listrado"
+              },
+              "simpleSku": {
+                "id": 183032039,
+                "title": "Sapato Peep Toe Listrado",
+                "partnerId": "4968641446",
+              },
+              "amount": 2,
+              "unit": 45.99,
+              "gross": 91.98,
+              "total": 91.98,
+              "discount": 0,
+              "orderItemId": "2"
             }
           ],
           "tracking": {
@@ -210,7 +246,7 @@ Changing to this situation requires the following information: Tracking URL, Tra
             "number": "SP89598599",
             "carrier": "CORREIOS",
             "carrierDocument": "14317819000191",
-            "estimateDate": "2018-08-08T10:40:32Z",
+            "estimateDate": "2018-08-15T10:40:32Z",
             "shippedDate": "2018-08-08T10:40:32Z"
           }
         }
@@ -234,28 +270,29 @@ It is the last situation of the request. Changing to this situation it is necess
                 "status": "DELIVERED",
                 "tracking": {
                     "deliveredDate": "2018-08-08T10:40:32Z"
-              }
             }
+            
 
 + Response 200 (application/json)
-    + Attributes (Order by id)
+    
         {
           "id": 41432946,
           "partnerId": "",
           "createdAt": "2018-08-08T10:40:32Z",
           "paymentDate": "2018-08-08T10:40:32Z",
-          "status": "PENDING",
-          "discount": 2.10,
+          "status": "DELIVERED",
+          "discount": 2.90,
           "freight": 9.90,
           "shippingtype": "NORMAL",
-          "gross": 60,
-          "total": 69.90,
+          "gross": 159.89,
+          "total": 166.89,
           "invoices": [
             {
                 "accessKey": "NFe35080599999090910270550010000000015180051273",
                 "series": "1",
                 "number": "35",
-                "date": "2018-08-08T10:40:32Z"
+                "date": "2018-08-08T10:40:32Z",
+                "value": 166.89
             }
           ],
           "shipping": {
@@ -266,8 +303,7 @@ It is the last situation of the request. Changing to this situation it is necess
             "number": "1069",
             "neighborhood": "Centro",
             "street": "Rua Sete de Setembro",
-            "comment": "",
-            "reference": "Sala 10A - Edifício Dumóvel",
+            "comment": "Sala 10A - Edifício Dumóvel",
             "zipCode": "89010207",
             "receiverName": "João",
             "promisedShippingTime": "2018-08-08T10:40:32Z"
@@ -286,20 +322,20 @@ It is the last situation of the request. Changing to this situation it is necess
                 "id": 0,
                 "description": "CREDIT CARD"
               },
-              "value": 69.90,
+              "value": 166.89,
               "installments": 2,
               "marketplaceFee": 5.0
           },
           "items": [
             {
               "product": {
-                "id": 568898,
-                "title": "Vestido da moda"
+                "id": 5263430,
+                "title": "Tênis da Moda Cinza"
               },
-              "sku": {
-                "id": 568898,
-                "title": "Vestido da moda",
-                "partnerId": "F7778458"
+              "simpleSku": {
+                "id": 5263430M,
+                "title": "Tênis da Moda Cinza",
+                "partnerId": "6000641446"
               },
               "amount": 1,
               "unit": 69.90,
@@ -307,6 +343,23 @@ It is the last situation of the request. Changing to this situation it is necess
               "total": 67.91,
               "discount": 1.99,
               "orderItemId": "1"
+            },
+            {
+              "product": {
+                "id": 1830320,
+                "title": "Sapato Peep Toe Listrado"
+              },
+              "simpleSku": {
+                "id": 183032039,
+                "title": "Sapato Peep Toe Listrado",
+                "partnerId": "4968641446",
+              },
+              "amount": 2,
+              "unit": 45.99,
+              "gross": 91.98,
+              "total": 91.98,
+              "discount": 0,
+              "orderItemId": "2"
             }
           ],
           "tracking": {
@@ -314,7 +367,8 @@ It is the last situation of the request. Changing to this situation it is necess
             "number": "SP89598599",
             "carrier": "CORREIOS",
             "carrierDocument": "14317819000191",
-            "estimateDate": "2018-08-08T10:40:32Z",
+            "deliveredDate": "2018-08-17T10:40:32Z",
+            "estimateDate": "2018-08-15T10:40:32Z",
             "shippedDate": "2018-08-08T10:40:32Z"
           }
         }
@@ -336,28 +390,29 @@ Attribute canceledReason values, STOCK_UNAVAILABLE, DELIVERY_UNAVAILABLE or DELI
     
             {
                 "status": "CANCELED",
-                "canceledReason": "STOCK_UNAVAILABLE"
+                "canceledReason": "DELIVERY_REFUSED"
             }
 
 + Response 200 (application/json)
-    + Attributes (Order by id)
+    
         {
           "id": 41432946,
           "partnerId": "",
           "createdAt": "2018-08-08T10:40:32Z",
           "paymentDate": "2018-08-08T10:40:32Z",
-          "status": "PENDING",
-          "discount": 2.10,
+          "status": "CANCELED",
+          "discount": 2.90,
           "freight": 9.90,
           "shippingtype": "NORMAL",
-          "gross": 60,
-          "total": 69.90,
+          "gross": 159.89,
+          "total": 166.89,
           "invoices": [
             {
                 "accessKey": "NFe35080599999090910270550010000000015180051273",
                 "series": "1",
                 "number": "35",
-                "date": "2018-08-08T10:40:32Z"
+                "date": "2018-08-08T10:40:32Z",
+                "value": 166.89
             }
           ],
           "shipping": {
@@ -368,8 +423,7 @@ Attribute canceledReason values, STOCK_UNAVAILABLE, DELIVERY_UNAVAILABLE or DELI
             "number": "1069",
             "neighborhood": "Centro",
             "street": "Rua Sete de Setembro",
-            "comment": "",
-            "reference": "Sala 10A - Edifício Dumóvel",
+            "comment": "Sala 10A - Edifício Dumóvel",
             "zipCode": "89010207",
             "receiverName": "João",
             "promisedShippingTime": "2018-08-08T10:40:32Z"
@@ -380,7 +434,7 @@ Attribute canceledReason values, STOCK_UNAVAILABLE, DELIVERY_UNAVAILABLE or DELI
             "documentType": "CPF",
             "dddPhone": 47,
             "phone": 33385566,
-            "dddCellPhone": 47
+            "dddCellPhone": 47,
             "cellPhone": 988995566
           },
           "payments": {
@@ -388,20 +442,20 @@ Attribute canceledReason values, STOCK_UNAVAILABLE, DELIVERY_UNAVAILABLE or DELI
                 "id": 0,
                 "description": "CREDIT CARD"
               },
-              "value": 69.90,
+              "value": 166.89,
               "installments": 2,
               "marketplaceFee": 5.0
           },
           "items": [
             {
               "product": {
-                "id": 568898,
-                "title": "Vestido da moda"
+                "id": 5263430,
+                "title": "Tênis da Moda Cinza"
               },
-              "sku": {
-                "id": 568898,
-                "title": "Vestido da moda",
-                "partnerId": "F7778458"
+              "simpleSku": {
+                "id": 5263430M,
+                "title": "Tênis da Moda Cinza",
+                "partnerId": "6000641446"
               },
               "amount": 1,
               "unit": 69.90,
@@ -409,15 +463,31 @@ Attribute canceledReason values, STOCK_UNAVAILABLE, DELIVERY_UNAVAILABLE or DELI
               "total": 67.91,
               "discount": 1.99,
               "orderItemId": "1"
+            },
+            {
+              "product": {
+                "id": 1830320,
+                "title": "Sapato Peep Toe Listrado"
+              },
+              "simpleSku": {
+                "id": 183032039,
+                "title": "Sapato Peep Toe Listrado",
+                "partnerId": "4968641446",
+              },
+              "amount": 2,
+              "unit": 45.99,
+              "gross": 91.98,
+              "total": 91.98,
+              "discount": 0,
+              "orderItemId": "2"
             }
           ],
           "tracking": {
             "url": "http://websro.correios.com.br/sro_bin",
             "number": "SP89598599",
             "carrier": "CORREIOS",
-            "date": "2018-08-08T10:40:32Z",
-            "deliveredDate": "2018-08-08T10:40:32Z",
-            "estimateDate": "2018-08-08T10:40:32Z",
+            "carrierDocument": "14317819000191",
+            "estimateDate": "2018-08-15T10:40:32Z",
             "shippedDate": "2018-08-08T10:40:32Z"
           }
         }
@@ -445,32 +515,31 @@ Changing to this situation is necessary to inform: note number, serial number, d
                         "series": "1",
                         "number": "35",
                         "date": "2018-08-08T10:40:32Z",
-                        "value": "110.39"
+                        "value": "166.89"
                     }
                 ]
             }
 
 + Response 200 (application/json)
-    + Attributes (Order by id)
     
         {
-          "id": 0,
+          "id": 41432946,
           "partnerId": "",
           "createdAt": "2018-08-08T10:40:32Z",
           "paymentDate": "2018-08-08T10:40:32Z",
-          "status": "PENDING",
-          "discount": 2.10,
+          "status": "INVOICED",
+          "discount": 2.90,
           "freight": 9.90,
           "shippingtype": "NORMAL",
-          "gross": 60,
-          "total": 69.90,
+          "gross": 159.89,
+          "total": 166.89,
           "invoices": [
             {
                 "accessKey": "NFe35080599999090910270550010000000015180051273",
                 "series": "1",
                 "number": "35",
                 "date": "2018-08-08T10:40:32Z",
-                "value": "110.39"
+                "value": 166.89
             }
           ],
           "shipping": {
@@ -481,8 +550,7 @@ Changing to this situation is necessary to inform: note number, serial number, d
             "number": "1069",
             "neighborhood": "Centro",
             "street": "Rua Sete de Setembro",
-            "comment": "",
-            "reference": "Sala 10A - Edifício Dumóvel",
+            "comment": "Sala 10A - Edifício Dumóvel",
             "zipCode": "89010207",
             "receiverName": "João",
             "promisedShippingTime": "2018-08-08T10:40:32Z"
@@ -493,28 +561,28 @@ Changing to this situation is necessary to inform: note number, serial number, d
             "documentType": "CPF",
             "dddPhone": 47,
             "phone": 33385566,
-            "dddCellPhone": 47
+            "dddCellPhone": 47,
             "cellPhone": 988995566
           },
           "payments": {
               "method": {
                 "id": 0,
                 "description": "CREDIT CARD"
-              }
-              "value": 69.90,
+              },
+              "value": 166.89,
               "installments": 2,
               "marketplaceFee": 5.0
           },
           "items": [
             {
               "product": {
-                "id": 568898,
-                "title": "Vestido da moda"
+                "id": 5263430,
+                "title": "Tênis da Moda Cinza"
               },
-              "sku": {
-                "id": 568898,
-                "title": "Vestido da moda",
-                "partnerId": "F7778458"
+              "simpleSku": {
+                "id": 5263430M,
+                "title": "Tênis da Moda Cinza",
+                "partnerId": "6000641446"
               },
               "amount": 1,
               "unit": 69.90,
@@ -522,17 +590,25 @@ Changing to this situation is necessary to inform: note number, serial number, d
               "total": 67.91,
               "discount": 1.99,
               "orderItemId": "1"
+            },
+            {
+              "product": {
+                "id": 1830320,
+                "title": "Sapato Peep Toe Listrado"
+              },
+              "simpleSku": {
+                "id": 183032039,
+                "title": "Sapato Peep Toe Listrado",
+                "partnerId": "4968641446",
+              },
+              "amount": 2,
+              "unit": 45.99,
+              "gross": 91.98,
+              "total": 91.98,
+              "discount": 0,
+              "orderItemId": "2"
             }
-          ],
-          "tracking": {
-            "url": "http://websro.correios.com.br/sro_bin",
-            "number": "SP89598599",
-            "carrier": "CORREIOS",
-            "date": "2018-08-08T10:40:32Z",
-            "deliveredDate": "2018-08-08T10:40:32Z",
-            "estimateDate": "2018-08-08T10:40:32Z",
-            "shippedDate": "2018-08-08T10:40:32Z"
-          }
+          ]
         }
 
 + Response 400 (application/json)
@@ -561,26 +637,18 @@ Changing to this situation requires the following information: List of canceled 
             }
 
 + Response 200 (application/json)
-    + Attributes (Order by id)
     
         {
-          "id": 0,
+          "id": 41432946,
           "partnerId": "",
           "createdAt": "2018-08-08T10:40:32Z",
           "paymentDate": "2018-08-08T10:40:32Z",
-          "status": "PENDING",
-          "discount": 2.10,
+          "status": "INTEGRATED",
+          "discount": 2.90,
           "freight": 9.90,
           "shippingtype": "NORMAL",
-          "gross": 60,
-          "total": 69.90,
-          "invoices": [{
-            "accessKey": "NFe35080599999090910270550010000000015180051273",
-            "series": "1",
-            "number": "35",
-            "date": "2018-08-08T10:40:32Z",
-            "value": "110.39"
-          }],
+          "gross": 159.89,
+          "total": 166.89,
           "shipping": {
             "city": "Blumenau",
             "state": "SC",
@@ -589,8 +657,7 @@ Changing to this situation requires the following information: List of canceled 
             "number": "1069",
             "neighborhood": "Centro",
             "street": "Rua Sete de Setembro",
-            "comment": "",
-            "reference": "Sala 10A - Edifício Dumóvel",
+            "comment": "Sala 10A - Edifício Dumóvel",
             "zipCode": "89010207",
             "receiverName": "João",
             "promisedShippingTime": "2018-08-08T10:40:32Z"
@@ -601,28 +668,28 @@ Changing to this situation requires the following information: List of canceled 
             "documentType": "CPF",
             "dddPhone": 47,
             "phone": 33385566,
-            "dddCellPhone": 47
+            "dddCellPhone": 47,
             "cellPhone": 988995566
           },
           "payments": {
               "method": {
                 "id": 0,
                 "description": "CREDIT CARD"
-              }
-              "value": 69.90,
+              },
+              "value": 166.89,
               "installments": 2,
               "marketplaceFee": 5.0
           },
           "items": [
             {
               "product": {
-                "id": 568898,
-                "title": "Vestido da moda"
+                "id": 5263430,
+                "title": "Tênis da Moda Cinza"
               },
-              "sku": {
-                "id": 568898,
-                "title": "Vestido da moda",
-                "partnerId": "F7778458"
+              "simpleSku": {
+                "id": 5263430M,
+                "title": "Tênis da Moda Cinza",
+                "partnerId": "6000641446"
               },
               "amount": 1,
               "unit": 69.90,
@@ -630,17 +697,25 @@ Changing to this situation requires the following information: List of canceled 
               "total": 67.91,
               "discount": 1.99,
               "orderItemId": "1"
+            },
+            {
+              "product": {
+                "id": 1830320,
+                "title": "Sapato Peep Toe Listrado"
+              },
+              "simpleSku": {
+                "id": 183032039,
+                "title": "Sapato Peep Toe Listrado",
+                "partnerId": "4968641446",
+              },
+              "amount": 2,
+              "unit": 45.99,
+              "gross": 91.98,
+              "total": 91.98,
+              "discount": 0,
+              "orderItemId": "2"
             }
-          ],
-          "tracking": {
-            "url": "http://websro.correios.com.br/sro_bin",
-            "number": "SP89598599",
-            "carrier": "CORREIOS",
-            "date": "2018-08-08T10:40:32Z",
-            "deliveredDate": "2018-08-08T10:40:32Z",
-            "estimateDate": "2018-08-08T10:40:32Z",
-            "shippedDate": "2018-08-08T10:40:32Z"
-          }
+          ]
         }
 
 + Response 400 (application/json)
@@ -716,28 +791,29 @@ Returns the order details.
             Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE0Mzg4Mjc0NDN9.POonh-FngFnKeCgDfjjoemmF3Mt8HP2CThHwDLYuYnQ
 
 + Response 200 (application/json)
-    + Attributes (Orders)
     
         {
             "content": [
                 {
-                  "id": 0,
-                  "partnerId": "string",
+                  "id": 41432946,
+                  "partnerId": "",
                   "createdAt": "2018-08-08T10:40:32Z",
                   "paymentDate": "2018-08-08T10:40:32Z",
                   "status": "PENDING",
-                  "discount": 2.10,
+                  "discount": 2.90,
                   "freight": 9.90,
                   "shippingtype": "NORMAL",
-                  "gross": 60,
-                  "total": 69.90,
-                  "invoices": [{
-                    "accessKey": "NFe35080599999090910270550010000000015180051273",
-                    "series": "1",
-                    "number": "35",
-                    "date": "2018-08-08T10:40:32Z",
-                    "value": "110.39"
-                  }],
+                  "gross": 159.89,
+                  "total": 166.89,
+                  "invoices": [
+                    {
+                        "accessKey": "NFe35080599999090910270550010000000015180051273",
+                        "series": "1",
+                        "number": "35",
+                        "date": "2018-08-08T10:40:32Z",
+                        "value": 166.89
+                    }
+                  ],
                   "shipping": {
                     "city": "Blumenau",
                     "state": "SC",
@@ -746,8 +822,7 @@ Returns the order details.
                     "number": "1069",
                     "neighborhood": "Centro",
                     "street": "Rua Sete de Setembro",
-                    "comment": "",
-                    "reference": "Sala 10A - Edifício Dumóvel",
+                    "comment": "Sala 10A - Edifício Dumóvel",
                     "zipCode": "89010207",
                     "receiverName": "João",
                     "promisedShippingTime": "2018-08-08T10:40:32Z"
@@ -758,28 +833,28 @@ Returns the order details.
                     "documentType": "CPF",
                     "dddPhone": 47,
                     "phone": 33385566,
-                    "dddCellPhone": 47
+                    "dddCellPhone": 47,
                     "cellPhone": 988995566
                   },
                   "payments": {
                       "method": {
                         "id": 0,
                         "description": "CREDIT CARD"
-                      }
-                      "value": 69.90,
+                      },
+                      "value": 166.89,
                       "installments": 2,
                       "marketplaceFee": 5.0
                   },
                   "items": [
                     {
                       "product": {
-                        "id": 568898,
-                        "title": "Vestido da moda"
+                        "id": 5263430,
+                        "title": "Tênis da Moda Cinza"
                       },
-                      "sku": {
-                        "id": 568898,
-                        "title": "Vestido da moda",
-                        "partnerId": "F7778458"
+                      "simpleSku": {
+                        "id": 5263430M,
+                        "title": "Tênis da Moda Cinza",
+                        "partnerId": "6000641446"
                       },
                       "amount": 1,
                       "unit": 69.90,
@@ -787,15 +862,32 @@ Returns the order details.
                       "total": 67.91,
                       "discount": 1.99,
                       "orderItemId": "1"
+                    },
+                    {
+                      "product": {
+                        "id": 1830320,
+                        "title": "Sapato Peep Toe Listrado"
+                      },
+                      "simpleSku": {
+                        "id": 183032039,
+                        "title": "Sapato Peep Toe Listrado",
+                        "partnerId": "4968641446",
+                      },
+                      "amount": 2,
+                      "unit": 45.99,
+                      "gross": 91.98,
+                      "total": 91.98,
+                      "discount": 0,
+                      "orderItemId": "2"
                     }
                   ],
                   "tracking": {
                     "url": "http://websro.correios.com.br/sro_bin",
                     "number": "SP89598599",
                     "carrier": "CORREIOS",
-                    "date": "2018-08-08T10:40:32Z",
-                    "deliveredDate": "2018-08-08T10:40:32Z",
-                    "estimateDate": "2018-08-08T10:40:32Z",
+                    "carrierDocument": "14317819000191",
+                    "deliveredDate": "2018-08-17T10:40:32Z",
+                    "estimateDate": "2018-08-15T10:40:32Z",
                     "shippedDate": "2018-08-08T10:40:32Z"
                   }
                 }
@@ -1274,32 +1366,37 @@ Returns all SKU from a product.
             
 
 + Response 200 (application/json)
-    + Attributes (SKUS)
     
         [
           {
             "id": "458896-P",
+            "productId" : 458896
             "title": "vestido de festa preto",
-            "partnerId": "99955861",
+            "partnerId": "600064144639",
+            "productPartnerId" : "6000641446",
             "ean": "7898357417892",
             "amount": 20,
             "price": 69.90
           },
           {
-            "id": "458896-M",
-            "title": "vestido de festa preto",
-            "partnerId": "99955862",
-            "ean": "7898357417892",
-            "amount": 10,
-            "price": 69.90
+            "id": "1830320-43",
+            "productId" : 1830320
+            "title": "Sapato Peep Toe ",
+            "partnerId": "600064144634",
+            "productPartnerId" : "6000641446",
+            "ean": "78983578989892",
+            "amount": 2,
+            "price": 48.90
           },
           {
-            "id": "458896-G",
-            "title": "vestido de festa preto",
-            "partnerId": "99955863",
-            "ean": "7898357417892",
-            "amount": 25,
-            "price": 69.90
+            "id": "2107828-P",
+            "productId" : 2107828
+            "title": "Ankle Boot",
+            "partnerId": "600064144636",
+            "productPartnerId" : "6000641446",
+            "ean": "7891227417892",
+            "amount": 5,
+            "price": 119.90
           }          
         ]
 
@@ -1326,12 +1423,13 @@ Returns information about a SKU.
             
 
 + Response 200 (application/json)
-    + Attributes (SKU)
     
           {
             "id": "458896-P",
+            "productId" : 458896
             "title": "vestido de festa preto",
-            "partnerId": "999558689",
+            "partnerId": "600064144639",
+            "productPartnerId" : "6000641446",
             "ean": "7898357417892",
             "amount": 20,
             "price": 69.90
@@ -1398,7 +1496,7 @@ Returns information about a SKU.
 + tracking (OrderTracking, optional) - Delivery data
 
 ## OrderInvoice (object)
-+ accessKey (string) - Invoice access key
++ accessKey: 76384bfdjbfjd783464834 (string) - Invoice access key
 + series (string) - Invoice serial number
 + number (string) - Invoice number
 + date: `2018-08-08T10:40:32Z` (string) - Date of invoice issue
@@ -1445,7 +1543,7 @@ Returns information about a SKU.
 
 ## OrderShippingItemGet (object)
 + product (SimpleProduct)
-+ sku (SimpleSku)
++ simpleSku (SimpleSku)
 + amount (number) - Item amount
 + unit (number) - Item price
 + gross (number) - Gross amount of the item (amount * unit)
