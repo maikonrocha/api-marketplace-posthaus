@@ -769,7 +769,11 @@ Returns the order details using the filters: createdAfter, status and customer C
     + createdAfter (required, string, `2018-08-08T10:40:32Z`) ... Order creation date
     + status (optional, string) ... Order status
     + cpf (optional, string) ... Document number - CPF
-    + offset (required, number, `1`) ... Paging position
+    + offset (optional, number) 
+        Paging position
+        
+        + Default: `1`
+        
     + limit (optional, number)
 
         A limit on the number of objects to be returned. Limit can range
@@ -941,7 +945,11 @@ If the notification won't be readed during 30 days, the SellerCenter is going to
 ## Order Notifications [/rest/feed/orders/v1/{?offset,limit}]
 
 + Parameters
-    + offset (required, number, `1`) ... Paging position
+    + j (optional, number) 
+        Paging position
+        
+        + Default: `1`
+        
     + limit (number, optional)
 
         A limit on the number of objects to be returned. Limit can range
@@ -1085,7 +1093,10 @@ Get a paginated notifications list. Events type supported: NEW_ORDER, AUTHORIZED
 ## Stock Inconsistent Notifications [/rest/feed/stock/inconsistent/v1{?offset,limit}]
 
 + Parameters
-    + offset (required, number, `1`) ... Paging position
+    + offset (optional, number) 
+        Paging position
+        
+        + Default: `1`
     + limit (number, optional)
 
         A limit on the number of objects to be returned. Limit can range
@@ -1211,7 +1222,10 @@ Get a paginated notifications list. Events type supported: STOCK_INCONSISTENCY.
 ## Stock Notifications [/rest/feed/stock/v1{?offset,limit}]
 
 + Parameters
-    + offset (required, number, `1`) ... Paging position
+    + offset (optional, number) 
+        Paging position
+        
+        + Default: `1`
     + limit (number, optional)
 
         A limit on the number of objects to be returned. Limit can range
