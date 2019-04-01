@@ -38,7 +38,8 @@ Returns the Order details by Order number.
           "discount": 2.90,
           "freight": 9.90,
           "freightCarrier": "CORREIOS",
-          "shippingtype": "NORMAL",
+          "freightEstimateDate": "2018-08-08T10:40:32Z",
+          "shippingType": "NORMAL",
           "gross": 159.89,
           "total": 166.89,
           "invoices": [
@@ -164,7 +165,8 @@ Changing to this situation requires the following information: Tracking URL, Tra
           "discount": 2.90,
           "freight": 9.90,
           "freightCarrier": "CORREIOS",
-          "shippingtype": "NORMAL",
+          "freightEstimateDate": "2018-08-08T10:40:32Z",
+          "shippingType": "NORMAL",
           "gross": 159.89,
           "total": 166.89,
           "invoices": [
@@ -287,7 +289,8 @@ It is the last situation of the request. Changing to this situation it is necess
           "discount": 2.90,
           "freight": 9.90,
           "freightCarrier": "CORREIOS",
-          "shippingtype": "NORMAL",
+          "freightEstimateDate": "2018-08-08T10:40:32Z",
+          "shippingType": "NORMAL",
           "gross": 159.89,
           "total": 166.89,
           "invoices": [
@@ -408,7 +411,8 @@ Attribute canceledReason values, STOCK_UNAVAILABLE, DELIVERY_UNAVAILABLE or DELI
           "discount": 2.90,
           "freight": 9.90,
           "freightCarrier": "CORREIOS",
-          "shippingtype": "NORMAL",
+          "freightEstimateDate": "2018-08-08T10:40:32Z",
+          "shippingType": "NORMAL",
           "gross": 159.89,
           "total": 166.89,
           "invoices": [
@@ -536,7 +540,8 @@ Changing to this situation is necessary to inform: note number, serial number, d
           "discount": 2.90,
           "freight": 9.90,
           "freightCarrier": "CORREIOS",
-          "shippingtype": "NORMAL",
+          "freightEstimateDate": "2018-08-08T10:40:32Z",
+          "shippingType": "NORMAL",
           "gross": 159.89,
           "total": 166.89,
           "invoices": [
@@ -653,7 +658,8 @@ Changing to this situation requires the following information: List of canceled 
           "discount": 2.90,
           "freight": 9.90,
           "freightCarrier": "CORREIOS",
-          "shippingtype": "NORMAL",
+          "freightEstimateDate": "2018-08-08T10:40:32Z",
+          "shippingType": "NORMAL",
           "gross": 159.89,
           "total": 166.89,
           "shipping": {
@@ -814,7 +820,8 @@ Returns the order details.
                   "discount": 2.90,
                   "freight": 9.90,
                   "freightCarrier": "CORREIOS",
-                  "shippingtype": "NORMAL",
+                  "freightEstimateDate": "2018-08-08T10:40:32Z",
+                  "shippingType": "NORMAL",
                   "gross": 159.89,
                   "total": 166.89,
                   "invoices": [
@@ -1549,7 +1556,8 @@ Returns information about a SKU.
 + discount (number, required) - Order discount
 + freight (number, required) - Freight value
 + freightCarrier (string, required) - Freight Carrier utilized on freight rate
-+ shippingtype (string, required) - Shipping method selected by customer
++ freightEstimateDate: `2018-08-08T10:40:32Z` (string, required) - Freight estimate date to deliver
++ shippingType (string, required) - Shipping method selected by customer
 + gross (number, required) - Gross total without the freight value
 + total (number, required) - Total order with the freight value
 + invoices (array[OrderInvoice], optional) - Invoice data
