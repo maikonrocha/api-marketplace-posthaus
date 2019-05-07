@@ -7,6 +7,525 @@ This API intends to integrate the data between the Posthaus Marketplace Platform
 
 **Note:** Non-mandatory attributes and parameters will be identified with the "optional".
 
+# Group Brand
+It will be used to read Brands in Maketplace Posthaus.
+
+## Brands [/rest/brands/v1/]
+
++ Attributes (object)
+    + brands (array[Brand])
+
+
+### Read Brands [GET]
+Returns all brands recorded.
+
++ Request (application/json)
+    + Headers
+
+            Accept: application/json
+            Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE0Mzg4Mjc0NDN9.POonh-FngFnKeCgDfjjoemmF3Mt8HP2CThHwDLYuYnQ
+            
+
++ Response 200 (application/json)
+    
+        [
+          {
+            "id": 1234,
+            "partnerId": "TR6757",
+            "name": "Marca exemplo"
+           },
+          {
+            "id": 889,
+            "partnerId": "TR6757EX",
+            "name": "Teste"
+          }
+        ]
+
+# Group Category
+It will be used to read Categories registered in Maketplace Posthaus and to know which Seller's categories they are associated with.
+
+## Categories [/rest/categories/v1/]
+
++ Attributes (object)
+    + categories (array[Category])
+
+
+### Read Categories [GET]
+Returns the registered Marketplace's categories with the associated Seller's categories.
+
++ Request (application/json)
+    + Headers
+    
+            Accept: application/json
+            Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE0Mzg4Mjc0NDN9.POonh-FngFnKeCgDfjjoemmF3Mt8HP2CThHwDLYuYnQ
+            
+
++ Response 200 (application/json)
+    
+        [
+          {
+            "id": 1,
+            "partnerId": "Cat.Fem.",
+            "name": "Moda Feminina",
+            "subCategory":
+            {
+              "id": 10,
+              "partnerId": "1.Ves",
+              "name": "Vestidos"
+            },
+            "subClass":
+            {
+              "id": 1,
+              "partnerId": "Vestido Curto",
+              "name": "Vestido Curto"
+            }
+          }
+        ]
+
+# Group Colors
+It will be used to read all product colors in Maketplace Posthaus.
+
+## Colors [/rest/colors/v1/]
+
++ Attributes (object)
+    + colors (array[PredominantColor])
+
+
+### Read Color [GET]
+Returns all product colors available.
+
++ Request (application/json)
+    + Headers
+
+            Accept: application/json
+            Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE0Mzg4Mjc0NDN9.POonh-FngFnKeCgDfjjoemmF3Mt8HP2CThHwDLYuYnQ
+            
+
++ Response 200 (application/json)
+    
+        [
+          {
+            "name": "Preto",
+          },
+          {
+            "name": "Branco",
+          },
+          {
+            "name": "Amarelo",
+          }
+        ]        
+
+
+#Group Notifications
+The Marketplace Posthaus add notifications into a queue, the queue order is from the oldest to the newest notification added.
+These GET service is going to return the oldest notification, after these notification is going to mark as readed, the next notification is going to be avaliable to GET. 
+
+If the notification won't be readed during 30 days, the SellerCenter is going to automatically mark as read it.
+
+## Order Notifications [/rest/feed/orders/v1/{?offset,limit}]
+
++ Parameters
+    + offset (optional, number) 
+        Paging position
+        
+        + Default: `1`
+        
+    + limit (number, optional)
+
+        A limit on the number of objects to be returned. Limit can range
+        between 1 and 100 items.
+    
+        + Default: `100`
+
++ Attributes (object)
+    + notifications (NotificationsWithPartnerId)
+    + page (Page)
+
+
+### Get order notifications list [GET]
+Get a paginated notifications list. Events type supported: NEW_ORDER, AUTHORIZED and CANCELED.
+
++ Request (application/json)
+    + Headers
+
+            Accept: application/json
+            Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE0Mzg4Mjc0NDN9.POonh-FngFnKeCgDfjjoemmF3Mt8HP2CThHwDLYuYnQ
+
++ Response 200 (application/json)
+
+        {
+          "notifications": [
+            {
+              "token": "45g65d4sdf5465sdf5",
+              "type": "NEW_ORDER",
+              "additionalData": {
+                "orderId": 45687920
+              },
+              "events": [
+                {
+                  "eventType": "getOrder",
+                  "event": "https://www.sellercenter.api.ecosweb.com.br/rest/orders/v1/45687920",
+                  "additionalData": {
+                    "orderId": 45687920
+                  }
+                },
+                {
+                  "eventType": "markAsRead",
+                  "event": "https://www.sellercenter.api.ecosweb.com.br/rest/feed/v1/45g65d4sdf5465sdf5",
+                  "additionalData": {
+                    "token": "45g65d4sdf5465sdf5"
+                  }        
+                },
+                {
+                    "eventType": "integrate",
+                    "event": "https://www.sellercenter.api.ecosweb.com.br/rest/orders/v1/41432894",
+                    "additionalData": {
+                        "orderId": 45687920
+                    }
+                },
+                {
+                    "eventType": "cancel",
+                    "event": "https://www.sellercenter.api.ecosweb.com.br/rest/orders/v1/41432894",
+                    "additionalData": {
+                        "orderId": 45687920
+                    }
+                }
+              ]
+            },
+            {
+              "token": "45g65d4sdf5465sdrr",
+              "type": "CANCELED",
+              "additionalData": {
+                "orderId": 45687918
+              },
+              "events": [
+                {
+                  "eventType": "getOrder",
+                  "event": "https://www.sellercenter.api.ecosweb.com.br/rest/orders/v1/45687918",
+                  "additionalData": {
+                    "orderId": 45687918
+                  }
+                },
+                {
+                  "eventType": "markAsRead",
+                  "event": "https://www.sellercenter.api.ecosweb.com.br/rest/feed/v1/45g65d4sdf5465sdrr",
+                  "additionalData": {
+                    "token": "45g65d4sdf5465sdrr"
+                  }        
+                }
+              ]
+            },
+            {
+              "token": "33g65d4sdf5465sdf5",
+              "type": "AUTHORIZED",
+              "additionalData": {
+                "orderId": 45687921,
+                "partnerId": "9045687921"
+              },
+              "events": [
+                {
+                  "eventType": "getOrder",
+                  "event": "https://www.sellercenter.api.ecosweb.com.br/rest/orders/v1/45687921",
+                  "additionalData": {
+                    "orderId": 45687921
+                  }
+                },
+                {
+                  "eventType": "markAsRead",
+                  "event": "https://www.sellercenter.api.ecosweb.com.br/rest/feed/v1/33g65d4sdf5465sdf5",
+                  "additionalData": {
+                    "token": "33g65d4sdf5465sdf5"
+                  }        
+                },
+                {
+                    "eventType": "invoice",
+                    "event": "https://www.sellercenter.api.ecosweb.com.br/rest/orders/v1/41432926",
+                    "additionalData": {
+                        "orderId": 45687921
+                    }
+                },
+                {
+                    "eventType": "cancel",
+                    "event": "https://www.sellercenter.api.ecosweb.com.br/rest/orders/v1/41432926",
+                    "additionalData": {
+                        "orderId": 45687921
+                    }
+                },
+                {
+                    "eventType": "orderItemCancel",
+                    "event": "https://www.sellercenter.api.ecosweb.com.br/rest/orders/v1/41432926/cancelation/",
+                    "additionalData": {
+                        "orderId": 45687921
+                    }
+                }
+              ]
+            }            
+          ],
+          "page": {
+            "size": 3,
+            "totalElements": 6,
+            "totalPages": 3,
+            "number": 1
+          }
+
+        }
+
+
+## Stock Inconsistent Notifications [/rest/feed/stock/inconsistent/v1{?offset,limit}]
+
++ Parameters
+    + offset (optional, number) 
+        Paging position
+        
+        + Default: `1`
+    + limit (number, optional)
+
+        A limit on the number of objects to be returned. Limit can range
+        between 1 and 100 items.
+
+        + Default: `100`
+
++ Attributes (object)
+    + notifications (Notifications)
+    + page (Page)
+
+
+### Get Stock inconsistent notifications list [GET]
+Get a paginated notifications list. Events type supported: STOCK_INCONSISTENCY.
+
++ Request (application/json)
+    + Headers
+
+            Accept: application/json
+            Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE0Mzg4Mjc0NDN9.POonh-FngFnKeCgDfjjoemmF3Mt8HP2CThHwDLYuYnQ
+
++ Response 200 (application/json)
+
+        {  
+           "notifications":[  
+              {  
+                 "token":"45g65d4sdf5465sdf5",
+                 "type":"STOCK_INCONSISTENCY",
+                 "additionalData":{  
+                    "sku":{  
+                       "partnerId":"489764987",
+                       "worngAmount":2
+                    }
+                 },
+                 "events":[  
+                    {  
+                       "eventType":"readSku",
+                       "event":"https://www.sellercenter.api.ecosweb.com.br/rest/products/v1/468764584/skus/489764987",
+                       "additionalData":{  
+                          "product":{  
+                             "id":657486,
+                             "partnerId":"468764584",
+                             "sku":{  
+                                "id":"657486-P",
+                                "partnerId":"489764987",
+        
+                             }
+                          }
+                       }
+                    },
+                    {  
+                       "eventType":"updateStock",
+                       "event":"https://www.sellercenter.api.ecosweb.com.br/rest/stocks/v1/",
+                       "additionalData":{  
+                          "sku":{  
+                             "partnerId":"489764987",
+                             "quantity":12
+                          }
+                       }
+                    },
+                    {  
+                       "eventType":"markAsRead",
+                       "event":"https://www.sellercenter.api.ecosweb.com.br/rest/feed/v1/45g65d4sdf5465sdf5",
+                       "additionalData":{  
+                          "token":"45g65d4sdf5465sdf5"
+                       }
+                    }
+                 ]
+              },
+              {  
+                 "token":"45g65d4sdf5465sdf5",
+                 "type":"STOCK_INCONSISTENCY",
+                 "additionalData":{  
+                    "sku":{  
+                       "partnerId":"489764987",
+                       "worngAmount":2
+                    }
+                 },
+                 "events":[  
+                    {  
+                       "eventType":"readSku",
+                       "event":"https://www.sellercenter.api.ecosweb.com.br/rest/products/v1/468764584/skus/489764987",
+                       "additionalData":{  
+                          "product":{  
+                             "id":657486,
+                             "partnerId":"468764584",
+                             "sku":{  
+                                "id":"657486-P",
+                                "partnerId":"489764987",
+        
+                             }
+                          }
+                       }
+                    },
+                    {  
+                       "eventType":"updateStock",
+                       "event":"https://www.sellercenter.api.ecosweb.com.br/rest/stocks/v1/",
+                       "additionalData":{  
+                          "sku":{  
+                             "partnerId":"489764987",
+                             "quantity":12
+                          }
+                       }
+                    },
+                    {  
+                       "eventType":"markAsRead",
+                       "event":"https://www.sellercenter.api.ecosweb.com.br/rest/feed/v1/45g65d4sdf5465sdf5",
+                       "additionalData":{  
+                          "token":"45g65d4sdf5465sdf5"
+                       }
+                    }
+                 ]
+              }
+           ],
+           "page":{  
+              "size":4,
+              "totalElements":6,
+              "totalPages":3,
+              "number":1
+           }
+        }
+
+## Stock Notifications [/rest/feed/stock/v1{?offset,limit}]
+
++ Parameters
+    + offset (optional, number) 
+        Paging position
+        
+        + Default: `1`
+    + limit (number, optional)
+
+        A limit on the number of objects to be returned. Limit can range
+        between 1 and 100 items.
+
+        + Default: `100`
+
++ Attributes (object)
+    + notifications (Notifications)
+    + page (Page)
+
+
+### Get Stock notifications list [GET]
+Get a paginated notifications list. Events type supported: UPDATE_STOCK.
+
++ Request (application/json)
+    + Headers
+
+            Accept: application/json
+            Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE0Mzg4Mjc0NDN9.POonh-FngFnKeCgDfjjoemmF3Mt8HP2CThHwDLYuYnQ
+
++ Response 200 (application/json)
+
+        {
+          "notifications": [
+            {
+              "token": "45g65d4sdf5465sdf5",
+              "type": "UPDATE_STOCK",
+              "additionalData": {
+                "updateStockID": "1f94f503-84b4-484b-bf3c-d9a329a68707",
+                "totalUpdateSKU": 1645,
+                "notFoundSkusId": [
+                    "489764654",
+                    "489764965",
+                    "489764957"
+                ]
+              },
+              "events": [
+                {
+                  "eventType": "markAsRead",
+                  "event": "https://www.sellercenter.api.ecosweb.com.br/rest/feed/v1/45g65d4sdf5465sdf5",
+                  "additionalData": {
+                    "token": "45g65d4sdf5465sdf5"
+                  }
+                }
+              ]
+            },
+            {
+              "token": "45g65d4sdf5465sdf5",
+              "type": "UPDATE_STOCK",
+              "additionalData": {
+                "updateStockID": "1f94f503-84b4-484b-bf3c-d9a329a68707",
+                "totalUpdateSKU": 1645,
+                "notFoundSkusId": [
+                          "489764654",
+                          "489764965",
+                          "489764957"
+                ]
+              },
+              "events": [
+                {
+                  "eventType": "markAsRead",
+                  "event": "https://www.sellercenter.api.ecosweb.com.br/rest/feed/v1/45g65d4sdf5465sdf5",
+                  "additionalData": {
+                    "token": "45g65d4sdf5465sdf5"
+                  }
+                }
+              ]
+            },
+            {
+              "token": "45g65d4sdf5465sdf5",
+              "type": "UPDATE_STOCK",
+              "additionalData": {
+                "updateStockID": "1f94f503-84b4-484b-bf3c-d9a329a68707",
+                "totalUpdateSKU": 1645,
+                "notFoundSkusId": [
+                    "489764654",
+                    "489764965",
+                    "489764957"
+                ]
+              },
+              "events": [
+                {
+                  "eventType": "markAsRead",
+                  "event": "https://www.sellercenter.api.ecosweb.com.br/rest/feed/v1/45g65d4sdf5465sdf5",
+                  "additionalData": {
+                    "token": "45g65d4sdf5465sdf5"
+                  }
+                }
+              ]
+            }
+          ],
+          "page": {
+            "size": 3,
+            "totalElements": 6,
+            "totalPages": 3,
+            "number": 1
+          }
+        }
+
+
+## Mark as read notification [/rest/feed/v1/{token}]
+
+### Mark as read notification [PUT]
+Mark as read a notification.
+
++ Parameters
+    + token (required, string, `45g65d4sdf5465sdf5`) ... Token
+
++ Request (application/json)
+
+    + Headers
+
+            Accept: application/json
+            Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE0Mzg4Mjc0NDN9.POonh-FngFnKeCgDfjjoemmF3Mt8HP2CThHwDLYuYnQ
+
++ Response 204
+
+
 # Group Order
 It will be used to read information about Orders in Posthaus.
 
@@ -950,13 +1469,112 @@ Requests the cancellation of items of a Order.
 + Response 204 (application/json)
 
 
-#Group Notifications
-The Marketplace Posthaus add notifications into a queue, the queue order is from the oldest to the newest notification added.
-These GET service is going to return the oldest notification, after these notification is going to mark as readed, the next notification is going to be avaliable to GET. 
+# Group Product
+It will be used to read information about Products in Posthaus.
 
-If the notification won't be readed during 30 days, the SellerCenter is going to automatically mark as read it.
+## Product [/rest/products/v1/]
 
-## Order Notifications [/rest/feed/orders/v1/{?offset,limit}]
++ Attributes (object)
+    + product (FullProduct)
+
+### Create a Product [POST]
+Create a Product.
+
++ Request (application/json)
+
+    + Headers
+
+            Accept: application/json
+            Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE0Mzg4Mjc0NDN9.POonh-FngFnKeCgDfjjoemmF3Mt8HP2CThHwDLYuYnQ
+
+    + Body         
+
+            {
+                "productGroupId": "313503",
+                "productGroupPartnerId": "489764",
+                "brand": {
+                  "id": 1234,
+                  "partnerId": "TR6757"
+                },
+                "title": "VESTIDO DE TRICÔ OMBRO A OMBRO",
+                "description": "Vestido com decote ombro a ombro. Confeccionado em malha de tricô de algodão. Com mangas raglan e comprimento alongado.",
+                "gender": "F",
+                "ageGroup": "A",
+                "color": {
+                  "productPartnerId": "6000641446",
+                  "colorName": "Café",
+                  "predominantColor": {
+                    "name": "Marrom"
+                  },
+                  "skus": [
+                    {
+                      "partnerId": "489764987",
+                      "ean": "7898357417892",
+                      "price": 169.90,
+                      "sellPrice": 159.90,
+                      "size": "P"
+                    },
+                    {
+                      "partnerId": "489764988",
+                      "ean": "7898357417982",
+                      "price": 169.90,
+                      "sellPrice": 159.90,
+                      "size": "M"
+                    }
+                  ]
+                },
+                "height": 30,
+                "width": 30,
+                "length": 30,
+                "weight": 32,
+                "collection": "Inverno 2020",
+                "characteristics": [
+                  {
+                    "name": "Medida ombro",
+                    "value": "32cm"
+                  }
+                ],
+                "images": [
+                  {
+                    "index": 1
+                    "url": "https://cdn.seusite.com.br/foto/vestido-preto-com-decote-transpassado_124341.jpg"
+                  },
+                  {
+                    "index": 2
+                    "url": "https://cdn.seusite.com.br/foto/vestido-preto-com-decote-transpassado_124342.jpg"
+                  },
+                  {
+                    "index": 3
+                    "url": "https://cdn.seusite.com.br/foto/vestido-preto-com-decote-transpassado_124343.jpg"
+                  }              
+                ],
+                "category": {
+                  "id": 1,
+                  "partnerId": "Cat.Fem.",
+                  "name": "Moda Feminina",
+                  "subCategory":
+                  {
+                    "id": 10,
+                    "partnerId": "1.Ves",
+                    "name": "Vestidos"
+                  },
+                  "subClass":
+                  {
+                    "id": 1,
+                    "partnerId": "Vestido Curto",
+                    "name": "Vestido Curto"
+                  }
+                }
+            }
+
++ Response 200 (application/json)
+
+        {
+            "createProductID": "1f94f503-84b4-484b-bf3c-d9a329a61111",
+            "message": "The product is going to be created asynchronously."
+        }
+
+## Products [/rest/products/v1/{?offset,limit}]
 
 + Parameters
     + offset (optional, number) 
@@ -972,289 +1590,237 @@ If the notification won't be readed during 30 days, the SellerCenter is going to
         + Default: `100`
 
 + Attributes (object)
-    + notifications (NotificationsWithPartnerId)
-    + page (Page)
-
-
-### Get order notifications list [GET]
-Get a paginated notifications list. Events type supported: NEW_ORDER, AUTHORIZED and CANCELED.
+    + products (array[FullProduct])
+    
+### Read Products [GET]
+Returns the products details.
 
 + Request (application/json)
     + Headers
 
             Accept: application/json
             Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE0Mzg4Mjc0NDN9.POonh-FngFnKeCgDfjjoemmF3Mt8HP2CThHwDLYuYnQ
+            
 
 + Response 200 (application/json)
-
-        {
-          "notifications": [
-            {
-              "token": "45g65d4sdf5465sdf5",
-              "type": "NEW_ORDER",
-              "additionalData": {
-                "orderId": 45687920
+    
+        [
+          {
+            "productGroupId": "313503",
+            "productGroupPartnerId": "489764",
+            "brand": {
+              "id": 1234,
+              "partnerId": "TR6757"
+            },
+            "title": "VESTIDO DE TRICÔ OMBRO A OMBRO",
+            "description": "Vestido com decote ombro a ombro. Confeccionado em malha de tricô de algodão. Com mangas raglan e comprimento alongado.",
+            "gender": "F",
+            "ageGroup": "A",
+            "color": {
+              "productPartnerId": "6000641446",
+              "colorName": "Café",
+              "predominantColor": {
+                "name": "Marrom"
               },
-              "events": [
+              "skus": [
                 {
-                  "eventType": "getOrder",
-                  "event": "https://www.sellercenter.api.ecosweb.com.br/rest/orders/v1/45687920",
-                  "additionalData": {
-                    "orderId": 45687920
-                  }
+                  "partnerId": "489764987",
+                  "ean": "7898357417892",
+                  "price": 169.90,
+                  "sellPrice": 159.90,
+                  "size": "P"
                 },
                 {
-                  "eventType": "markAsRead",
-                  "event": "https://www.sellercenter.api.ecosweb.com.br/rest/feed/v1/45g65d4sdf5465sdf5",
-                  "additionalData": {
-                    "token": "45g65d4sdf5465sdf5"
-                  }        
-                },
-                {
-                    "eventType": "integrate",
-                    "event": "https://www.sellercenter.api.ecosweb.com.br/rest/orders/v1/41432894",
-                    "additionalData": {
-                        "orderId": 45687920
-                    }
-                },
-                {
-                    "eventType": "cancel",
-                    "event": "https://www.sellercenter.api.ecosweb.com.br/rest/orders/v1/41432894",
-                    "additionalData": {
-                        "orderId": 45687920
-                    }
+                  "partnerId": "489764988",
+                  "ean": "7898357417982",
+                  "price": 169.90,
+                  "sellPrice": 159.90,
+                  "size": "M"
                 }
               ]
             },
-            {
-              "token": "45g65d4sdf5465sdrr",
-              "type": "CANCELED",
-              "additionalData": {
-                "orderId": 45687918
-              },
-              "events": [
-                {
-                  "eventType": "getOrder",
-                  "event": "https://www.sellercenter.api.ecosweb.com.br/rest/orders/v1/45687918",
-                  "additionalData": {
-                    "orderId": 45687918
-                  }
-                },
-                {
-                  "eventType": "markAsRead",
-                  "event": "https://www.sellercenter.api.ecosweb.com.br/rest/feed/v1/45g65d4sdf5465sdrr",
-                  "additionalData": {
-                    "token": "45g65d4sdf5465sdrr"
-                  }        
-                }
-              ]
-            },
-            {
-              "token": "33g65d4sdf5465sdf5",
-              "type": "AUTHORIZED",
-              "additionalData": {
-                "orderId": 45687921,
-                "partnerId": "9045687921"
-              },
-              "events": [
-                {
-                  "eventType": "getOrder",
-                  "event": "https://www.sellercenter.api.ecosweb.com.br/rest/orders/v1/45687921",
-                  "additionalData": {
-                    "orderId": 45687921
-                  }
-                },
-                {
-                  "eventType": "markAsRead",
-                  "event": "https://www.sellercenter.api.ecosweb.com.br/rest/feed/v1/33g65d4sdf5465sdf5",
-                  "additionalData": {
-                    "token": "33g65d4sdf5465sdf5"
-                  }        
-                },
-                {
-                    "eventType": "invoice",
-                    "event": "https://www.sellercenter.api.ecosweb.com.br/rest/orders/v1/41432926",
-                    "additionalData": {
-                        "orderId": 45687921
-                    }
-                },
-                {
-                    "eventType": "cancel",
-                    "event": "https://www.sellercenter.api.ecosweb.com.br/rest/orders/v1/41432926",
-                    "additionalData": {
-                        "orderId": 45687921
-                    }
-                },
-                {
-                    "eventType": "orderItemCancel",
-                    "event": "https://www.sellercenter.api.ecosweb.com.br/rest/orders/v1/41432926/cancelation/",
-                    "additionalData": {
-                        "orderId": 45687921
-                    }
-                }
-              ]
-            }            
-          ],
-          "page": {
-            "size": 3,
-            "totalElements": 6,
-            "totalPages": 3,
-            "number": 1
-          }
-
-        }
-
-
-## Stock Inconsistent Notifications [/rest/feed/stock/inconsistent/v1{?offset,limit}]
-
-+ Parameters
-    + offset (optional, number) 
-        Paging position
-        
-        + Default: `1`
-    + limit (number, optional)
-
-        A limit on the number of objects to be returned. Limit can range
-        between 1 and 100 items.
-
-        + Default: `100`
-
-+ Attributes (object)
-    + notifications (Notifications)
-    + page (Page)
-
-
-### Get Stock inconsistent notifications list [GET]
-Get a paginated notifications list. Events type supported: STOCK_INCONSISTENCY.
-
-+ Request (application/json)
-    + Headers
-
-            Accept: application/json
-            Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE0Mzg4Mjc0NDN9.POonh-FngFnKeCgDfjjoemmF3Mt8HP2CThHwDLYuYnQ
-
-+ Response 200 (application/json)
-
-        {  
-           "notifications":[  
-              {  
-                 "token":"45g65d4sdf5465sdf5",
-                 "type":"STOCK_INCONSISTENCY",
-                 "additionalData":{  
-                    "sku":{  
-                       "partnerId":"489764987",
-                       "worngAmount":2
-                    }
-                 },
-                 "events":[  
-                    {  
-                       "eventType":"readSku",
-                       "event":"https://www.sellercenter.api.ecosweb.com.br/rest/products/v1/468764584/skus/489764987",
-                       "additionalData":{  
-                          "product":{  
-                             "id":657486,
-                             "partnerId":"468764584",
-                             "sku":{  
-                                "id":"657486-P",
-                                "partnerId":"489764987",
-        
-                             }
-                          }
-                       }
-                    },
-                    {  
-                       "eventType":"updateStock",
-                       "event":"https://www.sellercenter.api.ecosweb.com.br/rest/stocks/v1/",
-                       "additionalData":{  
-                          "sku":{  
-                             "partnerId":"489764987",
-                             "quantity":12
-                          }
-                       }
-                    },
-                    {  
-                       "eventType":"markAsRead",
-                       "event":"https://www.sellercenter.api.ecosweb.com.br/rest/feed/v1/45g65d4sdf5465sdf5",
-                       "additionalData":{  
-                          "token":"45g65d4sdf5465sdf5"
-                       }
-                    }
-                 ]
-              },
-              {  
-                 "token":"45g65d4sdf5465sdf5",
-                 "type":"STOCK_INCONSISTENCY",
-                 "additionalData":{  
-                    "sku":{  
-                       "partnerId":"489764987",
-                       "worngAmount":2
-                    }
-                 },
-                 "events":[  
-                    {  
-                       "eventType":"readSku",
-                       "event":"https://www.sellercenter.api.ecosweb.com.br/rest/products/v1/468764584/skus/489764987",
-                       "additionalData":{  
-                          "product":{  
-                             "id":657486,
-                             "partnerId":"468764584",
-                             "sku":{  
-                                "id":"657486-P",
-                                "partnerId":"489764987",
-        
-                             }
-                          }
-                       }
-                    },
-                    {  
-                       "eventType":"updateStock",
-                       "event":"https://www.sellercenter.api.ecosweb.com.br/rest/stocks/v1/",
-                       "additionalData":{  
-                          "sku":{  
-                             "partnerId":"489764987",
-                             "quantity":12
-                          }
-                       }
-                    },
-                    {  
-                       "eventType":"markAsRead",
-                       "event":"https://www.sellercenter.api.ecosweb.com.br/rest/feed/v1/45g65d4sdf5465sdf5",
-                       "additionalData":{  
-                          "token":"45g65d4sdf5465sdf5"
-                       }
-                    }
-                 ]
+            "height": 30,
+            "width": 30,
+            "length": 30,
+            "weight": 32,
+            "collection": "Inverno 2020",
+            "characteristics": [
+              {
+                "name": "Medida ombro",
+                "value": "32cm"
               }
-           ],
-           "page":{  
-              "size":4,
-              "totalElements":6,
-              "totalPages":3,
-              "number":1
-           }
-        }
+            ],
+            "images": [
+              {
+                "index": 1
+                "url": "https://cdn.seusite.com.br/foto/vestido-preto-com-decote-transpassado_124341.jpg"
+              },
+              {
+                "index": 2
+                "url": "https://cdn.seusite.com.br/foto/vestido-preto-com-decote-transpassado_124342.jpg"
+              },
+              {
+                "index": 3
+                "url": "https://cdn.seusite.com.br/foto/vestido-preto-com-decote-transpassado_124343.jpg"
+              }              
+            ],
+            "category": {
+              "id": 1,
+              "partnerId": "Cat.Fem.",
+              "name": "Moda Feminina",
+              "subCategory":
+              {
+                "id": 10,
+                "partnerId": "1.Ves",
+                "name": "Vestidos"
+              },
+              "subClass":
+              {
+                "id": 1,
+                "partnerId": "Vestido Curto",
+                "name": "Vestido Curto"
+              }
+            }
+          }
+        ]    
 
-## Stock Notifications [/rest/feed/stock/v1{?offset,limit}]
+
+## Product by id [/rest/products/v1/{product_partner_id}/]
++ Attributes (object)
+    + product (FullProduct)
+
+### Read a Product [GET]
+Returns the informations about a specific product.
+
++ Request (application/json)
+    + Headers
+
+            Accept: application/json
+            Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE0Mzg4Mjc0NDN9.POonh-FngFnKeCgDfjjoemmF3Mt8HP2CThHwDLYuYnQ
+            
++ Response 200 (application/json)
+          {
+            "productGroupId": "313503",
+            "productGroupPartnerId": "489764",
+            "brand": {
+              "id": 1234,
+              "partnerId": "TR6757"
+            },
+            "title": "VESTIDO DE TRICÔ OMBRO A OMBRO",
+            "description": "Vestido com decote ombro a ombro. Confeccionado em malha de tricô de algodão. Com mangas raglan e comprimento alongado.",
+            "gender": "F",
+            "ageGroup": "A",
+            "color": {
+              "productPartnerId": "6000641446",
+              "colorName": "Café",
+              "predominantColor": {
+                "name": "Marrom"
+              },
+              "skus": [
+                {
+                  "partnerId": "489764987",
+                  "ean": "7898357417892",
+                  "price": 169.90,
+                  "sellPrice": 159.90,
+                  "size": "P"
+                },
+                {
+                  "partnerId": "489764988",
+                  "ean": "7898357417982",
+                  "price": 169.90,
+                  "sellPrice": 159.90,
+                  "size": "M"
+                }
+              ]
+            },
+            "height": 30,
+            "width": 30,
+            "length": 30,
+            "weight": 32,
+            "collection": "Inverno 2020",
+            "characteristics": [
+              {
+                "name": "Medida ombro",
+                "value": "32cm"
+              }
+            ],
+            "images": [
+              {
+                "index": 1
+                "url": "https://cdn.seusite.com.br/foto/vestido-preto-com-decote-transpassado_124341.jpg"
+              },
+              {
+                "index": 2
+                "url": "https://cdn.seusite.com.br/foto/vestido-preto-com-decote-transpassado_124342.jpg"
+              },
+              {
+                "index": 3
+                "url": "https://cdn.seusite.com.br/foto/vestido-preto-com-decote-transpassado_124343.jpg"
+              }              
+            ],
+            "category": {
+              "id": 1,
+              "partnerId": "Cat.Fem.",
+              "name": "Moda Feminina",
+              "subCategory":
+              {
+                "id": 10,
+                "partnerId": "1.Ves",
+                "name": "Vestidos"
+              },
+              "subClass":
+              {
+                "id": 1,
+                "partnerId": "Vestido Curto",
+                "name": "Vestido Curto"
+              }
+            }
+          }
+
+## Product Images [/rest/products/v1/{product_partner_id}/images/]
+It will be used to manage product images that will be processed by Posthaus.
+The image file must be the minimum 390 height, 390 width and 5 MB the maximum upload file.
+Format supported : JPEG.
 
 + Parameters
-    + offset (optional, number) 
-        Paging position
-        
-        + Default: `1`
-    + limit (number, optional)
-
-        A limit on the number of objects to be returned. Limit can range
-        between 1 and 100 items.
-
-        + Default: `100`
+    + product_partner_id (required, string, `9995586`) ... Patner product ID
 
 + Attributes (object)
-    + notifications (Notifications)
-    + page (Page)
+    + images (Image)
+
+### Publish new images [POST]
+Publish a new image list from a partner product. Index 1 is the main image.
+
++ Request (application/json)
+    + Headers
+
+            Accept: application/json
+            Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE0Mzg4Mjc0NDN9.POonh-FngFnKeCgDfjjoemmF3Mt8HP2CThHwDLYuYnQ
+            
+    + Body  
+    
+            [
+              {
+                "index": 1
+                "url": "https://cdn.seusite.com.br/foto/vestido-preto-com-decote-transpassado_124341.jpg"
+              },
+              {
+                "index": 2
+                "url": "https://cdn.seusite.com.br/foto/vestido-preto-com-decote-transpassado_124342.jpg"
+              },
+              {
+                "index": 3
+                "url": "https://cdn.seusite.com.br/foto/vestido-preto-com-decote-transpassado_124343.jpg"
+              }              
+            ]            
+
++ Response 204 (application/json)
+
++ Response 400 (application/json)
 
 
-### Get Stock notifications list [GET]
-Get a paginated notifications list. Events type supported: UPDATE_STOCK.
+### Get images [GET]
+Get a image list from a partner product.
 
 + Request (application/json)
     + Headers
@@ -1263,102 +1829,228 @@ Get a paginated notifications list. Events type supported: UPDATE_STOCK.
             Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE0Mzg4Mjc0NDN9.POonh-FngFnKeCgDfjjoemmF3Mt8HP2CThHwDLYuYnQ
 
 + Response 200 (application/json)
-
-        {
-          "notifications": [
-            {
-              "token": "45g65d4sdf5465sdf5",
-              "type": "UPDATE_STOCK",
-              "additionalData": {
-                "updateStockID": "1f94f503-84b4-484b-bf3c-d9a329a68707",
-                "totalUpdateSKU": 1645,
-                "notFoundSkusId": [
-                    "489764654",
-                    "489764965",
-                    "489764957"
-                ]
-              },
-              "events": [
-                {
-                  "eventType": "markAsRead",
-                  "event": "https://www.sellercenter.api.ecosweb.com.br/rest/feed/v1/45g65d4sdf5465sdf5",
-                  "additionalData": {
-                    "token": "45g65d4sdf5465sdf5"
-                  }
-                }
-              ]
-            },
-            {
-              "token": "45g65d4sdf5465sdf5",
-              "type": "UPDATE_STOCK",
-              "additionalData": {
-                "updateStockID": "1f94f503-84b4-484b-bf3c-d9a329a68707",
-                "totalUpdateSKU": 1645,
-                "notFoundSkusId": [
-                          "489764654",
-                          "489764965",
-                          "489764957"
-                ]
-              },
-              "events": [
-                {
-                  "eventType": "markAsRead",
-                  "event": "https://www.sellercenter.api.ecosweb.com.br/rest/feed/v1/45g65d4sdf5465sdf5",
-                  "additionalData": {
-                    "token": "45g65d4sdf5465sdf5"
-                  }
-                }
-              ]
-            },
-            {
-              "token": "45g65d4sdf5465sdf5",
-              "type": "UPDATE_STOCK",
-              "additionalData": {
-                "updateStockID": "1f94f503-84b4-484b-bf3c-d9a329a68707",
-                "totalUpdateSKU": 1645,
-                "notFoundSkusId": [
-                    "489764654",
-                    "489764965",
-                    "489764957"
-                ]
-              },
-              "events": [
-                {
-                  "eventType": "markAsRead",
-                  "event": "https://www.sellercenter.api.ecosweb.com.br/rest/feed/v1/45g65d4sdf5465sdf5",
-                  "additionalData": {
-                    "token": "45g65d4sdf5465sdf5"
-                  }
-                }
-              ]
-            }
-          ],
-          "page": {
-            "size": 3,
-            "totalElements": 6,
-            "totalPages": 3,
-            "number": 1
-          }
-        }
+    
+        [
+          {
+            "id": 78949764
+            "index": 1
+            "url": "https://cdn.seusite.com.br/foto/vestido-preto-com-decote-transpassado_124342.jpg"
+            "standardUrl": "https://ph-cdn3.ecosweb.com.br/Web/posthaus/foto/moda-feminina/vestidos/vestido-preto-com-decote-transpassado_124341_600_1.jpg"
+          },
+          {
+            "id": 78949765
+            "index": 2
+            "url": "https://cdn.seusite.com.br/foto/vestido-preto-com-decote-transpassado_124342.jpg"
+            "standardUrl": "https://ph-cdn3.ecosweb.com.br/Web/posthaus/foto/moda-feminina/vestidos/vestido-preto-com-decote-transpassado_124341_600_2.jpg"
+          },
+          {
+            "id": 78949766
+            "index": 3
+            "url": "https://cdn.seusite.com.br/foto/vestido-preto-com-decote-transpassado_124342.jpg"
+            "standardUrl": "https://ph-cdn3.ecosweb.com.br/Web/posthaus/foto/moda-feminina/vestidos/vestido-preto-com-decote-transpassado_124341_600_3.jpg"
+          }              
+        ] 
 
 
-## Mark as read notification [/rest/feed/v1/{token}]
-
-### Mark as read notification [PUT]
-Mark as read a notification.
-
-+ Parameters
-    + token (required, string, `45g65d4sdf5465sdf5`) ... Token
+### Delete a image from product [DELETE /rest/products/v1/{product_partner_id}/images/{imageId}] 
+Publish a new image list from a partner product. Index 1 is the main image.
 
 + Request (application/json)
-
     + Headers
 
             Accept: application/json
             Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE0Mzg4Mjc0NDN9.POonh-FngFnKeCgDfjjoemmF3Mt8HP2CThHwDLYuYnQ
+
+
++ Response 204 (application/json)
+
++ Response 400 (application/json)
+
+
+# Group SKU
+
+## SKUS [/rest/products/v1/{product_partner_id}/skus/]
+
++ Parameters
+    + product_partner_id (required, string, `9995586`) ... Patner product ID
+
++ Attributes (object)
+    + skus (array[Sku])
+
+
+### Read SKUS [GET]
+Returns all SKU from a product.
+
++ Request (application/json)
+    + Headers
+
+            Accept: application/json
+            Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE0Mzg4Mjc0NDN9.POonh-FngFnKeCgDfjjoemmF3Mt8HP2CThHwDLYuYnQ
+            
+
++ Response 200 (application/json)
+    
+        [
+          {
+            "id": "458896-P",
+            "productId" : 458896
+            "title": "vestido de festa preto",
+            "partnerId": "600064144639",
+            "productPartnerId" : "6000641446",
+            "ean": "7898357417892",
+            "amount": 20,
+            "price": 69.90
+            "sellPrice": 59.90
+            "size" : "P"
+          },
+          {
+            "id": "1830320-43",
+            "productId" : 1830320
+            "title": "Sapato Peep Toe ",
+            "partnerId": "600064144634",
+            "productPartnerId" : "6000641446",
+            "ean": "78983578989892",
+            "amount": 2,
+            "price": 48.90
+            "sellPrice": 48.90
+            "size" : "P"
+          },
+          {
+            "id": "2107828-P",
+            "productId" : 2107828
+            "title": "Ankle Boot",
+            "partnerId": "600064144636",
+            "productPartnerId" : "6000641446",
+            "ean": "7891227417892",
+            "amount": 5,
+            "price": 119.90
+            "sellPrice": 109.90
+            "size" : "P"
+          }          
+        ]
+
+
+### Create SKUs [POST]
+Create a SKU list from a product.
+
++ Request (application/json)
+    + Headers
+
+            Accept: application/json
+            Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE0Mzg4Mjc0NDN9.POonh-FngFnKeCgDfjjoemmF3Mt8HP2CThHwDLYuYnQ
+    
+    + Body
+    
+            [
+              {
+                "partnerId": "600064144639",
+                "ean": "7898357417892",
+                "price": 69.90
+                "sellPrice": 59.90
+                "size" : "P"
+              },
+              {
+                "partnerId": "600064144634",
+                "ean": "78983578989892",
+                "price": 48.90
+                "sellPrice": 59.90
+                "size" : "M"
+              },
+              {
+                "partnerId": "600064144636",
+                "ean": "7891227417892",
+                "price": 119.90
+                "sellPrice": 59.90
+                "size" : "44"
+              }          
+            ]    
+
+
++ Response 200 (application/json)
+    
+        {
+            "createSKUsID": "1f94f503-84b4-484b-bf3c-d9a329a64567",
+            "message": "SKU list is going to be created asynchronously."
+        }
+
+
++ Response 400 (application/json)
+
+
+## SKU [/rest/products/v1/{product_partner_id}/skus/{partner_id}]
+
++ Parameters
+    + product_partner_id (required, string, `9995586`) ... Partner product ID
+    + partner_id (required, string, `999558689`) ... Partner SKU ID
+
++ Attributes (object)
+    + sku (Sku)
+
+
+### Read a SKU [GET]
+Returns information about a SKU.
+
+
++ Request (application/json)
+    + Headers
+
+            Accept: application/json
+            Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE0Mzg4Mjc0NDN9.POonh-FngFnKeCgDfjjoemmF3Mt8HP2CThHwDLYuYnQ
+            
+
++ Response 200 (application/json)
+    
+          {
+            "id": "458896-P",
+            "productId" : 458896
+            "title": "vestido de festa preto",
+            "partnerId": "600064144639",
+            "productPartnerId" : "6000641446",
+            "ean": "7898357417892",
+            "amount": 20,
+            "price": 69.90
+            "sellPrice": 59.90
+            "size" : "P"            
+          }
+          
+## Price [/rest/products/v1/{product_partner_id}/skus/{partner_id}/price/]
+
++ Parameters
+    + product_partner_id (required, string, `9995586`) ... Partner product ID
+    + partner_id (required, string, `999558689`) ... Partner SKU ID
+
++ Attributes (object)
+    + price (number, required) - SKU price from "old price"
+    + sellPrice (number, required) - SKU price "new price"
+
+
+### Update SKU price [PUT]
+Updates the SKU's price.
+
+
++ Request (application/json)
+    + Headers
+
+            Accept: application/json
+            Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE0Mzg4Mjc0NDN9.POonh-FngFnKeCgDfjjoemmF3Mt8HP2CThHwDLYuYnQ
+            
+    + Body
+
+            {
+                "price": 159.90,
+                "sellPrice": 119.90
+            }
+            
 
 + Response 204
 
++ Response 400
+
++ Response 500 (application/json)
+   
+          {
+            "error": "Message error"
+          }
 
 
 # Group Stock
@@ -1409,128 +2101,6 @@ Performs stock update based on partner SKU's.
 + Response 400 (application/json)
 
 
-# Group SKU
-
-## SKUS [/rest/products/v1/{product_partner_id}/skus/]
-
-+ Parameters
-    + product_partner_id (required, string, `9995586`) ... Patner product ID
-
-+ Attributes (object)
-    + skus (array[Sku])
-
-
-### Read SKUS [GET]
-Returns all SKU from a product.
-
-+ Request (application/json)
-    + Headers
-
-            Accept: application/json
-            Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE0Mzg4Mjc0NDN9.POonh-FngFnKeCgDfjjoemmF3Mt8HP2CThHwDLYuYnQ
-            
-
-+ Response 200 (application/json)
-    
-        [
-          {
-            "id": "458896-P",
-            "productId" : 458896
-            "title": "vestido de festa preto",
-            "partnerId": "600064144639",
-            "productPartnerId" : "6000641446",
-            "ean": "7898357417892",
-            "amount": 20,
-            "price": 69.90
-          },
-          {
-            "id": "1830320-43",
-            "productId" : 1830320
-            "title": "Sapato Peep Toe ",
-            "partnerId": "600064144634",
-            "productPartnerId" : "6000641446",
-            "ean": "78983578989892",
-            "amount": 2,
-            "price": 48.90
-          },
-          {
-            "id": "2107828-P",
-            "productId" : 2107828
-            "title": "Ankle Boot",
-            "partnerId": "600064144636",
-            "productPartnerId" : "6000641446",
-            "ean": "7891227417892",
-            "amount": 5,
-            "price": 119.90
-          }          
-        ]
-
-
-## SKU [/rest/products/v1/{product_partner_id}/skus/{partner_id}]
-
-+ Parameters
-    + product_partner_id (required, string, `9995586`) ... Patner product ID
-    + partner_id (required, string, `999558689`) ... Patner SKU ID
-
-+ Attributes (object)
-    + sku (Sku)
-
-
-### Read a SKU [GET]
-Returns information about a SKU.
-
-
-+ Request (application/json)
-    + Headers
-
-            Accept: application/json
-            Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE0Mzg4Mjc0NDN9.POonh-FngFnKeCgDfjjoemmF3Mt8HP2CThHwDLYuYnQ
-            
-
-+ Response 200 (application/json)
-    
-          {
-            "id": "458896-P",
-            "productId" : 458896
-            "title": "vestido de festa preto",
-            "partnerId": "600064144639",
-            "productPartnerId" : "6000641446",
-            "ean": "7898357417892",
-            "amount": 20,
-            "price": 69.90
-          }
-          
-          
-# Group Product
-It will be used to read information about Products in Posthaus.
-
-## Product [/rest/product/v1/]
-
-+ Attributes (object)
-    + first (Product)
-    + second (Product)
-
-
-### Insert a Product [GET]
-Returns information about a Product.
-
-+ Parameters
-    + first (required, string, `9995586`) ... xxxx
-
-+ Request (application/json)
-    + Headers
-
-            Accept: application/json
-            Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE0Mzg4Mjc0NDN9.POonh-FngFnKeCgDfjjoemmF3Mt8HP2CThHwDLYuYnQ
-            
-
-+ Response 200 (application/json)
-    
-          {
-            "attr": "value",
-            "attr2": "value2"
-          }
-
 # Group Price
 It will be used to perform price update.
 The price operation is performed in batch, it is possible to send one or more prices to update.
@@ -1538,7 +2108,7 @@ The price operation is performed in batch, it is possible to send one or more pr
 ## Prices [/rest/prices/v1/]
 
 + Attributes (object)
-    + sku (SkuPrice)
+    + skus (array[SkuPrice])
 
 ### Update prices [PUT]
 Performs price update based on partner SKU's.
@@ -1578,40 +2148,6 @@ Performs price update based on partner SKU's.
         }
 
 + Response 400 (application/json)
-
-
-# Group Brand
-
-## BRAND [/rest/brands/v1/]
-
-+ Attributes (object)
-    + brands (array[Brand])
-
-
-### Read Brads [GET]
-Returns all brands recorded.
-
-+ Request (application/json)
-    + Headers
-
-            Accept: application/json
-            Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE0Mzg4Mjc0NDN9.POonh-FngFnKeCgDfjjoemmF3Mt8HP2CThHwDLYuYnQ
-            
-
-+ Response 200 (application/json)
-    
-        [
-          {
-            "id": 1234,
-            "partnerId": "TR6757",
-            "name": "Marca exemplo"
-           },
-          {
-            "id": 889,
-            "partnerId": "TR6757EX",
-            "name": "Teste"
-          }
-        ]
 
 
 # Data Structures
@@ -1771,23 +2307,73 @@ Returns all brands recorded.
 + productPartnerId (string, optional) - Product Partner ID
 + ean (string, optional) - SKU barcode
 + amount (number, required) - SKU amount
-+ price (number, required) - SKU price
++ price (number, optional) - SKU price
++ sellPrice (number, required) - SKU price
++ size: `Max. Length: 3` (string, optional) - SKU size
 
 ## SkuPrice (object)
 + partnerID: `Max. Length: 30` (string, required) - Patner SKU ID
 + price (number, required) - SKU price from "old price"
 + sellPrice (number, required) - SKU price "new price"
 
-## Brand
-+ id (string, required) - Brand ID generated by Posthaus
+## Brand (object)
++ id: `Max. Length: 4` (string, required) - Brand ID generated by Posthaus
 + partnerId (string, required) - Partner Brand ID
-+ name (string, required)
++ name: `Max. Length: 30` (string, required)
 
-## Color
+## Color (object)
 + productPartnerId (string)
 + colorName (string)
 + predominantColor (PredominantColor)
 + skus (array[SKU])
 
-## PredominantColor
+## PredominantColor (object)
 + name (string)
+
+## ImageResponse (object)
++ index (number, required) - Image index
++ url (string, required) - URL from image 
+
+## Image (object)
++ id (number, required) - Image ID generated by Posthaus
++ index (number, required) - Image index
++ url (string, required) - URL from image
++ standardUrl (string, required) - URL from image generated by Posthaus
+
+## Category (object)
++ id (number) - Posthaus Category ID
++ partnerId (string) - Patner Category ID
++ name (string) - Posthaus Category Name
++ subCategory (SubCategory)
++ subClass (SubClass)
+
+## SubCategory (object)
++ id (number) - Posthaus Subcategory ID
++ partnerId (string) - Patner Subcategory ID
++ name (string) - Posthaus Subcategory Name
+
+## SubClass (object)
++ id (number) - Posthaus Subclass ID
++ partnerId (string) - Partner Subclass ID
++ name (string) - Posthaus Subclass Name
+
+## Characteristic (object)
++ name: `Max. Length: 30` (string, required) - Characteristic name
++ value: `Max. Length: 30` (string, required) - Characteristic value 
+
+## FullProduct (object)
++ productGroupPartnerId: `Max. Length: 30` (string, required) - Product group in our partner
++ brand  (Brand, required) - Brand of the product
++ title: `Max. Length: 50` (string, required) - Only plain text and numbers
++ description: `Max. Length: 245` (string, required) - Only plain text and numbers
++ gender (string, required) - F for female, M for male or  U  for others
++ ageGroup (string, required) - B for Baby, I  for Infant, J para Juvenile or A for Adult
++ color (Color, required) - The color of product
++ height (number) - Height of the product, if applicable
++ width (number) - Width of the product, if applicable
++ lenght (number) - Lenght of the product, if applicable
++ weight (number) - Weight of the product, if applicable
++ collection (string) - Collection of the product, if applicable, like `Autumn, Winter, Summer, etc`
++ characteristics: `Max. Length: 30` (array[Characteristic]) - Array of product characteristics
++ images: `Max. Length: 10` (array[Image], required) - Array of product images
++ category (Category)  - Category of the product, if applicable
