@@ -1511,9 +1511,9 @@ Create a Product.
                 "description": "Vestido com decote ombro a ombro. Confeccionado em malha de tricô de algodão. Com mangas raglan e comprimento alongado.",
                 "gender": "F",
                 "ageGroup": "A",
-                "color": {
+                "variations": {
                   "productPartnerId": "6000641446",
-                  "colorName": "Café",
+                  "title": "Café",
                   "predominantColor": {
                     "name": "Marrom"
                   },
@@ -1603,7 +1603,7 @@ Create a Product.
 + Attributes (object)
     + products (array[FullProduct])
     + exception (Exception)    
-    
+
 ### Read Products [GET]
 Returns the products details.
 
@@ -1628,9 +1628,9 @@ Returns the products details.
             "description": "Vestido com decote ombro a ombro. Confeccionado em malha de tricô de algodão. Com mangas raglan e comprimento alongado.",
             "gender": "F",
             "ageGroup": "A",
-            "color": {
+            "variations": {
               "productPartnerId": "6000641446",
-              "colorName": "Café",
+              "title": "Café",
               "predominantColor": {
                 "name": "Marrom"
               },
@@ -1730,9 +1730,9 @@ Returns the informations about a specific product.
             "description": "Vestido com decote ombro a ombro. Confeccionado em malha de tricô de algodão. Com mangas raglan e comprimento alongado.",
             "gender": "F",
             "ageGroup": "A",
-            "color": {
+            "variations": {
               "productPartnerId": "6000641446",
-              "colorName": "Café",
+              "title": "Café",
               "predominantColor": {
                 "name": "Marrom"
               },
@@ -2038,7 +2038,7 @@ Returns information about a SKU.
             "sellPrice": 59.90
             "size" : "P"            
           }
-          
+
 ## Price [/rest/products/v1/{product_partner_id}/skus/{partner_id}/price/]
 
 + Parameters
@@ -2068,7 +2068,20 @@ Updates the SKU's price.
             }
             
 
-+ Response 204
++ Response 200
+
+        {
+            "id": "458896-P",
+            "productId" : 458896
+            "title": "vestido de festa preto",
+            "partnerId": "600064144639",
+            "productPartnerId" : "6000641446",
+            "ean": "7898357417892",
+            "amount": 20,
+            "price": 159.90
+            "sellPrice": 119.90
+            "size" : "P"
+        }
 
 + Response 400
 
@@ -2352,14 +2365,14 @@ Performs price update based on partner SKU's.
 + partnerId (string, required) - Partner Brand ID
 + name: `Max. Length: 30` (string, required)
 
-## Color (object)
-+ productPartnerId (string)
-+ colorName (string)
-+ predominantColor (PredominantColor)
-+ skus (array[SKU])
+## Variation (object)
++ productPartnerId (string, required)
++ title (string, required) - Variance title, this information will join in the Product Title.
++ predominantColor (PredominantColor) - This information is used on Product Filter.
++ skus (array[SKU], required)
 
 ## PredominantColor (object)
-+ name (string)
++ name (string, required)
 
 ## ImageResponse (object)
 + index (number, required) - Image index
@@ -2399,7 +2412,7 @@ Performs price update based on partner SKU's.
 + description: `Max. Length: 245` (string, required) - Only plain text and numbers
 + gender (string, required) - F for female, M for male or  U  for others
 + ageGroup (string, required) - B for Baby, I  for Infant, J para Juvenile or A for Adult
-+ color (Color, required) - The color of product
++ variations (Variation, required) - The color of product
 + height (number) - Height of the product, if applicable
 + width (number) - Width of the product, if applicable
 + lenght (number) - Lenght of the product, if applicable
