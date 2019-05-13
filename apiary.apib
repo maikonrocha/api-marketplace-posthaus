@@ -41,6 +41,8 @@ Returns all brands recorded.
           }
         ]
 
++ Response 500 (application/json)
+
 # Group Category
 It will be used to read Categories registered in Maketplace Posthaus and to know which Seller's categories they are associated with.
 
@@ -81,6 +83,8 @@ Returns the registered Marketplace's categories with the associated Seller's cat
             }
           }
         ]
+        
++ Response 500 (application/json)
 
 # Group Colors
 It will be used to read all product colors in Maketplace Posthaus.
@@ -113,8 +117,9 @@ Returns all product colors available.
           {
             "name": "Amarelo",
           }
-        ]        
-
+        ]
+        
++ Response 500 (application/json)
 
 #Group Notifications
 The Marketplace Posthaus add notifications into a queue, the queue order is from the oldest to the newest notification added.
@@ -269,7 +274,8 @@ Get a paginated notifications list. Events type supported: NEW_ORDER, AUTHORIZED
           }
 
         }
-
+        
++ Response 500 (application/json)
 
 ## Stock Inconsistent Notifications [/rest/feed/stock/inconsistent/v1{?offset,limit}]
 
@@ -399,6 +405,8 @@ Get a paginated notifications list. Events type supported: STOCK_INCONSISTENCY.
               "number":1
            }
         }
+        
++ Response 500 (application/json)
 
 ## Stock Notifications [/rest/feed/stock/v1{?offset,limit}]
 
@@ -506,7 +514,8 @@ Get a paginated notifications list. Events type supported: UPDATE_STOCK.
             "number": 1
           }
         }
-
+        
++ Response 500 (application/json)
 
 ## Mark as read notification [/rest/feed/v1/{token}]
 
@@ -529,6 +538,7 @@ Mark as read a notification.
 
 + Response 204
 
++ Response 500 (application/json)
 
 # Group Order
 It will be used to read information about Orders in Posthaus.
@@ -653,6 +663,7 @@ Returns the Order details by Order number.
           }
         }
 
++ Response 500 (application/json)
 
 ### Update order status to Sent [PUT]
 Updates Order status by Order number to Sent. Body parameter `status` defines the new Order status.
@@ -779,7 +790,7 @@ Changing to this situation requires the following information: Tracking URL, Tra
           }
         }
 
-+ Response 400 (application/json)
++ Response 500 (application/json)
 
 
 ### Update order status to Delivered [PUT]
@@ -904,7 +915,7 @@ It is the last situation of the request. Changing to this situation it is necess
           }
         }
 
-+ Response 400 (application/json)
++ Response 500 (application/json)
 
 
 ### Update order status to Canceled [PUT]
@@ -1025,7 +1036,7 @@ Attribute canceledReason values, STOCK_UNAVAILABLE, DELIVERY_UNAVAILABLE or DELI
           }
         }
 
-+ Response 400 (application/json)
++ Response 500 (application/json)
 
 
 ### Update order status to Invoiced [PUT]
@@ -1146,7 +1157,7 @@ Changing to this situation is necessary to inform: note number, serial number, d
           ]
         }
 
-+ Response 400 (application/json)
++ Response 500 (application/json)
 
 
 ### Update order status to Integrated [PUT]
@@ -1255,7 +1266,7 @@ Changing to this situation requires the following information: List of canceled 
           ]
         }
 
-+ Response 400 (application/json)
++ Response 500 (application/json)
 
 
 ### Send XML NF-e [PUT /rest/orders/v1/{order_id}/nfe]
@@ -1445,6 +1456,7 @@ Returns the order details.
           }
         }
 
++ Response 500 (application/json)
 
 ## Cancel Order Items [/rest/orders/v1/{order_id}/cancelation/]
 It will be used to requests the cancellation of items of a Order created by Posthaus.
@@ -1477,6 +1489,7 @@ Requests the cancellation of items of a Order.
 
 + Response 204
 
++ Response 500 (application/json)
 
 # Group Product
 It will be used to read information about Products in Posthaus.
@@ -1584,6 +1597,8 @@ Create a Product.
             "productGroupPartnerId": "489764",
             "message": "The product is going to be created asynchronously."
         }
+        
++ Response 500 (application/json)
 
 ## Products [/rest/products/v1/{?offset,limit}]
 
@@ -1601,7 +1616,7 @@ Create a Product.
         + Default: `100`
 
 + Attributes (object)
-    + products (array[FullProduct])
+    + products (array[ReadFullProduct])
     + exception (Exception)    
 
 ### Read Products [GET]
@@ -1803,6 +1818,8 @@ Returns the informations about a specific product.
             }
           }
 
++ Response 500 (application/json)          
+
 ## Product Images [/rest/products/v1/{product_partner_id}/images/]
 It will be used to manage product images that will be processed by Posthaus.
 The image file must be the minimum 390 height, 390 width and 5 MB the maximum upload file.
@@ -1842,8 +1859,7 @@ Publish a new image list from a partner product. Index 1 is the main image.
 
 + Response 204 (application/json)
 
-+ Response 400 (application/json)
-
++ Response 500 (application/json)
 
 ### Get images [GET]
 Get a image list from a partner product.
@@ -1890,8 +1906,7 @@ Publish a new image list from a partner product. Index 1 is the main image.
 
 + Response 204 (application/json)
 
-+ Response 400 (application/json)
-
++ Response 500 (application/json)
 
 # Group SKU
 
@@ -1955,6 +1970,7 @@ Returns all SKU from a product.
           }          
         ]
 
++ Response 500 (application/json)
 
 ### Create SKUs [POST]
 Create a SKU list from a product.
@@ -2000,7 +2016,7 @@ Create a SKU list from a product.
         }
 
 
-+ Response 400 (application/json)
++ Response 500 (application/json)
 
 
 ## SKU [/rest/products/v1/{product_partner_id}/skus/{partner_id}]
@@ -2038,6 +2054,8 @@ Returns information about a SKU.
             "sellPrice": 59.90
             "size" : "P"            
           }
+
++ Response 500 (application/json)          
 
 ## Price [/rest/products/v1/{product_partner_id}/skus/{partner_id}/price/]
 
@@ -2083,15 +2101,8 @@ Updates the SKU's price.
             "size" : "P"
         }
 
-+ Response 400
-
 + Response 500 (application/json)
    
-          {
-            "error": "Message error"
-          }
-
-
 # Group Stock
 It will be used to perform stock update.
 The stock operation is performed in batch, it is possible to send one or more SKUs to update.
@@ -2137,7 +2148,7 @@ Performs stock update based on partner SKU's.
             "message": "Stock SKU Update List is going to be updated asynchronously."
         }
 
-+ Response 400 (application/json)
++ Response 500 (application/json)
 
 
 # Group Price
@@ -2186,7 +2197,7 @@ Performs price update based on partner SKU's.
             "message": "Price SKU Update List is going to be updated asynchronously."
         }
 
-+ Response 400 (application/json)
++ Response 5Ajus00 (application/json)
 
 
 # Data Structures
@@ -2340,15 +2351,10 @@ Performs price update based on partner SKU's.
 ## CanceledSku (object)
 + partnerId (string, required) - Patner SKU ID
 
-## Stock (object)
-+ id (string, required) - SKU ID generated by Posthaus
-+ partnerId (string, optional) - Patner SKU ID
+## Stock (SimpleSku)
 + quantity (number, required) - quantity for update 
-+ cost (number, required) - Custo médio do SKU no estoque. A partir desse custo será calculado o preço final do produto caso o tipo do cálculo de preço esteja como atutomático. , //REVISAR
 
-## Sku (object)
-+ id (string, required) - SKU ID generated by Posthaus
-+ productId (number, required) - Product ID generated by Posthaus
+## Sku (SkuPrice)
 + title (number, required) - SKU title
 + partnerId (string, optional) - Partner SKU ID
 + productPartnerId (string, optional) - Product Partner ID
@@ -2358,8 +2364,11 @@ Performs price update based on partner SKU's.
 + sellPrice (number, required) - SKU price
 + size: `Max. Length: 3` (string, optional) - SKU size
 
+## ReadSku (Sku)
++ id (string, required) - SKU ID generated by Posthaus
++ productId (number, required) - Product ID generated by Posthaus
+
 ## SkuPrice (object)
-+ partnerID: `Max. Length: 30` (string, required) - Patner SKU ID
 + price (number, required) - SKU price from "old price"
 + sellPrice (number, required) - SKU price "new price"
 
@@ -2385,28 +2394,32 @@ Performs price update based on partner SKU's.
 + index (number, required) - Image index
 + url (string, required) - URL from image 
 
-## Image (object)
+## Image (ImageResponse)
 + id (number) - Image ID generated by Posthaus
-+ index (number, required) - Image index
-+ url (string, required) - URL from image
 + standardUrl (string) - URL from image generated by Posthaus
 
 ## Category (object)
 + id (number) - Posthaus Category ID
 + partnerId (string) - Patner Category ID
-+ name (string) - Posthaus Category Name
 + subCategory (SubCategory)
 + subClass (SubClass)
+
+## ReadCategory (Category)
++ name (string) - Posthaus Category Name
 
 ## SubCategory (object)
 + id (number) - Posthaus Subcategory ID
 + partnerId (string) - Patner Subcategory ID
-+ name (string) - Posthaus Subcategory Name
+
+## ReadSubCategory (SubCategory)
++ name (string) - Posthaus Category Name
 
 ## SubClass (object)
 + id (number) - Posthaus Subclass ID
 + partnerId (string) - Partner Subclass ID
-+ name (string) - Posthaus Subclass Name
+
+## ReadSubClass (SubClass)
++ name (string) - Posthaus Category Name
 
 ## Characteristic (object)
 + name: `Max. Length: 30` (string, required) - Characteristic name
