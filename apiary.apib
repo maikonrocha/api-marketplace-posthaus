@@ -1610,8 +1610,7 @@ Create a Product.
 
             {  
                "productGroupPartnerId":"489764",
-               "brand":{  
-                  "id":1234,
+               "brand":{
                   "partnerId":"TR6757"
                },
                "title":"VESTIDO DE TRICÔ OMBRO A OMBRO",
@@ -1667,7 +1666,11 @@ Create a Product.
                   {  
                      "name":"Medida ombro",
                      "value":"32cm"
-                  }
+                  },
+                  {  
+                     "name":"Composição",
+                     "value":"Sintético"
+                  } 
                ],
                "category":{  
                   "id":1,
@@ -1718,7 +1721,7 @@ Create a Product.
 
 + Attributes (object)
     + products (array[ReadFullProduct])
-    + exception (Exception)    
+    + exception (Exception)
 
 ### Read Products [GET]
 Returns the products details.
@@ -1744,49 +1747,51 @@ Returns the products details.
             "description": "Vestido com decote ombro a ombro. Confeccionado em malha de tricô de algodão. Com mangas raglan e comprimento alongado.",
             "gender": "F",
             "ageGroup": "A",
-            "variations": {
-              "productPartnerId": "6000641446",
-              "title": "Café",
-              "predominantColor": {
-                "name": "Marrom"
-              },
-              "skus": [
-                {
-                  "partnerId": "489764987",
-                  "ean": "7898357417892",
-                  "price": 169.90,
-                  "sellPrice": 159.90,
-                  "size": "P"
-                },
-                {
-                  "partnerId": "489764988",
-                  "ean": "7898357417982",
-                  "price": 169.90,
-                  "sellPrice": 159.90,
-                  "size": "M"
+            "variations":[  
+                {  
+                  "productPartnerId": "6000641446",
+                  "title": "Café",
+                  "predominantColor": {
+                    "name": "Marrom"
+                  },
+                  "skus": [
+                    {
+                      "partnerId": "489764987",
+                      "ean": "7898357417892",
+                      "price": 169.90,
+                      "sellPrice": 159.90,
+                      "size": "P"
+                    },
+                    {
+                      "partnerId": "489764988",
+                      "ean": "7898357417982",
+                      "price": 169.90,
+                      "sellPrice": 159.90,
+                      "size": "M"
+                    }
+                  ],
+                  "images": [
+                      {
+                        "id": 78949764
+                        "index": 1
+                        "url": "https://cdn.seusite.com.br/foto/vestido-preto-com-decote-transpassado_124342.jpg"
+                        "standardUrl": "https://ph-cdn3.ecosweb.com.br/Web/posthaus/foto/moda-feminina/vestidos/vestido-preto-com-decote-transpassado_124341_600_1.jpg"
+                      },
+                      {
+                        "id": 78949765
+                        "index": 2
+                        "url": "https://cdn.seusite.com.br/foto/vestido-preto-com-decote-transpassado_124342.jpg"
+                        "standardUrl": "https://ph-cdn3.ecosweb.com.br/Web/posthaus/foto/moda-feminina/vestidos/vestido-preto-com-decote-transpassado_124341_600_2.jpg"
+                      },
+                      {
+                        "id": 78949766
+                        "index": 3
+                        "url": "https://cdn.seusite.com.br/foto/vestido-preto-com-decote-transpassado_124342.jpg"
+                        "standardUrl": "https://ph-cdn3.ecosweb.com.br/Web/posthaus/foto/moda-feminina/vestidos/vestido-preto-com-decote-transpassado_124341_600_3.jpg"
+                      }              
+                    ],
                 }
-              ],
-              "images": [
-                  {
-                    "id": 78949764
-                    "index": 1
-                    "url": "https://cdn.seusite.com.br/foto/vestido-preto-com-decote-transpassado_124342.jpg"
-                    "standardUrl": "https://ph-cdn3.ecosweb.com.br/Web/posthaus/foto/moda-feminina/vestidos/vestido-preto-com-decote-transpassado_124341_600_1.jpg"
-                  },
-                  {
-                    "id": 78949765
-                    "index": 2
-                    "url": "https://cdn.seusite.com.br/foto/vestido-preto-com-decote-transpassado_124342.jpg"
-                    "standardUrl": "https://ph-cdn3.ecosweb.com.br/Web/posthaus/foto/moda-feminina/vestidos/vestido-preto-com-decote-transpassado_124341_600_2.jpg"
-                  },
-                  {
-                    "id": 78949766
-                    "index": 3
-                    "url": "https://cdn.seusite.com.br/foto/vestido-preto-com-decote-transpassado_124342.jpg"
-                    "standardUrl": "https://ph-cdn3.ecosweb.com.br/Web/posthaus/foto/moda-feminina/vestidos/vestido-preto-com-decote-transpassado_124341_600_3.jpg"
-                  }              
-                ],
-            },
+            ],
             "height": 30,
             "width": 30,
             "length": 30,
@@ -1796,7 +1801,11 @@ Returns the products details.
               {
                 "name": "Medida ombro",
                 "value": "32cm"
-              }
+              },
+              {  
+                 "name":"Composição",
+                 "value":"Sintético"
+              }               
             ],
             "category": {
               "id": 1,
@@ -1852,49 +1861,51 @@ Returns the informations about a specific product.
             "description": "Vestido com decote ombro a ombro. Confeccionado em malha de tricô de algodão. Com mangas raglan e comprimento alongado.",
             "gender": "F",
             "ageGroup": "A",
-            "variations": {
-              "productPartnerId": "6000641446",
-              "title": "Café",
-              "predominantColor": {
-                "name": "Marrom"
-              },
-              "skus": [
+            "variations":[  
                 {
-                  "partnerId": "489764987",
-                  "ean": "7898357417892",
-                  "price": 169.90,
-                  "sellPrice": 159.90,
-                  "size": "P"
-                },
-                {
-                  "partnerId": "489764988",
-                  "ean": "7898357417982",
-                  "price": 169.90,
-                  "sellPrice": 159.90,
-                  "size": "M"
+                  "productPartnerId": "6000641446",
+                  "title": "Café",
+                  "predominantColor": {
+                    "name": "Marrom"
+                  },
+                  "skus": [
+                    {
+                      "partnerId": "489764987",
+                      "ean": "7898357417892",
+                      "price": 169.90,
+                      "sellPrice": 159.90,
+                      "size": "P"
+                    },
+                    {
+                      "partnerId": "489764988",
+                      "ean": "7898357417982",
+                      "price": 169.90,
+                      "sellPrice": 159.90,
+                      "size": "M"
+                    }
+                  ],
+                  "images": [
+                      {
+                        "id": 78949764
+                        "index": 1
+                        "url": "https://cdn.seusite.com.br/foto/vestido-preto-com-decote-transpassado_124342.jpg"
+                        "standardUrl": "https://ph-cdn3.ecosweb.com.br/Web/posthaus/foto/moda-feminina/vestidos/vestido-preto-com-decote-transpassado_124341_600_1.jpg"
+                      },
+                      {
+                        "id": 78949765
+                        "index": 2
+                        "url": "https://cdn.seusite.com.br/foto/vestido-preto-com-decote-transpassado_124342.jpg"
+                        "standardUrl": "https://ph-cdn3.ecosweb.com.br/Web/posthaus/foto/moda-feminina/vestidos/vestido-preto-com-decote-transpassado_124341_600_2.jpg"
+                      },
+                      {
+                        "id": 78949766
+                        "index": 3
+                        "url": "https://cdn.seusite.com.br/foto/vestido-preto-com-decote-transpassado_124342.jpg"
+                        "standardUrl": "https://ph-cdn3.ecosweb.com.br/Web/posthaus/foto/moda-feminina/vestidos/vestido-preto-com-decote-transpassado_124341_600_3.jpg"
+                      }              
+                    ],
                 }
-              ],
-              "images": [
-                  {
-                    "id": 78949764
-                    "index": 1
-                    "url": "https://cdn.seusite.com.br/foto/vestido-preto-com-decote-transpassado_124342.jpg"
-                    "standardUrl": "https://ph-cdn3.ecosweb.com.br/Web/posthaus/foto/moda-feminina/vestidos/vestido-preto-com-decote-transpassado_124341_600_1.jpg"
-                  },
-                  {
-                    "id": 78949765
-                    "index": 2
-                    "url": "https://cdn.seusite.com.br/foto/vestido-preto-com-decote-transpassado_124342.jpg"
-                    "standardUrl": "https://ph-cdn3.ecosweb.com.br/Web/posthaus/foto/moda-feminina/vestidos/vestido-preto-com-decote-transpassado_124341_600_2.jpg"
-                  },
-                  {
-                    "id": 78949766
-                    "index": 3
-                    "url": "https://cdn.seusite.com.br/foto/vestido-preto-com-decote-transpassado_124342.jpg"
-                    "standardUrl": "https://ph-cdn3.ecosweb.com.br/Web/posthaus/foto/moda-feminina/vestidos/vestido-preto-com-decote-transpassado_124341_600_3.jpg"
-                  }              
-                ],
-            },
+            ],
             "height": 30,
             "width": 30,
             "length": 30,
@@ -1904,7 +1915,11 @@ Returns the informations about a specific product.
               {
                 "name": "Medida ombro",
                 "value": "32cm"
-              }
+              },
+              {  
+                 "name":"Composição",
+                 "value":"Sintético"
+              }               
             ],
             "category": {
               "id": 1,
@@ -2166,6 +2181,7 @@ Create a SKU list from a product.
 
 + Attributes (object)
     + sku (Sku)
+     + exception (Exception)
 
 
 ### Read a SKU [GET]
@@ -2210,8 +2226,7 @@ Returns information about a SKU.
     + partner_id (required, string, `999558689`) ... Partner SKU ID
 
 + Attributes (object)
-    + price (number, required) - SKU price from "old price"
-    + sellPrice (number, required) - SKU price "new price"
+    + price (SkuPrice)
     + exception (Exception)
 
 
@@ -2263,9 +2278,8 @@ The stock operation is performed in batch, it is possible to send one or more SK
 ## Stocks [/rest/stocks/v1/]
 
 + Attributes (object)
-    + partnerId: `9995586` (string, required) - Patner product SKU ID
-    + quantity: `5` (number, required) - Quantity to be updated
-
+    + stocks (array[Stock])
+    + exception (Exception)
 
 ### Update Stock [PUT]
 Performs stock update based on partner SKU's.
@@ -2509,9 +2523,7 @@ Performs price update based on partner SKU's.
 + orderId (number)   
 
 ## SimpleSku (object)
-+ id (string, required) - SKU ID generated by Posthaus
-+ title (string, required) - SKU title
-+ partnerId (string, optional) - Patner SKU ID
++ partnerId (string, required) - Patner SKU ID
 
 ## CanceledSku (object)
 + partnerId (string, required) - Patner SKU ID
@@ -2533,7 +2545,7 @@ Performs price update based on partner SKU's.
 + id (string, required) - SKU ID generated by Posthaus
 + productId (number, required) - Product ID generated by Posthaus
 
-## SkuPrice (object)
+## SkuPrice (SimpleSku)
 + price (number, required) - SKU price from "old price"
 + sellPrice (number, required) - SKU price "new price"
 
@@ -2545,9 +2557,9 @@ Performs price update based on partner SKU's.
 ## Variation (object)
 + productPartnerId (string, required) - Seller Product ID
 + title (string, required) - Variance title, this information will join in the Product Title.
-+ predominantColor (PredominantColor) - This information is used on Product Filter.
++ predominantColor (PredominantColor, required) - This information is used on Product Filter.
 + skus (array[SKU], required)
-+ images: `Max. Length: 10` (array[Image], required) - Array of product images
++ images (array[Image], required) - Array of product images. Limit 10 records
 
 ## ReadVariation (Variation)
 + productId (number) - Posthaus Product ID
@@ -2564,8 +2576,8 @@ Performs price update based on partner SKU's.
 + standardUrl (string) - URL from image generated by Posthaus
 
 ## Category (object)
-+ id (number) - Posthaus Category ID
-+ partnerId (string) - Patner Category ID
++ id (number) - Posthaus Category ID (Please inform id or partnerId)
++ partnerId (string) - Patner Category ID (Please inform id or partnerId)
 + subCategory (SubCategory)
 + subClass (SubClass)
 
@@ -2597,15 +2609,15 @@ Performs price update based on partner SKU's.
 + description: `Max. Length: 245` (string, required) - Only plain text and numbers
 + gender (string, required) - F for female, M for male or  U  for others
 + ageGroup (string, required) - B for Baby, I  for Infant, J para Juvenile or A for Adult
-+ variations (Variation, required) - The color of product
++ variations (array[Variation], required) - Variation of product
 + height (number) - Height of the product, if applicable
 + width (number) - Width of the product, if applicable
 + lenght (number) - Lenght of the product, if applicable
 + weight (number) - Weight of the product, if applicable
 + collection (string) - Collection of the product, if applicable, like `Autumn, Winter, Summer, etc`
-+ characteristics: `Max. Length: 30` (array[Characteristic]) - Array of product characteristics
++ characteristics (array[Characteristic]) - Array of product characteristics. Limit 30 records.
 + category (Category)  - Category of the product, if applicable
 
 ## ReadFullProduct (FullProduct)
-+ productGroupId: (number) - Product group Posthaus
++ productGroupId (number) - Product group Posthaus
 + variations (ReadVariation, required) - Variation Produto, like color.
