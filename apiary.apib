@@ -14,6 +14,7 @@ It will be used to read Brands in Maketplace Posthaus.
 
 + Attributes (object)
     + brands (array[Brand])
+    + exception (Exception)       
 
 
 ### Read Brands [GET]
@@ -43,6 +44,13 @@ Returns all brands recorded.
 
 + Response 500 (application/json)
 
+        {
+            "exceptionTypeName": "",
+            "message": "",
+            "attOrArgName": ""
+        }
+
+
 # Group Category
 It will be used to read Categories registered in Maketplace Posthaus and to know which Seller's categories they are associated with.
 
@@ -50,6 +58,7 @@ It will be used to read Categories registered in Maketplace Posthaus and to know
 
 + Attributes (object)
     + categories (array[Category])
+    + exception (Exception)    
 
 
 ### Read Categories [GET]
@@ -86,6 +95,13 @@ Returns the registered Marketplace's categories with the associated Seller's cat
         
 + Response 500 (application/json)
 
+        {
+            "exceptionTypeName": "",
+            "message": "",
+            "attOrArgName": ""
+        }
+
+
 # Group Colors
 It will be used to read all product colors in Maketplace Posthaus.
 
@@ -93,6 +109,7 @@ It will be used to read all product colors in Maketplace Posthaus.
 
 + Attributes (object)
     + colors (array[PredominantColor])
+    + exception (Exception)    
 
 
 ### Read Color [GET]
@@ -145,6 +162,7 @@ If the notification won't be readed during 30 days, the SellerCenter is going to
 + Attributes (object)
     + notifications (NotificationsWithPartnerId)
     + page (Page)
+    + exception (Exception)    
 
 
 ### Get order notifications list [GET]
@@ -277,6 +295,13 @@ Get a paginated notifications list. Events type supported: NEW_ORDER, AUTHORIZED
         
 + Response 500 (application/json)
 
+        {
+            "exceptionTypeName": "",
+            "message": "",
+            "attOrArgName": ""
+        }
+
+
 ## Stock Inconsistent Notifications [/rest/feed/stock/inconsistent/v1{?offset,limit}]
 
 + Parameters
@@ -408,6 +433,13 @@ Get a paginated notifications list. Events type supported: STOCK_INCONSISTENCY.
         
 + Response 500 (application/json)
 
+        {
+            "exceptionTypeName": "",
+            "message": "",
+            "attOrArgName": ""
+        }
+
+
 ## Stock Notifications [/rest/feed/stock/v1{?offset,limit}]
 
 + Parameters
@@ -517,6 +549,13 @@ Get a paginated notifications list. Events type supported: UPDATE_STOCK.
         
 + Response 500 (application/json)
 
+        {
+            "exceptionTypeName": "",
+            "message": "",
+            "attOrArgName": ""
+        }
+
+
 ## Mark as read notification [/rest/feed/v1/{token}]
 
 + Attributes (object)
@@ -539,6 +578,13 @@ Mark as read a notification.
 + Response 204
 
 + Response 500 (application/json)
+
+        {
+            "exceptionTypeName": "",
+            "message": "",
+            "attOrArgName": ""
+        }
+
 
 # Group Order
 It will be used to read information about Orders in Posthaus.
@@ -664,6 +710,13 @@ Returns the Order details by Order number.
         }
 
 + Response 500 (application/json)
+
+        {
+            "exceptionTypeName": "",
+            "message": "",
+            "attOrArgName": ""
+        }
+
 
 ### Update order status to Sent [PUT]
 Updates Order status by Order number to Sent. Body parameter `status` defines the new Order status.
@@ -792,6 +845,11 @@ Changing to this situation requires the following information: Tracking URL, Tra
 
 + Response 500 (application/json)
 
+        {
+            "exceptionTypeName": "",
+            "message": "",
+            "attOrArgName": ""
+        }
 
 ### Update order status to Delivered [PUT]
 Updates Order status by Order number to Delivered. Body parameter `status` defines the new order status.
@@ -917,6 +975,11 @@ It is the last situation of the request. Changing to this situation it is necess
 
 + Response 500 (application/json)
 
+        {
+            "exceptionTypeName": "",
+            "message": "",
+            "attOrArgName": ""
+        }
 
 ### Update order status to Canceled [PUT]
 Updates order status by order number to Canceled. Body parameter `status` defines the new order status.
@@ -1038,6 +1101,11 @@ Attribute canceledReason values, STOCK_UNAVAILABLE, DELIVERY_UNAVAILABLE or DELI
 
 + Response 500 (application/json)
 
+        {
+            "exceptionTypeName": "",
+            "message": "",
+            "attOrArgName": ""
+        }
 
 ### Update order status to Invoiced [PUT]
 Updates order status by order number to Invoiced. Body parameter `status` defines the new order status.
@@ -1159,6 +1227,11 @@ Changing to this situation is necessary to inform: note number, serial number, d
 
 + Response 500 (application/json)
 
+        {
+            "exceptionTypeName": "",
+            "message": "",
+            "attOrArgName": ""
+        }
 
 ### Update order status to Integrated [PUT]
 Updates order status by order number to Integrated. Body parameter `status` defines the new order status.
@@ -1268,6 +1341,11 @@ Changing to this situation requires the following information: List of canceled 
 
 + Response 500 (application/json)
 
+        {
+            "exceptionTypeName": "",
+            "message": "",
+            "attOrArgName": ""
+        }
 
 ### Send XML NF-e [PUT /rest/orders/v1/{order_id}/nfe]
 Send the XMl from NF-e to the Marketplace. Only XML content should be sent.
@@ -1308,6 +1386,11 @@ Send the XMl from NF-e to the Marketplace. Only XML content should be sent.
 + Response 204
 + Response 500 (application/json)
 
+        {
+            "exceptionTypeName": "",
+            "message": "",
+            "attOrArgName": ""
+        }
 
 ## Orders [/rest/orders/v1{?offset,limit,createdAfter,status,cpf}]
 Returns the order details using the filters: createdAfter, status and customer CPF. 
@@ -1458,6 +1541,12 @@ Returns the order details.
 
 + Response 500 (application/json)
 
+        {
+            "exceptionTypeName": "",
+            "message": "",
+            "attOrArgName": ""
+        }
+
 ## Cancel Order Items [/rest/orders/v1/{order_id}/cancelation/]
 It will be used to requests the cancellation of items of a Order created by Posthaus.
 This trigger will to make items in the marketplace unavailable.
@@ -1490,6 +1579,12 @@ Requests the cancellation of items of a Order.
 + Response 204
 
 + Response 500 (application/json)
+
+        {
+            "exceptionTypeName": "",
+            "message": "",
+            "attOrArgName": ""
+        }
 
 # Group Product
 It will be used to read information about Products in Posthaus.
@@ -1599,6 +1694,12 @@ Create a Product.
         }
         
 + Response 500 (application/json)
+
+        {
+            "exceptionTypeName": "",
+            "message": "",
+            "attOrArgName": ""
+        }
 
 ## Products [/rest/products/v1/{?offset,limit}]
 
@@ -1719,6 +1820,12 @@ Returns the products details.
 
 + Response 500 (application/json)
 
+        {
+            "exceptionTypeName": "",
+            "message": "",
+            "attOrArgName": ""
+        }
+
 ## Product by id [/rest/products/v1/{product_partner_id}/]
 + Attributes (object)
     + product (ReadFullProduct)
@@ -1820,6 +1927,12 @@ Returns the informations about a specific product.
 
 + Response 500 (application/json)          
 
+        {
+            "exceptionTypeName": "",
+            "message": "",
+            "attOrArgName": ""
+        }
+
 ## Product Images [/rest/products/v1/{product_partner_id}/images/]
 It will be used to manage product images that will be processed by Posthaus.
 The image file must be the minimum 390 height, 390 width and 5 MB the maximum upload file.
@@ -1830,6 +1943,7 @@ Format supported : JPEG.
 
 + Attributes (object)
     + images (Image)
+    + exception (Exception)   
 
 ### Publish new images [POST]
 Publish a new image list from a partner product. Index 1 is the main image.
@@ -1860,6 +1974,12 @@ Publish a new image list from a partner product. Index 1 is the main image.
 + Response 204 (application/json)
 
 + Response 500 (application/json)
+
+        {
+            "exceptionTypeName": "",
+            "message": "",
+            "attOrArgName": ""
+        }
 
 ### Get images [GET]
 Get a image list from a partner product.
@@ -1908,6 +2028,12 @@ Publish a new image list from a partner product. Index 1 is the main image.
 
 + Response 500 (application/json)
 
+        {
+            "exceptionTypeName": "",
+            "message": "",
+            "attOrArgName": ""
+        }
+
 # Group SKU
 
 ## SKUS [/rest/products/v1/{product_partner_id}/skus/]
@@ -1917,6 +2043,7 @@ Publish a new image list from a partner product. Index 1 is the main image.
 
 + Attributes (object)
     + skus (array[Sku])
+    + exception (Exception)       
 
 
 ### Read SKUS [GET]
@@ -1972,6 +2099,12 @@ Returns all SKU from a product.
 
 + Response 500 (application/json)
 
+        {
+            "exceptionTypeName": "",
+            "message": "",
+            "attOrArgName": ""
+        }
+        
 ### Create SKUs [POST]
 Create a SKU list from a product.
 
@@ -2018,6 +2151,12 @@ Create a SKU list from a product.
 
 + Response 500 (application/json)
 
+        {
+            "exceptionTypeName": "",
+            "message": "",
+            "attOrArgName": ""
+        }
+        
 
 ## SKU [/rest/products/v1/{product_partner_id}/skus/{partner_id}]
 
@@ -2057,6 +2196,13 @@ Returns information about a SKU.
 
 + Response 500 (application/json)          
 
+        {
+            "exceptionTypeName": "",
+            "message": "",
+            "attOrArgName": ""
+        }
+    
+
 ## Price [/rest/products/v1/{product_partner_id}/skus/{partner_id}/price/]
 
 + Parameters
@@ -2066,6 +2212,7 @@ Returns information about a SKU.
 + Attributes (object)
     + price (number, required) - SKU price from "old price"
     + sellPrice (number, required) - SKU price "new price"
+    + exception (Exception)
 
 
 ### Update SKU price [PUT]
@@ -2102,7 +2249,13 @@ Updates the SKU's price.
         }
 
 + Response 500 (application/json)
-   
+
+        {
+            "exceptionTypeName": "",
+            "message": "",
+            "attOrArgName": ""
+        }
+
 # Group Stock
 It will be used to perform stock update.
 The stock operation is performed in batch, it is possible to send one or more SKUs to update.
@@ -2150,6 +2303,12 @@ Performs stock update based on partner SKU's.
 
 + Response 500 (application/json)
 
+        {
+            "exceptionTypeName": "",
+            "message": "",
+            "attOrArgName": ""
+        }
+
 
 # Group Price
 It will be used to perform price update.
@@ -2159,6 +2318,7 @@ The price operation is performed in batch, it is possible to send one or more pr
 
 + Attributes (object)
     + skus (array[SkuPrice])
+    + exception (Exception)    
 
 ### Update prices [PUT]
 Performs price update based on partner SKU's.
@@ -2197,8 +2357,13 @@ Performs price update based on partner SKU's.
             "message": "Price SKU Update List is going to be updated asynchronously."
         }
 
-+ Response 5Ajus00 (application/json)
++ Response 500 (application/json)
 
+        {
+            "exceptionTypeName": "",
+            "message": "",
+            "attOrArgName": ""
+        }
 
 # Data Structures
 
