@@ -721,6 +721,7 @@ Returns the Order details by Order number.
 ### Update order status to Sent [PUT]
 Updates Order status by Order number to Sent. Body parameter `status` defines the new Order status.
 Changing to this situation requires the following information: Tracking URL, Tracking Number, Carrier Name and Ship Date.
+The Estimate Date needs to be: after than Shipped Date and between 30 days backward and 30 days forward.
 
 + Request (application/json)
     + Headers
@@ -1683,13 +1684,13 @@ Create a Product.
                         {  
                            "partnerId":"489764987",
                            "ean":"7898357417892",
-                           "price":169.90,
-                           "sellPrice":159.90,
+                           "price":169.95,
+                           "sellPrice":159.95,
                            "size":"P",
-                           "height":30.00,
-                           "width":45.00,
-                           "length":10.00,
-                           "weight":0.320
+                           "height":30.15,
+                           "width":45.15,
+                           "length":10.15,
+                           "weight":0.321
                         },
                         {  
                            "partnerId":"489764988",
@@ -1697,10 +1698,10 @@ Create a Product.
                            "price":169.90,
                            "sellPrice":159.90,
                            "size":"M",
-                           "height":30.00,
-                           "width":45.00,
-                           "length":10.00,
-                           "weight":0.320
+                           "height":30.15,
+                           "width":45.15,
+                           "length":10.15,
+                           "weight":0.325
                         }
                      ],
                      "images":[  
@@ -1819,10 +1820,10 @@ Returns the products details.
                       "price": 169.90,
                       "sellPrice": 159.90,
                       "size": "P",
-                      "height": 30.00,
-                      "width": 45.00,
-                      "length": 10.00,
-                      "weight": 0.320
+                      "height":30.15,
+                      "width":45.15,
+                      "length":10.15,
+                      "weight":0.321
                     },
                     {
                       "partnerId": "489764988",
@@ -1830,10 +1831,10 @@ Returns the products details.
                       "price": 169.90,
                       "sellPrice": 159.90,
                       "size": "M",
-                      "height": 30.00,
-                      "width": 45.00,
-                      "length": 10.00,
-                      "weight": 0.320
+                      "height":30.15,
+                      "width":45.15,
+                      "length":10.15,
+                      "weight":0.321
                     }
                   ],
                   "images": [
@@ -2619,8 +2620,7 @@ Performs stock update based on partner SKU's.
 ## Category (object)
 + id (number) - Posthaus Category ID (Please inform id or partnerId)
 + partnerId (string) - Patner Category ID (Please inform id or partnerId)
-+ name (string) - Category name
-+ subCategory (SubCategory)
++ subCategory (SubCategory, required)
 + subClass (SubClass)
 
 ## ReadCategory (Category)
@@ -2654,7 +2654,7 @@ Performs stock update based on partner SKU's.
 + variations (array[Variation], required) - Variation of product
 + collection (string) - Collection of the product, if applicable, like `Autumn, Winter, Summer, etc`
 + characteristics (array[Characteristic]) - Array of product characteristics. Limit 30 records.
-+ category (Category)  - Category of the product, if applicable
++ category (Category, required)  - Category of the product, if applicable
 
 ## ReadFullProduct (FullProduct)
 + productGroupId (number) - Product group Posthaus
