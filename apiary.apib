@@ -28,7 +28,7 @@ Returns all brands recorded.
             
 
 + Response 200 (application/json)
-    
+clusao do modelo Size
         [
           {
             "id": 1234,
@@ -72,7 +72,7 @@ Returns the registered Marketplace's categories with the associated Seller's cat
             
 
 + Response 200 (application/json)
-    
+
         [
           {
             "id": 1,
@@ -123,7 +123,7 @@ Returns all product colors available.
             
 
 + Response 200 (application/json)
-    
+
         [
           {
             "name": "Preto",
@@ -608,7 +608,7 @@ Returns the Order details by Order number.
             Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE0Mzg4Mjc0NDN9.POonh-FngFnKeCgDfjjoemmF3Mt8HP2CThHwDLYuYnQ
 
 + Response 200 (application/json)
-    
+
         {
           "id": 41432946,
           "partnerId": "",
@@ -730,7 +730,7 @@ The Estimate Date needs to be: after than Shipped Date and between 30 days backw
             Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE0Mzg4Mjc0NDN9.POonh-FngFnKeCgDfjjoemmF3Mt8HP2CThHwDLYuYnQ
             
     + Body  
-    
+
             {
                 "status": "SENT",
                 "tracking": {
@@ -744,7 +744,7 @@ The Estimate Date needs to be: after than Shipped Date and between 30 days backw
             }
 
 + Response 200 (application/json)
-    
+
         {
           "id": 41432946,
           "partnerId": "",
@@ -863,7 +863,7 @@ It is the last situation of the request. Changing to this situation it is necess
             Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE0Mzg4Mjc0NDN9.POonh-FngFnKeCgDfjjoemmF3Mt8HP2CThHwDLYuYnQ
             
     + Body  
-    
+
             {
                 "status": "DELIVERED",
                 "tracking": {
@@ -873,7 +873,7 @@ It is the last situation of the request. Changing to this situation it is necess
             
 
 + Response 200 (application/json)
-    
+
         {
           "id": 41432946,
           "partnerId": "",
@@ -1000,7 +1000,7 @@ Attribute canceledReason values, STOCK_UNAVAILABLE, DELIVERY_UNAVAILABLE or DELI
             }
 
 + Response 200 (application/json)
-    
+
         {
           "id": 41432946,
           "partnerId": "",
@@ -1119,7 +1119,7 @@ Changing to this situation is necessary to inform: note number, serial number, d
             Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE0Mzg4Mjc0NDN9.POonh-FngFnKeCgDfjjoemmF3Mt8HP2CThHwDLYuYnQ
             
     + Body  
-    
+
             {
                 "status": "INVOICED",
                 "invoices": [
@@ -1134,7 +1134,7 @@ Changing to this situation is necessary to inform: note number, serial number, d
             }
 
 + Response 200 (application/json)
-    
+
         {
           "id": 41432946,
           "partnerId": "",
@@ -1257,7 +1257,7 @@ Changing to this situation requires the following information: List of canceled 
             }
 
 + Response 200 (application/json)
-    
+
         {
           "id": 41432946,
           "partnerId": "",
@@ -1358,7 +1358,7 @@ Send the XMl from NF-e to the Marketplace. Only XML content should be sent.
             Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE0Mzg4Mjc0NDN9.POonh-FngFnKeCgDfjjoemmF3Mt8HP2CThHwDLYuYnQ
             
     + Body  
-    
+
             <NFe xmlns="http://www.portalfiscal.inf.br/nfe">
                 <infNFe Id="NFe35080599999090910270550010000000015180051273" versao="1.10">
                     <ide>
@@ -1428,7 +1428,7 @@ Returns the order details.
             Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE0Mzg4Mjc0NDN9.POonh-FngFnKeCgDfjjoemmF3Mt8HP2CThHwDLYuYnQ
 
 + Response 200 (application/json)
-    
+
         {
             "content": [
                 {
@@ -1570,7 +1570,7 @@ Requests the cancellation of items of a Order.
             Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE0Mzg4Mjc0NDN9.POonh-FngFnKeCgDfjjoemmF3Mt8HP2CThHwDLYuYnQ
             
     + Body  
-    
+
             [
                 "4984877987",
                 "4984877981",
@@ -1686,7 +1686,9 @@ Create a Product.
                            "ean":"7898357417892",
                            "price":169.95,
                            "sellPrice":159.95,
-                           "size":"P",
+                           "size": {
+                                "partnerId":"M"
+                           },
                            "height":30.15,
                            "width":45.15,
                            "length":10.15,
@@ -1697,7 +1699,9 @@ Create a Product.
                            "ean":"7898357417982",
                            "price":169.90,
                            "sellPrice":159.90,
-                           "size":"M",
+                           "size": {
+                                "partnerId":"M"
+                           },
                            "height":30.15,
                            "width":45.15,
                            "length":10.15,
@@ -1793,101 +1797,107 @@ Returns the products details.
             
 
 + Response 200 (application/json)
-    
+
         [
-          {
-            "productGroupId": "313503",
-            "productGroupPartnerId": "489764",
-            "brand": {
-              "id": 1234,
-              "partnerId": "TR6757"
-            },
-            "title": "VESTIDO DE TRICÔ OMBRO A OMBRO",
-            "description": "Vestido com decote ombro a ombro. Confeccionado em malha de tricô de algodão. Com mangas raglan e comprimento alongado.",
-            "gender": "F",
-            "ageGroup": "A",
-            "variations":[  
-                {  
-                  "productPartnerId": "6000641446",
-                  "title": "Café",
-                  "predominantColor": {
-                    "name": "Marrom"
-                  },
-                  "skus": [
-                    {
-                      "partnerId": "489764987",
-                      "ean": "7898357417892",
-                      "price": 169.90,
-                      "sellPrice": 159.90,
-                      "size": "P",
-                      "height":30.15,
-                      "width":45.15,
-                      "length":10.15,
-                      "weight":0.321
-                    },
-                    {
-                      "partnerId": "489764988",
-                      "ean": "7898357417982",
-                      "price": 169.90,
-                      "sellPrice": 159.90,
-                      "size": "M",
-                      "height":30.15,
-                      "width":45.15,
-                      "length":10.15,
-                      "weight":0.321
+            {
+                "productGroupId": "313503",
+                "productGroupPartnerId": "489764",
+                "brand": {
+                  "id": 1234,
+                  "partnerId": "TR6757"
+                },
+                "title": "VESTIDO DE TRICÔ OMBRO A OMBRO",
+                "description": "Vestido com decote ombro a ombro. Confeccionado em malha de tricô de algodão. Com mangas raglan e comprimento alongado.",
+                "gender": "F",
+                "ageGroup": "A",
+                "variations":[  
+                    {  
+                      "productPartnerId": "6000641446",
+                      "title": "Café",
+                      "predominantColor": {
+                        "name": "Marrom"
+                      },
+                      "skus": [
+                        {
+                            "partnerId": "489764987",
+                            "ean": "7898357417892",
+                            "price": 169.90,
+                            "sellPrice": 159.90,
+                            "size": {
+                                "id": "M"
+                                "partnerId":"M3"
+                            },
+                          "height":30.15,
+                          "width":45.15,
+                          "length":10.15,
+                          "weight":0.321
+                        },
+                        {
+                            "partnerId": "489764988",
+                            "ean": "7898357417982",
+                            "price": 169.90,
+                            "sellPrice": 159.90,
+                            "size": {
+                                "id": "M"
+                                "partnerId":"M3"
+                            },
+                            "height":30.15,
+                            "width":45.15,
+                            "length":10.15,
+                            "weight":0.321
+                        }
+                      ],
+                      "images": [
+                          {
+                            "id": 78949764,
+                            "index": 1,
+                            "url": "https://cdn.seusite.com.br/foto/vestido-preto-com-decote-transpassado_124342.jpg",
+                            "standardUrl": "https://ph-cdn3.ecosweb.com.br/Web/posthaus/foto/moda-feminina/vestidos/vestido-preto-com-decote-transpassado_124341_600_1.jpg"
+                          },
+                          {
+                            "id": 78949765,
+                            "index": 2,
+                            "url": "https://cdn.seusite.com.br/foto/vestido-preto-com-decote-transpassado_124342.jpg",
+                            "standardUrl": "https://ph-cdn3.ecosweb.com.br/Web/posthaus/foto/moda-feminina/vestidos/vestido-preto-com-decote-transpassado_124341_600_2.jpg"
+                          },
+                          {
+                            "id": 78949766,
+                            "index": 3,
+                            "url": "https://cdn.seusite.com.br/foto/vestido-preto-com-decote-transpassado_124342.jpg",
+                            "standardUrl": "https://ph-cdn3.ecosweb.com.br/Web/posthaus/foto/moda-feminina/vestidos/vestido-preto-com-decote-transpassado_124341_600_3.jpg"
+                          }              
+                        ]
                     }
-                  ],
-                  "images": [
-                      {
-                        "id": 78949764,
-                        "index": 1,
-                        "url": "https://cdn.seusite.com.br/foto/vestido-preto-com-decote-transpassado_124342.jpg",
-                        "standardUrl": "https://ph-cdn3.ecosweb.com.br/Web/posthaus/foto/moda-feminina/vestidos/vestido-preto-com-decote-transpassado_124341_600_1.jpg"
-                      },
-                      {
-                        "id": 78949765,
-                        "index": 2,
-                        "url": "https://cdn.seusite.com.br/foto/vestido-preto-com-decote-transpassado_124342.jpg",
-                        "standardUrl": "https://ph-cdn3.ecosweb.com.br/Web/posthaus/foto/moda-feminina/vestidos/vestido-preto-com-decote-transpassado_124341_600_2.jpg"
-                      },
-                      {
-                        "id": 78949766,
-                        "index": 3,
-                        "url": "https://cdn.seusite.com.br/foto/vestido-preto-com-decote-transpassado_124342.jpg",
-                        "standardUrl": "https://ph-cdn3.ecosweb.com.br/Web/posthaus/foto/moda-feminina/vestidos/vestido-preto-com-decote-transpassado_124341_600_3.jpg"
-                      }              
-                    ]
+                ],
+                "collection": "Inverno 2020",
+                "characteristics": [
+                  {
+                    "name": "Medida ombro",
+                    "value": "32cm"
+                  },
+                  {  
+                     "name":"Composição",
+                     "value":"Sintético"
+                  }               
+                ],
+                "category": {
+                  "id": 1,
+                  "partnerId": "Cat.Fem.",
+                  "name": "Moda Feminina",
+                  "subCategory":
+                  {
+                    "id": 10,
+                    "partnerId": "1.Ves",
+                    "name": "Vestidos"
+                  },
+                  "subClass":
+                  {
+                    "id": 1,
+                    "partnerId": "Vestido Curto",
+                    "name": "Vestido Curto"
+                  }
                 }
-            ],
-            "collection": "Inverno 2020",
-            "characteristics": [
-              {
-                "name": "Medida ombro",
-                "value": "32cm"
-              },
-              {  
-                 "name":"Composição",
-                 "value":"Sintético"
-              }               
-            ],
-            "category": {
-              "id": 1,
-              "partnerId": "Cat.Fem.",
-              "name": "Moda Feminina",
-              "subCategory":
-              {
-                "id": 10,
-                "partnerId": "1.Ves",
-                "name": "Vestidos"
-              },
-              "subClass":
-              {
-                "id": 1,
-                "partnerId": "Vestido Curto",
-                "name": "Vestido Curto"
-              }
             }
-          }
         ]    
 
 + Response 500 (application/json)
@@ -1933,26 +1943,32 @@ Returns the informations about a specific product.
                   },
                   "skus": [
                     {
-                      "partnerId": "489764987",
-                      "ean": "7898357417892",
-                      "price": 169.90,
-                      "sellPrice": 159.90,
-                      "size": "P",
-                      "height": 30.00,
-                      "width": 45.00,
-                      "length": 10.00,
-                      "weight": 0.320
+                        "partnerId": "489764987",
+                        "ean": "7898357417892",
+                        "price": 169.90,
+                        "sellPrice": 159.90,
+                        "size": {
+                            "id": "M"
+                            "partnerId":"M3"
+                        },
+                        "height": 30.00,
+                        "width": 45.00,
+                        "length": 10.00,
+                        "weight": 0.320
                     },
                     {
-                      "partnerId": "489764988",
-                      "ean": "7898357417982",
-                      "price": 169.90,
-                      "sellPrice": 159.90,
-                      "size": "M",
-                      "height": 30.00,
-                      "width": 45.00,
-                      "length": 10.00,
-                      "weight": 0.320
+                        "partnerId": "489764988",
+                        "ean": "7898357417982",
+                        "price": 169.90,
+                        "sellPrice": 159.90,
+                        "size": {
+                            "id": "M"
+                            "partnerId":"M3"
+                        },
+                        "height": 30.00,
+                        "width": 45.00,
+                        "length": 10.00,
+                        "weight": 0.320
                     }
                   ],
                   "images": [
@@ -2037,7 +2053,7 @@ Publish a new image list from a partner product. Index 1 is the main image.
             Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE0Mzg4Mjc0NDN9.POonh-FngFnKeCgDfjjoemmF3Mt8HP2CThHwDLYuYnQ
             
     + Body  
-    
+
             [
               {
                 "index": 1,
@@ -2073,7 +2089,7 @@ Get a image list from a partner product.
             Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE0Mzg4Mjc0NDN9.POonh-FngFnKeCgDfjjoemmF3Mt8HP2CThHwDLYuYnQ
 
 + Response 200 (application/json)
-    
+
         [
           {
             "id": 78949764
@@ -2139,7 +2155,7 @@ Returns all SKU from a product.
             
 
 + Response 200 (application/json)
-    
+
         [
           {
             "id": "458896-P",
@@ -2150,7 +2166,10 @@ Returns all SKU from a product.
             "amount": 20,
             "price": 69.90,
             "sellPrice": 59.90,
-            "size" : "P",
+            "size": {
+                "id": "M"
+                "partnerId":"M3"
+            },
             "height": 30.00,
             "width": 45.00,
             "length": 10.00,
@@ -2165,7 +2184,10 @@ Returns all SKU from a product.
             "amount": 2,
             "price": 48.90,
             "sellPrice": 48.90,
-            "size" : "P",
+            "size": {
+                "id": "M"
+                "partnerId":"M3"
+            },
             "height": 30.00,
             "width": 45.00,
             "length": 10.00,
@@ -2180,7 +2202,10 @@ Returns all SKU from a product.
             "amount": 5,
             "price": 119.90,
             "sellPrice": 109.90,
-            "size" : "P",
+            "size": {
+                "id": "M"
+                "partnerId":"M3"
+            },
             "height": 30.00,
             "width": 45.00,
             "length": 10.00,
@@ -2206,7 +2231,7 @@ Create a SKU list from a product.
             Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE0Mzg4Mjc0NDN9.POonh-FngFnKeCgDfjjoemmF3Mt8HP2CThHwDLYuYnQ
     
     + Body
-    
+
             [
               {
                 "partnerId": "600064144639",
@@ -2245,7 +2270,7 @@ Create a SKU list from a product.
 
 
 + Response 200 (application/json)
-    
+
         {
             "createSKUsID": "1f94f503-84b4-484b-bf3c-d9a329a64567",
             "message": "SKU list is going to be created asynchronously."
@@ -2284,8 +2309,8 @@ Returns information about a SKU.
             
 
 + Response 200 (application/json)
-    
-          {
+
+        {
             "id": "458896-P",
             "productId" : 458896,
             "partnerId": "600064144639",
@@ -2294,12 +2319,15 @@ Returns information about a SKU.
             "amount": 20,
             "price": 69.90,
             "sellPrice": 59.90,
-            "size" : "P",
+            "size": {
+                "id": "M"
+                "partnerId":"M3"
+            },
             "height": 30.00,
             "width": 45.00,
             "length": 10.00,
             "weight": 0.320
-          }
+        }
 
 + Response 500 (application/json)          
 
@@ -2350,7 +2378,10 @@ Updates the SKU's price.
             "amount": 20,
             "price": 159.90,
             "sellPrice": 119.90,
-            "size" : "P",
+            "size": {
+                "id": "M"
+                "partnerId":"M3"
+            },
             "height": 30.00,
             "width": 45.00,
             "length": 10.00,
@@ -2577,7 +2608,7 @@ Performs stock update based on partner SKU's.
 + amount (number, required) - SKU amount
 + price (number, optional) - SKU price
 + sellPrice (number, required) - SKU price
-+ size: `Max. Length: 3` (string, optional) - SKU size
++ size  (Size, optional) - SKU size
 + height (number, optional) - SKU height in centimeters
 + width (number, optional) - SKU width in centimeters
 + lenght (number, optional) - SKU lenght in centimeters
@@ -2595,6 +2626,10 @@ Performs stock update based on partner SKU's.
 + id: `Max. Length: 4` (string) - Brand ID generated by Posthaus (Please inform id or partnerId)
 + partnerId (string) - Partner Brand ID (Please inform id or partnerId)
 + name: `Max. Length: 30` (string, required)
+
+## Size (object)
++ id: `Max. Length: 3` (string) - Size ID generated by Posthaus (Please inform id or partnerId)
++ partnerId: `Max. Length: 30` (string) - Partner Size ID (Please inform id or partnerId)
 
 ## Variation (object)
 + productPartnerId (string, required) - Seller Product ID
