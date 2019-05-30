@@ -126,13 +126,16 @@ Returns all product colors available.
 
         [
           {
-            "name": "Preto",
+            "id": "Preto",
+            "partnerId": "000000"
           },
           {
-            "name": "Branco",
+            "id": "Marrom",
+            "partnerId": "964B00"
           },
           {
-            "name": "Amarelo",
+            "id": "Amarelo",
+            "partnerId": "FFFF00"
           }
         ]
         
@@ -1678,7 +1681,8 @@ Create a Product.
                      "productPartnerId":"6000641446",
                      "title":"Café",
                      "predominantColor":{  
-                        "name":"Marrom"
+                        "id": "Marrom",
+                        "partnerId": "964B00"
                      },
                      "skus":[  
                         {  
@@ -1815,7 +1819,8 @@ Returns the products details.
                       "productPartnerId": "6000641446",
                       "title": "Café",
                       "predominantColor": {
-                        "name": "Marrom"
+                        "id": "Marrom",
+                        "partnerId": "964B00"
                       },
                       "skus": [
                         {
@@ -1939,7 +1944,8 @@ Returns the informations about a specific product.
                   "productPartnerId": "6000641446",
                   "title": "Café",
                   "predominantColor": {
-                    "name": "Marrom"
+                    "id": "Marrom",
+                    "partnerId": "964B00"
                   },
                   "skus": [
                     {
@@ -2642,7 +2648,8 @@ Performs stock update based on partner SKU's.
 + productId (number) - Posthaus Product ID
 
 ## PredominantColor (object)
-+ name (string, required)
++ id: `Max. Length: 30` (string) - Posthaus predominant color ID  (Please inform id or partnerId)
++ partnerId: `Max. Length: 30` (string) - Partner predominant color ID (Please inform id or partnerId)
 
 ## ImageResponse (object)
 + index (number, required) - Image index
