@@ -554,6 +554,122 @@ Get a paginated notifications list. Events type supported: UPDATE_STOCK.
             "message": "",
             "attOrArgName": ""
         }
+        
+        
+## Update Batch Prices Notification [/rest/feed/prices/v1{?offset,limit}]
+
++ Parameters
+    + offset (optional, number) 
+        Paging position
+        
+        + Default: `1`
+    + limit (number, optional)
+
+        A limit on the number of objects to be returned. Limit can range
+        between 1 and 100 items.
+
+        + Default: `100`
+
++ Attributes (object)
+    + notifications (Notifications)
+    + page (Page)
+
+
+### Get Update Batch Prices notifications list [GET]
+Get a paginated notifications list. Events type supported: UPDATE_BATCH_PRICES.
+
++ Request (application/json)
+    + Headers
+
+            Accept: application/json
+            Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE0Mzg4Mjc0NDN9.POonh-FngFnKeCgDfjjoemmF3Mt8HP2CThHwDLYuYnQ
+
++ Response 200 (application/json)
+
+        {
+          "notifications": [
+            {
+              "token": "45g65d4sdf5465sdf5",
+              "type": "UPDATE_BATCH_PRICES",
+              "additionalData": {
+                "updateStockID": "1f94f503-84b4-484b-bf3c-d9a329a68707",
+                "totalUpdateSKU": 1645,
+                "notFoundSkusId": [
+                    "489764654",
+                    "489764965",
+                    "489764957"
+                ]
+              },
+              "events": [
+                {
+                  "eventType": "markAsRead",
+                  "event": "https://www.sellercenter.api.ecosweb.com.br/rest/feed/v1/45g65d4sdf5465sdf5",
+                  "additionalData": {
+                    "token": "45g65d4sdf5465sdf5"
+                  }
+                }
+              ]
+            },
+            {
+              "token": "45g65d4sdf5465sdf5",
+              "type": "UPDATE_BATCH_PRICES",
+              "additionalData": {
+                "updateStockID": "1f94f503-84b4-484b-bf3c-d9a329a68707",
+                "totalUpdateSKU": 1645,
+                "notFoundSkusId": [
+                          "489764654",
+                          "489764965",
+                          "489764957"
+                ]
+              },
+              "events": [
+                {
+                  "eventType": "markAsRead",
+                  "event": "https://www.sellercenter.api.ecosweb.com.br/rest/feed/v1/45g65d4sdf5465sdf5",
+                  "additionalData": {
+                    "token": "45g65d4sdf5465sdf5"
+                  }
+                }
+              ]
+            },
+            {
+              "token": "45g65d4sdf5465sdf5",
+              "type": "UPDATE_BATCH_PRICES",
+              "additionalData": {
+                "updateStockID": "1f94f503-84b4-484b-bf3c-d9a329a68707",
+                "totalUpdateSKU": 1645,
+                "notFoundSkusId": [
+                    "489764654",
+                    "489764965",
+                    "489764957"
+                ]
+              },
+              "events": [
+                {
+                  "eventType": "markAsRead",
+                  "event": "https://www.sellercenter.api.ecosweb.com.br/rest/feed/v1/45g65d4sdf5465sdf5",
+                  "additionalData": {
+                    "token": "45g65d4sdf5465sdf5"
+                  }
+                }
+              ]
+            }
+          ],
+          "page": {
+            "size": 3,
+            "totalElements": 6,
+            "totalPages": 3,
+            "number": 1
+          }
+        }
+        
++ Response 500 (application/json)
+
+        {
+            "exceptionTypeName": "",
+            "message": "",
+            "attOrArgName": ""
+        }
 
 
 ## Mark as read notification [/rest/feed/v1/{token}]
