@@ -671,6 +671,83 @@ Get a paginated notifications list. Events type supported: UPDATE_BATCH_PRICES.
             "attOrArgName": ""
         }
 
+## Product Inconsistent Notifications [/rest/feed/product/inconsistent/v1{?offset,limit}]
+
++ Parameters
+    + offset (optional, number) 
+        Paging position
+        
+        + Default: `1`
+    + limit (number, optional)
+
+        A limit on the number of objects to be returned. Limit can range
+        between 1 and 100 items.
+
+        + Default: `10`
+
++ Attributes (object)
+    + notifications (Notifications)
+    
+
+### Get Product inconsistent notifications list [GET]
+Get a notifications list. Events type supported: PRODUCT_INCONSISTENCY.
+
++ Request (application/json)
+    + Headers
+
+            Accept: application/json
+            Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE0Mzg4Mjc0NDN9.POonh-FngFnKeCgDfjjoemmF3Mt8HP2CThHwDLYuYnQ
+
++ Response 200 (application/json)
+
+        {
+           "token": "848D5AA707D2B1A3E053B70010ACAA0E",
+           "type": "PRODUCT_INCONSISTENCY",
+           "additionalData": {
+               "product": {
+                   "productGroupPartnerId": "489769",
+                   "faults": [
+                       {
+                           "exceptionTypeName": "PosthausInvalidProductCategoryException",
+                           "message": "Invalid product category (id: '0', partnerId: '2').",
+                           "attOrArgName": "category.partnerId"
+                       },
+                       {
+                           "exceptionTypeName": "PosthausProductPartnerIdAlreadyExists",
+                           "message": "Product already registered (productPartnerId: '6000637302').",
+                           "attOrArgName": "variations.productPartnerId"
+                       }
+                   ]
+               }
+           },
+           "events": [
+               {
+                   "eventType": "readProduct",
+                   "event": "https://marketplace.ecosweb.com.br/rest/product/v1/489769",
+                   "additionalData": {
+                       "product": {
+                           "productGroupPartnerId": "489769",
+                       }
+                   }
+               },
+               {
+                   "eventType": "markAsRead",
+                   "event": "https://marketplace.ecosweb.com.br/rest/feed/v1/848D5AA707D2B1A3E053B70010ACAA0E",
+                   "additionalData": {
+                       "token": "848D5AA707D2B1A3E053B70010ACAA0E"
+                   }
+               }
+           ]
+        }
+        
++ Response 500 (application/json)
+
+        {
+            "exceptionTypeName": "",
+            "message": "",
+            "attOrArgName": ""
+        }
+
 
 ## Mark as read notification [/rest/feed/v1/{token}]
 
