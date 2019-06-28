@@ -2104,7 +2104,7 @@ Returns the products details.
             "attOrArgName": ""
         }
 
-## Product by id [/rest/products/v1/{product_partner_id}/]
+## Product by id [/rest/products/v1/{product_group_partner_id}/]
 + Attributes (object)
     + product (ReadFullProduct)
 
@@ -2228,7 +2228,7 @@ Returns the informations about a specific product.
             "attOrArgName": ""
         }
 
-## Product Images [/rest/products/v1/{product_partner_id}/images/]
+## Product Images [/rest/products/variations/v1/{product_partner_id}/images/]
 It will be used to manage product images that will be processed by Posthaus.
 The image file must be the minimum 390 height, 390 width and 5 MB the maximum upload file.
 Format supported : JPEG.
@@ -2309,7 +2309,7 @@ Get a image list from a partner product.
         ] 
 
 
-### Delete a image from product [DELETE /rest/products/v1/{product_partner_id}/images/{imageId}] 
+### Delete a image from product [DELETE /rest/products/variations/v1/{product_partner_id}/images/{imageId}] 
 Publish a new image list from a partner product. Index 1 is the main image.
 
 + Request (application/json)
