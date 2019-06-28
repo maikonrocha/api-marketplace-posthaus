@@ -2330,10 +2330,10 @@ Publish a new image list from a partner product. Index 1 is the main image.
 
 # Group SKU
 
-## SKUS [/rest/products/v1/{product_partner_id}/skus/]
+## SKUS [/rest/products/variations/v1/{product_partner_id}/skus/]
 
 + Parameters
-    + product_partner_id (required, string, `9995586`) ... Patner product ID
+    + product_partner_id (required, string, `9995586`) ... product partner ID
 
 + Attributes (object)
     + skus (array[Sku])
@@ -2341,7 +2341,7 @@ Publish a new image list from a partner product. Index 1 is the main image.
 
 
 ### Read SKUS [GET]
-Returns all SKU from a product.
+Returns all SKU from a product group (productGroupPartnerId).
 
 + Request (application/json)
     + Headers
