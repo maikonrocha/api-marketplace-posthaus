@@ -95,6 +95,52 @@ Returns the registered Marketplace categories.
             "message": "",
             "attOrArgName": ""
         }
+        
+        
+# Group Size
+It will be used to read Categories registered in Maketplace Posthaus.
+
+## Sizes [/rest/sizes/v1/]
+
++ Attributes (object)
+    + sizes (array[ReadSize])
+    + exception (Exception)    
+
+
+### Read Sizes [GET]
+Returns the registered Marketplace categories.
+
++ Request (application/json)
+    + Headers
+    
+            Accept: application/json
+            Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE0Mzg4Mjc0NDN9.POonh-FngFnKeCgDfjjoemmF3Mt8HP2CThHwDLYuYnQ
+            
+
++ Response 200 (application/json)
+
+       [
+        {
+            "id": "43",
+            "description": "42"
+        },
+        {
+            "id": "44",
+            "description": "43"
+        },
+        {
+            "id": "45",
+            "description": "44"
+        }
+        ]
+        
++ Response 500 (application/json)
+
+        {
+            "exceptionTypeName": "",
+            "message": "",
+            "attOrArgName": ""
+        }
 
 
 # Group Colors
@@ -2858,6 +2904,10 @@ Performs stock update based on partner SKU's.
 + subCategory (ReadSubCategory, required)
 + subClass (ReadSubClass)
 
+
+## ReadSize (object)
++ id (number) - Posthaus Size ID (Please inform id or partnerId)
++ description (string) - Posthaus Size Description
 
 ## SubCategory (object)
 + partnerId (string) - Patner Subcategory ID
