@@ -2831,7 +2831,7 @@ Performs stock update based on partner SKU's.
 + additionalData
     + productGroupPartnerId (number)
     + message (string)
-+ events (array[Event])
++ events (array[EventProduct])
 
 ## NotificationsPrices (object)
 + token (string, required)
@@ -2840,7 +2840,7 @@ Performs stock update based on partner SKU's.
     + updatePricesBatchID (number)
     + totalUpdateSku (number)
     + InvalidPrices (string)
-+ events (array[Event])
++ events (array[EventPrices])
 
         
 ## NotificationsWithPartnerId (object)
@@ -2963,7 +2963,23 @@ Performs stock update based on partner SKU's.
 + aditionalData (AditionalData)
     
 ## AditionalData   
-+ orderId (number)   
++ orderId (number)
+
+## EventProduct 
++ eventType (string)
++ event (string)
++ aditionalData (AditionalDataProduct)
+    
+## AditionalDataProduct  
++ productGroupPartnerId (number)
+
+## EventPrices 
++ eventType (string)
++ event (string)
++ aditionalData (AditionalDataPrices)
+    
+## AditionalDataPrices   
++ updatePricesBatchID (number)
 
 ## SimpleSku (object)
 + partnerId (string, required) - Patner SKU ID
