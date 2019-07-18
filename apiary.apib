@@ -615,11 +615,11 @@ Get a paginated notifications list. Events type supported: UPDATE_STOCK.
         + Default: `100`
 
 + Attributes (object)
-    + notifications (Notifications)
+    + notifications (NotificationsPrices)
     + page (Page)
 
 
-### Get Update Batch Prices notifications list [GET]
+### Get Update Prices notifications list [GET]
 Get a paginated notifications list. Events type supported: UPDATE_BATCH_PRICES.
 
 + Request (application/json)
@@ -638,7 +638,7 @@ Get a paginated notifications list. Events type supported: UPDATE_BATCH_PRICES.
               "additionalData": {
                 "updatePricesBatchID": "1f94f503-84b4-484b-bf3c-d9a329a68707",
                 "totalUpdateSKU": 1645,
-                "notFoundSkusId": [
+                "invalidPrices": [
                     "489764654",
                     "489764965",
                     "489764957"
@@ -660,7 +660,7 @@ Get a paginated notifications list. Events type supported: UPDATE_BATCH_PRICES.
               "additionalData": {
                 "updatePricesBatchID": "1f94f503-84b4-484b-bf3c-d9a329a68707",
                 "totalUpdateSKU": 1645,
-                "notFoundSkusId": [
+                "invalidPrices": [
                           "489764654",
                           "489764965",
                           "489764957"
@@ -713,6 +713,122 @@ Get a paginated notifications list. Events type supported: UPDATE_BATCH_PRICES.
             "exceptionTypeName": "",
             "message": "",
             "attOrArgName": ""
+        }
+        
+## Product Create Notifications [/rest/feed/product/create/v1{?offset,limit}]
+
++ Parameters
+    + offset (optional, number) 
+        Paging position
+        
+        + Default: `1`
+    + limit (number, optional)
+
+        A limit on the number of objects to be returned. Limit can range
+        between 1 and 100 items.
+
+        + Default: `10`
+
++ Attributes (object)
+    + notifications (NotificationsProduct)
+    
+
+### Get Product inconsistent notifications list [GET]
+Get a notifications list. Events type supported: NEW_PRODUCT.
+
++ Request (application/json)
+    + Headers
+
+            Accept: application/json
+            Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE0Mzg4Mjc0NDN9.POonh-FngFnKeCgDfjjoemmF3Mt8HP2CThHwDLYuYnQ
+
++ Response 200 (application/json)
+
+        {
+           "token": "848D5AA707D2B1A3E053B70010ACAA0E",
+           "type": "NEW_PRODUCT",
+           "additionalData": {
+               "product": {
+                   "productGroupPartnerId": "489769",
+                   "message": "Sucess"
+               }
+           },
+           "events": [
+               {
+                   "eventType": "newProduct",
+                   "event": "https://marketplace.ecosweb.com.br/rest/product/v1/489769",
+                   "additionalData": {
+                       "product": {
+                           "productGroupPartnerId": "489769",
+                       }
+                   }
+               },
+               {
+                   "eventType": "markAsRead",
+                   "event": "https://marketplace.ecosweb.com.br/rest/feed/v1/848D5AA707D2B1A3E053B70010ACAA0E",
+                   "additionalData": {
+                       "token": "848D5AA707D2B1A3E053B70010ACAA0E"
+                   }
+               }
+           ]
+        }
+        
+## Product Update Notifications [/rest/feed/product/update/v1{?offset,limit}]
+
++ Parameters
+    + offset (optional, number) 
+        Paging position
+        
+        + Default: `1`
+    + limit (number, optional)
+
+        A limit on the number of objects to be returned. Limit can range
+        between 1 and 100 items.
+
+        + Default: `10`
+
++ Attributes (object)
+    + notifications (NotificationsProduct)
+    
+
+### Get Product inconsistent notifications list [GET]
+Get a notifications list. Events type supported: UPDATE_PRODUCT.
+
++ Request (application/json)
+    + Headers
+
+            Accept: application/json
+            Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE0Mzg4Mjc0NDN9.POonh-FngFnKeCgDfjjoemmF3Mt8HP2CThHwDLYuYnQ
+
++ Response 200 (application/json)
+
+        {
+           "token": "848D5AA707D2B1A3E053B70010ACAA0E",
+           "type": "UPDATE_PRODUCT",
+           "additionalData": {
+               "product": {
+                   "productGroupPartnerId": "489769",
+                   "message": "Sucess"
+               }
+           },
+           "events": [
+               {
+                   "eventType": "updateProduct",
+                   "event": "https://marketplace.ecosweb.com.br/rest/product/v1/489769",
+                   "additionalData": {
+                       "product": {
+                           "productGroupPartnerId": "489769",
+                       }
+                   }
+               },
+               {
+                   "eventType": "markAsRead",
+                   "event": "https://marketplace.ecosweb.com.br/rest/feed/v1/848D5AA707D2B1A3E053B70010ACAA0E",
+                   "additionalData": {
+                       "token": "848D5AA707D2B1A3E053B70010ACAA0E"
+                   }
+               }
+           ]
         }
 
 ## Product Inconsistent Notifications [/rest/feed/product/inconsistent/v1{?offset,limit}]
@@ -2707,6 +2823,23 @@ Performs stock update based on partner SKU's.
 + type (string, required)
 + additionalData
     + orderId (number)
++ events (array[Event])
+
+## NotificationsProduct (object)
++ token (string, required)
++ type (string, required)
++ additionalData
+    + productGroupPartnerId (number)
+    + message (string)
++ events (array[Event])
+
+## NotificationsPrices (object)
++ token (string, required)
++ type (string, required)
++ additionalData
+    + updatePricesBatchID (number)
+    + totalUpdateSku (number)
+    + InvalidPrices (string)
 + events (array[Event])
 
         
