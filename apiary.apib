@@ -600,7 +600,7 @@ Get a paginated notifications list. Events type supported: UPDATE_STOCK.
         }
         
         
-## Prices Notifications [/rest/feed/prices/v1{?offset,limit}]
+## Price Notifications [/rest/feed/price/v1{?offset,limit}]
 
 + Parameters
     + offset (optional, number) 
@@ -715,7 +715,7 @@ Get a paginated notifications list. Events type supported: UPDATE_BATCH_PRICES.
             "attOrArgName": ""
         }
         
-## Product Create Notifications [/rest/feed/product/create/v1{?offset,limit}]
+## Product Notifications [/rest/feed/product/v1{?offset,limit}]
 
 + Parameters
     + offset (optional, number) 
@@ -733,8 +733,8 @@ Get a paginated notifications list. Events type supported: UPDATE_BATCH_PRICES.
     + notifications (NotificationsProduct)
     
 
-### Get Product Create notifications list [GET]
-Get a notifications list. Events type supported: NEW_PRODUCT.
+### Get Product notifications list [GET]
+Get a notifications list. Events type supported: NEW_PRODUCT and UPDATE_PRODUCT.
 
 + Request (application/json)
     + Headers
@@ -744,171 +744,113 @@ Get a notifications list. Events type supported: NEW_PRODUCT.
 
 + Response 200 (application/json)
 
-        {
-           "token": "848D5AA707D2B1A3E053B70010ACAA0E",
-           "type": "NEW_PRODUCT",
-           "additionalData": {
-               "product": {
-                   "productGroupPartnerId": "489769",
-                   "message": "Sucess"
-               }
-           },
-           "events": [
-               {
-                   "eventType": "newProduct",
-                   "event": "https://marketplace.ecosweb.com.br/rest/product/v1/489769",
-                   "additionalData": {
-                       "product": {
-                           "productGroupPartnerId": "489769",
-                       }
-                   }
-               },
-               {
-                   "eventType": "markAsRead",
-                   "event": "https://marketplace.ecosweb.com.br/rest/feed/v1/848D5AA707D2B1A3E053B70010ACAA0E",
-                   "additionalData": {
-                       "token": "848D5AA707D2B1A3E053B70010ACAA0E"
-                   }
-               }
-           ]
-        }
+            {
+              "notifications": [
+                {
+                  "token": "848D5AA707D2B1A3E053B70010ACAA0E",
+                  "type": "NEW_PRODUCT",
+                  "additionalData": {
+                    "success": "true",
+                    "product": {
+                      "productGroupPartnerId": "489769"
+                    }
+                  },
+                  "events": [
+                    {
+                      "eventType": "readProduct",
+                      "event": "https://marketplace.ecosweb.com.br/rest/product/v1/489769",
+                      "additionalData": {
+                        "product": {
+                          "productGroupPartnerId": "489769"
+                        }
+                      }
+                    },
+                    {
+                      "eventType": "markAsRead",
+                      "event": "https://marketplace.ecosweb.com.br/rest/feed/v1/848D5AA707D2B1A3E053B70010ACAA0E",
+                      "additionalData": {
+                        "token": "848D5AA707D2B1A3E053B70010ACAA0E"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "token": "848D5AA707D2B1A3E053B70010ACAA0E",
+                  "type": "UPDATE_PRODUCT",
+                  "additionalData": {
+                    "success": "true",
+                    "product": {
+                      "productGroupPartnerId": "489769"          
+                    }
+                  },
+                  "events": [
+                    {
+                      "eventType": "updateProduct",
+                      "event": "https://marketplace.ecosweb.com.br/rest/product/v1/489769",
+                      "additionalData": {
+                        "product": {
+                          "productGroupPartnerId": "489769"
+                        }
+                      }
+                    },
+                    {
+                      "eventType": "markAsRead",
+                      "event": "https://marketplace.ecosweb.com.br/rest/feed/v1/848D5AA707D2B1A3E053B70010ACAA0E",
+                      "additionalData": {
+                        "token": "848D5AA707D2B1A3E053B70010ACAA0E"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "token": "848D5AA707D2KLDSHFLU10ACAA0E",
+                  "type": "NEW_PRODUCT",
+                  "additionalData": {
+                    "success": "false",
+                    "product": {
+                      "productGroupPartnerId": "489769"          
+                    },
+                    "faults": [
+                        {
+                            "exceptionTypeName": "PosthausInvalidProductCategoryException",
+                            "message": "Invalid product category (id: '0', partnerId: '2').",
+                            "attOrArgName": "category.partnerId"
+                        },
+                        {
+                            "exceptionTypeName": "PosthausProductPartnerIdAlreadyExists",
+                            "message": "Product already registered (productPartnerId: '6000637302').",
+                            "attOrArgName": "variations.productPartnerId"
+                        }
+                    ]      
+                  },
+                  "events": [
+                    {
+                      "eventType": "newProduct",
+                      "event": "https://marketplace.ecosweb.com.br/rest/product/v1/489769",
+                      "additionalData": {
+                        "product": {
+                          "productGroupPartnerId": "489769"
+                        }
+                      }
+                    },
+                    {
+                      "eventType": "markAsRead",
+                      "event": "https://marketplace.ecosweb.com.br/rest/feed/v1/848D5AA707D2B1A3E053B70010ACAA0E",
+                      "additionalData": {
+                        "token": "848D5AA707D2B1A3E053B70010ACAA0E"
+                      }
+                    }
+                  ]
+                }
+              ],
+              "page": {
+                "size": 3,
+                "totalElements": 6,
+                "totalPages": 3,
+                "number": 1
+              }
+            }
         
-## Product Update Notifications [/rest/feed/product/update/v1{?offset,limit}]
-
-+ Parameters
-    + offset (optional, number) 
-        Paging position
-        
-        + Default: `1`
-    + limit (number, optional)
-
-        A limit on the number of objects to be returned. Limit can range
-        between 1 and 100 items.
-
-        + Default: `10`
-
-+ Attributes (object)
-    + notifications (NotificationsProduct)
-    
-
-### Get Product Update notifications list [GET]
-Get a notifications list. Events type supported: UPDATE_PRODUCT.
-
-+ Request (application/json)
-    + Headers
-
-            Accept: application/json
-            Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE0Mzg4Mjc0NDN9.POonh-FngFnKeCgDfjjoemmF3Mt8HP2CThHwDLYuYnQ
-
-+ Response 200 (application/json)
-
-        {
-           "token": "848D5AA707D2B1A3E053B70010ACAA0E",
-           "type": "UPDATE_PRODUCT",
-           "additionalData": {
-               "product": {
-                   "productGroupPartnerId": "489769",
-                   "message": "Sucess"
-               }
-           },
-           "events": [
-               {
-                   "eventType": "updateProduct",
-                   "event": "https://marketplace.ecosweb.com.br/rest/product/v1/489769",
-                   "additionalData": {
-                       "product": {
-                           "productGroupPartnerId": "489769",
-                       }
-                   }
-               },
-               {
-                   "eventType": "markAsRead",
-                   "event": "https://marketplace.ecosweb.com.br/rest/feed/v1/848D5AA707D2B1A3E053B70010ACAA0E",
-                   "additionalData": {
-                       "token": "848D5AA707D2B1A3E053B70010ACAA0E"
-                   }
-               }
-           ]
-        }
-
-## Product Inconsistent Notifications [/rest/feed/product/inconsistent/v1{?offset,limit}]
-
-+ Parameters
-    + offset (optional, number) 
-        Paging position
-        
-        + Default: `1`
-    + limit (number, optional)
-
-        A limit on the number of objects to be returned. Limit can range
-        between 1 and 100 items.
-
-        + Default: `10`
-
-+ Attributes (object)
-    + notifications (Notifications)
-    
-
-### Get Product Inconsistent notifications list [GET]
-Get a notifications list. Events type supported: PRODUCT_INCONSISTENCY.
-
-+ Request (application/json)
-    + Headers
-
-            Accept: application/json
-            Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE0Mzg4Mjc0NDN9.POonh-FngFnKeCgDfjjoemmF3Mt8HP2CThHwDLYuYnQ
-
-+ Response 200 (application/json)
-
-        {
-           "token": "848D5AA707D2B1A3E053B70010ACAA0E",
-           "type": "PRODUCT_INCONSISTENCY",
-           "additionalData": {
-               "product": {
-                   "productGroupPartnerId": "489769",
-                   "faults": [
-                       {
-                           "exceptionTypeName": "PosthausInvalidProductCategoryException",
-                           "message": "Invalid product category (id: '0', partnerId: '2').",
-                           "attOrArgName": "category.partnerId"
-                       },
-                       {
-                           "exceptionTypeName": "PosthausProductPartnerIdAlreadyExists",
-                           "message": "Product already registered (productPartnerId: '6000637302').",
-                           "attOrArgName": "variations.productPartnerId"
-                       }
-                   ]
-               }
-           },
-           "events": [
-               {
-                   "eventType": "readProduct",
-                   "event": "https://marketplace.ecosweb.com.br/rest/product/v1/489769",
-                   "additionalData": {
-                       "product": {
-                           "productGroupPartnerId": "489769",
-                       }
-                   }
-               },
-               {
-                   "eventType": "markAsRead",
-                   "event": "https://marketplace.ecosweb.com.br/rest/feed/v1/848D5AA707D2B1A3E053B70010ACAA0E",
-                   "additionalData": {
-                       "token": "848D5AA707D2B1A3E053B70010ACAA0E"
-                   }
-               }
-           ]
-        }
-        
-+ Response 500 (application/json)
-
-        {
-            "exceptionTypeName": "",
-            "message": "",
-            "attOrArgName": ""
-        }
-
-
 ## Mark as read notification [/rest/feed/v1/{token}]
 
 + Attributes (object)
