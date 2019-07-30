@@ -119,7 +119,7 @@ Returns the registered Marketplace categories.
 
 + Response 200 (application/json)
 
-       [
+    [
         {
             "id": "43",
             "description": "42"
@@ -132,7 +132,7 @@ Returns the registered Marketplace categories.
             "id": "45",
             "description": "44"
         }
-        ]
+    ]
         
 + Response 500 (application/json)
 
@@ -2698,7 +2698,8 @@ Create a Variation.
 GET a Variation.
 
 + Parameters
-    + {product_partner_id} (required, string, `9995586`) ... product partner ID
+    
+    + product_partner_id (required, string, `9995586`) ... Patner product ID
 
 + Request (application/json)
 
@@ -2981,7 +2982,7 @@ Create a SKU list from a product.
 ## SKU [/rest/products/variations/v1/{product_partner_id}/skus/{sku_partner_id}]
 
 + Parameters
-    + product_partner_id (required, string, `9995586`) ... Partner product ID
+    + product_partner_id (required, string, `9995586`) ... Patner product ID
     + partner_id (required, string, `999558689`) ... Partner SKU ID
 
 + Attributes (object)
@@ -3033,7 +3034,7 @@ Returns information about a SKU.
 ## Price [/rest/products/variations/v1/{product_partner_id}/skus/{sku_partner_id}/price/]
 
 + Parameters
-    + product_partner_id (required, string, `9995586`) ... Partner product ID
+    + product_partner_id (required, string, `9995586`) ... Patner product ID
     + partner_id (required, string, `999558689`) ... Partner SKU ID
 
 + Attributes (object)
