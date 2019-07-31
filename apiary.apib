@@ -119,20 +119,20 @@ Returns the registered Marketplace categories.
 
 + Response 200 (application/json)
 
-    [
-        {
-            "id": "43",
-            "description": "42"
-        },
-        {
-            "id": "44",
-            "description": "43"
-        },
-        {
-            "id": "45",
-            "description": "44"
-        }
-    ]
+        [
+            {
+                "id": "43",
+                "description": "42"
+            },
+            {
+                "id": "44",
+                "description": "43"
+            },
+            {
+                "id": "45",
+                "description": "44"
+            }
+        ]
         
 + Response 500 (application/json)
 
@@ -2078,152 +2078,156 @@ Create a Product.
     + Body         
 
             {  
-               "productGroupPartnerId":"489764",
-               "brand":{
-                  "partnerId":"TR6757"
-               },
-               "title":"VESTIDO DE TRICÔ OMBRO A OMBRO",
-               "description":"Vestido com decote ombro a ombro. Confeccionado em malha de tricô de algodão. Com mangas raglan e comprimento alongado.",
-               "gender":"F",
-               "ageGroup":"A",
-               "variations":[  
-                  {  
-                     "productPartnerId":"6000641446",
-                     "title":"Café",
-                     "predominantColor":{  
-                        "id": "Marrom",
-                        "partnerId": "964B00"
-                     },
-                     "skus":[  
-                        {  
-                           "partnerId":"489764987",
-                           "ean":"7898357417892",
-                           "amount": 550,
-                           "price":169.95,
-                           "sellPrice":159.95,
-                           "size": {
-                                "partnerId":"M"
-                           },
-                           "height":30.15,
-                           "width":45.15,
-                           "length":10.15,
-                           "weight":0.321
-                        },
-                        {  
-                           "partnerId":"489764988",
-                           "ean":"7898357417982",
-                           "amount": 354,
-                           "price":169.90,
-                           "sellPrice":159.90,
-                           "size": {
-                                "partnerId":"M"
-                           },
-                           "height":30.15,
-                           "width":45.15,
-                           "length":10.15,
-                           "weight":0.325
-                        }
-                     ],
-                     "images":[  
-                        {  
-                           "index":1,
-                           "url":"https://cdn.seusite.com.br/foto/vestido-preto-com-decote-transpassado_124341.jpg"
-                        },
-                        {  
-                           "index":2,
-                           "url":"https://cdn.seusite.com.br/foto/vestido-preto-com-decote-transpassado_124342.jpg"
-                        },
-                        {  
-                           "index":3,
-                           "url":"https://cdn.seusite.com.br/foto/vestido-preto-com-decote-transpassado_124343.jpg"
-                        }
-                     ]
-                  },
-                  "title":"VESTIDO DE TRICÔ OOOO",
-               "description":"Vestido com decote ombro a ombro diferenciado. Confeccionado em malha de tricô de algodão. Com mangas raglan e comprimento alongado.",
-               "gender":"F",
-               "ageGroup":"A",
-               "variations":[  
-                  {  
-                     "productPartnerId":"60006411231",
-                     "title":"Café",
-                     "predominantColor":{  
-                        "id": "Marrom",
-                        "partnerId": "964B00"
-                     },
-                     "skus":[  
-                        {  
-                           "partnerId":"489764123",
-                           "ean":"7898357122131",
-                           "amount": 550,
-                           "price":169.95,
-                           "sellPrice":159.95,
-                           "size": {
-                                "partnerId":"M"
-                           },
-                           "height":30.15,
-                           "width":45.15,
-                           "length":10.15,
-                           "weight":0.321
-                        },
-                        {  
-                           "partnerId":"4823121231",
-                           "ean":"7898352312111",
-                           "amount": 354,
-                           "price":169.90,
-                           "sellPrice":159.90,
-                           "size": {
-                                "partnerId":"M"
-                           },
-                           "height":30.15,
-                           "width":45.15,
-                           "length":10.15,
-                           "weight":0.325
-                        }
-                     ],
-                     "images":[  
-                        {  
-                           "index":1,
-                           "url":"https://cdn.seusite.com.br/foto/vestido-preto-com-decote-transpassado_124341.jpg"
-                        },
-                        {  
-                           "index":2,
-                           "url":"https://cdn.seusite.com.br/foto/vestido-preto-com-decote-transpassado_124342.jpg"
-                        },
-                        {  
-                           "index":3,
-                           "url":"https://cdn.seusite.com.br/foto/vestido-preto-com-decote-transpassado_124343.jpg"
-                        }
-                     ]
-                  }
-               ],
-               "collection":"Inverno 2020",
-               "characteristics":[  
-                  {  
-                     "name":"Medida ombro",
-                     "value":"32cm"
-                  },
-                  {  
-                     "name":"Composição",
-                     "value":"Sintético"
-                  } 
-               ],
-               "category":{  
-                  "id":1,
-                  "partnerId":"Cat.Fem.",
-                  "name":"Moda Feminina",
-                  "subCategory":{  
-                     "id":10,
-                     "partnerId":"1.Ves",
-                     "name":"Vestidos"
-                  },
-                  "subClass":{  
-                     "id":1,
-                     "partnerId":"Vestido Curto",
-                     "name":"Vestido Curto"
-                  }
-               }
+            "productGroupPartnerId":"489764",
+            "brand":{  
+            "partnerId":"TR6757"
+            },
+            "title":"VESTIDO DE TRICÔ OMBRO A OMBRO",
+            "description":"Vestido com decote ombro a ombro. Confeccionado em malha de tricô de algodão. Com mangas raglan e comprimento alongado.",
+            "gender":"F",
+            "ageGroup":"A",
+            "variations":[  
+            {  
+            "productPartnerId":"6000641446",
+            "title":"Café",
+            "predominantColor":{  
+            "id":"Marrom",
+            "partnerId":"964B00"
+            },
+            "skus":[  
+                {  
+                "partnerId":"489764987",
+                "ean":"7898357417892",
+                "amount":550,
+                "price":169.95,
+                "sellPrice":159.95,
+                "size":{  
+                    "partnerId":"M"
+                },
+                "height":30.15,
+                "width":45.15,
+                "length":10.15,
+                "weight":0.321
+            },
+            {  
+                "partnerId":"489764988",
+                "ean":"7898357417982",
+                "amount":354,
+                "price":169.90,
+                "sellPrice":159.90,
+                "size":{  
+                    "partnerId":"M"
+                },
+                "height":30.15,
+                "width":45.15,
+                "length":10.15,
+                "weight":0.325
             }
+            ],
+            "images":[  
+            {  
+            "index":1,
+            "url":"https://cdn.seusite.com.br/foto/vestido-preto-com-decote-transpassado_124341.jpg"
+              },
+              {  
+            "index":2,
+            "url":"https://cdn.seusite.com.br/foto/vestido-preto-com-decote-transpassado_124342.jpg"
+              },
+            {  
+            "index":3,
+            "url":"https://cdn.seusite.com.br/foto/vestido-preto-com-decote-transpassado_124343.jpg"
+              }
+            ]
+            },
+            {  
+            "title":"VESTIDO DE TRICÔ OOOO",
+            "description":"Vestido com decote ombro a ombro diferenciado. Confeccionado em malha de tricô de algodão. Com mangas raglan e comprimento alongado.",
+            "gender":"F",
+            "ageGroup":"A",
+            "variations":[  
+            {  
+            "productPartnerId":"60006411231",
+            "title":"Café",
+            "predominantColor":{  
+              "id":"Marrom",
+              "partnerId":"964B00"
+            },
+            "skus":[  
+              {  
+                "partnerId":"489764123",
+                "ean":"7898357122131",
+                "amount":550,
+                "price":169.95,
+                "sellPrice":159.95,
+                "size":{  
+                  "partnerId":"M"
+                },
+                "height":30.15,
+                "width":45.15,
+                "length":10.15,
+                "weight":0.321
+              },
+              {  
+                "partnerId":"4823121231",
+                "ean":"7898352312111",
+                "amount":354,
+                "price":169.90,
+                "sellPrice":159.90,
+                "size":{  
+                  "partnerId":"M"
+                },
+                "height":30.15,
+                "width":45.15,
+                "length":10.15,
+                "weight":0.325
+              }
+            ],
+            "images":[  
+              {  
+                "index":1,
+                "url":"https://cdn.seusite.com.br/foto/vestido-preto-com-decote-transpassado_124341.jpg"
+              },
+              {  
+                "index":2,
+                "url":"https://cdn.seusite.com.br/foto/vestido-preto-com-decote-transpassado_124342.jpg"
+              },
+              {  
+                "index":3,
+                "url":"https://cdn.seusite.com.br/foto/vestido-preto-com-decote-transpassado_124343.jpg"
+              }
+            ]
+            }
+            ],
+            "collection":"Inverno 2020",
+            "characteristics":[  
+              {  
+            "name":"Medida ombro",
+            "value":"32cm"
+            },
+            {  
+            "name":"Composição",
+            "value":"Sintético"
+              }
+            ],
+            "category":{  
+              "id":1,
+                "partnerId":"Cat.Fem.",
+            "name":"Moda Feminina",
+            "subCategory":{  
+            "id":10,
+            "partnerId":"1.Ves",
+            "name":"Vestidos"
+            },
+            "subClass":{  
+            "id":1,
+            "partnerId":"Vestido Curto",
+            "name":"Vestido Curto"
+            }
+            }
+            }
+            ]
+            }
+
 
 + Response 200 (application/json)
 
@@ -2714,13 +2718,14 @@ GET a Variation.
 
 + Response 200 (application/json)
 
-    {  
+        {  
            "productGroupId":"313503",
            "productGroupPartnerId":"489764",
            "brand":{  
               "id":1234,
               "partnerId":"TR6757"
            },
+           {
            "title":"VESTIDO DE TRICÔ OMBRO A OMBRO",
            "description":"Vestido com decote ombro a ombro. Confeccionado em malha de tricô de algodão. Com mangas raglan e comprimento alongado.",
            "gender":"F",
@@ -2813,7 +2818,7 @@ GET a Variation.
                  "name":"Vestido Curto"
               }
            }
-    }
+        }
         
 + Response 500 (application/json)
 
