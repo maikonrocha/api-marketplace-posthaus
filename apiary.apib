@@ -7,181 +7,6 @@ This API intends to integrate the data between the Posthaus Marketplace Platform
 
 **Note:** Non-mandatory attributes and parameters will be identified with the "optional".
 
-# Group Brand
-It will be used to read Brands in Maketplace Posthaus.
-
-## Brands [/rest/brands/v1/]
-
-+ Attributes (object)
-    + brands (array[BrandResponse])
-    + exception (Exception)       
-
-
-### Read Brands [GET]
-Returns all brands recorded.
-
-+ Request (application/json)
-    + Headers
-
-            Accept: application/json
-            Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE0Mzg4Mjc0NDN9.POonh-FngFnKeCgDfjjoemmF3Mt8HP2CThHwDLYuYnQ
-            
-
-+ Response 200 (application/json)
-
-        [
-          {
-            "id": 1234,
-            "name": "Marca exemplo"
-           },
-          {
-            "id": 889,
-            "name": "Teste"
-          }
-        ]
-
-+ Response 500 (application/json)
-
-        {
-            "exceptionTypeName": "",
-            "message": "",
-            "attOrArgName": ""
-        }
-
-
-# Group Category
-It will be used to read Categories registered in Maketplace Posthaus.
-
-## Categories [/rest/categories/v1/]
-
-+ Attributes (object)
-    + categories (array[ReadCategory])
-    + exception (Exception)    
-
-
-### Read Categories [GET]
-Returns the registered Marketplace categories.
-
-+ Request (application/json)
-    + Headers
-    
-            Accept: application/json
-            Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE0Mzg4Mjc0NDN9.POonh-FngFnKeCgDfjjoemmF3Mt8HP2CThHwDLYuYnQ
-            
-
-+ Response 200 (application/json)
-
-        [
-          {
-            "id": 1,
-            "name": "Moda Feminina",
-            "subCategory":
-            {
-              "id": 10,
-              "name": "Vestidos"
-            },
-            "subClass":
-            {
-              "id": 1,
-              "name": "Vestido Curto"
-            }
-          }
-        ]
-        
-+ Response 500 (application/json)
-
-        {
-            "exceptionTypeName": "",
-            "message": "",
-            "attOrArgName": ""
-        }
-        
-        
-# Group Size
-It will be used to read Categories registered in Maketplace Posthaus.
-
-## Sizes [/rest/sizes/v1/]
-
-+ Attributes (object)
-    + sizes (array[ReadSize])
-    + exception (Exception)    
-
-
-### Read Sizes [GET]
-Returns the registered Marketplace categories.
-
-+ Request (application/json)
-    + Headers
-    
-            Accept: application/json
-            Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE0Mzg4Mjc0NDN9.POonh-FngFnKeCgDfjjoemmF3Mt8HP2CThHwDLYuYnQ
-            
-
-+ Response 200 (application/json)
-
-        [
-            {
-                "id": "43",
-                "description": "42"
-            },
-            {
-                "id": "44",
-                "description": "43"
-            },
-            {
-                "id": "45",
-                "description": "44"
-            }
-        ]
-        
-+ Response 500 (application/json)
-
-        {
-            "exceptionTypeName": "",
-            "message": "",
-            "attOrArgName": ""
-        }
-
-
-# Group Colors
-It will be used to read all product colors in Maketplace Posthaus.
-
-## Colors [/rest/colors/v1/]
-
-+ Attributes (object)
-    + colors (array[PredominantColor])
-    + exception (Exception)    
-
-
-### Read Color [GET]
-Returns all product colors available.
-
-+ Request (application/json)
-    + Headers
-
-            Accept: application/json
-            Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE0Mzg4Mjc0NDN9.POonh-FngFnKeCgDfjjoemmF3Mt8HP2CThHwDLYuYnQ
-            
-
-+ Response 200 (application/json)
-
-        [
-          {
-            "id": "Preto",
-            "partnerId": "000000"
-          },
-          {
-            "id": "Marrom",
-            "partnerId": "964B00"
-          },
-          {
-            "id": "Amarelo",
-            "partnerId": "FFFF00"
-          }
-        ]
-        
-+ Response 500 (application/json)
-
 #Group Notifications
 The Marketplace Posthaus add notifications into a queue, the queue order is from the oldest to the newest notification added.
 These GET service is going to return the oldest notification, after these notification is going to mark as readed, the next notification is going to be avaliable to GET. 
@@ -2055,7 +1880,177 @@ Performs price update based on partner SKU's.
         }
 
 # Group Product
-It will be used to read information about Products in Posthaus.
+
+## Brands [/rest/brands/v1/]
+
+It will be used to read Brands in Maketplace Posthaus.
+
++ Attributes (object)
+    + brands (array[BrandResponse])
+    + exception (Exception)       
+
+
+### Read Brands [GET]
+Returns all brands recorded.
+
++ Request (application/json)
+    + Headers
+
+            Accept: application/json
+            Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE0Mzg4Mjc0NDN9.POonh-FngFnKeCgDfjjoemmF3Mt8HP2CThHwDLYuYnQ
+            
+
++ Response 200 (application/json)
+
+        [
+          {
+            "id": 1234,
+            "name": "Marca exemplo"
+           },
+          {
+            "id": 889,
+            "name": "Teste"
+          }
+        ]
+
++ Response 500 (application/json)
+
+        {
+            "exceptionTypeName": "",
+            "message": "",
+            "attOrArgName": ""
+        }
+
+## Categories [/rest/categories/v1/]
+It will be used to read Categories registered in Maketplace Posthaus.
+
++ Attributes (object)
+    + categories (array[ReadCategory])
+    + exception (Exception)    
+
+
+### Read Categories [GET]
+Returns the registered Marketplace categories.
+
++ Request (application/json)
+    + Headers
+    
+            Accept: application/json
+            Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE0Mzg4Mjc0NDN9.POonh-FngFnKeCgDfjjoemmF3Mt8HP2CThHwDLYuYnQ
+            
+
++ Response 200 (application/json)
+
+        [
+          {
+            "id": 1,
+            "name": "Moda Feminina",
+            "subCategory":
+            {
+              "id": 10,
+              "name": "Vestidos"
+            },
+            "subClass":
+            {
+              "id": 1,
+              "name": "Vestido Curto"
+            }
+          }
+        ]
+        
++ Response 500 (application/json)
+
+        {
+            "exceptionTypeName": "",
+            "message": "",
+            "attOrArgName": ""
+        }
+
+## Sizes [/rest/sizes/v1/]
+It will be used to read sizes registered in Maketplace Posthaus.
+
++ Attributes (object)
+    + sizes (array[ReadSize])
+    + exception (Exception)    
+
+
+### Read Sizes [GET]
+Returns the registered Marketplace categories.
+
++ Request (application/json)
+    + Headers
+    
+            Accept: application/json
+            Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE0Mzg4Mjc0NDN9.POonh-FngFnKeCgDfjjoemmF3Mt8HP2CThHwDLYuYnQ
+            
+
++ Response 200 (application/json)
+
+        [
+            {
+                "id": "43",
+                "description": "42"
+            },
+            {
+                "id": "44",
+                "description": "43"
+            },
+            {
+                "id": "45",
+                "description": "44"
+            }
+        ]
+        
++ Response 500 (application/json)
+
+        {
+            "exceptionTypeName": "",
+            "message": "",
+            "attOrArgName": ""
+        }
+
+## Colors [/rest/colors/v1/]
+It will be used to read all product colors in Maketplace Posthaus.
+
++ Attributes (object)
+    + colors (array[PredominantColor])
+    + exception (Exception)    
+
+
+### Read Color [GET]
+Returns all product colors available.
+
++ Request (application/json)
+    + Headers
+
+            Accept: application/json
+            Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE0Mzg4Mjc0NDN9.POonh-FngFnKeCgDfjjoemmF3Mt8HP2CThHwDLYuYnQ
+            
+
++ Response 200 (application/json)
+
+        [
+          {
+            "id": "Preto",
+            "partnerId": "000000"
+          },
+          {
+            "id": "Marrom",
+            "partnerId": "964B00"
+          },
+          {
+            "id": "Amarelo",
+            "partnerId": "FFFF00"
+          }
+        ]
+        
++ Response 500 (application/json)
+
+        {
+            "exceptionTypeName": "",
+            "message": "",
+            "attOrArgName": ""
+        }
 
 ## Product [/rest/products/v1/]
 
@@ -2264,7 +2259,7 @@ Create a Product.
     + exception (Exception)
 
 ### Read Products [GET]
-Returns the products details.
+It will be used to read information about Products in Posthaus. Returns the products details.
 
 + Request (application/json)
     + Headers
