@@ -2238,6 +2238,120 @@ Create a Product.
             "message": "",
             "attOrArgName": ""
         }
+        
+        
+### Update a Product [PUT]
+
+Update some product attributes asynchronously.
+Product attributes (like title, characteristics, category, etc) will be updated in all variations, even variations were not informed.
+
+Product variations and skus can be omitted, if you do, no changes will occur to them properties. (attributes product.variations and product.variations.skus)
+If you inform variations or skus attributes, all its informations should be informed on update, even when no changes on it. You should inform the complete object.
+
+The product images, prices and stock attributes don't updated at this service and will be ignored if informed. 
+These changes should be update at this services:
+
+- Product Images Services (#reference/product/product-images).
+- Product Price Services (#reference/price/prices).
+- Product Stock Services (#reference/stock/stocks).
+
+
+The product characteristics always will be replaced with the characteristics informed. 
+If you want to add new characteristics, inform the current and the new ones you want to add.
+If you want to remove characteristics, inform the current without the ones you want to remove.
+
+
+
+
++ Request (application/json)
+
+    + Headers
+
+            Accept: application/json
+            Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE0Mzg4Mjc0NDN9.POonh-FngFnKeCgDfjjoemmF3Mt8HP2CThHwDLYuYnQ
+
+    + Body         
+
+            {  
+               
+                "productGroupPartnerId":"489764",
+                "title":"VESTIDO DE TRICÔ OMBRO A OMBRO",
+                "description":"Vestido com decote ombro a ombro. Confeccionado em malha de tricô de algodão. Com mangas raglan e comprimento alongado.",
+                "gender":"F",
+                "ageGroup":"A",
+                "variations":[{  
+                    "productPartnerId":"6000641446",
+                    "title":"Café",
+                    "predominantColor":{  
+                        "partnerId":"964B00"
+                    },
+                    "skus":[{  
+                        "partnerId":"489764987",
+                        "height":30.15,
+                        "width":45.15,
+                        "length":10.15,
+                        "weight":0.321
+                    },{  
+                        "partnerId":"489764988",
+                        "height":30.15,
+                        "width":45.15,
+                        "length":10.15,
+                        "weight":0.3
+                    }]
+                },{
+                    "productPartnerId":"60006411231",
+                    "title":"Café",
+                    "predominantColor":{  
+                        "partnerId":"964B00"
+                    },
+                    "skus":[{  
+                        "partnerId":"489764123",
+                        "height":30.15,
+                        "width":45.15,
+                        "length":10.15,
+                        "weight":0.321
+                    },{  
+                        "partnerId":"4823121231",
+                        "height":30.15,
+                        "width":45.15,
+                        "length":10.15,
+                        "weight":0.325
+                    }]
+                }],
+                "collection":"Inverno 2030",
+                "characteristics":[{  
+                    "name":"Medida ombro",
+                    "value":"32cm"
+                },{  
+                    "name":"Composição",
+                    "value":"Sintético"
+                }],
+                "category": {  
+                    "partnerId":"Cat.Fem.",
+                    "subCategory": {  
+                        "partnerId":"1.Ves",
+                    },
+                    "subClass":{  
+                        "partnerId":"Vestido Curto",
+                    }
+                }
+            }
+
+
++ Response 200 (application/json)
+
+        {
+            "productGroupPartnerId": "489764",
+            "message": "The product is going to be updated asynchronously."
+        }
+        
++ Response 500 (application/json)
+
+        {
+            "exceptionTypeName": "",
+            "message": "",
+            "attOrArgName": ""
+        }        
 
 ## Products [/rest/products/v1/{?offset,limit}]
 
@@ -2984,7 +3098,7 @@ Create a SKU list from a product.
 
 + Parameters
     + product_partner_id (required, string, `9995586`) ... Patner product ID
-    + partner_id (required, string, `999558689`) ... Partner SKU ID
+    + sku_partner_id (required, string, `999558689`) ... Partner SKU ID
 
 + Attributes (object)
     + sku (Sku)
@@ -3036,7 +3150,7 @@ Returns information about a SKU.
 
 + Parameters
     + product_partner_id (required, string, `9995586`) ... Patner product ID
-    + partner_id (required, string, `999558689`) ... Partner SKU ID
+    + sku_partner_id (required, string, `999558689`) ... Partner SKU ID
 
 + Attributes (object)
     + sku (SkuPrice)
