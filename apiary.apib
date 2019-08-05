@@ -1966,92 +1966,6 @@ Returns the registered Marketplace categories.
             "attOrArgName": ""
         }
 
-## Sizes [/rest/sizes/v1/]
-It will be used to read sizes registered in Maketplace Posthaus.
-
-+ Attributes (object)
-    + sizes (array[ReadSize])
-    + exception (Exception)    
-
-
-### Read Sizes [GET]
-Returns the registered Marketplace categories.
-
-+ Request (application/json)
-    + Headers
-    
-            Accept: application/json
-            Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE0Mzg4Mjc0NDN9.POonh-FngFnKeCgDfjjoemmF3Mt8HP2CThHwDLYuYnQ
-            
-
-+ Response 200 (application/json)
-
-        [
-            {
-                "id": "43",
-                "description": "42"
-            },
-            {
-                "id": "44",
-                "description": "43"
-            },
-            {
-                "id": "45",
-                "description": "44"
-            }
-        ]
-        
-+ Response 500 (application/json)
-
-        {
-            "exceptionTypeName": "",
-            "message": "",
-            "attOrArgName": ""
-        }
-
-## Colors [/rest/colors/v1/]
-It will be used to read all product colors in Maketplace Posthaus.
-
-+ Attributes (object)
-    + colors (array[PredominantColor])
-    + exception (Exception)    
-
-
-### Read Color [GET]
-Returns all product colors available.
-
-+ Request (application/json)
-    + Headers
-
-            Accept: application/json
-            Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE0Mzg4Mjc0NDN9.POonh-FngFnKeCgDfjjoemmF3Mt8HP2CThHwDLYuYnQ
-            
-
-+ Response 200 (application/json)
-
-        [
-          {
-            "id": "Preto",
-            "partnerId": "000000"
-          },
-          {
-            "id": "Marrom",
-            "partnerId": "964B00"
-          },
-          {
-            "id": "Amarelo",
-            "partnerId": "FFFF00"
-          }
-        ]
-        
-+ Response 500 (application/json)
-
-        {
-            "exceptionTypeName": "",
-            "message": "",
-            "attOrArgName": ""
-        }
-
 ## Product [/rest/products/v1/]
 
 + Attributes (object)
@@ -2623,20 +2537,19 @@ Returns the informations about a specific product.
             "attOrArgName": ""
         }
 
-## Product Images [/rest/products/variations/v1/{product_partner_id}/images/]
-It will be used to manage product images that will be processed by Posthaus.
-The image file must be the minimum 390 height, 390 width and 5 MB the maximum upload file.
-Format supported : JPEG.
+# Group Variations
+It will be used to get and create varitions in products
 
-+ Parameters
-    + product_partner_id (required, string, `9995586`) ... Patner product ID
+## Colors [/rest/colors/v1/]
+It will be used to read all product colors in Maketplace Posthaus.
 
 + Attributes (object)
-    + images (Image)
-    + exception (Exception)   
+    + colors (array[PredominantColor])
+    + exception (Exception)    
 
-### Publish new images [POST]
-Publish a new image list from a partner product. Index 1 is the main image.
+
+### Read Color [GET]
+Returns all product colors available.
 
 + Request (application/json)
     + Headers
@@ -2644,78 +2557,24 @@ Publish a new image list from a partner product. Index 1 is the main image.
             Accept: application/json
             Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE0Mzg4Mjc0NDN9.POonh-FngFnKeCgDfjjoemmF3Mt8HP2CThHwDLYuYnQ
             
-    + Body  
-
-            [
-              {
-                "index": 1,
-                "url": "https://cdn.seusite.com.br/foto/vestido-preto-com-decote-transpassado_124341.jpg"
-              },
-              {
-                "index": 2,
-                "url": "https://cdn.seusite.com.br/foto/vestido-preto-com-decote-transpassado_124342.jpg"
-              },
-              {
-                "index": 3,
-                "url": "https://cdn.seusite.com.br/foto/vestido-preto-com-decote-transpassado_124343.jpg"
-              }              
-            ]            
-
-+ Response 204 (application/json)
-
-+ Response 500 (application/json)
-
-        {
-            "exceptionTypeName": "",
-            "message": "",
-            "attOrArgName": ""
-        }
-
-### Get images [GET]
-Get a image list from a partner product.
-
-+ Request (application/json)
-    + Headers
-
-            Accept: application/json
-            Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE0Mzg4Mjc0NDN9.POonh-FngFnKeCgDfjjoemmF3Mt8HP2CThHwDLYuYnQ
 
 + Response 200 (application/json)
 
         [
           {
-            "id": 78949764
-            "index": 1
-            "url": "https://cdn.seusite.com.br/foto/vestido-preto-com-decote-transpassado_124342.jpg"
-            "standardUrl": "https://ph-cdn3.ecosweb.com.br/Web/posthaus/foto/moda-feminina/vestidos/vestido-preto-com-decote-transpassado_124341_600_1.jpg"
+            "id": "Preto",
+            "partnerId": "000000"
           },
           {
-            "id": 78949765
-            "index": 2
-            "url": "https://cdn.seusite.com.br/foto/vestido-preto-com-decote-transpassado_124342.jpg"
-            "standardUrl": "https://ph-cdn3.ecosweb.com.br/Web/posthaus/foto/moda-feminina/vestidos/vestido-preto-com-decote-transpassado_124341_600_2.jpg"
+            "id": "Marrom",
+            "partnerId": "964B00"
           },
           {
-            "id": 78949766
-            "index": 3
-            "url": "https://cdn.seusite.com.br/foto/vestido-preto-com-decote-transpassado_124342.jpg"
-            "standardUrl": "https://ph-cdn3.ecosweb.com.br/Web/posthaus/foto/moda-feminina/vestidos/vestido-preto-com-decote-transpassado_124341_600_3.jpg"
-          }              
-        ] 
-
-
-### Delete a image from product [DELETE /rest/products/variations/v1/{product_partner_id}/images/{imageId}] 
-Publish a new image list from a partner product. Index 1 is the main image.
-
-+ Request (application/json)
-    + Headers
-
-            Accept: application/json
-            Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE0Mzg4Mjc0NDN9.POonh-FngFnKeCgDfjjoemmF3Mt8HP2CThHwDLYuYnQ
-
-
-+ Response 204 (application/json)
-
+            "id": "Amarelo",
+            "partnerId": "FFFF00"
+          }
+        ]
+        
 + Response 500 (application/json)
 
         {
@@ -2723,9 +2582,6 @@ Publish a new image list from a partner product. Index 1 is the main image.
             "message": "",
             "attOrArgName": ""
         }
-        
-# Group Variations
-It will be used to get and create varitions in products
 
 ## Create Variation [/rest/products/v1/{product_group_partner_id}/variations/]
 
@@ -2937,7 +2793,151 @@ GET a Variation.
             "attOrArgName": ""
         }
 
+## Product Images [/rest/products/variations/v1/{product_partner_id}/images/]
+It will be used to manage product images that will be processed by Posthaus.
+The image file must be the minimum 390 height, 390 width and 5 MB the maximum upload file.
+Format supported : JPEG.
+
++ Parameters
+    + product_partner_id (required, string, `9995586`) ... Patner product ID
+
++ Attributes (object)
+    + images (Image)
+    + exception (Exception)   
+
+### Publish new images [POST]
+Publish a new image list from a partner product. Index 1 is the main image.
+
++ Request (application/json)
+    + Headers
+
+            Accept: application/json
+            Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE0Mzg4Mjc0NDN9.POonh-FngFnKeCgDfjjoemmF3Mt8HP2CThHwDLYuYnQ
+            
+    + Body  
+
+            [
+              {
+                "index": 1,
+                "url": "https://cdn.seusite.com.br/foto/vestido-preto-com-decote-transpassado_124341.jpg"
+              },
+              {
+                "index": 2,
+                "url": "https://cdn.seusite.com.br/foto/vestido-preto-com-decote-transpassado_124342.jpg"
+              },
+              {
+                "index": 3,
+                "url": "https://cdn.seusite.com.br/foto/vestido-preto-com-decote-transpassado_124343.jpg"
+              }              
+            ]            
+
++ Response 204 (application/json)
+
++ Response 500 (application/json)
+
+        {
+            "exceptionTypeName": "",
+            "message": "",
+            "attOrArgName": ""
+        }
+
+### Get images [GET]
+Get a image list from a partner product.
+
++ Request (application/json)
+    + Headers
+
+            Accept: application/json
+            Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE0Mzg4Mjc0NDN9.POonh-FngFnKeCgDfjjoemmF3Mt8HP2CThHwDLYuYnQ
+
++ Response 200 (application/json)
+
+        [
+          {
+            "id": 78949764
+            "index": 1
+            "url": "https://cdn.seusite.com.br/foto/vestido-preto-com-decote-transpassado_124342.jpg"
+            "standardUrl": "https://ph-cdn3.ecosweb.com.br/Web/posthaus/foto/moda-feminina/vestidos/vestido-preto-com-decote-transpassado_124341_600_1.jpg"
+          },
+          {
+            "id": 78949765
+            "index": 2
+            "url": "https://cdn.seusite.com.br/foto/vestido-preto-com-decote-transpassado_124342.jpg"
+            "standardUrl": "https://ph-cdn3.ecosweb.com.br/Web/posthaus/foto/moda-feminina/vestidos/vestido-preto-com-decote-transpassado_124341_600_2.jpg"
+          },
+          {
+            "id": 78949766
+            "index": 3
+            "url": "https://cdn.seusite.com.br/foto/vestido-preto-com-decote-transpassado_124342.jpg"
+            "standardUrl": "https://ph-cdn3.ecosweb.com.br/Web/posthaus/foto/moda-feminina/vestidos/vestido-preto-com-decote-transpassado_124341_600_3.jpg"
+          }              
+        ] 
+
+
+### Delete a image from product [DELETE /rest/products/variations/v1/{product_partner_id}/images/{imageId}] 
+Publish a new image list from a partner product. Index 1 is the main image.
+
++ Request (application/json)
+    + Headers
+
+            Accept: application/json
+            Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE0Mzg4Mjc0NDN9.POonh-FngFnKeCgDfjjoemmF3Mt8HP2CThHwDLYuYnQ
+
+
++ Response 204 (application/json)
+
++ Response 500 (application/json)
+
+        {
+            "exceptionTypeName": "",
+            "message": "",
+            "attOrArgName": ""
+        }Re
+
 # Group SKU
+
+## Sizes [/rest/sizes/v1/]
+It will be used to read sizes registered in Maketplace Posthaus.
+
++ Attributes (object)
+    + sizes (array[ReadSize])
+    + exception (Exception)    
+
+
+### Read Sizes [GET]
+Returns the registered Marketplace categories.
+
++ Request (application/json)
+    + Headers
+    
+            Accept: application/json
+            Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE0Mzg4Mjc0NDN9.POonh-FngFnKeCgDfjjoemmF3Mt8HP2CThHwDLYuYnQ
+            
+
++ Response 200 (application/json)
+
+        [
+            {
+                "id": "43",
+                "description": "42"
+            },
+            {
+                "id": "44",
+                "description": "43"
+            },
+            {
+                "id": "45",
+                "description": "44"
+            }
+        ]
+        
++ Response 500 (application/json)
+
+        {
+            "exceptionTypeName": "",
+            "message": "",
+            "attOrArgName": ""
+        }
 
 ## SKUS [/rest/products/variations/v1/{product_partner_id}/skus/]
 
