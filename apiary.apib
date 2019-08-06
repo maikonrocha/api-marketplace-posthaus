@@ -1902,16 +1902,24 @@ Returns all brands recorded.
 
 + Response 200 (application/json)
 
-        [
-          {
-            "id": 1234,
-            "name": "Marca exemplo"
-           },
-          {
-            "id": 889,
-            "name": "Teste"
-          }
-        ]
+        {
+            "brands": [
+                {
+                    "id": 1234,
+                    "name": "Marca exemplo"
+                },
+                {
+                    "id": 889,
+                    "name": "Teste"
+                }
+            ],
+            "page": {
+                "size": 2,
+                "totalElements": 6,
+                "totalPages": 3,
+                "number": 1
+            }
+        }
 
 + Response 500 (application/json)
 
@@ -1941,23 +1949,32 @@ Returns the registered Marketplace categories.
 
 + Response 200 (application/json)
 
-        [
-          {
-            "id": 1,
-            "name": "Moda Feminina",
-            "subCategory":
-            {
-              "id": 10,
-              "name": "Vestidos"
-            },
-            "subClass":
-            {
-              "id": 1,
-              "name": "Vestido Curto"
+        {
+            "categories": [
+                {
+                    "id": 1,
+                    "name": "Moda Feminina",
+                    "subCategory":
+                    {
+                      "id": 10,
+                      "name": "Vestidos"
+                    },
+                    "subClass":
+                    {
+                      "id": 1,
+                      "name": "Vestido Curto"
+                    }
+                }
+            ],
+            "page": {
+                "size": 2,
+                "totalElements": 6,
+                "totalPages": 3,
+                "number": 1
             }
-          }
-        ]
-        
+        }
+   
+
 + Response 500 (application/json)
 
         {
@@ -2560,20 +2577,28 @@ Returns all product colors available.
 
 + Response 200 (application/json)
 
-        [
-          {
-            "id": "Preto",
-            "name": "Preto"
-          },
-          {
-            "id": "Marrom",
-            "name": "Marrom"
-          },
-          {
-            "id": "Amarelo",
-            "name": "Amarelo"
-          }
-        ]
+        {
+            "colors": [
+                {
+                    "id": "Preto",
+                    "name": "Preto"
+                },
+                {
+                    "id": "Marrom",
+                    "name": "Marrom"
+                },
+                {
+                    "id": "Amarelo",
+                    "name": "Amarelo"
+                }
+            ],
+            "page": {
+                "size": 2,
+                "totalElements": 6,
+                "totalPages": 3,
+                "number": 1
+            }
+        }
         
 + Response 500 (application/json)
 
@@ -2892,7 +2917,7 @@ Publish a new image list from a partner product. Index 1 is the main image.
             "exceptionTypeName": "",
             "message": "",
             "attOrArgName": ""
-        }Re
+        }
 
 # Group SKU
 
@@ -2916,20 +2941,28 @@ Returns the registered Marketplace categories.
 
 + Response 200 (application/json)
 
-        [
-            {
-                "id": "43",
-                "description": "42"
-            },
-            {
-                "id": "44",
-                "description": "43"
-            },
-            {
-                "id": "45",
-                "description": "44"
+        {
+            "sizes": [
+                {
+                    "id": "43",
+                    "description": "42"
+                },
+                {
+                    "id": "44",
+                    "description": "43"
+                },
+                {
+                    "id": "45",
+                    "description": "44"
+                }
+            ],
+            "page": {
+                "size": 2,
+                "totalElements": 6,
+                "totalPages": 3,
+                "number": 1
             }
-        ]
+        }
         
 + Response 500 (application/json)
 
