@@ -2978,7 +2978,7 @@ Returns the registered Marketplace categories.
     + product_partner_id (required, string, `9995586`) ... product partner ID
 
 + Attributes (object)
-    + skus (array[Sku])
+    + sku (Sku)
     + exception (Exception)       
 
 
@@ -2994,8 +2994,7 @@ Returns all SKU from a product group (productGroupPartnerId).
 
 + Response 200 (application/json)
 
-        [
-          {
+        {
             "id": "458896-P",
             "productId" : 458896,
             "partnerId": "600064144639",
@@ -3012,44 +3011,7 @@ Returns all SKU from a product group (productGroupPartnerId).
             "width": 45.00,
             "length": 10.00,
             "weight": 0.320
-          },
-          {
-            "id": "1830320-43",
-            "productId" : 1830320,
-            "partnerId": "600064144634",
-            "productPartnerId" : "6000641446",
-            "ean": "78983578989892",
-            "amount": 2,
-            "price": 48.90,
-            "sellPrice": 48.90,
-            "size": {
-                "id": "M"
-                "partnerId":"M3"
-            },
-            "height": 30.00,
-            "width": 45.00,
-            "length": 10.00,
-            "weight": 0.320
-          },
-          {
-            "id": "2107828-P",
-            "productId" : 2107828,
-            "partnerId": "600064144636",
-            "productPartnerId" : "6000641446",
-            "ean": "7891227417892",
-            "amount": 5,
-            "price": 119.90,
-            "sellPrice": 109.90,
-            "size": {
-                "id": "M"
-                "partnerId":"M3"
-            },
-            "height": 30.00,
-            "width": 45.00,
-            "length": 10.00,
-            "weight": 0.320
-          }          
-        ]
+        }
 
 + Response 500 (application/json)
 
