@@ -2994,44 +2994,6 @@ Returns all SKU from a product group (productGroupPartnerId).
 
 + Response 200 (application/json)
 
-        {
-            "id": "458896-P",
-            "productId" : 458896,
-            "partnerId": "600064144639",
-            "productPartnerId" : "6000641446",
-            "ean": "7898357417892",
-            "amount": 20,
-            "price": 69.90,
-            "sellPrice": 59.90,
-            "size": {
-                "id": "M"
-                "partnerId":"M3"
-            },
-            "height": 30.00,
-            "width": 45.00,
-            "length": 10.00,
-            "weight": 0.320
-        }
-
-+ Response 500 (application/json)
-
-        {
-            "exceptionTypeName": "",
-            "message": "",
-            "attOrArgName": ""
-        }
-        
-### Create SKU [POST]
-Create a SKU to a variation product.
-
-+ Request (application/json)
-    + Headers
-
-            Accept: application/json
-            Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE0Mzg4Mjc0NDN9.POonh-FngFnKeCgDfjjoemmF3Mt8HP2CThHwDLYuYnQ
-    
-    + Body
-
             [
               {
                 "partnerId": "600064144639",
@@ -3069,14 +3031,45 @@ Create a SKU to a variation product.
                 "length": 10.00,
                 "weight": 0.320
               }          
-            ]    
+            ]
 
++ Response 500 (application/json)
+
+        {
+            "exceptionTypeName": "",
+            "message": "",
+            "attOrArgName": ""
+        }
+        
+### Create SKU [POST]
+Create a SKU to a variation product.
+
++ Request (application/json)
+    + Headers
+
+            Accept: application/json
+            Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE0Mzg4Mjc0NDN9.POonh-FngFnKeCgDfjjoemmF3Mt8HP2CThHwDLYuYnQ
+    
+    + Body
+
+            {
+                "partnerId": "600064144639",
+                "ean": "7898357417892",
+                "amount": 354,
+                "price": 69.90,
+                "sellPrice": 59.90,
+                "size" : "P",
+                "height": 30.00,
+                "width": 45.00,
+                "length": 10.00,
+                "weight": 0.320
+            }    
 
 + Response 200 (application/json)
 
         {
             "createSKUsID": "1f94f503-84b4-484b-bf3c-d9a329a64567",
-            "message": "SKU list is going to be created asynchronously."
+            "message": "SKU is going to be created asynchronously."
         }
 
 
