@@ -15,7 +15,7 @@ If the notification won't be readed during 30 days, the SellerCenter is going to
 
 ## Order Notifications [/rest/feed/orders/v1/{?offset,limit}]
 
-+ Parameters
++ ParametersF
     + offset (optional, number) 
         Paging position
         
@@ -792,6 +792,115 @@ Get a notifications list. Events type supported: NEW_VARIATION.
               "number":1
            }
         }
+        
+        
+## SKU Notifications [/rest/feed/skus/v1{?offset,limit}]
+
++ Parameters
+    + offset (optional, number) 
+        Paging position
+        
+        + Default: `1`
+    + limit (number, optional)
+
+        A limit on the number of objects to be returned. Limit can range
+        between 1 and 100 items.
+
+        + Default: `10`
+
++ Attributes (object)
+    + notifications (NotificationsSku)
+    
+
+### Get SKUs notifications list [GET]
+Get a notifications list. Events type supported: NEW_SKU.
+
++ Request (application/json)
+    + Headers
+
+            Accept: application/json
+            Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE0Mzg4Mjc0NDN9.POonh-FngFnKeCgDfjjoemmF3Mt8HP2CThHwDLYuYnQ
+
++ Response 200 (application/json)  
+
+        {
+           "notifications":[
+              {
+                 "token":"848D5AA707D2B1A3E053B70010ACAA0E",
+                 "type":"NEW_SKU",
+                 "additionalData":{
+                    "success":"true",
+                    "product":{
+                       "partnerId":"66426610"
+                    }
+                 },
+                 "events":[
+                    {
+                       "eventType":"readSku",
+                       "event":"https://marketplace.ecosweb.com.br/rest/product/variations/v1/66666666666/skus/66426610",
+                       "additionalData":{
+                          "sku":{
+                             "partnerId":"66426610"
+                          }
+                       }
+                    },
+                    {
+                       "eventType":"markAsRead",
+                       "event":"https://marketplace.ecosweb.com.br/rest/feed/v1/848D5AA707D2B1A3E053B70010ACAA0E",
+                       "additionalData":{
+                          "token":"848D5AA707D2B1A3E053B70010ACAA0E"
+                       }
+                    }
+                 ]
+              },
+              {
+                 "token":"848D5AA707D2KLDSHFLU10ACAA0E",
+                 "type":"NEW_SKU",
+                 "additionalData":{
+                    "success":"false",
+                    "sku":{
+                       "partnerId":"66426610"
+                    },
+                    "faults":[
+                      {
+                        "exceptionTypeName": "PosthausMandatoryAttributeException",
+                        "message": "'weight' attribute is mandatory (sku: '66426610').",
+                        "attOrArgName": "weight"
+                      },
+                      {
+                        "exceptionTypeName":"PartnerIdAlreadyExists",
+                        "message":"Sku already registered (sku: '66426610')."
+                      }
+                    ]
+                 },
+                 "events":[
+                    {
+                       "eventType":"readSku",
+                       "event":"https://marketplace.ecosweb.com.br/rest/product/variations/v1/66666666666/skus/66426610",
+                       "additionalData":{
+                          "product":{
+                             "partnerId":"66426610"
+                          }
+                       }
+                    },
+                    {
+                       "eventType":"markAsRead",
+                       "event":"https://marketplace.ecosweb.com.br/rest/feed/v1/848D5AA707D2B1A3E053B70010ACAA0E",
+                       "additionalData":{
+                          "token":"848D5AA707D2B1A3E053B70010ACAA0E"
+                       }
+                    }
+                 ]
+              }
+           ],
+           "page":{
+              "size":3,
+              "totalElements":10,
+              "totalPages":4,
+              "number":1
+           }
+        }ku not
+        
         
 ## Mark as read notification [/rest/feed/v1/{token}]
 
@@ -3290,6 +3399,13 @@ Performs stock update based on partner SKU's.
     + partnerId (string, optional) - (Optional) Patner SKU ID
 + events (array[Event])
 
+## NotificationsSku (object)
++ token (string, required)
++ type (string, required)
++ additionalData
+    + partnerId (number)
+    + message (string)
++ events (array[EventSku])
 
 
 ## OrderGet (object)    
@@ -3409,11 +3525,19 @@ Performs stock update based on partner SKU's.
 + event (string)
 + aditionalData (AditionalDataProduct)
 
+## EventSku 
++ eventType (string)
++ event (string)
++ aditionalData (AditionalDataSku)
+
 ## AditionalDataProduct  
 + productGroupPartnerId (number)
 
 ## AditionalDataPrices   
 + updatePricesBatchID (number)
+
+## AditionalDataSku
++ partnerId (number)
 
 ## EventPrices 
 + eventType (string)
