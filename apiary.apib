@@ -750,90 +750,70 @@ Get a notifications list. Events type supported: NEW_VARIATION.
 
 + Response 200 (application/json)
 
-        {
-           "notifications":[
-              {
-                 "token":"848D5AA707D2B1A3E053B70010ACAA0E",
+        {  
+           "notifications":[  
+              {  
+                 "token":"8F15A6BA9EE9EAB1E053100010ACEB98",
                  "type":"NEW_VARIATION",
-                 "additionalData":{
-                    "success":"true",
-                    "variation":{
-                       "productPartnerId":"489769"
+                 "additionalData":{  
+                    "success":true,
+                    "variation":{  
+                       "productPartnerId":"48967871"
                     }
-                 },
-                 "events":[
-                    {
-                       "eventType":"readProduct",
-                       "event":"https://marketplace.ecosweb.com.br/rest/product/v1/489769",
-                       "additionalData":{
-                          "product":{
-                             "productGroupPartnerId":"489769"
-                          }
-                       }
-                    },
-                    {
-                       "eventType":"updateProduct",
-                       "event":"https://marketplace.ecosweb.com.br/rest/product/v1/",
-                       "additionalData":{
-                          "product":{
-                             "productGroupPartnerId":"489769"
-                          }
-                       }
-                    },
-                    {
-                       "eventType":"markAsRead",
-                       "event":"https://marketplace.ecosweb.com.br/rest/feed/v1/848D5AA707D2B1A3E053B70010ACAA0E",
-                       "additionalData":{
-                          "token":"848D5AA707D2B1A3E053B70010ACAA0E"
-                       }
-                    }
-                 ]
+                 }
               },
-              {
-                 "token":"848D5AA707D2KLDSHFLU10ACAA0E",
+              {  
+                 "token":"8F23D87AC45B152FE053100010AC11A7",
                  "type":"NEW_VARIATION",
-                 "additionalData":{
-                    "success":"false",
-                    "variation":{
-                       "productPartnerId":"489769"
+                 "additionalData":{  
+                    "success":false,
+                    "variation":{  
+                       "productPartnerId":"549018"
                     },
-                    "faults":[
-                       {
-                          "exceptionTypeName":"PosthausInvalidProductCategoryException",
-                          "message":"Invalid product category (id: '0', partnerId: '2').",
-                          "attOrArgName":"category.partnerId"
-                       },
-                       {
-                          "exceptionTypeName":"PosthausProductPartnerIdAlreadyExists",
-                          "message":"Product already registered (productPartnerId: '6000637302').",
-                          "attOrArgName":"variations.productPartnerId"
+                    "faults":[  
+                       {  
+                          "exceptionTypeName":"PosthausInvalidProductBrandException",
+                          "message":"Invalid product brand (id: '0', partnerId: 'Dray').",
+                          "attOrArgName":"brand.partnerId"
                        }
                     ]
-                 },
-                 "events":[
-                    {
-                       "eventType":"newVariation",
-                       "event":"https://marketplace.ecosweb.com.br/rest/product/v1/489769",
-                       "additionalData":{
-                          "product":{
-                             "productGroupPartnerId":"489769"
-                          }
-                       }
-                    },
-                    {
-                       "eventType":"markAsRead",
-                       "event":"https://marketplace.ecosweb.com.br/rest/feed/v1/848D5AA707D2B1A3E053B70010ACAA0E",
-                       "additionalData":{
-                          "token":"848D5AA707D2B1A3E053B70010ACAA0E"
-                       }
+                 }
+              },
+              {  
+                 "token":"8F24E24E87FAE175E053100010AC05AC",
+                 "type":"NEW_VARIATION",
+                 "additionalData":{  
+                    "success":true,
+                    "variation":{  
+                       "productPartnerId":"prd_grp_ptnr_id-8204d1db35"
                     }
-                 ]
+                 }
+              },
+              {  
+                 "token":"8F8B246316BD77EBE053100010AC7F0C",
+                 "type":"NEW_VARIATION",
+                 "additionalData":{  
+                    "success":true,
+                    "variation":{  
+                       "productPartnerId":"6100303611"
+                    }
+                 }
+              },
+              {  
+                 "token":"902B8528B65F4BEBE053100010ACF0CD",
+                 "type":"NEW_VARIATION",
+                 "additionalData":{  
+                    "success":true,
+                    "variation":{  
+                       "productPartnerId":"11011992"
+                    }
+                 }
               }
            ],
-           "page":{
-              "size":3,
-              "totalElements":6,
-              "totalPages":3,
+           "page":{  
+              "size":50,
+              "totalElements":50,
+              "totalPages":0,
               "number":1
            }
         }
