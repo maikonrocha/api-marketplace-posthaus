@@ -569,112 +569,157 @@ Get a notifications list. Events type supported: NEW_PRODUCT and UPDATE_PRODUCT.
 
 + Response 200 (application/json)
 
-            {
-              "notifications": [
-                {
-                  "token": "848D5AA707D2B1A3E053B70010ACAA0E",
-                  "type": "NEW_PRODUCT",
-                  "additionalData": {
-                    "success": "true",
-                    "product": {
-                      "productGroupPartnerId": "489769"
+        {  
+           "notifications":[  
+              {  
+                 "token":"8E818EB3437D8D01E053100010ACF79D",
+                 "type":"NEW_PRODUCT",
+                 "additionalData":{  
+                    "success":true,
+                    "product":{  
+                       "productGroupPartnerId":"5991098"
                     }
-                  },
-                  "events": [
-                    {
-                      "eventType": "readProduct",
-                      "event": "https://marketplace.ecosweb.com.br/rest/product/v1/489769",
-                      "additionalData": {
-                        "product": {
-                          "productGroupPartnerId": "489769"
-                        }
-                      }
+                 }
+              },
+              {  
+                 "token":"8F5F17061EC8BF6FE053100010ACC84F",
+                 "type":"NEW_PRODUCT",
+                 "additionalData":{  
+                    "success":false,
+                    "product":{  
+                       "productGroupPartnerId":"56000730"
                     },
-                    {
-                      "eventType": "markAsRead",
-                      "event": "https://marketplace.ecosweb.com.br/rest/feed/v1/848D5AA707D2B1A3E053B70010ACAA0E",
-                      "additionalData": {
-                        "token": "848D5AA707D2B1A3E053B70010ACAA0E"
-                      }
-                    }
-                  ]
-                },
-                {
-                  "token": "848D5AA707D2B1A3E053B70010ACAA0E",
-                  "type": "UPDATE_PRODUCT",
-                  "additionalData": {
-                    "success": "true",
-                    "product": {
-                      "productGroupPartnerId": "489769"          
-                    }
-                  },
-                  "events": [
-                    {
-                      "eventType": "updateProduct",
-                      "event": "https://marketplace.ecosweb.com.br/rest/product/v1/489769",
-                      "additionalData": {
-                        "product": {
-                          "productGroupPartnerId": "489769"
-                        }
-                      }
+                    "faults":[  
+                       {  
+                          "exceptionTypeName":"PosthausInvalidProductBrandException",
+                          "message":"Invalid product brand (id: 'null', partnerId: 'Dray').",
+                          "attOrArgName":"brand.partnerId"
+                       },
+                       {  
+                          "exceptionTypeName":"PosthausImageException",
+                          "message":"Image download error (url: 'https://img.passarela.com.br/imagens/produto/56000730.chuteira-masculina-society-dray.Azul.1.jpg').",
+                          "attOrArgName":"url"
+                       },
+                       {  
+                          "exceptionTypeName":"PosthausImageException",
+                          "message":"Image download error (url: 'https://img.passarela.com.br/imagens/produto/56000730.chuteira-masculina-society-dray.Azul.2.jpg').",
+                          "attOrArgName":"url"
+                       },
+                       {  
+                          "exceptionTypeName":"PosthausImageException",
+                          "message":"Image download error (url: 'https://img.passarela.com.br/imagens/produto/56000730.chuteira-masculina-society-dray.Azul.3.jpg').",
+                          "attOrArgName":"url"
+                       },
+                       {  
+                          "exceptionTypeName":"PosthausImageException",
+                          "message":"Image download error (url: 'https://img.passarela.com.br/imagens/produto/56000730.chuteira-masculina-society-dray.Azul.4.jpg').",
+                          "attOrArgName":"url"
+                       }
+                    ]
+                 }
+              },
+              {  
+                 "token":"8F5F1550E0BBBF7EE053100010AC9487",
+                 "type":"NEW_PRODUCT",
+                 "additionalData":{  
+                    "success":false,
+                    "product":{  
+                       "productGroupPartnerId":"70209056"
                     },
-                    {
-                      "eventType": "markAsRead",
-                      "event": "https://marketplace.ecosweb.com.br/rest/feed/v1/848D5AA707D2B1A3E053B70010ACAA0E",
-                      "additionalData": {
-                        "token": "848D5AA707D2B1A3E053B70010ACAA0E"
-                      }
+                    "faults":[  
+                       {  
+                          "exceptionTypeName":"PosthausInvalidProductBrandException",
+                          "message":"Invalid product brand (id: 'null', partnerId: 'Ferracini').",
+                          "attOrArgName":"brand.partnerId"
+                       },
+                       {  
+                          "exceptionTypeName":"PosthausImageException",
+                          "message":"Image download error (url: 'https://img.passarela.com.br/imagens/produto/70209056.sapato-social-masculino-ferracini-chile.Cafe.1.jpg').",
+                          "attOrArgName":"url"
+                       },
+                       {  
+                          "exceptionTypeName":"PosthausImageException",
+                          "message":"Image download error (url: 'https://img.passarela.com.br/imagens/produto/70209056.sapato-social-masculino-ferracini-chile.Cafe.2.jpg').",
+                          "attOrArgName":"url"
+                       },
+                       {  
+                          "exceptionTypeName":"PosthausImageException",
+                          "message":"Image download error (url: 'https://img.passarela.com.br/imagens/produto/70209056.sapato-social-masculino-ferracini-chile.Cafe.3.jpg').",
+                          "attOrArgName":"url"
+                       },
+                       {  
+                          "exceptionTypeName":"PosthausImageException",
+                          "message":"Image download error (url: 'https://img.passarela.com.br/imagens/produto/70209056.sapato-social-masculino-ferracini-chile.Cafe.4.jpg').",
+                          "attOrArgName":"url"
+                       }
+                    ]
+                 }
+              },
+              {  
+                 "token":"8F60DD1D0D58341AE053100010ACA2E6",
+                 "type":"NEW_PRODUCT",
+                 "additionalData":{  
+                    "success":true,
+                    "product":{  
+                       "productGroupPartnerId":"53890976100"
                     }
-                  ]
-                },
-                {
-                  "token": "848D5AA707D2KLDSHFLU10ACAA0E",
-                  "type": "NEW_PRODUCT",
-                  "additionalData": {
-                    "success": "false",
-                    "product": {
-                      "productGroupPartnerId": "489769"          
+                 }
+              },
+              {  
+                 "token":"8F727E8F32FDB1B1E053100010ACE00A",
+                 "type":"NEW_PRODUCT",
+                 "additionalData":{  
+                    "success":false,
+                    "product":{  
+                       "productGroupPartnerId":"prd_grp_ptnr_id-abbe6c2946"
                     },
-                    "faults": [
-                        {
-                            "exceptionTypeName": "PosthausInvalidProductCategoryException",
-                            "message": "Invalid product category (id: '0', partnerId: '2').",
-                            "attOrArgName": "category.partnerId"
-                        },
-                        {
-                            "exceptionTypeName": "PosthausProductPartnerIdAlreadyExists",
-                            "message": "Product already registered (productPartnerId: '6000637302').",
-                            "attOrArgName": "variations.productPartnerId"
-                        }
-                    ]      
-                  },
-                  "events": [
-                    {
-                      "eventType": "newProduct",
-                      "event": "https://marketplace.ecosweb.com.br/rest/product/v1/489769",
-                      "additionalData": {
-                        "product": {
-                          "productGroupPartnerId": "489769"
-                        }
-                      }
-                    },
-                    {
-                      "eventType": "markAsRead",
-                      "event": "https://marketplace.ecosweb.com.br/rest/feed/v1/848D5AA707D2B1A3E053B70010ACAA0E",
-                      "additionalData": {
-                        "token": "848D5AA707D2B1A3E053B70010ACAA0E"
-                      }
+                    "faults":[  
+                       {  
+                          "exceptionTypeName":"PosthausInvalidProductSizeException",
+                          "message":"Invalid SKU size (size: 'GP').",
+                          "attOrArgName":"variations[0].skus[1].size.partnerId"
+                       }
+                    ]
+                 }
+              },
+              {  
+                 "token":"9019F5EF49A4244FE053100010AC0A38",
+                 "type":"NEW_PRODUCT",
+                 "additionalData":{  
+                    "success":true,
+                    "product":{  
+                       "productGroupPartnerId":"18032019"
                     }
-                  ]
-                }
-              ],
-              "page": {
-                "size": 3,
-                "totalElements": 6,
-                "totalPages": 3,
-                "number": 1
+                 }
+              },
+              {  
+                 "token":"90272590B99BBBE7E053100010AC2019",
+                 "type":"NEW_PRODUCT",
+                 "additionalData":{  
+                    "success":true,
+                    "product":{  
+                       "productGroupPartnerId":"19032019"
+                    }
+                 }
+              },
+              {  
+                 "token":"90299E7D09AD5D8BE053100010ACAFD9",
+                 "type":"NEW_PRODUCT",
+                 "additionalData":{  
+                    "success":true,
+                    "product":{  
+                       "productGroupPartnerId":"prd_grp_ptnr_id-4cfa635490"
+                    }
+                 }
               }
-            }
+           ],
+           "page":{  
+              "size":86,
+              "totalElements":86,
+              "totalPages":1,
+              "number":1
+           }
+        }
             
 ## Variation Notifications [/rest/feed/variation/v1{?offset,limit}]
 
