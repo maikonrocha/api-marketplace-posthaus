@@ -823,149 +823,83 @@ Get a notifications list. Events type supported: NEW_SKU.
 
 + Response 200 (application/json)  
 
-            {
-                "notifications": [
-                    {
-                        "token": "8FECACE8711715D6E053100010AC5196",
-                        "type": "NEW_SKU",
-                        "additionalData": {
-                            "success": true,
-                            "sku": {
-                                "partnerId": "42022019"
-                            }
-                        }
-                    },
-                    {
-                        "token": "8FECACE8711815D6E053100010AC5196",
-                        "type": "NEW_SKU",
-                        "additionalData": {
-                            "success": true,
-                            "sku": {
-                                "partnerId": "43022019"
-                            }
-                        }
-                    },
-                    {
-                        "token": "8FECACE8711915D6E053100010AC5196",
-                        "type": "NEW_SKU",
-                        "additionalData": {
-                            "success": false,
-                            "sku": {
-                                "partnerId": "44022019"
-                            },
-                            "faults": [
-                                {
-                                    "exceptionTypeName": "PosthausInvalidProductBrandException",
-                                    "message": "Invalid product brand (id: 'null', partnerId: 'Puma').",
-                                    "attOrArgName": "brand.partnerId"
-                                },
-                                {
-                                    "exceptionTypeName": "PosthausImageException",
-                                    "message": "Image download error (url: 'https://img.passarela.com.br/imagens/produto/54901770.chuteira-futsal-masculina-puma.Laranja.1.jpg').",
-                                    "attOrArgName": "url"
-                                },
-                                {
-                                    "exceptionTypeName": "PosthausImageException",
-                                    "message": "Image download error (url: 'https://img.passarela.com.br/imagens/produto/54901770.chuteira-futsal-masculina-puma.Laranja.2.jpg').",
-                                    "attOrArgName": "url"
-                                },
-                                {
-                                    "exceptionTypeName": "PosthausImageException",
-                                    "message": "Image download error (url: 'https://img.passarela.com.br/imagens/produto/54901770.chuteira-futsal-masculina-puma.Laranja.3.jpg').",
-                                    "attOrArgName": "url"
-                                },
-                                {
-                                    "exceptionTypeName": "PosthausImageException",
-                                    "message": "Image download error (url: 'https://img.passarela.com.br/imagens/produto/54901770.chuteira-futsal-masculina-puma.Laranja.4.jpg').",
-                                    "attOrArgName": "url"
-                                },
-                                {
-                                    "exceptionTypeName": "PosthausImageException",
-                                    "message": "Image download error (url: 'https://img.passarela.com.br/imagens/produto/54901770.chuteira-futsal-masculina-puma.Laranja.5.jpg').",
-                                    "attOrArgName": "url"
-                                },
-                                {
-                                    "exceptionTypeName": "PosthausImageException",
-                                    "message": "Image download error (url: 'https://img.passarela.com.br/imagens/produto/54901770.chuteira-futsal-masculina-puma.Laranja.6.jpg').",
-                                    "attOrArgName": "url"
-                                },
-                                {
-                                    "exceptionTypeName": "PosthausImageException",
-                                    "message": "Image download error (url: 'https://img.passarela.com.br/imagens/produto/54901770.chuteira-futsal-masculina-puma.Laranja.7.jpg').",
-                                    "attOrArgName": "url"
-                                }
-                            ]
-                        }
-                    },
-                    {
-                        "token": "902C3FF47D1166C7E053100010AC8B4F",
-                        "type": "NEW_SKU",
-                        "additionalData": {
-                            "success": true,
-                            "sku": {
-                                "partnerId": "10122017"
-                            }
-                        }
-                    },
-                    {
-                        "token": "902C4302E24D66C5E053100010ACF5D5",
-                        "type": "NEW_SKU",
-                        "additionalData": {
-                            "success": false,
-                            "sku": {
-                                "partnerId": "12122017"
-                            },
-                            "faults": [
-                                {
-                                    "exceptionTypeName": "PosthausInvalidProductSizeException",
-                                    "message": "Invalid SKU size (size: ' G1').",
-                                    "attOrArgName": "size.partnerId"
-                                }
-                            ]
-                        }
-                    },
-                    {
-                        "token": "902C4302E24E66C5E053100010ACF5D5",
-                        "type": "NEW_SKU",
-                        "additionalData": {
-                            "success": false,
-                            "sku": {
-                                "partnerId": "13122017"
-                            },
-                            "faults": [
-                                {
-                                    "exceptionTypeName": "PosthausInvalidProductSizeException",
-                                    "message": "Invalid SKU size (size: ' G1').",
-                                    "attOrArgName": "size.partnerId"
-                                }
-                            ]
-                        }
-                    },
-                    {
-                        "token": "902C3FF47D1266C7E053100010AC8B4F",
-                        "type": "NEW_SKU",
-                        "additionalData": {
-                            "success": false,
-                            "sku":
-                                "partnerId": "15122017"
-                            },
-                            "faults": [
-                                {
-                                    "exceptionTypeName": "PosthausInvalidProductSizeException",
-                                    "message": "Invalid SKU size (size: ' G1').",
-                                    "attOrArgName": "size.partnerId"
-                                }
-                            ]
-                        }
+        {
+           "notifications":[
+              {
+                 "token":"848D5AA707D2B1A3E053B70010ACAA0E",
+                 "type":"NEW_SKU",
+                 "additionalData":{
+                    "success":"true",
+                    "sku":{
+                       "partnerId":"66426610"
                     }
-                ],
-                "page": {
-                    "size": 7,
-                    "totalElements": 7,
-                    "totalPages": 1,
-                    "number": 1
-                }
-            }
+                 },
+                 "events":[
+                    {
+                       "eventType":"readSku",
+                       "event":"https://marketplace.ecosweb.com.br/rest/product/variations/v1/66666666666/skus/66426610",
+                       "additionalData":{
+                          "sku":{
+                             "partnerId":"66426610"
+                          }
+                       }
+                    },
+                    {
+                       "eventType":"markAsRead",
+                       "event":"https://marketplace.ecosweb.com.br/rest/feed/v1/848D5AA707D2B1A3E053B70010ACAA0E",
+                       "additionalData":{
+                          "token":"848D5AA707D2B1A3E053B70010ACAA0E"
+                       }
+                    }
+                 ]
+              },
+              {
+                 "token":"848D5AA707D2KLDSHFLU10ACAA0E",
+                 "type":"NEW_SKU",
+                 "additionalData":{
+                    "success":"false",
+                    "sku":{
+                       "partnerId":"66426610"
+                    },
+                    "faults":[
+                      {
+                        "exceptionTypeName": "PosthausMandatoryAttributeException",
+                        "message": "'weight' attribute is mandatory (sku: '66426610').",
+                        "attOrArgName": "weight"
+                      },
+                      {
+                        "exceptionTypeName":"PartnerIdAlreadyExists",
+                        "message":"Sku already registered (sku: '66426610')."
+                      }
+                    ]
+                 },
+                 "events":[
+                    {
+                       "eventType":"readSku",
+                       "event":"https://marketplace.ecosweb.com.br/rest/product/variations/v1/66666666666/skus/66426610",
+                       "additionalData":{
+                          "product":{
+                             "partnerId":"66426610"
+                          }
+                       }
+                    },
+                    {
+                       "eventType":"markAsRead",
+                       "event":"https://marketplace.ecosweb.com.br/rest/feed/v1/848D5AA707D2B1A3E053B70010ACAA0E",
+                       "additionalData":{
+                          "token":"848D5AA707D2B1A3E053B70010ACAA0E"
+                       }
+                    }
+                 ]
+              }
+           ],
+           "page":{
+              "size":3,
+              "totalElements":10,
+              "totalPages":4,
+              "number":1
+           }
+        }
         
         
 ## Mark as read notification [/rest/feed/v1/{token}]
