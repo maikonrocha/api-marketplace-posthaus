@@ -3157,11 +3157,10 @@ Returns the registered Marketplace categories.
         }
 
 
-## SKU [/rest/products/variations/v1/{product_partner_id}/skus/{sku_partner_id}]
+## SKU [/rest/products/variations/v1/{product_partner_id}/skus/]
 
 + Parameters
     + product_partner_id (required, string, `9995586`) ... Patner product ID
-    + sku_partner_id (required, string, `999558689`) ... Partner SKU ID
 
 + Attributes (object)
     + sku (Sku)
@@ -3209,49 +3208,9 @@ Create a SKU to a variation product.
             "attOrArgName": ""
         }
         
-### Read a SKU [GET]
-Returns information about a SKU.
 
-
-+ Request (application/json)
-    + Headers
-
-            Accept: application/json
-            Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE0Mzg4Mjc0NDN9.POonh-FngFnKeCgDfjjoemmF3Mt8HP2CThHwDLYuYnQ
-            
-
-+ Response 200 (application/json)
-
-        {
-            "id": "458896-P",
-            "productId" : 458896,
-            "partnerId": "600064144639",
-            "productPartnerId" : "6000641446",
-            "ean": "7898357417892",
-            "amount": 20,
-            "price": 69.90,
-            "sellPrice": 59.90,
-            "size": {
-                "id": "M"
-                "partnerId":"M3"
-            },
-            "height": 30.00,
-            "width": 45.00,
-            "length": 10.00,
-            "weight": 0.320
-        }
-
-+ Response 500 (application/json)          
-
-        {
-            "exceptionTypeName": "",
-            "message": "",
-            "attOrArgName": ""
-        }
-            
         
-        
-## SKUS [/rest/products/variations/v1/{product_partner_id}/skus/]
+## SKUS [/rest/products/variations/v1/{product_partner_id}/skus]
 
 + Parameters
     + product_partner_id (required, string, `9995586`) ... product partner ID
@@ -3321,9 +3280,57 @@ Returns all SKU from a product group (productGroupPartnerId).
         }
         
 
+## SKU bySd [/rest/products/variations/v1/{product_partner_id}/skus/{sku_partner_id}]
+
++ Parameters
+    + product_partner_id (required, string, `9995586`) ... Patner product ID
+    + sku_partner_id (required, string, `999558689`) ... Partner SKU ID
+
++ Attributes (object)
+    + sku (Sku)
+    + exception (Exception)        
+
+### Read a SKU [GET]
+Returns information about a SKU.
+
+
++ Request (application/json)
+    + Headers
+
+            Accept: application/json
+            Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE0Mzg4Mjc0NDN9.POonh-FngFnKeCgDfjjoemmF3Mt8HP2CThHwDLYuYnQ
+            
+
++ Response 200 (application/json)
+
+        {
+            "id": "458896-P",
+            "productId" : 458896,
+            "partnerId": "600064144639",
+            "productPartnerId" : "6000641446",
+            "ean": "7898357417892",
+            "amount": 20,
+            "price": 69.90,
+            "sellPrice": 59.90,
+            "size": {
+                "id": "M"
+                "partnerId":"M3"
+            },
+            "height": 30.00,
+            "width": 45.00,
+            "length": 10.00,
+            "weight": 0.320
+        }
+
++ Response 500 (application/json)          
+
+        {
+            "exceptionTypeName": "",
+            "message": "",
+            "attOrArgName": ""
+        }
+            
         
-
-
 
 
 ## Price [/rest/products/variations/v1/{product_partner_id}/skus/{sku_partner_id}/price/]
