@@ -540,7 +540,7 @@ Get a paginated notifications list. Events type supported: UPDATE_BATCH_PRICES.
             "attOrArgName": ""
         }
         
-## Product Notifications [/rest/feed/product/v1{?offset,limit}]
+## Product Notifications [/rest/feed/product/v2{?offset,limit}]
 
 + Parameters
     + offset (optional, number) 
@@ -559,7 +559,7 @@ Get a paginated notifications list. Events type supported: UPDATE_BATCH_PRICES.
     
 
 ### Get Product notifications list [GET]
-Get a notifications list. Events type supported: NEW_PRODUCT and UPDATE_PRODUCT.
+Get a notifications list. Events type supported: NEW_PRODUCT, UPDATE_PRODUCT, NEW_VARIATION, NEW_SKU AND NEW_IMAGE.
 
 + Request (application/json)
     + Headers
@@ -572,421 +572,100 @@ Get a notifications list. Events type supported: NEW_PRODUCT and UPDATE_PRODUCT.
         {  
            "notifications":[  
               {  
-                 "token":"8E818EB3437D8D01E053100010ACF79D",
+                 "token":"90299E3C15355D8DE053100010ACBDB3",
                  "type":"NEW_PRODUCT",
                  "additionalData":{  
                     "success":true,
                     "product":{  
-                       "productGroupPartnerId":"5991098"
+                       "productGroupPartnerId":"prd_grp_ptnr_id-d2f303f062"
                     }
                  }
               },
               {  
-                 "token":"8F5F17061EC8BF6FE053100010ACC84F",
+                 "token":"8E9C157A64C60BE4E053100010ACD935",
                  "type":"NEW_PRODUCT",
                  "additionalData":{  
                     "success":false,
                     "product":{  
-                       "productGroupPartnerId":"56000730"
+                       "productGroupPartnerId":"53740976"
                     },
                     "faults":[  
                        {  
                           "exceptionTypeName":"PosthausInvalidProductBrandException",
-                          "message":"Invalid product brand (id: 'null', partnerId: 'Dray').",
+                          "message":"Invalid product brand (id: 'null', partnerId: 'Adidas').",
                           "attOrArgName":"brand.partnerId"
                        },
-                       {  
-                          "exceptionTypeName":"PosthausImageException",
-                          "message":"Image download error (url: 'https://img.passarela.com.br/imagens/produto/56000730.chuteira-masculina-society-dray.Azul.1.jpg').",
-                          "attOrArgName":"url"
-                       },
-                       {  
-                          "exceptionTypeName":"PosthausImageException",
-                          "message":"Image download error (url: 'https://img.passarela.com.br/imagens/produto/56000730.chuteira-masculina-society-dray.Azul.2.jpg').",
-                          "attOrArgName":"url"
-                       },
-                       {  
-                          "exceptionTypeName":"PosthausImageException",
-                          "message":"Image download error (url: 'https://img.passarela.com.br/imagens/produto/56000730.chuteira-masculina-society-dray.Azul.3.jpg').",
-                          "attOrArgName":"url"
-                       },
-                       {  
-                          "exceptionTypeName":"PosthausImageException",
-                          "message":"Image download error (url: 'https://img.passarela.com.br/imagens/produto/56000730.chuteira-masculina-society-dray.Azul.4.jpg').",
-                          "attOrArgName":"url"
-                       }
-                    ]
-                 }
-              },
-              {  
-                 "token":"8F5F1550E0BBBF7EE053100010AC9487",
-                 "type":"NEW_PRODUCT",
-                 "additionalData":{  
-                    "success":false,
-                    "product":{  
-                       "productGroupPartnerId":"70209056"
-                    },
-                    "faults":[  
-                       {  
-                          "exceptionTypeName":"PosthausInvalidProductBrandException",
-                          "message":"Invalid product brand (id: 'null', partnerId: 'Ferracini').",
-                          "attOrArgName":"brand.partnerId"
-                       },
-                       {  
-                          "exceptionTypeName":"PosthausImageException",
-                          "message":"Image download error (url: 'https://img.passarela.com.br/imagens/produto/70209056.sapato-social-masculino-ferracini-chile.Cafe.1.jpg').",
-                          "attOrArgName":"url"
-                       },
-                       {  
-                          "exceptionTypeName":"PosthausImageException",
-                          "message":"Image download error (url: 'https://img.passarela.com.br/imagens/produto/70209056.sapato-social-masculino-ferracini-chile.Cafe.2.jpg').",
-                          "attOrArgName":"url"
-                       },
-                       {  
-                          "exceptionTypeName":"PosthausImageException",
-                          "message":"Image download error (url: 'https://img.passarela.com.br/imagens/produto/70209056.sapato-social-masculino-ferracini-chile.Cafe.3.jpg').",
-                          "attOrArgName":"url"
-                       },
-                       {  
-                          "exceptionTypeName":"PosthausImageException",
-                          "message":"Image download error (url: 'https://img.passarela.com.br/imagens/produto/70209056.sapato-social-masculino-ferracini-chile.Cafe.4.jpg').",
-                          "attOrArgName":"url"
-                       }
-                    ]
-                 }
-              },
-              {  
-                 "token":"8F60DD1D0D58341AE053100010ACA2E6",
-                 "type":"NEW_PRODUCT",
-                 "additionalData":{  
-                    "success":true,
-                    "product":{  
-                       "productGroupPartnerId":"53890976100"
-                    }
-                 }
-              },
-              {  
-                 "token":"8F727E8F32FDB1B1E053100010ACE00A",
-                 "type":"NEW_PRODUCT",
-                 "additionalData":{  
-                    "success":false,
-                    "product":{  
-                       "productGroupPartnerId":"prd_grp_ptnr_id-abbe6c2946"
-                    },
-                    "faults":[  
                        {  
                           "exceptionTypeName":"PosthausInvalidProductSizeException",
-                          "message":"Invalid SKU size (size: 'GP').",
-                          "attOrArgName":"variations[0].skus[1].size.partnerId"
+                          "message":"Invalid SKU size (size: '28').",
+                          "attOrArgName":"variations[0].skus[0].size.partnerId"
+                       },
+                       {  
+                          "exceptionTypeName":"PosthausImageException",
+                          "message":"Invalid image url (url: 'https://img.passarela.com.br/imagens/produto/53740976.tenis-infantil-adidas-quickrun-2-k.Azul.1.jpg').",
+                          "attOrArgName":"url"
                        }
                     ]
                  }
               },
               {  
-                 "token":"9019F5EF49A4244FE053100010AC0A38",
-                 "type":"NEW_PRODUCT",
+                 "token":"907C7CD2CD3FD286E053100010AC80F9",
+                 "type":"UPDATE_PRODUCT",
                  "additionalData":{  
                     "success":true,
                     "product":{  
-                       "productGroupPartnerId":"18032019"
+                       "productGroupPartnerId":"prd_grp_ptnr_id-ed591deb38"
                     }
                  }
               },
               {  
-                 "token":"90272590B99BBBE7E053100010AC2019",
-                 "type":"NEW_PRODUCT",
+                 "token":"907D2812FAC57FF3E053100010AC4276",
+                 "type":"UPDATE_PRODUCT",
                  "additionalData":{  
-                    "success":true,
+                    "success":false,
                     "product":{  
-                       "productGroupPartnerId":"19032019"
-                    }
+                       "productGroupPartnerId":"prd_grp_ptnr_id-6198c156c6"
+                    },
+                    "faults":[  
+                       {  
+                          "exceptionTypeName":"PosthausInvalidProductCategoryException",
+                          "message":"Invalid product category (partnerId: 'Categoria Seller Teste').",
+                          "attOrArgName":"category.partnerId"
+                       },
+                       {  
+                          "exceptionTypeName":"PosthausInvalidProductCategoryException",
+                          "message":"Invalid product category (partnerId: 'Categoria Seller Teste').",
+                          "attOrArgName":"category.subCategory.partnerId"
+                       },
+                       {  
+                          "exceptionTypeName":"PosthausInvalidProductCategoryException",
+                          "message":"Invalid product category (partnerId: 'Categoria Seller Teste').",
+                          "attOrArgName":"category.subClass.partnerId"
+                       }
+                    ]
                  }
               },
               {  
-                 "token":"90299E7D09AD5D8BE053100010ACAFD9",
-                 "type":"NEW_PRODUCT",
+                 "token":"908C16E9BB066A9BE053100010AC7BDE",
+                 "type":"NEW_VARIATION",
+                 "additionalData":{  
+                    "success":true
+                 }
+              },
+              {  
+                 "token":"907EAE9BDFDCE292E053100010AC927C",
+                 "type":"NEW_IMAGE",
                  "additionalData":{  
                     "success":true,
                     "product":{  
-                       "productGroupPartnerId":"prd_grp_ptnr_id-4cfa635490"
+                       "productGroupPartnerId":"14011992"
                     }
                  }
               }
            ],
            "page":{  
-              "size":86,
-              "totalElements":86,
-              "totalPages":1,
-              "number":1
-           }
-        }
-            
-## Variation Notifications [/rest/feed/variation/v1{?offset,limit}]
-
-+ Parameters
-    + offset (optional, number) 
-        Paging position
-        
-        + Default: `1`
-    + limit (number, optional)
-
-        A limit on the number of objects to be returned. Limit can range
-        between 1 and 100 items.
-
-        + Default: `10`
-
-+ Attributes (object)
-    + notifications (NotificationsProduct)
-    
-
-### Get Variations notifications list [GET]
-Get a notifications list. Events type supported: NEW_VARIATION.
-
-+ Request (application/json)
-    + Headers
-
-            Accept: application/json
-            Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE0Mzg4Mjc0NDN9.POonh-FngFnKeCgDfjjoemmF3Mt8HP2CThHwDLYuYnQ
-
-+ Response 200 (application/json)
-
-        {  
-           "notifications":[  
-              {  
-                 "token":"8F15A6BA9EE9EAB1E053100010ACEB98",
-                 "type":"NEW_VARIATION",
-                 "additionalData":{  
-                    "success":true,
-                    "variation":{  
-                       "productPartnerId":"48967871"
-                    }
-                 }
-              },
-              {  
-                 "token":"8F23D87AC45B152FE053100010AC11A7",
-                 "type":"NEW_VARIATION",
-                 "additionalData":{  
-                    "success":false,
-                    "variation":{  
-                       "productPartnerId":"549018"
-                    },
-                    "faults":[  
-                       {  
-                          "exceptionTypeName":"PosthausInvalidProductBrandException",
-                          "message":"Invalid product brand (id: '0', partnerId: 'Dray').",
-                          "attOrArgName":"brand.partnerId"
-                       }
-                    ]
-                 }
-              },
-              {  
-                 "token":"8F24E24E87FAE175E053100010AC05AC",
-                 "type":"NEW_VARIATION",
-                 "additionalData":{  
-                    "success":true,
-                    "variation":{  
-                       "productPartnerId":"prd_grp_ptnr_id-8204d1db35"
-                    }
-                 }
-              },
-              {  
-                 "token":"8F8B246316BD77EBE053100010AC7F0C",
-                 "type":"NEW_VARIATION",
-                 "additionalData":{  
-                    "success":true,
-                    "variation":{  
-                       "productPartnerId":"6100303611"
-                    }
-                 }
-              },
-              {  
-                 "token":"902B8528B65F4BEBE053100010ACF0CD",
-                 "type":"NEW_VARIATION",
-                 "additionalData":{  
-                    "success":true,
-                    "variation":{  
-                       "productPartnerId":"11011992"
-                    }
-                 }
-              }
-           ],
-           "page":{  
-              "size":50,
-              "totalElements":50,
-              "totalPages":0,
-              "number":1
-           }
-        }
-        
-        
-## SKU Notifications [/rest/feed/sku/v1{?offset,limit}]
-
-+ Parameters
-    + offset (optional, number) 
-        Paging position
-        
-        + Default: `1`
-    + limit (number, optional)
-
-        A limit on the number of objects to be returned. Limit can range
-        between 1 and 100 items.
-
-        + Default: `10`
-
-+ Attributes (object)
-    + notifications (NotificationsSku)
-    
-
-### Get SKUs notifications list [GET]
-Get a notifications list. Events type supported: NEW_SKU.
-
-+ Request (application/json)
-    + Headers
-
-            Accept: application/json
-            Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE0Mzg4Mjc0NDN9.POonh-FngFnKeCgDfjjoemmF3Mt8HP2CThHwDLYuYnQ
-
-+ Response 200 (application/json)  
-
-        {  
-           "notifications":[  
-              {  
-                 "token":"8FECACE8711715D6E053100010AC5196",
-                 "type":"NEW_SKU",
-                 "additionalData":{  
-                    "success":true,
-                    "sku":{  
-                       "partnerId":"42022019"
-                    }
-                 }
-              },
-              {  
-                 "token":"8FECACE8711815D6E053100010AC5196",
-                 "type":"NEW_SKU",
-                 "additionalData":{  
-                    "success":true,
-                    "sku":{  
-                       "partnerId":"43022019"
-                    }
-                 }
-              },
-              {  
-                 "token":"8FECACE8711915D6E053100010AC5196",
-                 "type":"NEW_SKU",
-                 "additionalData":{  
-                    "success":false,
-                    "sku":{  
-                       "partnerId":"44022019"
-                    },
-                    "faults":[  
-                       {  
-                          "exceptionTypeName":"PosthausInvalidProductBrandException",
-                          "message":"Invalid product brand (id: 'null', partnerId: 'Puma').",
-                          "attOrArgName":"brand.partnerId"
-                       },
-                       {  
-                          "exceptionTypeName":"PosthausImageException",
-                          "message":"Image download error (url: 'https://img.passarela.com.br/imagens/produto/54901770.chuteira-futsal-masculina-puma.Laranja.1.jpg').",
-                          "attOrArgName":"url"
-                       },
-                       {  
-                          "exceptionTypeName":"PosthausImageException",
-                          "message":"Image download error (url: 'https://img.passarela.com.br/imagens/produto/54901770.chuteira-futsal-masculina-puma.Laranja.2.jpg').",
-                          "attOrArgName":"url"
-                       },
-                       {  
-                          "exceptionTypeName":"PosthausImageException",
-                          "message":"Image download error (url: 'https://img.passarela.com.br/imagens/produto/54901770.chuteira-futsal-masculina-puma.Laranja.3.jpg').",
-                          "attOrArgName":"url"
-                       },
-                       {  
-                          "exceptionTypeName":"PosthausImageException",
-                          "message":"Image download error (url: 'https://img.passarela.com.br/imagens/produto/54901770.chuteira-futsal-masculina-puma.Laranja.4.jpg').",
-                          "attOrArgName":"url"
-                       },
-                       {  
-                          "exceptionTypeName":"PosthausImageException",
-                          "message":"Image download error (url: 'https://img.passarela.com.br/imagens/produto/54901770.chuteira-futsal-masculina-puma.Laranja.5.jpg').",
-                          "attOrArgName":"url"
-                       },
-                       {  
-                          "exceptionTypeName":"PosthausImageException",
-                          "message":"Image download error (url: 'https://img.passarela.com.br/imagens/produto/54901770.chuteira-futsal-masculina-puma.Laranja.6.jpg').",
-                          "attOrArgName":"url"
-                       },
-                       {  
-                          "exceptionTypeName":"PosthausImageException",
-                          "message":"Image download error (url: 'https://img.passarela.com.br/imagens/produto/54901770.chuteira-futsal-masculina-puma.Laranja.7.jpg').",
-                          "attOrArgName":"url"
-                       }
-                    ]
-                 }
-              },
-              {  
-                 "token":"902C3FF47D1166C7E053100010AC8B4F",
-                 "type":"NEW_SKU",
-                 "additionalData":{  
-                    "success":true,
-                    "sku":{  
-                       "partnerId":"10122017"
-                    }
-                 }
-              },
-              {  
-                 "token":"902C4302E24D66C5E053100010ACF5D5",
-                 "type":"NEW_SKU",
-                 "additionalData":{  
-                    "success":false,
-                    "sku":{  
-                       "partnerId":"12122017"
-                    },
-                    "faults":[  
-                       {  
-                          "exceptionTypeName":"PosthausInvalidProductSizeException",
-                          "message":"Invalid SKU size (size: ' G1').",
-                          "attOrArgName":"size.partnerId"
-                       }
-                    ]
-                 }
-              },
-              {  
-                 "token":"902C4302E24E66C5E053100010ACF5D5",
-                 "type":"NEW_SKU",
-                 "additionalData":{  
-                    "success":false,
-                    "sku":{  
-                       "partnerId":"13122017"
-                    },
-                    "faults":[  
-                       {  
-                          "exceptionTypeName":"PosthausInvalidProductSizeException",
-                          "message":"Invalid SKU size (size: ' G1').",
-                          "attOrArgName":"size.partnerId"
-                       }
-                    ]
-                 }
-              },
-              {  
-                 "token":"902C3FF47D1266C7E053100010AC8B4F",
-                 "type":"NEW_SKU",
-                 "additionalData":{  
-                    "success":false,
-                    "sku":{  
-                       "partnerId":"15122017"
-                    },
-                    "faults":[  
-                       {  
-                          "exceptionTypeName":"PosthausInvalidProductSizeException",
-                          "message":"Invalid SKU size (size: ' G1').",
-                          "attOrArgName":"size.partnerId"
-                       }
-                    ]
-                 }
-              }
-           ],
-           "page":{  
-              "size":7,
-              "totalElements":7,
+              "size":100,
+              "totalElements":269,
               "totalPages":1,
               "number":1
            }
