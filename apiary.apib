@@ -455,81 +455,102 @@ Get a paginated notifications list. Events type supported: UPDATE_BATCH_PRICES.
 
 + Response 200 (application/json)
 
-        {
-          "notifications": [
-            {
-              "token": "45g65d4sdf5465sdf5",
-              "type": "UPDATE_PRICE",
-              "additionalData": {
-                "updatePricesID": "1f94f503-84b4-484b-bf3c-d9a329a68707",
-                "totalUpdateSKU": 1645,
-                "skuPartnerIdsFault": [
-                    "489764654",
-                    "489764965",
-                    "489764957"
-                ]
+         { 
+           "notifications":[ 
+              { 
+                 "token":"934E146039256F00E053100010AC829E",
+                 "type":"UPDATE_PRICES",
+                 "additionalData":{ 
+                    "updatePricesBatchID":"77506cf0-ad77-4f74-8df3-1a0bf4ebb302",
+                    "totalUpdateSKU":10,
+                    "skuPartnerIdsFault":[ 
+                       "701014571135",
+                       "701014571136",
+                       "701014571137",
+                       "701014571138",
+                       "701014571139",
+                       "701014571140",
+                       "701014571141",
+                       "701014571142",
+                       "701014571143",
+                       "701014571144"
+                    ]
+                 },
+                 "events":[ 
+                    { 
+                       "eventType":"markAsRead",
+                       "event":"http://localhost:9090/DBR-ws-marketplace/rest/feed/v1/934E146039256F00E053100010AC829E",
+                       "additionalData":{ 
+                          "token":"934E146039256F00E053100010AC829E"
+                       }
+                    }
+                 ]
               },
-              "events": [
-                {
-                  "eventType": "markAsRead",
-                  "event": "https://www.sellercenter.api.ecosweb.com.br/rest/feed/v1/45g65d4sdf5465sdf5",
-                  "additionalData": {
-                    "token": "45g65d4sdf5465sdf5"
-                  }
-                }
-              ]
-            },
-            {
-              "token": "45g65d4sdf5465sdf5",
-              "type": "UPDATE_PRICE",
-              "additionalData": {
-                "updatePricesID": "1f94f503-84b4-484b-bf3c-d9a329a68707",
-                "totalUpdateSKU": 1645,
-                "skuPartnerIdsFault": [
-                          "489764654",
-                          "489764965",
-                          "489764957"
-                ]
+              { 
+                 "token":"934E286885896EFEE053100010ACFC70",
+                 "type":"UPDATE_PRICES",
+                 "additionalData":{ 
+                    "updatePricesBatchID":"287ca806-46d0-41f2-a867-183260f773f5",
+                    "totalUpdateSKU":10,
+                    "skuPartnerIdsFault":[ 
+                       "701014571135",
+                       "701014571136",
+                       "701014571137",
+                       "701014571138",
+                       "701014571139",
+                       "701014571140",
+                       "701014571141",
+                       "701014571142",
+                       "701014571143",
+                       "701014571144"
+                    ]
+                 },
+                 "events":[ 
+                    { 
+                       "eventType":"markAsRead",
+                       "event":"http://localhost:9090/DBR-ws-marketplace/rest/feed/v1/934E286885896EFEE053100010ACFC70",
+                       "additionalData":{ 
+                          "token":"934E286885896EFEE053100010ACFC70"
+                       }
+                    }
+                 ]
               },
-              "events": [
-                {
-                  "eventType": "markAsRead",
-                  "event": "https://www.sellercenter.api.ecosweb.com.br/rest/feed/v1/45g65d4sdf5465sdf5",
-                  "additionalData": {
-                    "token": "45g65d4sdf5465sdf5"
-                  }
-                }
-              ]
-            },
-            {
-              "token": "45g65d4sdf5465sdf5",
-              "type":",
-              "additionalData": {
-                "updatePricesID": "1f94f503-84b4-484b-bf3c-d9a329a68707",
-                "totalUpdateSKU": 1645,
-                "skuPartnerIdsFault": [
-                    "489764654",
-                    "489764965",
-                    "489764957"
-                ]
-              },
-              "events": [
-                {
-                  "eventType": "markAsRead",
-                  "event": "https://www.sellercenter.api.ecosweb.com.br/rest/feed/v1/45g65d4sdf5465sdf5",
-                  "additionalData": {
-                    "token": "45g65d4sdf5465sdf5"
-                  }
-                }
-              ]
-            }
-          ],
-          "page": {
-            "size": 3,
-            "totalElements": 6,
-            "totalPages": 3,
-            "number": 1
-          }
+              { 
+                 "token":"936446E820484259E053100010ACC681",
+                 "type":"UPDATE_PRICES",
+                 "additionalData":{ 
+                    "updatePricesBatchID":"ed4a7765-5813-447d-bd6d-95c35693a8ab",
+                    "totalUpdateSKU":10,
+                    "skuPartnerIdsFault":[ 
+                       "701014571135",
+                       "701014571136",
+                       "701014571137",
+                       "701014571138",
+                       "701014571139",
+                       "701014571140",
+                       "701014571141",
+                       "701014571142",
+                       "701014571143",
+                       "701014571144"
+                    ]
+                 },
+                 "events":[ 
+                    { 
+                       "eventType":"markAsRead",
+                       "event":"http://localhost:9090/DBR-ws-marketplace/rest/feed/v1/936446E820484259E053100010ACC681",
+                       "additionalData":{ 
+                          "token":"936446E820484259E053100010ACC681"
+                       }
+                    }
+                 ]
+              }
+           ],
+           "page":{ 
+              "size":10,
+              "totalElements":3,
+              "totalPages":1,
+              "number":1
+           }
         }
         
 + Response 500 (application/json)
