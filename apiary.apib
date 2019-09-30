@@ -461,7 +461,7 @@ Get a paginated notifications list. Events type supported: UPDATE_BATCH_PRICES.
                  "token":"934E146039256F00E053100010AC829E",
                  "type":"UPDATE_PRICES",
                  "additionalData":{ 
-                    "updatePricesBatchID":"77506cf0-ad77-4f74-8df3-1a0bf4ebb302",
+                    "updatePricesID":"77506cf0-ad77-4f74-8df3-1a0bf4ebb302",
                     "totalUpdateSKU":10,
                     "skuPartnerIdsFault":[ 
                        "701014571135",
@@ -490,7 +490,7 @@ Get a paginated notifications list. Events type supported: UPDATE_BATCH_PRICES.
                  "token":"934E286885896EFEE053100010ACFC70",
                  "type":"UPDATE_PRICES",
                  "additionalData":{ 
-                    "updatePricesBatchID":"287ca806-46d0-41f2-a867-183260f773f5",
+                    "updatePricesID":"287ca806-46d0-41f2-a867-183260f773f5",
                     "totalUpdateSKU":10,
                     "skuPartnerIdsFault":[ 
                        "701014571135",
@@ -519,7 +519,7 @@ Get a paginated notifications list. Events type supported: UPDATE_BATCH_PRICES.
                  "token":"936446E820484259E053100010ACC681",
                  "type":"UPDATE_PRICES",
                  "additionalData":{ 
-                    "updatePricesBatchID":"ed4a7765-5813-447d-bd6d-95c35693a8ab",
+                    "updatePricesID":"ed4a7765-5813-447d-bd6d-95c35693a8ab",
                     "totalUpdateSKU":10,
                     "skuPartnerIdsFault":[ 
                        "701014571135",
@@ -3148,7 +3148,7 @@ Performs stock update based on partner SKU's.
 + additionalData
     + updatePricesID (number)
     + totalUpdateSku (number)
-    + InvalidPrices (string)
+    + skuPartnerIdsFault (array[string])
 + events (array[EventPrices])
 
         
