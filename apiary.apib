@@ -222,7 +222,7 @@ Get a paginated notifications list. Events type supported: STOCK_INCONSISTENCY.
                              "partnerId":"468764584",
                              "sku":{  
                                 "id":"657486-P",
-                                "partnerId":"489764987",
+                                "partnerId":"489764987"
         
                              }
                           }
@@ -266,7 +266,7 @@ Get a paginated notifications list. Events type supported: STOCK_INCONSISTENCY.
                              "partnerId":"468764584",
                              "sku":{  
                                 "id":"657486-P",
-                                "partnerId":"489764987",
+                                "partnerId":"489764987"
         
                              }
                           }
@@ -2110,7 +2110,7 @@ It will be used to read information about Products in Posthaus. Returns the prod
                             "price": 169.90,
                             "sellPrice": 159.90,
                             "size": {
-                                "id": "M"
+                                "id": "M",
                                 "partnerId":"M3"
                             },
                           "height":30.15,
@@ -2125,7 +2125,7 @@ It will be used to read information about Products in Posthaus. Returns the prod
                             "price": 169.90,
                             "sellPrice": 159.90,
                             "size": {
-                                "id": "M"
+                                "id": "M",
                                 "partnerId":"M3"
                             },
                             "height":30.15,
@@ -2229,7 +2229,7 @@ Returns the informations about a specific product.
                         "price": 169.90,
                         "sellPrice": 159.90,
                         "size": {
-                            "id": "M"
+                            "id": "M",
                             "partnerId":"M3"
                         },
                         "height": 30.00,
@@ -2244,7 +2244,7 @@ Returns the informations about a specific product.
                         "price": 169.90,
                         "sellPrice": 159.90,
                         "size": {
-                            "id": "M"
+                            "id": "M",
                             "partnerId":"M3"
                         },
                         "height": 30.00,
@@ -3137,7 +3137,7 @@ Performs stock update based on partner SKU's.
 + additionalData
     + updateStockID (number)
     + totalUpdateSku (number)
-    + skuPartnerIdsFault (array[string])
+    + notFoundSkusId (array[string])
 + events (array[Event])
 
 ## NotificationsStockInc (object)
@@ -3145,7 +3145,10 @@ Performs stock update based on partner SKU's.
 + type (string, required)
 + additionalData
     + sku (StockIncSku)
-+ events (array[Event])
++ events
+    + eventType (string)
+    + event (string)
+    + aditionalData (EventIncProduct)
 
 ## NotificationsProduct (object)
 + token (string, required)
@@ -3291,13 +3294,13 @@ Performs stock update based on partner SKU's.
 + event (string)
 + aditionalData (AditionalData)
 
+## EventIncProduct
++ product (AditionalDataProduct)
++ sku (StockIncSku)
++ token (string)    
+
 ## AditionalData   
 + orderId (number)
-
-## EventProduct 
-+ eventType (string)
-+ event (string)
-+ aditionalData (AditionalDataProduct)
 
 ## EventSku 
 + eventType (string)
@@ -3305,7 +3308,9 @@ Performs stock update based on partner SKU's.
 + aditionalData (AditionalDataSku)
 
 ## AditionalDataProduct  
-+ productGroupPartnerId (number)
++ partnerId (string)
++ id (string)
++ sku (StockIncSku)
 
 ## AditionalDataPrices   
 + updatePricesID (number)
