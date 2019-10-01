@@ -577,7 +577,7 @@ Get a paginated notifications list. Events type supported: UPDATE_BATCH_PRICES.
 
 + Attributes (object)
     + notifications (NotificationsProduct)
-    
+    + page (Page)
 
 ### Get Product notifications list [GET]
 Get a notifications list. Events type supported: NEW_PRODUCT, UPDATE_PRODUCT, NEW_VARIATION, NEW_SKU AND NEW_IMAGE.
@@ -1787,7 +1787,8 @@ It will be used to read Brands in Maketplace Posthaus.
 
 + Attributes (object)
     + brands (array[BrandResponse])
-    + exception (Exception)       
+    + exception (Exception)
+    + page (Page)
 
 
 ### Read Brands [GET]
@@ -1834,7 +1835,8 @@ It will be used to read Categories registered in Maketplace Posthaus.
 
 + Attributes (object)
     + categories (array[ReadCategory])
-    + exception (Exception)    
+    + exception (Exception)
+    + page (Page)
 
 
 ### Read Categories [GET]
@@ -2424,7 +2426,8 @@ It will be used to read all product colors in Maketplace Posthaus.
 
 + Attributes (object)
     + colors (array[PredominantColor])
-    + exception (Exception)    
+    + exception (Exception)
+    + page (Page)
 
 
 ### Read Color [GET]
@@ -2477,7 +2480,7 @@ Returns all product colors available.
 
 + Attributes (object)
 
-    + variation (Variation)
+    + variation (FullVariation)
     
     + exception (Exception)
 
@@ -2550,7 +2553,8 @@ Create a Variation.
         }
         
 ## Variation by id [/rest/products/variations/v1/{product_partner_id}/]
-        
+    
+    
 ### Read a Variation [GET]
 GET a Variation.
 
@@ -3131,16 +3135,18 @@ Performs stock update based on partner SKU's.
 + token (string, required)
 + type (string, required)
 + additionalData
-    + orderId (number)
+    + updateStockID (number)
+    + totalUpdateSku (number)
+    + skuPartnerIdsFault (array[string])
 + events (array[Event])
 
 ## NotificationsProduct (object)
 + token (string, required)
 + type (string, required)
 + additionalData
-    + productGroupPartnerId (number)
-    + message (string)
-+ events (array[EventProduct])
+    + sucess (boolean)
+    + product (ProductGroup)
++ faults (array[Exception])
 
 ## NotificationsPrices (object)
 + token (string, required)
@@ -3414,6 +3420,9 @@ Performs stock update based on partner SKU's.
 + collection (string) - Collection of the product, if applicable, like `Autumn, Winter, Summer, etc`
 + characteristics (array[Characteristic]) - Array of product characteristics. Limit 30 records.
 + category (Category, required)  - Category of the product, if applicable
+
+## ProductGroup (object)
++ productGroupPartnerId: `Max. Length: 30` (string, required) - Product group in partner
 
 ## ReadFullProduct (FullProduct)
 + productGroupId (number) - Product group Posthaus
