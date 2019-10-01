@@ -186,7 +186,7 @@ Get a paginated notifications list. Events type supported: NEW_ORDER, AUTHORIZED
         + Default: `100`
 
 + Attributes (object)
-    + notifications (Notifications)
+    + notifications (NotificationsStockInc)
     + page (Page)
 
 
@@ -3140,6 +3140,13 @@ Performs stock update based on partner SKU's.
     + skuPartnerIdsFault (array[string])
 + events (array[Event])
 
+## NotificationsStockInc (object)
++ token (string, required)
++ type (string, required)
++ additionalData
+    + sku (StockIncSku)
++ events (array[Event])
+
 ## NotificationsProduct (object)
 + token (string, required)
 + type (string, required)
@@ -3310,6 +3317,9 @@ Performs stock update based on partner SKU's.
 + eventType (string)
 + event (string)
 + aditionalData (AditionalDataPrices)
+
+## StockIncSku (object)
++ partnerId (string) - Patner SKU ID
 
 ## SimpleSku (object)
 + partnerId (string, required) - Patner SKU ID
