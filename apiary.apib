@@ -52,60 +52,14 @@ Get a paginated notifications list. Events type supported: NEW_ORDER, AUTHORIZED
               "type": "NEW_ORDER",
               "additionalData": {
                 "orderId": 45687920
-              },
-              "events": [
-                {
-                  "eventType": "getOrder",
-                  "event": "https://www.sellercenter.api.ecosweb.com.br/rest/orders/v1/45687920",
-                  "additionalData": {
-                    "orderId": 45687920
-                  }
-                },
-                {
-                  "eventType": "markAsRead",
-                  "event": "https://www.sellercenter.api.ecosweb.com.br/rest/feed/v1/45g65d4sdf5465sdf5",
-                  "additionalData": {
-                    "token": "45g65d4sdf5465sdf5"
-                  }        
-                },
-                {
-                    "eventType": "integrate",
-                    "event": "https://www.sellercenter.api.ecosweb.com.br/rest/orders/v1/41432894",
-                    "additionalData": {
-                        "orderId": 45687920
-                    }
-                },
-                {
-                    "eventType": "cancel",
-                    "event": "https://www.sellercenter.api.ecosweb.com.br/rest/orders/v1/41432894",
-                    "additionalData": {
-                        "orderId": 45687920
-                    }
-                }
-              ]
+              }
             },
             {
               "token": "45g65d4sdf5465sdrr",
               "type": "CANCELED",
               "additionalData": {
                 "orderId": 45687918
-              },
-              "events": [
-                {
-                  "eventType": "getOrder",
-                  "event": "https://www.sellercenter.api.ecosweb.com.br/rest/orders/v1/45687918",
-                  "additionalData": {
-                    "orderId": 45687918
-                  }
-                },
-                {
-                  "eventType": "markAsRead",
-                  "event": "https://www.sellercenter.api.ecosweb.com.br/rest/feed/v1/45g65d4sdf5465sdrr",
-                  "additionalData": {
-                    "token": "45g65d4sdf5465sdrr"
-                  }        
-                }
-              ]
+              }
             },
             {
               "token": "33g65d4sdf5465sdf5",
@@ -113,44 +67,7 @@ Get a paginated notifications list. Events type supported: NEW_ORDER, AUTHORIZED
               "additionalData": {
                 "orderId": 45687921,
                 "partnerId": "9045687921"
-              },
-              "events": [
-                {
-                  "eventType": "getOrder",
-                  "event": "https://www.sellercenter.api.ecosweb.com.br/rest/orders/v1/45687921",
-                  "additionalData": {
-                    "orderId": 45687921
-                  }
-                },
-                {
-                  "eventType": "markAsRead",
-                  "event": "https://www.sellercenter.api.ecosweb.com.br/rest/feed/v1/33g65d4sdf5465sdf5",
-                  "additionalData": {
-                    "token": "33g65d4sdf5465sdf5"
-                  }        
-                },
-                {
-                    "eventType": "invoice",
-                    "event": "https://www.sellercenter.api.ecosweb.com.br/rest/orders/v1/41432926",
-                    "additionalData": {
-                        "orderId": 45687921
-                    }
-                },
-                {
-                    "eventType": "cancel",
-                    "event": "https://www.sellercenter.api.ecosweb.com.br/rest/orders/v1/41432926",
-                    "additionalData": {
-                        "orderId": 45687921
-                    }
-                },
-                {
-                    "eventType": "orderItemCancel",
-                    "event": "https://www.sellercenter.api.ecosweb.com.br/rest/orders/v1/41432926/cancelation/",
-                    "additionalData": {
-                        "orderId": 45687921
-                    }
-                }
-              ]
+              }
             }            
           ],
           "page": {
@@ -208,88 +125,18 @@ Get a paginated notifications list. Events type supported: STOCK_INCONSISTENCY.
                  "type":"STOCK_INCONSISTENCY",
                  "additionalData":{  
                     "sku":{  
-                       "partnerId":"489764987",
-                       "worngAmount":2
+                       "partnerId":"489764987"
                     }
-                 },
-                 "events":[  
-                    {  
-                       "eventType":"readSku",
-                       "event":"https://www.sellercenter.api.ecosweb.com.br/rest/products/v1/468764584/skus/489764987",
-                       "additionalData":{  
-                          "product":{  
-                             "id":657486,
-                             "partnerId":"468764584",
-                             "sku":{  
-                                "id":"657486-P",
-                                "partnerId":"489764987"
-        
-                             }
-                          }
-                       }
-                    },
-                    {  
-                       "eventType":"updateStock",
-                       "event":"https://www.sellercenter.api.ecosweb.com.br/rest/stocks/v1/",
-                       "additionalData":{  
-                          "sku":{  
-                             "partnerId":"489764987",
-                             "quantity":12
-                          }
-                       }
-                    },
-                    {  
-                       "eventType":"markAsRead",
-                       "event":"https://www.sellercenter.api.ecosweb.com.br/rest/feed/v1/45g65d4sdf5465sdf5",
-                       "additionalData":{  
-                          "token":"45g65d4sdf5465sdf5"
-                       }
-                    }
-                 ]
+                 }
               },
               {  
                  "token":"45g65d4sdf5465sdf5",
                  "type":"STOCK_INCONSISTENCY",
                  "additionalData":{  
                     "sku":{  
-                       "partnerId":"489764987",
-                       "worngAmount":2
+                       "partnerId":"489764987"
                     }
-                 },
-                 "events":[  
-                    {  
-                       "eventType":"readSku",
-                       "event":"https://www.sellercenter.api.ecosweb.com.br/rest/products/v1/468764584/skus/489764987",
-                       "additionalData":{  
-                          "product":{  
-                             "id":657486,
-                             "partnerId":"468764584",
-                             "sku":{  
-                                "id":"657486-P",
-                                "partnerId":"489764987"
-        
-                             }
-                          }
-                       }
-                    },
-                    {  
-                       "eventType":"updateStock",
-                       "event":"https://www.sellercenter.api.ecosweb.com.br/rest/stocks/v1/",
-                       "additionalData":{  
-                          "sku":{  
-                             "partnerId":"489764987",
-                             "quantity":12
-                          }
-                       }
-                    },
-                    {  
-                       "eventType":"markAsRead",
-                       "event":"https://www.sellercenter.api.ecosweb.com.br/rest/feed/v1/45g65d4sdf5465sdf5",
-                       "additionalData":{  
-                          "token":"45g65d4sdf5465sdf5"
-                       }
-                    }
-                 ]
+                 }
               }
            ],
            "page":{  
@@ -352,16 +199,7 @@ Get a paginated notifications list. Events type supported: UPDATE_STOCK.
                     "489764965",
                     "489764957"
                 ]
-              },
-              "events": [
-                {
-                  "eventType": "markAsRead",
-                  "event": "https://www.sellercenter.api.ecosweb.com.br/rest/feed/v1/45g65d4sdf5465sdf5",
-                  "additionalData": {
-                    "token": "45g65d4sdf5465sdf5"
-                  }
-                }
-              ]
+              }
             },
             {
               "token": "45g65d4sdf5465sdf5",
@@ -374,16 +212,7 @@ Get a paginated notifications list. Events type supported: UPDATE_STOCK.
                           "489764965",
                           "489764957"
                 ]
-              },
-              "events": [
-                {
-                  "eventType": "markAsRead",
-                  "event": "https://www.sellercenter.api.ecosweb.com.br/rest/feed/v1/45g65d4sdf5465sdf5",
-                  "additionalData": {
-                    "token": "45g65d4sdf5465sdf5"
-                  }
-                }
-              ]
+              }
             },
             {
               "token": "45g65d4sdf5465sdf5",
@@ -396,16 +225,7 @@ Get a paginated notifications list. Events type supported: UPDATE_STOCK.
                     "489764965",
                     "489764957"
                 ]
-              },
-              "events": [
-                {
-                  "eventType": "markAsRead",
-                  "event": "https://www.sellercenter.api.ecosweb.com.br/rest/feed/v1/45g65d4sdf5465sdf5",
-                  "additionalData": {
-                    "token": "45g65d4sdf5465sdf5"
-                  }
-                }
-              ]
+              }
             }
           ],
           "page": {
@@ -475,16 +295,7 @@ Get a paginated notifications list. Events type supported: UPDATE_BATCH_PRICES.
                        "701014571143",
                        "701014571144"
                     ]
-                 },
-                 "events":[ 
-                    { 
-                       "eventType":"markAsRead",
-                       "event":"http://localhost:9090/DBR-ws-marketplace/rest/feed/v1/934E146039256F00E053100010AC829E",
-                       "additionalData":{ 
-                          "token":"934E146039256F00E053100010AC829E"
-                       }
-                    }
-                 ]
+                 }
               },
               { 
                  "token":"934E286885896EFEE053100010ACFC70",
@@ -504,16 +315,7 @@ Get a paginated notifications list. Events type supported: UPDATE_BATCH_PRICES.
                        "701014571143",
                        "701014571144"
                     ]
-                 },
-                 "events":[ 
-                    { 
-                       "eventType":"markAsRead",
-                       "event":"http://localhost:9090/DBR-ws-marketplace/rest/feed/v1/934E286885896EFEE053100010ACFC70",
-                       "additionalData":{ 
-                          "token":"934E286885896EFEE053100010ACFC70"
-                       }
-                    }
-                 ]
+                 }
               },
               { 
                  "token":"936446E820484259E053100010ACC681",
@@ -533,16 +335,7 @@ Get a paginated notifications list. Events type supported: UPDATE_BATCH_PRICES.
                        "701014571143",
                        "701014571144"
                     ]
-                 },
-                 "events":[ 
-                    { 
-                       "eventType":"markAsRead",
-                       "event":"http://localhost:9090/DBR-ws-marketplace/rest/feed/v1/936446E820484259E053100010ACC681",
-                       "additionalData":{ 
-                          "token":"936446E820484259E053100010ACC681"
-                       }
-                    }
-                 ]
+                 }
               }
            ],
            "page":{ 
@@ -3138,17 +2931,12 @@ Performs stock update based on partner SKU's.
     + updateStockID (number)
     + totalUpdateSku (number)
     + notFoundSkusId (array[string])
-+ events (array[Event])
 
 ## NotificationsStockInc (object)
 + token (string, required)
 + type (string, required)
 + additionalData
     + sku (StockIncSku)
-+ events
-    + eventType (string)
-    + event (string)
-    + aditionalData (EventIncProduct)
 
 ## NotificationsProduct (object)
 + token (string, required)
@@ -3165,16 +2953,13 @@ Performs stock update based on partner SKU's.
     + updatePricesID (number)
     + totalUpdateSku (number)
     + skuPartnerIdsFault (array[string])
-+ events (array[EventPrices])
 
-        
 ## NotificationsWithPartnerId (object)
 + token (string, required)
 + type (string, required)
 + additionalData
     + orderId (number)
     + partnerId (string, optional) - (Optional) Patner SKU ID
-+ events (array[Event])
 
 ## NotificationsSku (object)
 + token (string, required)
