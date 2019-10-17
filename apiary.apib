@@ -10,7 +10,6 @@ This API intends to integrate the data between the Posthaus Marketplace Platform
 #Group Notifications
 The Marketplace Posthaus add notifications into a queue, the queue order is from the oldest to the newest notification added.
 These GET service is going to return the oldest notification, after these notification is going to mark as readed, the next notification is going to be avaliable to GET. 
-
 If the notification won't be readed during 30 days, the SellerCenter is going to automatically mark as read it.
 
 ## Order Notifications [/rest/feed/orders/v1/{?offset,limit}]
@@ -3350,7 +3349,7 @@ It lists all commissions according due date.
 + orderTotal (number, required) - Order total value
 + installment (number, required) - Installment number, the order value can be divided in any installments to pay the seller.
 + installmentValue (number, required) - Installment value
-+ commissionFee (number, required) - Comission Fee (percent)
++ commissionFee (number, required) - Marketplace Comission Fee (percent)
 + sellerTotal (number, required) - Base value from order to calculate the value to pay the seller.
 
 ## Commission (object)
@@ -3358,6 +3357,6 @@ It lists all commissions according due date.
 + orderPartnerId (number, required) - Order Partner ID
 + generationDate: `2018-08-08T10:40:32Z` (string, required) - Receive Bill Value and Commission Value generation date. (usually after Order Delivered or Canceled)
 + orderTotal (number, required) - Order total value
-+ commissionFee (number, required) - Comission Fee (percent)
-+ commissionValue (number, required) - Comission value (money)
++ commissionFee (number, required) - Marketplace Comission Fee (percent)
++ commissionValue (number, required) - Marketplace Comission value (money)
 + paymentMethodDescription (string, required) - Customer payment method chose
