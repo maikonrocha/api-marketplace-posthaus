@@ -2938,7 +2938,7 @@ It lists all receive bills according due date. A bill has any orders installment
                 "billNumber": 114,
                 "billValue": 5422.31,
                 "dueDate": "2019-10-02T00:00:00Z",
-                "order": 43270918,
+                "orderPartnerId": "432709185646",
                 "orderTotal": 75.32,
                 "installment": 5,
                 "installmentValue": 15.08,
@@ -2949,12 +2949,71 @@ It lists all receive bills according due date. A bill has any orders installment
                 "billNumber": 114,
                 "billValue": 5422.31,
                 "dueDate": "2019-10-02T00:00:00Z",
-                "order": 43272734,
+                "orderPartnerId": "432727345646,
                 "orderTotal": 77.30,
                 "installment": 5,
                 "installmentValue": 15.46,
                 "commissionFee": 14,
                 "sellerTotal": 77.3
+            }
+        ]
+
++ Response 500 (application/json)
+
+        {
+            "exceptionTypeName": "",
+            "message": "",
+            "attOrArgName": ""
+        }
+
+## Commissions [/rest/reports/financial/commission{?begin_due_date,end_due_date}]
+
++ Parameters
+    + begin_due_date (required, string, `2018-08-08T00:00:00Z`) ... Begin due date to filter commission.
+    + end_due_date (required, string, `2018-09-08T00:00:00Z`) ... End due date to filter commission.
+
++ Attributes (object)
+    + commissionList (array[Commission])
+    + exception (Exception)
+
+### Commissions [GET]
+It lists all commissions according due date.
+
++ Request (application/json)
+    + Headers
+
+            Accept: application/json
+            Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE0Mzg4Mjc0NDN9.POonh-FngFnKeCgDfjjoemmF3Mt8HP2CThHwDLYuYnQ
+
++ Response 200 (application/json)
+
+        [
+            {
+                "orderCreatedAt": "2019-08-28T09:10:35Z",
+                "orderPartnerId": "201800470269",
+                "generationDate": "2019-10-15T13:22:14Z",
+                "orderTotal": 78.25,
+                "commissionFee": 14.0,
+                "commissionValue": 10.96,
+                "paymentMethodDescription": "CREDIT CARD"
+            },
+            {
+                "orderCreatedAt": "2019-08-28T09:10:35Z",
+                "orderPartnerId": "201800469354",
+                "generationDate": "2019-10-15T13:22:14Z",
+                "orderTotal": 77.78,
+                "commissionFee": 14.0,
+                "commissionValue": 10.89,
+                "paymentMethodDescription": "CREDIT CARD"
+            },
+            {
+                "orderCreatedAt": "2019-08-28T09:10:35Z",
+                "orderPartnerId": "201800468776",
+                "generationDate": "2019-10-15T13:22:14Z",
+                "orderTotal": 79.2,
+                "commissionFee": 14.0,
+                "commissionValue": 11.09,
+                "paymentMethodDescription": "CREDIT CARD"
             }
         ]
 
@@ -3287,9 +3346,18 @@ It lists all receive bills according due date. A bill has any orders installment
 + billNumber (number, required) - Bill Number
 + billValue (number, required) - Bill Value
 + dueDate: `2018-08-08T10:40:32Z` (string, required) - Bill due date)
-+ order (number, required) - Order ID
++ orderPartnerId (number, required) - Order Partner ID
 + orderTotal (number, required) - Order total value
 + installment (number, required) - Installment number, the order value can be divided in any installments to pay the seller.
 + installmentValue (number, required) - Installment value
 + commissionFee (number, required) - Comission Fee (percent)
 + sellerTotal (number, required) - Base value from order to calculate the value to pay the seller.
+
+## Commission (object)
++ orderCreatedAt: `2018-08-08T10:40:32Z` (string, required) - Order creation date
++ orderPartnerId (number, required) - Order Partner ID
++ generationDate: `2018-08-08T10:40:32Z` (string, required) - Receive Bill Value and Commission Value generation date. (usually after Order Delivered or Canceled)
++ orderTotal (number, required) - Order total value
++ commissionFee (number, required) - Comission Fee (percent)
++ commissionValue (number, required) - Comission value (money)
++ paymentMethodDescription (string, required) - Customer payment method chose
