@@ -1829,7 +1829,8 @@ Create a Product.
 
 + Response 200 (application/json)
 
-        {
+        {   
+            "eventId": "a5912bc7-ba63-45b9-bc5b-e0b29e6995d7",
             "productGroupPartnerId": "489764",
             "message": "The product is going to be created asynchronously."
         }
@@ -2198,6 +2199,7 @@ If you want to remove characteristics, inform the current without the ones you w
 + Response 200 (application/json)
 
         {
+            "eventId": "a5912bc7-ba63-45b9-bc5b-e0b29e6995d7",
             "productGroupPartnerId": "489764",
             "message": "The product is going to be updated asynchronously."
         }
@@ -2332,8 +2334,9 @@ Create a Variation.
 + Response 200 (application/json)
 
         {
+            "eventId": "a5912bc7-ba63-45b9-bc5b-e0b29e6995d7",
             "productGroupPartnerId": "{product_group_partner_id}",
-            "message": "Your Varition is going to be created asynchronously."
+            "message": "The variation is going to be created asynchronously."
         }
         
 + Response 500 (application/json)
@@ -2662,6 +2665,7 @@ Create a SKU to a variation product.
 + Response 200 (application/json)
 
         {
+            "eventId": "a5912bc7-ba63-45b9-bc5b-e0b29e6995d7",
             "createSKUsID": "1f94f503-84b4-484b-bf3c-d9a329a64567",
             "message": "SKU is going to be created asynchronously."
         }
