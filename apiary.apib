@@ -2217,6 +2217,129 @@ If you want to remove characteristics, inform the current without the ones you w
             "message": "",
             "attOrArgName": ""
         }
+## Product Status [/rest/products/status/v1/{product_group_partner_id}/]
++ Attributes (object)
+    + productStatus (ProductStatus)
+
+### Read a Product [GET]
+Returns status information for a specific product..
+
++ Request (application/json)
+    + Headers
+
+            Accept: application/json
+            Authorization: eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiJlODIwYzA1ZC0wMWNhLTQ3OGUtOWZkMS0wYjdkZWEwZDcyZDUiLCJpYXQiOjE1NDM1ODU2MjcsInN1YiI6IjI0IiwiaXNzIjoiMTIiLCJhdWQiOiIke3Zhci5hdWRpZW5jZX0ifQ.VNPfjMs4GQH5cYc7Y0IiaNvhBSJlZh2DBqwSE8sVO76F4TJas4_TbzWf5Duzwfo8nD17fa5twHAeKTGMwhJNcg
+            
++ Response 200 (application/json)
+
+         { 
+           "productGroupPartnerId":"1045760228116",
+           "productStatus":"SUCCESS",
+           "variacoes":[ 
+              { 
+                 "producPartnerId":"1045760228116A",
+                 "variationStatus":"SUCCESS",
+                 "publishStatus":"SUCCESS",
+                 "skus":[ 
+                    { 
+                       "partnerId":"1045760228116AB",
+                       "skuStatus":"SUCCESS"
+                    },
+                    { 
+                       "partnerId":"1045760228116AC",
+                       "skuStatus":"SUCCESS"
+                    },
+                    { 
+                       "partnerId":"1045760228116AD",
+                       "skuStatus":"SUCCESS"
+                    },
+                    { 
+                       "partnerId":"1045760228116AE",
+                       "skuStatus":"SUCCESS"
+                    },
+                    { 
+                       "partnerId":"1045760228116AF",
+                       "skuStatus":"SUCCESS"
+                    },
+                    { 
+                       "partnerId":"1045760228116AG",
+                       "skuStatus":"SUCCESS"
+                    },
+                    { 
+                       "partnerId":"1045760228116AH",
+                       "skuStatus":"SUCCESS"
+                    },
+                    { 
+                       "partnerId":"1045760228116AA",
+                       "skuStatus":"SUCCESS"
+                    }
+                 ]
+              },
+              { 
+                 "producPartnerId":"1045760228116B",
+                 "variationStatus":"SUCCESS",
+                 "publishStatus":"SUCCESS",
+                 "skus":[ 
+                    { 
+                       "partnerId":"1045760228116BA",
+                       "skuStatus":"SUCCESS"
+                    },
+                    { 
+                       "partnerId":"1045760228116BC",
+                       "skuStatus":"SUCCESS"
+                    }
+                 ]
+              },
+              { 
+                 "producPartnerId":"1045760228116C",
+                 "variationStatus":"SUCCESS",
+                 "publishStatus":"SUCCESS",
+                 "skus":[ 
+                    { 
+                       "partnerId":"1045760228116CA",
+                       "skuStatus":"SUCCESS"
+                    },
+                    { 
+                       "partnerId":"1045760228116CB",
+                       "skuStatus":"SUCCESS"
+                    }
+                 ]
+              },
+              { 
+                 "producPartnerId":"1045760228116D",
+                 "variationStatus":"SUCCESS",
+                 "publishStatus":"SUCCESS",
+                 "skus":[ 
+                    { 
+                       "partnerId":"1045760228116DA",
+                       "skuStatus":"SUCCESS"
+                    },
+                    { 
+                       "partnerId":"1045760228116DB",
+                       "skuStatus":"SUCCESS"
+                    }
+                 ]
+              },
+              { 
+                 "producPartnerId":"1047760228116C",
+                 "variationStatus":"SUCCESS",
+                 "publishStatus":"SUCCESS",
+                 "skus":[ 
+                    { 
+                       "partnerId":"1047760228116CA",
+                       "skuStatus":"SUCCESS"
+                    }
+                 ]
+              }
+           ]
+        }
+
++ Response 500 (application/json)          
+
+        {
+            "exceptionTypeName": "",
+            "message": ""
+        }
 
 # Group Variations
 It will be used to get and create varitions in products
@@ -3343,6 +3466,21 @@ It lists all commissions according due date.
 + collection (string) - Collection of the product, if applicable, like `Autumn, Winter, Summer, etc`
 + characteristics (array[Characteristic]) - Array of product characteristics. Limit 30 records.
 + category (Category, required)  - Category of the product, if applicable
+
+## ProductStatus (object)
++ productGroupPartnerId: `Max. Length: 30` (string) - Product group in partner
++ productStatus (string) - Product Status
++ variations (array[VariationStatus], required) - Variation of product
+
+## VariationStatus
++ productPartnerId (string) - Seller Product ID. Max. length of 30 digits
++ variationStatus (string) - Variation Status
++ publishStatus (string) - Post Status
++ skus (array[SkuStatus], required)
+
+## SkuStatus
++ partnerId (string) - Partner SKU ID
++ skuStatus (string) - Sku Status
 
 ## ProductGroup (object)
 + productGroupPartnerId: `Max. Length: 30` (string, required) - Product group in partner
