@@ -78,6 +78,8 @@ Get a paginated notifications list. Events type supported: NEW_ORDER, AUTHORIZED
 
         }
         
++ Response 204
+
 + Response 500 (application/json)
 
         {
@@ -2221,7 +2223,7 @@ If you want to remove characteristics, inform the current without the ones you w
 + Attributes (object)
     + productStatus (ProductStatus)
 
-### Read a Product [GET]
+### Read a Product Status [GET]
 Returns status information for a specific product..
 
 + Request (application/json)
@@ -3509,7 +3511,7 @@ It lists all commissions according due date.
 
 ## ProductStatus (object)
 + productGroupPartnerId: `Max. Length: 30` (string) - Product group in partner
-+ productStatus (string) - Product Status
++ productStatus (string) - Product Status - SUCCESS Product success, CONTAINS_FAULTS Product contains falts and ERRO Unexpected error occurred
 + variations (array[VariationStatus], required) - Variation of product
 
 ## AuthorizationPostcode (object)
@@ -3518,13 +3520,13 @@ It lists all commissions according due date.
 
 ## VariationStatus
 + productPartnerId (string) - Seller Product ID. Max. length of 30 digits
-+ variationStatus (string) - Variation Status
-+ publishStatus (string) - Post Status
++ variationStatus (string) - Variation Status - SUCCESS Product/Variation/sku success, CONTAINS_FAULTS Product/Variation/sku contains falts and ERRO Unexpected error occurred
++ publishStatus (string) - Post Status - SUCCESS Variation publish success, PENDING Variation pending publish in marketplace Posthaus
 + skus (array[SkuStatus], required)
 
 ## SkuStatus
 + partnerId (string) - Partner SKU ID
-+ skuStatus (string) - Sku Status
++ skuStatus (string) - Sku Status - SUCCESS Sku success, CONTAINS_FAULTS Sku contains falts and ERRO Unexpected error occurred
 
 ## ProductGroup (object)
 + productGroupPartnerId: `Max. Length: 30` (string, required) - Product group in partner
