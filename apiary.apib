@@ -12,10 +12,10 @@ The Marketplace Posthaus add notifications into a queue, the queue order is from
 These GET service is going to return a list ordered ascending according its creation date. After these notification is marked as readed, this notification is going to be removed from de notification feed. 
 If the notification won't be readed during 30 days, the SellerCenter is going to automatically mark as read it.
 
-## Order Notifications [/rest/feed/orders/v1/{?offset,limit}]
+## Order Notifications [/rest/feed/orders/v1/{?page,limit}]
 
 + ParametersF
-    + offset (optional, number) 
+    + page (optional, number) 
         Paging position
         
         + Default: `1`
@@ -89,10 +89,10 @@ Get a paginated notifications list. Events type supported: NEW_ORDER, AUTHORIZED
         }
 
 
-## Stock Inconsistent Notifications [/rest/feed/stock/inconsistent/v1{?offset,limit}]
+## Stock Inconsistent Notifications [/rest/feed/stock/inconsistent/v1{?page,limit}]
 
 + Parameters
-    + offset (optional, number) 
+    + page (optional, number) 
         Paging position
         
         + Default: `1`
@@ -157,10 +157,10 @@ Get a paginated notifications list. Events type supported: STOCK_INCONSISTENCY.
         }
 
 
-## Stock Notifications [/rest/feed/stock/v1{?offset,limit}]
+## Stock Notifications [/rest/feed/stock/v1{?page,limit}]
 
 + Parameters
-    + offset (optional, number) 
+    + page (optional, number) 
         Paging position
         
         + Default: `1`
@@ -246,10 +246,10 @@ Get a paginated notifications list. Events type supported: UPDATE_STOCK.
         }
         
         
-## Price Notifications [/rest/feed/price/v1{?offset,limit}]
+## Price Notifications [/rest/feed/price/v1{?page,limit}]
 
 + Parameters
-    + offset (optional, number) 
+    + page (optional, number) 
         Paging position
         
         + Default: `1`
@@ -355,10 +355,10 @@ Get a paginated notifications list. Events type supported: UPDATE_BATCH_PRICES.
             "attOrArgName": ""
         }
         
-## Product Notifications [/rest/feed/product/v2{?offset,limit}]
+## Product Notifications [/rest/feed/product/v2{?page,limit}]
 
 + Parameters
-    + offset (optional, number) 
+    + page (optional, number) 
         Paging position
         
         + Default: `1`
@@ -1330,14 +1330,14 @@ Send the XMl from NF-e to the Marketplace. Only XML content should be sent.
             "attOrArgName": ""
         }
 
-## Orders [/rest/orders/v1{?offset,limit,createdAfter,status,cpf}]
+## Orders [/rest/orders/v1{?page,limit,createdAfter,status,cpf}]
 Returns the order details using the filters: createdAfter, status and customer CPF. 
 
 + Parameters
     + createdAfter (required, string, `2018-08-08T10:40:32Z`) ... Order creation date
     + status (optional, string) ... Order status
     + cpf (optional, string) ... Document number - CPF
-    + offset (optional, number) 
+    + page (optional, number) 
         Paging position
         
         + Default: `1`
@@ -1852,10 +1852,10 @@ Create a Product.
         }
         
         
-## Products [/rest/products/v1/{?offset,limit}]
+## Products [/rest/products/v1/{?page,limit}]
 
 + Parameters
-    + offset (optional, number) 
+    + page (optional, number) 
         Paging position
         
         + Default: `1`
