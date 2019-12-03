@@ -9,7 +9,7 @@ This API intends to integrate the data between the Posthaus Marketplace Platform
 
 #Group Notifications
 The Marketplace Posthaus add notifications into a queue, the queue order is from the oldest to the newest notification added.
-These GET service is going to return the oldest notification, after these notification is going to mark as readed, the next notification is going to be avaliable to GET. 
+These GET service is going to return a list ordered ascending according its creation date. After these notification is marked as readed, this notification is going to be removed from de notification feed. 
 If the notification won't be readed during 30 days, the SellerCenter is going to automatically mark as read it.
 
 ## Order Notifications [/rest/feed/orders/v1/{?offset,limit}]
