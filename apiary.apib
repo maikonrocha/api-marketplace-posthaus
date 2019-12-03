@@ -147,7 +147,9 @@ Get a paginated notifications list. Events type supported: STOCK_INCONSISTENCY.
               "number":1
            }
         }
-        
+
++ Response 204
+
 + Response 500 (application/json)
 
         {
@@ -236,7 +238,9 @@ Get a paginated notifications list. Events type supported: UPDATE_STOCK.
             "number": 1
           }
         }
-        
+
++ Response 204
+
 + Response 500 (application/json)
 
         {
@@ -346,7 +350,9 @@ Get a paginated notifications list. Events type supported: UPDATE_BATCH_PRICES.
               "number":1
            }
         }
-        
+
++ Response 204
+
 + Response 500 (application/json)
 
         {
@@ -490,6 +496,15 @@ Get a notifications list. Events type supported: NEW_PRODUCT, UPDATE_PRODUCT, NE
               "totalPages":1,
               "number":1
            }
+        }
+
++ Response 204        
++ Response 500 (application/json)
+
+        {
+            "exceptionTypeName": "",
+            "message": "",
+            "attOrArgName": ""
         }
         
         
@@ -1622,6 +1637,8 @@ Returns all brands recorded.
             }
         }
 
++ Response 204
+
 + Response 500 (application/json)
 
         {
@@ -1675,7 +1692,8 @@ Returns the registered Marketplace categories.
                 "number": 1
             }
         }
-   
+
++ Response 204   
 
 + Response 500 (application/json)
 
@@ -1880,7 +1898,6 @@ It will be used to read information about Products in Posthaus. Returns the prod
             Accept: application/json
             Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE0Mzg4Mjc0NDN9.POonh-FngFnKeCgDfjjoemmF3Mt8HP2CThHwDLYuYnQ
             
-
 + Response 200 (application/json)
 
         [
@@ -1979,6 +1996,8 @@ It will be used to read information about Products in Posthaus. Returns the prod
                }
             }
         ]    
+
++ Response 204
 
 + Response 500 (application/json)
 
@@ -2097,6 +2116,8 @@ Returns the informations about a specific product.
               }
             }
           }
+
++ Response 204
 
 + Response 500 (application/json)          
 
@@ -2389,7 +2410,9 @@ Returns all product colors available.
                 "number": 1
             }
         }
-        
+    
++ Response 204
+    
 + Response 500 (application/json)
 
         {
@@ -2748,7 +2771,8 @@ Returns the registered Marketplace categories.
                 "number": 1
             }
         }
-        
++ Response 204
+
 + Response 500 (application/json)
 
         {
