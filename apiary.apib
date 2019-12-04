@@ -498,7 +498,8 @@ Get a notifications list. Events type supported: NEW_PRODUCT, UPDATE_PRODUCT, NE
            }
         }
 
-+ Response 204        
++ Response 204   
+
 + Response 500 (application/json)
 
         {
@@ -2117,8 +2118,6 @@ Returns the informations about a specific product.
             }
           }
 
-+ Response 204
-
 + Response 500 (application/json)          
 
         {
@@ -2356,6 +2355,8 @@ Returns status information for a specific product..
               }
            ]
         }
+
++ Response 204
 
 + Response 500 (application/json)          
 
@@ -2906,7 +2907,7 @@ Returns all SKU from a product group (productGroupPartnerId).
         }
         
 
-## SKU bySd [/rest/products/variations/v1/{product_partner_id}/skus/{sku_partner_id}]
+## SKU by id [/rest/products/variations/v1/{product_partner_id}/skus/{sku_partner_id}]
 
 + Parameters
     + product_partner_id (required, string, `9995586`) ... Patner product ID
