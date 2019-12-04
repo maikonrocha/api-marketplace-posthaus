@@ -9,7 +9,7 @@ This API intends to integrate the data between the Posthaus Marketplace Platform
 
 #Group Notifications
 The Marketplace Posthaus add notifications into a queue, the queue order is from the oldest to the newest notification added.
-These GET service is going to return a list ordered ascending according its creation date. After these notification is marked as readed, this notification is going to be removed from de notification feed. 
+These GET service is going to return one list ordered ascending according its creation date. After these notification is marked as readed, this notification is going to be removed from de notification feed. 
 If the notification won't be readed during 30 days, the SellerCenter is going to automatically mark as read it.
 
 ## Order Notifications [/rest/feed/orders/v1/{?page,limit}]
@@ -1553,12 +1553,12 @@ The price operation is performed in batch, it is possible to send one or more pr
 ### Update prices [PUT]
 In prices update service we have synchronous and asynchronous process. 
 First of all, when the PUT is received, the synchronous execution starting, at this time some validations are executed, 
-if in this process has some inconsistence, it is going to return a or a list of exceptions (inconsistences), 
+if in this process has some inconsistence, it is going to return one or a list of exceptions (inconsistences), 
 otherwise execution will proceed to the next step, the asynchronous process. 
 At asynchronous process we have some other validations (more criticals validations), if the price has any inconsistence, 
 it is going to publish a faults notification, other wise, a success notification.
 
-You must read the notifications requesting service GET Price Notifications
+You must read the notifications requesting service GET /rest/feed/price/
 
 + Request (application/json)
 
@@ -1726,7 +1726,7 @@ if the product has some inconsistence, it is going to return a list of exception
 the asynchronous process. At asynchronous process we have some other validations (more criticals validations), 
 if the product has any inconsistence, it is going to publish a faults notification, other wise, a success notification.
 
-You must read the notifications requesting service GET Product Notifications 
+You must read the notifications requesting service GET /rest/feed/product/
 
 + Request (application/json)
 
@@ -2486,7 +2486,7 @@ otherwise execution will proceed to the next step, the asynchronous process.
 At asynchronous process we have some other validations (more criticals validations), if the variation has any inconsistence, 
 it is going to publish a faults notification, other wise, a success notification.
 
-You must read the notifications requesting service GET Product Notifications 
+You must read the notifications requesting service GET /rest/feed/product/ 
 
 + Request (application/json)
 
@@ -2708,12 +2708,12 @@ Format supported : JPEG.
 ### Publish new images [POST]
 Publish new image of service we have synchronous and asynchronous process. 
 First of all, when the POST is received, the synchronous execution starting, at this time some validations are executed, 
-if in this process has some inconsistence, it is going to return a or a list of exceptions (inconsistences), 
+if in this process has some inconsistence, it is going to return one or a list of exceptions (inconsistences), 
 otherwise execution will proceed to the next step, the asynchronous process. 
 At asynchronous process we have some other validations (more criticals validations), if the image has any inconsistence, 
 it is going to publish a faults notification, other wise, a success notification.
 
-You must read the notifications requesting service GET Product Notifications
+You must read the notifications requesting service GET /rest/feed/product/
 
 + Request (application/json)
     + Headers
@@ -2883,12 +2883,12 @@ Returns the registered Marketplace categories.
 ### Create SKU [POST]
 In SKU creation service we have synchronous and asynchronous process. 
 First of all, when the POST is received, the synchronous execution starting, at this time some validations are executed, 
-if in this process has some inconsistence, it is going to return a or a list of exceptions (inconsistences), 
+if in this process has some inconsistence, it is going to return one or a list of exceptions (inconsistences), 
 otherwise execution will proceed to the next step, the asynchronous process. 
 At asynchronous process we have some other validations (more criticals validations), if the SKU has any inconsistence, 
 it is going to publish a faults notification, other wise, a success notification.
 
-You must read the notifications requesting service GET Product Notifications
+You must read the notifications requesting service GET /rest/feed/product/
 
 + Request (application/json)
     + Headersk
@@ -3081,7 +3081,7 @@ Returns information about a SKU.
 ### Update SKU price [PUT]
 In the one price update service, we have only synchronous process. 
 When the PUT is received, the synchronous execution starting, at this time some data validations and persistences are performed, 
-if in this process has some inconsistence, it is going to return a or a list of exceptions (inconsistences), otherwise it is going to return sucess.
+if in this process has some inconsistence, it is going to return one or a list of exceptions (inconsistences), otherwise it is going to return sucess.
 
 You must read the notifications requesting service GET Price Notifications
 
@@ -3142,7 +3142,7 @@ The stock operation is performed in batch, it is possible to send one or more SK
 ### Update Stock [PUT]
 In stock update service we have synchronous and asynchronous process. 
 First of all, when the PUT is received, the synchronous execution starting, at this time some validations are executed, 
-if in this process has some inconsistence, it is going to return a or a list of exceptions (inconsistences), 
+if in this process has some inconsistence, it is going to return one or a list of exceptions (inconsistences), 
 otherwise execution will proceed to the next step, the asynchronous process. 
 At asynchronous process we have some other validations (more criticals validations), if the product has any inconsistence, 
 it is going to publish a faults notification, other wise, a success notification.
