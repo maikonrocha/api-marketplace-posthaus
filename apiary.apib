@@ -1870,6 +1870,21 @@ Create a product asynchronously.
             "attOrArgName": ""
         }
         
++ Response 500 (application/json)
+
+        { 
+           "exceptions":[ 
+              { 
+                 "exceptionTypeName":"",
+                 "message":""
+              },
+              { 
+                 "exceptionTypeName":"",
+                 "message":""
+              }
+           ]
+        }         
+        
         
 ## Products [/rest/products/v1/{?page,limit}]
 
@@ -2239,6 +2254,22 @@ If you want to remove characteristics, inform the current without the ones you w
             "message": "",
             "attOrArgName": ""
         }
+
++ Response 500 (application/json)
+
+        { 
+           "exceptions":[ 
+              { 
+                 "exceptionTypeName":"",
+                 "message":""
+              },
+              { 
+                 "exceptionTypeName":"",
+                 "message":""
+              }
+           ]
+        } 
+
 ## Product Status [/rest/products/status/v1/{product_group_partner_id}/]
 + Attributes (object)
     + productStatus (ProductStatus)
@@ -2502,6 +2533,21 @@ Create a variation asynchronously.
             "attOrArgName": ""
         }
         
++ Response 500 (application/json)
+
+        { 
+           "exceptions":[ 
+              { 
+                 "exceptionTypeName":"",
+                 "message":""
+              },
+              { 
+                 "exceptionTypeName":"",
+                 "message":""
+              }
+           ]
+        }         
+        
 ## Variation by id [/rest/products/variations/v1/{product_partner_id}/]
     
     
@@ -2666,7 +2712,7 @@ Publishing is done asynchronously.
               }              
             ]            
 
-+ Response 204 (application/json)
++ Response 204
 
 + Response 500 (application/json)
 
@@ -2675,6 +2721,21 @@ Publishing is done asynchronously.
             "message": "",
             "attOrArgName": ""
         }
+
++ Response 500 (application/json)
+
+        { 
+           "exceptions":[ 
+              { 
+                 "exceptionTypeName":"",
+                 "message":""
+              },
+              { 
+                 "exceptionTypeName":"",
+                 "message":""
+              }
+           ]
+        } 
 
 ### Get images [GET]
 Get a image list from a partner product.
@@ -2836,7 +2897,20 @@ Create an SKU for a product variation asynchronously
             "attOrArgName": ""
         }
         
++ Response 500 (application/json)
 
+        { 
+           "exceptions":[ 
+              { 
+                 "exceptionTypeName":"",
+                 "message":""
+              },
+              { 
+                 "exceptionTypeName":"",
+                 "message":""
+              }
+           ]
+        } 
         
 ## SKUS [/rest/products/variations/v1/{product_partner_id}/skus]
 
