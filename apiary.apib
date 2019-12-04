@@ -1551,7 +1551,7 @@ The price operation is performed in batch, it is possible to send one or more pr
     + exception (Exception)    
 
 ### Update prices [PUT]
-Performs price update based on partner SKU's.
+Performs price update based on a list of partner SKUs asynchronously.
 
 + Request (application/json)
 
@@ -1713,7 +1713,7 @@ Returns the registered Marketplace categories.
 
 
 ### Create a Product [POST]
-Create a Product.
+Create a product asynchronously.
 
 + Request (application/json)
 
@@ -2435,7 +2435,7 @@ Returns all product colors available.
 
 
 ### Create a Variation [POST]
-Create a Variation.
+Create a variation asynchronously.
 
 + Request (application/json)
 
@@ -2641,6 +2641,7 @@ Format supported : JPEG.
 
 ### Publish new images [POST]
 Publish a new image list from a partner product. Index 1 is the main image.
+Publishing is done asynchronously.
 
 + Request (application/json)
     + Headers
@@ -2793,7 +2794,7 @@ Returns the registered Marketplace categories.
     + exception (Exception)
 
 ### Create SKU [POST]
-Create a SKU to a variation product.
+Create an SKU for a product variation asynchronously
 
 + Request (application/json)
     + Headersk
@@ -2971,7 +2972,7 @@ Returns information about a SKU.
     + exception (Exception)    
 
 ### Update SKU price [PUT]
-Updates the SKU's price.
+Updates SKU price synchronously.
 
 
 + Request (application/json)
@@ -3028,7 +3029,7 @@ The stock operation is performed in batch, it is possible to send one or more SK
     + exception (Exception)
 
 ### Update Stock [PUT]
-Performs stock update based on partner SKU's.
+Performs inventory update based on partner SKUs asynchronously.
 
 + Request (application/json)
 
