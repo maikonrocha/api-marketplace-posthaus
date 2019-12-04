@@ -1551,7 +1551,14 @@ The price operation is performed in batch, it is possible to send one or more pr
     + exception (Exception)    
 
 ### Update prices [PUT]
-Performs price update based on a list of partner SKUs asynchronously.
+In prices update service we have synchronous and asynchronous process. 
+First of all, when the PUT is received, the synchronous execution starting, at this time some validations are executed, 
+if in this process has some inconsistence, it is going to return a or a list of exceptions (inconsistences), 
+otherwise execution will proceed to the next step, the asynchronous process. 
+At asynchronous process we have some other validations (more criticals validations), if the product has any inconsistence, 
+it is going to publish a faults notification, other wise, a success notification.
+
+You must read the notifications requesting service GET Price Notifications
 
 + Request (application/json)
 
@@ -1713,7 +1720,13 @@ Returns the registered Marketplace categories.
 
 
 ### Create a Product [POST]
-Create a product asynchronously.
+In product creation service we have synchronous and asynchronous process. 
+First of all, when the POST is received, the synchronous execution starting, at this time some validations are executed, 
+if the product has some inconsistence, it is going to return a list of exceptions (inconsistences), otherwise the product is going to go to next step, 
+the asynchronous process. At asynchronous process we have some other validations (more criticals validations), 
+if the product has any inconsistence, it is going to publish a faults notification, other wise, a success notification.
+
+You must read the notifications requesting service GET Product Notifications 
 
 + Request (application/json)
 
@@ -2466,7 +2479,14 @@ Returns all product colors available.
 
 
 ### Create a Variation [POST]
-Create a variation asynchronously.
+In variation creation service we have synchronous and asynchronous process. 
+First of all, when the POST is received, the synchronous execution starting, at this time some validations are executed, 
+if in this process has some inconsistence, it is going to return a list of exceptions (inconsistences), 
+otherwise execution will proceed to the next step, the asynchronous process. 
+At asynchronous process we have some other validations (more criticals validations), if the product has any inconsistence, 
+it is going to publish a faults notification, other wise, a success notification.
+
+You must read the notifications requesting service GET Product Notifications 
 
 + Request (application/json)
 
@@ -2855,7 +2875,14 @@ Returns the registered Marketplace categories.
     + exception (Exception)
 
 ### Create SKU [POST]
-Create an SKU for a product variation asynchronously
+In SKU creation service we have synchronous and asynchronous process. 
+First of all, when the POST is received, the synchronous execution starting, at this time some validations are executed, 
+if in this process has some inconsistence, it is going to return a or a list of exceptions (inconsistences), 
+otherwise execution will proceed to the next step, the asynchronous process. 
+At asynchronous process we have some other validations (more criticals validations), if the product has any inconsistence, 
+it is going to publish a faults notification, other wise, a success notification.
+
+You must read the notifications requesting service GET Product Notifications
 
 + Request (application/json)
     + Headersk
@@ -3046,7 +3073,11 @@ Returns information about a SKU.
     + exception (Exception)    
 
 ### Update SKU price [PUT]
-Updates SKU price synchronously.
+In the one price update service, we have only synchronous process. 
+When the PUT is received, the synchronous execution starting, at this time some data validations and persistences are performed, 
+if in this process has some inconsistence, it is going to return a or a list of exceptions (inconsistences), otherwise it is going to return sucess.
+
+You must read the notifications requesting service GET Price Notifications
 
 
 + Request (application/json)
@@ -3103,7 +3134,14 @@ The stock operation is performed in batch, it is possible to send one or more SK
     + exception (Exception)
 
 ### Update Stock [PUT]
-Performs inventory update based on partner SKUs asynchronously.
+In stock update service we have synchronous and asynchronous process. 
+First of all, when the PUT is received, the synchronous execution starting, at this time some validations are executed, 
+if in this process has some inconsistence, it is going to return a or a list of exceptions (inconsistences), 
+otherwise execution will proceed to the next step, the asynchronous process. 
+At asynchronous process we have some other validations (more criticals validations), if the product has any inconsistence, 
+it is going to publish a faults notification, other wise, a success notification.
+
+You must read the notifications requesting service GET Stock Notifications and Stock Inconsistent Notifications
 
 + Request (application/json)
 
