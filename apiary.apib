@@ -2885,7 +2885,7 @@ In SKU creation service we have synchronous and asynchronous process.
 First of all, when the POST is received, the synchronous execution starting, at this time some validations are executed, 
 if in this process has some inconsistence, it is going to return a or a list of exceptions (inconsistences), 
 otherwise execution will proceed to the next step, the asynchronous process. 
-At asynchronous process we have some other validations (more criticals validations), if the product has any inconsistence, 
+At asynchronous process we have some other validations (more criticals validations), if the SKUhas any inconsistence, 
 it is going to publish a faults notification, other wise, a success notification.
 
 You must read the notifications requesting service GET Product Notifications
