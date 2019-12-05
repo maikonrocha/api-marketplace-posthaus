@@ -1492,6 +1492,7 @@ Returns the order details.
             }
           }
         }
++ Response 204   
 
 + Response 500 (application/json)
 
@@ -2400,8 +2401,6 @@ Returns status information for a specific product..
            ]
         }
 
-+ Response 204
-
 + Response 500 (application/json)          
 
         {
@@ -2795,6 +2794,8 @@ Get a image list from a partner product.
            }
         ] 
 
++ Response 204
+
 
 ### Delete a image from product [DELETE /rest/products/variations/v1/{product_partner_id}/images/{imageId}] 
 Publish a new image list from a partner product. Index 1 is the main image.
@@ -3005,6 +3006,8 @@ Returns all SKU from a product group (productGroupPartnerId).
                 "weight": 0.320
               }          
             ]
+
++ Response 204
 
 + Response 500 (application/json)
 
@@ -3275,6 +3278,7 @@ It lists all receive bills according due date. A bill has any orders installment
                 "sellerTotal": 77.3
             }
         ]
++ Response 204
 
 + Response 500 (application/json)
 
@@ -3334,6 +3338,7 @@ It lists all commissions according due date.
                 "paymentMethodDescription": "CREDIT CARD"
             }
         ]
++ Response 204
 
 + Response 500 (application/json)
 
