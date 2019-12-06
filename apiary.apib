@@ -1605,15 +1605,27 @@ You must read the notifications requesting service GET /rest/feed/price/
 
 # Group Product
 
-## Brands [/rest/brands/v1/]
+## Brands [/rest/brands/v1/{?page,limit}]
 
 It will be used to read Brands in Maketplace Posthaus.
 
++ Parameters
+    + page (optional, number) 
+        Paging position
+        
+        + Default: `1`
+        
+    + limit (number, optional)
+
+        A limit on the number of objects to be returned. Limit can range
+        between 1 and 100 items.
+    
+        + Default: `100`
+
 + Attributes (object)
-    + brands (array[BrandResponse])
+    + categories (array[BrandResponse])
     + exception (Exception)
     + page (Page)
-
 
 ### Read Brands [GET]
 Returns all brands recorded.
@@ -1656,8 +1668,21 @@ Returns all brands recorded.
             "attOrArgName": ""
         }
 
-## Categories [/rest/categories/v1/]
+## Categories [/rest/categories/v1/{?page,limit}]
 It will be used to read Categories registered in Maketplace Posthaus.
+
++ Parameters
+    + page (optional, number) 
+        Paging position
+        
+        + Default: `1`
+        
+    + limit (number, optional)
+
+        A limit on the number of objects to be returned. Limit can range
+        between 1 and 100 items.
+    
+        + Default: `100`
 
 + Attributes (object)
     + categories (array[ReadCategory])
@@ -2187,8 +2212,7 @@ If you want to remove characteristics, inform the current without the ones you w
 
     + Body         
 
-            {  
-               
+            {
                 "productGroupPartnerId":"489764",
                 "title":"VESTIDO DE TRICÔ OMBRO A OMBRO",
                 "description":"Vestido com decote ombro a ombro. Confeccionado em malha de tricô de algodão. Com mangas raglan e comprimento alongado.",
@@ -2411,8 +2435,21 @@ Returns status information for a specific product..
 # Group Variations
 It will be used to get and create varitions in products
 
-## Colors [/rest/colors/v1/]
+## Colors [/rest/colors/v1/{?page,limit}]
 It will be used to read all product colors in Maketplace Posthaus.
+
++ Parameters
+    + page (optional, number) 
+        Paging position
+        
+        + Default: `1`
+        
+    + limit (number, optional)
+
+        A limit on the number of objects to be returned. Limit can range
+        between 1 and 100 items.
+    
+        + Default: `100`
 
 + Attributes (object)
     + colors (array[PredominantColor])
@@ -2737,8 +2774,6 @@ You must read the notifications requesting service GET /rest/feed/product/
               }              
             ]            
 
-+ Response 204
-
 + Response 500 (application/json)
 
         {
@@ -2794,8 +2829,13 @@ Get a image list from a partner product.
            }
         ] 
 
-+ Response 204
++ Response 500 (application/json)
 
+        {
+            "exceptionTypeName": "",
+            "message": "",
+            "attOrArgName": ""
+        }
 
 ### Delete a image from product [DELETE /rest/products/variations/v1/{product_partner_id}/images/{imageId}] 
 Publish a new image list from a partner product. Index 1 is the main image.
@@ -2819,8 +2859,21 @@ Publish a new image list from a partner product. Index 1 is the main image.
 
 # Group SKU
 
-## Sizes [/rest/sizes/v1/]
+## Sizes [/rest/sizes/v1/{?page,limit}]
 It will be used to read sizes registered in Maketplace Posthaus.
+
++ Parameters
+    + page (optional, number) 
+        Paging position
+        
+        + Default: `1`
+        
+    + limit (number, optional)
+
+        A limit on the number of objects to be returned. Limit can range
+        between 1 and 100 items.
+    
+        + Default: `100`
 
 + Attributes (object)
     + sizes (array[ReadSize])
@@ -2861,6 +2914,7 @@ Returns the registered Marketplace categories.
                 "number": 1
             }
         }
+
 + Response 204
 
 + Response 500 (application/json)
@@ -3006,8 +3060,6 @@ Returns all SKU from a product group (productGroupPartnerId).
                 "weight": 0.320
               }          
             ]
-
-+ Response 204
 
 + Response 500 (application/json)
 
@@ -3277,6 +3329,7 @@ It lists all receive bills according due date. A bill has any orders installment
                 "sellerTotal": 77.3
             }
         ]
+
 + Response 204
 
 + Response 500 (application/json)
@@ -3337,6 +3390,7 @@ It lists all commissions according due date.
                 "paymentMethodDescription": "CREDIT CARD"
             }
         ]
+
 + Response 204
 
 + Response 500 (application/json)
