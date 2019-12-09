@@ -2323,102 +2323,84 @@ Returns status information for a specific product..
             
 + Response 200 (application/json)
 
-         { 
-           "productGroupPartnerId":"1045760228116",
+        { 
+           "productGroupPartnerId":"1050760228116",
            "productStatus":"SUCCESS",
-           "variacoes":[ 
+           "variation":[ 
               { 
-                 "producPartnerId":"1045760228116A",
+                 "productPartnerId":"1050760228116A",
                  "variationStatus":"SUCCESS",
                  "publishStatus":"SUCCESS",
                  "skus":[ 
                     { 
-                       "partnerId":"1045760228116AB",
-                       "skuStatus":"SUCCESS"
-                    },
-                    { 
-                       "partnerId":"1045760228116AC",
-                       "skuStatus":"SUCCESS"
-                    },
-                    { 
-                       "partnerId":"1045760228116AD",
-                       "skuStatus":"SUCCESS"
-                    },
-                    { 
-                       "partnerId":"1045760228116AE",
-                       "skuStatus":"SUCCESS"
-                    },
-                    { 
-                       "partnerId":"1045760228116AF",
-                       "skuStatus":"SUCCESS"
-                    },
-                    { 
-                       "partnerId":"1045760228116AG",
-                       "skuStatus":"SUCCESS"
-                    },
-                    { 
-                       "partnerId":"1045760228116AH",
-                       "skuStatus":"SUCCESS"
-                    },
-                    { 
-                       "partnerId":"1045760228116AA",
-                       "skuStatus":"SUCCESS"
+                       "skuStatus":"SUCCESS",
+                       "partnerId":"1050760228116AA"
                     }
                  ]
               },
               { 
-                 "producPartnerId":"1045760228116B",
-                 "variationStatus":"SUCCESS",
-                 "publishStatus":"SUCCESS",
+                 "productPartnerId":"1050760228116B",
+                 "variationStatus":"ERROR",
+                 "publishStatus":"PENDING",
                  "skus":[ 
                     { 
-                       "partnerId":"1045760228116BA",
-                       "skuStatus":"SUCCESS"
+                       "skuStatus":"ERROR",
+                       "partnerId":"1050760228116BA"
                     },
                     { 
-                       "partnerId":"1045760228116BC",
-                       "skuStatus":"SUCCESS"
+                       "skuStatus":"ERROR",
+                       "partnerId":"1050760228116BC"
                     }
                  ]
               },
               { 
-                 "producPartnerId":"1045760228116C",
-                 "variationStatus":"SUCCESS",
-                 "publishStatus":"SUCCESS",
+                 "productPartnerId":"1050760228116C",
+                 "faults":[ 
+                    { 
+                       "exceptionTypeName":"PosthausProductPartnerIdAlreadyExistsException",
+                       "message":"Product already exists (productPartnerId: '1050760228116C').",
+                       "attOrArgName":"variations[0].productPartnerId"
+                    }
+                 ],
+                 "variationStatus":"CONTAINS_FAULTS",
+                 "publishStatus":"PENDING",
                  "skus":[ 
                     { 
-                       "partnerId":"1045760228116CA",
-                       "skuStatus":"SUCCESS"
+                       "skuStatus":"ERROR",
+                       "partnerId":"1050760228116CA"
                     },
                     { 
-                       "partnerId":"1045760228116CB",
-                       "skuStatus":"SUCCESS"
+                       "skuStatus":"ERROR",
+                       "partnerId":"1050760228116CC"
                     }
                  ]
               },
               { 
-                 "producPartnerId":"1045760228116D",
-                 "variationStatus":"SUCCESS",
-                 "publishStatus":"SUCCESS",
+                 "productPartnerId":"1050760228116D",
+                 "variationStatus":"ERROR",
+                 "publishStatus":"PENDING",
                  "skus":[ 
                     { 
-                       "partnerId":"1045760228116DA",
-                       "skuStatus":"SUCCESS"
+                       "faults":[ 
+                          { 
+                             "exceptionTypeName":"PosthausSkuPartnerIdAlreadyExists",
+                             "message":"Sku already exists (skuPartnerId: '1050760228116DA').",
+                             "attOrArgName":"variations[1].skus[0].partnerId"
+                          }
+                       ],
+                       "skuStatus":"CONTAINS_FAULTS",
+                       "partnerId":"1050760228116DA"
                     },
                     { 
-                       "partnerId":"1045760228116DB",
-                       "skuStatus":"SUCCESS"
-                    }
-                 ]
-              },
-              { 
-                 "producPartnerId":"1047760228116C",
-                 "variationStatus":"SUCCESS",
-                 "publishStatus":"SUCCESS",
-                 "skus":[ 
-                    { 
-                       "partnerId":"1047760228116CA",
-                       "skuStatus":"SUCCESS"
+                       "faults":[ 
+                          { 
+                             "exceptionTypeName":"PosthausSkuPartnerIdAlreadyExists",
+                             "message":"Sku already exists (skuPartnerId: '1050760228116DB').",
+                             "attOrArgName":"variations[1].skus[1].partnerId"
+                          }
+                       ],
+                       "skuStatus":"CONTAINS_FAULTS",
+                       "partnerId":"1050760228116DB"
                     }
                  ]
               }
