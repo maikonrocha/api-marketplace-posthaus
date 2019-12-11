@@ -3249,9 +3249,11 @@ Receive a Postcode and created date.
     + Body  
 
             {
-               "postcode": "466549874681",
+               "postcode": "0123456789",
                "createdAt": "2018-08-08T10:40:32Z"
             }
+
++ Response 204
 
 
 + Response 500 (application/json)
@@ -3695,7 +3697,7 @@ It lists all commissions according due date.
 
 ## ProductStatus (object)
 + productGroupPartnerId: `Max. Length: 30` (string) - Product group in partner
-+ productStatus (string) - Product Status - SUCCESS Product success, CONTAINS_FAULTS Product contains falts and ERRO Unexpected error occurred
++ productStatus (string) - Product Status - SUCCESS Product success, CONTAINS_FAULTS Product contains falts and ERROR Unexpected error occurred
 + variations (array[VariationStatus], required) - Variation of product
 
 ## AuthorizationPostcode (object)
@@ -3704,13 +3706,13 @@ It lists all commissions according due date.
 
 ## VariationStatus
 + productPartnerId (string) - Seller Product ID. Max. length of 30 digits
-+ variationStatus (string) - Variation Status - SUCCESS Product/Variation/sku success, CONTAINS_FAULTS Product/Variation/sku contains falts and ERRO Unexpected error occurred
++ variationStatus (string) - Variation Status - SUCCESS Product/Variation/sku success, CONTAINS_FAULTS Product/Variation/sku contains falts and ERROR Unexpected error occurred
 + publishStatus (string) - Post Status - SUCCESS Variation publish success, PENDING Variation pending publish in marketplace Posthaus
 + skus (array[SkuStatus], required)
 
 ## SkuStatus
 + partnerId (string) - Partner SKU ID
-+ skuStatus (string) - Sku Status - SUCCESS Sku success, CONTAINS_FAULTS Sku contains falts and ERRO Unexpected error occurred
++ skuStatus (string) - Sku Status - SUCCESS Sku success, CONTAINS_FAULTS Sku contains falts and ERROR Unexpected error occurred
 
 ## ProductGroup (object)
 + productGroupPartnerId: `Max. Length: 30` (string, required) - Product group in partner
