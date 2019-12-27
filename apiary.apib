@@ -2397,83 +2397,49 @@ Returns status information for a specific product..
 + Response 200 (application/json)
 
         { 
-           "productGroupPartnerId":"1050760228116",
-           "productStatus":"SUCCESS",
+           "productGroupPartnerId":"1048760228116",
+           "faults":[ 
+              { 
+                 "exceptionTypeName":"PosthausProductCategoryNotFoundException",
+                 "message":"Product category not found (partnerId: '900').",
+                 "attOrArgName":"category.subClass.partnerId"
+              },
+              { 
+                 "exceptionTypeName":"PosthausProductCategoryNotFoundException",
+                 "message":"Product category not found (partnerId: '4').",
+                 "attOrArgName":"category.subCategory.partnerId"
+              },
+              { 
+                 "exceptionTypeName":"PosthausProductCategoryNotFoundException",
+                 "message":"Product category not found (partnerId: '1').",
+                 "attOrArgName":"category.partnerId"
+              }
+           ],
+           "productStatus":"CONTAINS_FAULTS",
            "variation":[ 
               { 
-                 "productPartnerId":"1050760228116A",
+                 "productPartnerId":"1048760228116A",
                  "variationStatus":"SUCCESS",
-                 "publishStatus":"SUCCESS",
+                 "publishStatus":"PENDING",
                  "skus":[ 
                     { 
                        "skuStatus":"SUCCESS",
-                       "partnerId":"1050760228116AA"
+                       "partnerId":"1048760228116AA"
                     }
                  ]
               },
               { 
-                 "productPartnerId":"1050760228116B",
-                 "variationStatus":"ERROR",
+                 "productPartnerId":"1048760228116B",
+                 "variationStatus":"SUCCESS",
                  "publishStatus":"PENDING",
                  "skus":[ 
                     { 
-                       "skuStatus":"ERROR",
-                       "partnerId":"1050760228116BA"
+                       "skuStatus":"SUCCESS",
+                       "partnerId":"1048760228116BA"
                     },
                     { 
-                       "skuStatus":"ERROR",
-                       "partnerId":"1050760228116BC"
-                    }
-                 ]
-              },
-              { 
-                 "productPartnerId":"1050760228116C",
-                 "faults":[ 
-                    { 
-                       "exceptionTypeName":"PosthausProductPartnerIdAlreadyExistsException",
-                       "message":"Product already exists (productPartnerId: '1050760228116C').",
-                       "attOrArgName":"variations[0].productPartnerId"
-                    }
-                 ],
-                 "variationStatus":"CONTAINS_FAULTS",
-                 "publishStatus":"PENDING",
-                 "skus":[ 
-                    { 
-                       "skuStatus":"ERROR",
-                       "partnerId":"1050760228116CA"
-                    },
-                    { 
-                       "skuStatus":"ERROR",
-                       "partnerId":"1050760228116CC"
-                    }
-                 ]
-              },
-              { 
-                 "productPartnerId":"1050760228116D",
-                 "variationStatus":"ERROR",
-                 "publishStatus":"PENDING",
-                 "skus":[ 
-                    { 
-                       "faults":[ 
-                          { 
-                             "exceptionTypeName":"PosthausSkuPartnerIdAlreadyExists",
-                             "message":"Sku already exists (skuPartnerId: '1050760228116DA').",
-                             "attOrArgName":"variations[1].skus[0].partnerId"
-                          }
-                       ],
-                       "skuStatus":"CONTAINS_FAULTS",
-                       "partnerId":"1050760228116DA"
-                    },
-                    { 
-                       "faults":[ 
-                          { 
-                             "exceptionTypeName":"PosthausSkuPartnerIdAlreadyExists",
-                             "message":"Sku already exists (skuPartnerId: '1050760228116DB').",
-                             "attOrArgName":"variations[1].skus[1].partnerId"
-                          }
-                       ],
-                       "skuStatus":"CONTAINS_FAULTS",
-                       "partnerId":"1050760228116DB"
+                       "skuStatus":"SUCCESS",
+                       "partnerId":"1048760228116BC"
                     }
                  ]
               }
