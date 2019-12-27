@@ -2386,7 +2386,9 @@ If you want to remove characteristics, inform the current without the ones you w
     + productStatus (ProductStatus)
 
 ### Read a Product Status [GET]
-Returns status information for a specific product..
+The product status service is the service responsible for obtaining the current product status from the Posthaus database. 
+This is illustrated at the three product levels (PRODUCT, VARIATION, and SKU) using the following statuses (SUCCESS or CONTAINS_FAULTS) 
+or ERROR that is valid at the PRODUCT level only). In addition, at the VARIATION level, there is a posting status on the Posthaus site with SUCCESS status for published or PENDING for unpublished.
 
 + Request (application/json)
     + Headers
