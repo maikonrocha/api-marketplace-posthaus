@@ -3605,14 +3605,14 @@ The listing is according to the seller informed in the token.
         ERROR. Error syncing to Marketplace
         WAITING. Waiting for synchronization with Marketplace
         
-+ status (string, required) - Order Status
-        CANCELED: When the order is canceled.
-        PENDING: After a NEW_ORDER notification, waiting for the seller to integrate the order.       
-        INTEGRATED: After the order is integrated, waiting customer payment to send AUTHORIZED notification.     
-        WAITING_INVOICE: After an AUTHORIZED notification, waiting for the seller to invoice the order.     
-        INVOICED: After the order is invoiced, waiting for the seller to send the order.               
-        SENT: After the order is sent, waiting for the seller to delivery the order.                    
-        DELIVERED: After the order is delivered to customer.
++ status (string, required) - Order status, following:
+        "CANCELED" When the order is canceled.
+        "PENDING" After a NEW_ORDER notification, waiting for the seller to integrate the order.       
+        "INTEGRATED" After the order is integrated, waiting customer payment to send AUTHORIZED notification.     
+        "WAITING_INVOICE" After an AUTHORIZED notification, waiting for the seller to invoice the order.     
+        "INVOICED" After the order is invoiced, waiting for the seller to send the order.               
+        "SENT" After the order is sent, waiting for the seller to delivery the order.                    
+        "DELIVERED" After the order is delivered to customer.
         
  
 + discount (number, required) - Order discount
