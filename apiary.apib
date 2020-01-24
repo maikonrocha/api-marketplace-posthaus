@@ -14,7 +14,7 @@ If the notification won't be readed during 30 days, the SellerCenter is going to
 
 ## Order Notifications [/rest/feed/orders/v1/{?page,limit}]
 
-+ ParametersF
++ Parameters
     + page (optional, number) 
         Paging position
         
@@ -3747,7 +3747,7 @@ The listing is according to the seller informed in the token.
 ## Sku (SkuPrice)
 + partnerId (string, optional) - Partner SKU ID
 + ean (number, optional) - SKU barcode. Max. Length: 15
-+ amount (number, required) - SKU amount
++ amount (number) - SKU stock amount (initial stock amount)
 + price (number, optional) - SKU price. Max length of 15 digits with a scale of 2
 + sellPrice (number, required) - SKU price. Max length of 15 digits with a scale of 2
 + size  (Size, optional) - SKU size
