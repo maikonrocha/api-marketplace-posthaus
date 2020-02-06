@@ -1780,15 +1780,24 @@ Returns the registered Marketplace categories.
                 {
                     "id": 1,
                     "name": "Moda Feminina",
-                    "subCategory":
-                    {
-                      "id": 10,
-                      "name": "Vestidos"
+                    "subCategory": {
+                        "id": 10,
+                        "name": "Vestidos"
                     },
-                    "subClass":
-                    {
-                      "id": 1,
-                      "name": "Vestido Curto"
+                    "subClass": {
+                        "id": 1,
+                        "name": "Vestido Curto"
+                    },
+                    "productCustomFields": {
+                        "optionalFields": [],
+                        "variationCustomFields": {
+                            "optionalFields": [
+                                "predominantColor"
+                            ],
+                            "skuCustomFields": {
+                                "optionalFields": []
+                            }
+                        }
                     }
                 }
             ],
@@ -3801,13 +3810,25 @@ The listing is according to the seller informed in the token.
 + partnerId (string) - Partner Category ID (Please inform id or partnerId). Max. length of 30 digits
 + subCategory (SubCategory, required)
 + subClass (SubClass)
++ productCustomFields (ProductCustomFields)
 
 ## ReadCategory (object)
 + id (number) - Posthaus Category ID (Please inform id or partnerId). Max. length of 4 digits
 + name (string) - Posthaus Category Name. Max. length of 35 digits
 + subCategory (ReadSubCategory, required)
 + subClass (ReadSubClass)
++ productCustomFields (ProductCustomFields, optional) - Representation of optional fields
 
+## ProductCustomFields (object)
++ optionalFields (array[string], optional) - List with name of optional field(s) of products
++ variationCustomFields (VariationCustomFields, Optional) - Representation of variation custom fields
+
+## VariationCustomFields (object)
++ optionalFields (array[string], optional) - List with name of optional field(s) of variations
++ skuCustomFields (SKUCustomFields, optional) - Representation of SKU custom fields
+
+## SKUCustomFields (object)
++ optionalFields (array[string], optional) - List with name of optional field(s) of SKUs
 
 ## ReadSize (object)
 + id (number) - Posthaus Size ID (Please inform id or partnerId)
