@@ -558,12 +558,9 @@ Mark as read a notification.
     + page (Page)    
     
 ### Reverse Logistic Notification [GET]
-
-
 Return list of reverse logistic notification from seller. An list with all
 notification not read/expiration of Posthaus Marketplace.
-+ Parameters
-    + token (required, string, `45g65d4sdf5465sdf5`) ... Token
+
 + Request (application/json)
 
     + Headers
@@ -572,37 +569,38 @@ notification not read/expiration of Posthaus Marketplace.
             Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE0Mzg4Mjc0NDN9.POonh-FngFnKeCgDfjjoemmF3Mt8HP2CThHwDLYuYnQ
 
 + Response 200 (application/json)
-{
-    "notifications": [
+
         {
-            "token": "45g65d4sdf5465sdf5",
-            "type": "LOGISTIC_REVERSE_AUTHORIZATION",
-            "additionalData": {
-                "reverseId": 45687920
-            }
-        },
-        {
-            "token": "45g65d4sdf5465s45rs",
-            "type": "LOGISTIC_REVERSE_AUTHORIZATION",
-            "additionalData": {
-                "reverseId": 45687921
-            }
-        },
-        {
-            "token": "45g65d4sdf5465shyt",
-            "type": "LOGISTIC_REVERSE_AUTHORIZATION",
-            "additionalData": {
-                "reverseId": 45687922
+            "notifications": [
+                {
+                    "token": "45g65d4sdf5465sdf5",
+                    "type": "LOGISTIC_REVERSE_AUTHORIZATION",
+                    "additionalData": {
+                        "reverseId": 45687920
+                    }
+                },
+                {
+                    "token": "45g65d4sdf5465s45rs",
+                    "type": "LOGISTIC_REVERSE_AUTHORIZATION",
+                    "additionalData": {
+                        "reverseId": 45687921
+                    }
+                },
+                {
+                    "token": "45g65d4sdf5465shyt",
+                    "type": "LOGISTIC_REVERSE_AUTHORIZATION",
+                    "additionalData": {
+                        "reverseId": 45687922
+                    }
+                }
+            ],
+            "page": {
+                "size": 3,
+                "totalElements": 3,
+                "totalPages": 1,
+                "number": 1
             }
         }
-    ],
-    "page": {
-        "size": 3,
-        "totalElements": 3,
-        "totalPages": 1,
-        "number": 1
-    }
-}
 + Response 204
 + Response 500 (application/json)
 
@@ -2396,6 +2394,7 @@ If you want to remove characteristics, inform the current without the ones you w
         } 
 
 ## Product Status [/rest/products/status/v1/{product_group_partner_id}/]
+
 + Attributes (object)
     + productStatus (ProductStatus)
 
@@ -2468,7 +2467,179 @@ or ERROR that is valid at the PRODUCT level only). In addition, at the VARIATION
             "exceptionTypeName": "",
             "message": ""
         }
+        
+## Products Validate [/products/validate/v1/]
 
++ Attributes (object)
+    + product (FullProduct)
+    + exception (Exception)
+        
+### Read Products Validate [GET]
+Validates the product data without their persistence, this way it will be possible to validate the data before sending it to persistence, making the validation and persistence process in 2 steps. These validations will only be synchronous.
+
++ Request (application/json)
+
+    + Headers
+
+            Accept: application/json
+            Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE0Mzg4Mjc0NDN9.POonh-FngFnKeCgDfjjoemmF3Mt8HP2CThHwDLYuYnQ
+
+    + Body       
+
+        {  
+            "productGroupPartnerId":"15032019",
+            "brand":{  
+"partnerId":"TR6757"
+            },
+            "title":"Vestido Longo",
+            "description":"Vestido com decote ombro a ombro. Confeccionado em malha de tricô de algodão. Com mangas raglan e comprimento alongado.",
+            "gender":"F",
+            "ageGroup":"A",
+            "variations":[  
+              {  
+                 "productPartnerId":"60022019",
+                 "title":"Cafe",
+                 "predominantColor":{  
+                    "id":"Marrom",
+                    "partnerId":"964B00"
+                 },
+                 "skus":[  
+                    {  
+                       "partnerId":"85022019",
+                       "ean":"30",
+                       "price":169.90,
+                       "sellPrice":159.90,
+                       "size":{  
+                          "partnerId":"95",
+                          "id":"G"
+                       },
+                       "amount":10,
+                       "height":30,
+                       "width":30,
+                       "length":30,
+                       "weight":32
+                    },
+                    {  
+                       "partnerId":"86022019",
+                       "ean":"31",
+                       "price":169.90,
+                       "sellPrice":159.90,
+                       "size":{  
+                          "partnerId":"96",
+                          "id":"M"
+                       },
+                       "amount":10,
+                       "height":30,
+                       "width":30,
+                       "length":30,
+                       "weight":32
+                    }
+                 ],
+                 "images":[  
+                    {  
+                       "index":1,
+                       "url":"https://ph-cdn1.ecosweb.com.br/Web/posthaus/fotos/api_marketplace_tests/imagem_02.jpg"
+                    },
+                    {  
+                       "index":2,
+                       "url":"https://ph-cdn1.ecosweb.com.br/Web/posthaus/fotos/api_marketplace_tests/imagem_03.jpg"
+                    }
+                 ]
+              },
+              {  
+                 "productPartnerId":"61022019",
+                 "title":"Canela",
+                 "predominantColor":{  
+                    "id":"Marrom",
+                    "partnerId":"964B00"
+                 },
+                 "skus":[  
+                    {  
+                       "partnerId":"87022019",
+                       "ean":"32",
+                       "price":169.90,
+                       "sellPrice":159.90,
+                       "size":{  
+                          "partnerId":"95",
+                          "id":"G"
+                       },
+                       "amount":10,
+                       "height":30,
+                       "width":30,
+                       "length":30,
+                       "weight":32
+                    },
+                    {  
+                       "partnerId":"88022019",
+                       "ean":"33",
+                       "price":169.90,
+                       "sellPrice":159.90,
+                       "size":{  
+                          "partnerId":"96",
+                          "id":"M"
+                       },
+                       "amount":10,
+                       "height":30,
+                       "width":30,
+                       "length":30,
+                       "weight":32
+                    }
+                 ],
+                 "images":[  
+                    {  
+                       "index":1,
+                       "url":"https://ph-cdn1.ecosweb.com.br/Web/posthaus/fotos/api_marketplace_tests/imagem_02.jpg"
+                    },
+                    {  
+                       "index":2,
+                       "url":"https://ph-cdn1.ecosweb.com.br/Web/posthaus/fotos/api_marketplace_tests/imagem_03.jpg"
+                    }
+                 ]
+              }
+            ],
+            "collection":"Inverno 2020",
+            "characteristics":[  
+              {  
+                 "name":"Medida ombro",
+                 "value":"32cm"
+              }
+            ],
+            "category":{  
+                "partnerId":"1",
+                "subCategory":{  
+                 "partnerId":"10"
+                },
+                "subClass":{  
+                 "partnerId":"1"
+                }
+            }
+        }
+
++ Response 204 (application/json)
+
++ Response 500 (application/json)
+
+        {
+            "exceptionTypeName": "",
+            "message": "",
+            "attOrArgName": ""
+        }
+        
++ Response 500 (application/json)
+
+        { 
+           "exceptions":[ 
+              { 
+                 "exceptionTypeName":"",
+                 "message":""
+              },
+              { 
+                 "exceptionTypeName":"",
+                 "message":""
+              }
+           ]
+        }
+        
 # Group Variations
 It will be used to get and create varitions in products
 
@@ -3471,65 +3642,65 @@ The listing is according to the seller informed in the token.
             Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE0Mzg4Mjc0NDN9.POonh-FngFnKeCgDfjjoemmF3Mt8HP2CThHwDLYuYnQ
 
 + Response 200 (application/json)
-
-[ 
-   { 
-      "partnerOrderId":"0",
-      "orderDate":"2019-12-19T11:29:29",
-      "partnerSKUId":"sku_ptnr_id-fa3fe87ae23a4c0",
-      "returnReasonDescription":"Não gostei da cor",
-      "indemnityTypeDescription":"CREDITO PARA PRÓXIMA COMPRA"
-   },
-   { 
-      "partnerOrderId":"0",
-      "orderDate":"2019-12-19T11:29:29",
-      "partnerSKUId":"sku_ptnr_id-fa3fe87ae23a4c0",
-      "returnReasonDescription":"Não gostei da cor",
-      "indemnityTypeDescription":"TROCA POR OUTROS PRODUTOS"
-   },
-   { 
-      "partnerOrderId":"0",
-      "orderDate":"2019-12-19T15:19:26",
-      "partnerSKUId":"36_a1298a71-580e-4641-8",
-      "returnReasonDescription":"Cor é diferente da foto",
-      "indemnityTypeDescription":"ESTORNO CARTAO DE CRÉDITO"
-   },
-   { 
-      "partnerOrderId":"0",
-      "orderDate":"2019-12-19T15:19:26",
-      "partnerSKUId":"CDSKUP_B_557683_36",
-      "returnReasonDescription":"Cor é diferente da foto",
-      "indemnityTypeDescription":"DEPÓSITO CONTA CORRENTE"
-   },
-   { 
-      "partnerOrderId":"0",
-      "orderDate":"2019-12-19T15:19:26",
-      "partnerSKUId":"CDSKUP_B_557679_36",
-      "returnReasonDescription":"Cor é diferente da foto",
-      "indemnityTypeDescription":"DEPÓSITO CONTA CORRENTE"
-   },
-   { 
-      "partnerOrderId":"0",
-      "orderDate":"2019-12-19T15:19:26",
-      "partnerSKUId":"36_a1298a71-580e-4641-8",
-      "returnReasonDescription":"Cor é diferente da foto",
-      "indemnityTypeDescription":"TROCA POR OUTROS PRODUTOS"
-   },
-   { 
-      "partnerOrderId":"0",
-      "orderDate":"2019-12-19T15:19:26",
-      "partnerSKUId":"CDSKUP_B_557683_36",
-      "returnReasonDescription":"Cor é diferente da foto",
-      "indemnityTypeDescription":"ESTORNO CARTAO DE CRÉDITO"
-   },
-   { 
-      "partnerOrderId":"0",
-      "orderDate":"2019-12-19T15:19:26",
-      "partnerSKUId":"CDSKUP_B_557679_36",
-      "returnReasonDescription":"Cor é diferente da foto",
-      "indemnityTypeDescription":"DEPÓSITO CONTA CORRENTE"
-   }
-]
+        
+        [ 
+           { 
+                "partnerOrderId":"0",
+                "orderDate":"2019-12-19T11:29:29",
+                "partnerSKUId":"sku_ptnr_id-fa3fe87ae23a4c0",
+                "returnReasonDescription":"Não gostei da cor",
+                "indemnityTypeDescription":"CREDITO PARA PRÓXIMA COMPRA"
+           },
+           { 
+                "partnerOrderId":"0",
+                "orderDate":"2019-12-19T11:29:29",
+                "partnerSKUId":"sku_ptnr_id-fa3fe87ae23a4c0",
+                "returnReasonDescription":"Não gostei da cor",
+                "indemnityTypeDescription":"TROCA POR OUTROS PRODUTOS"
+           },
+           { 
+                "partnerOrderId":"0",
+                "orderDate":"2019-12-19T15:19:26",
+                "partnerSKUId":"36_a1298a71-580e-4641-8",
+                "returnReasonDescription":"Cor é diferente da foto",
+                "indemnityTypeDescription":"ESTORNO CARTAO DE CRÉDITO"
+           },
+           { 
+                "partnerOrderId":"0",
+                "orderDate":"2019-12-19T15:19:26",
+                "partnerSKUId":"CDSKUP_B_557683_36",
+                "returnReasonDescription":"Cor é diferente da foto",
+                "indemnityTypeDescription":"DEPÓSITO CONTA CORRENTE"
+           },
+           { 
+                "partnerOrderId":"0",
+                "orderDate":"2019-12-19T15:19:26",
+                "partnerSKUId":"CDSKUP_B_557679_36",
+                "returnReasonDescription":"Cor é diferente da foto",
+                "indemnityTypeDescription":"DEPÓSITO CONTA CORRENTE"
+           },
+           { 
+                "partnerOrderId":"0",
+                "orderDate":"2019-12-19T15:19:26",
+                "partnerSKUId":"36_a1298a71-580e-4641-8",
+                "returnReasonDescription":"Cor é diferente da foto",
+                "indemnityTypeDescription":"TROCA POR OUTROS PRODUTOS"
+           },
+           { 
+                "partnerOrderId":"0",
+                "orderDate":"2019-12-19T15:19:26",
+                "partnerSKUId":"CDSKUP_B_557683_36",
+                "returnReasonDescription":"Cor é diferente da foto",
+                "indemnityTypeDescription":"ESTORNO CARTAO DE CRÉDITO"
+           },
+           { 
+                "partnerOrderId":"0",
+                "orderDate":"2019-12-19T15:19:26",
+                "partnerSKUId":"CDSKUP_B_557679_36",
+                "returnReasonDescription":"Cor é diferente da foto",
+                "indemnityTypeDescription":"DEPÓSITO CONTA CORRENTE"
+           }
+        ]
 
 + Response 204
 
@@ -3820,16 +3991,16 @@ The listing is according to the seller informed in the token.
 + subClass (ReadSubClass)
 + productCustomFields (ProductCustomFields, optional) - Representation of optional fields
 
-## ProductCustomFields (object)
-+ optionalFields (array[string], optional) - List with name of optional field(s) of products
-+ variationCustomFields (VariationCustomFields, Optional) - Representation of variation custom fields
+## SKUCustomFields (object)
++ optionalFields (array[string], optional) - List with name of optional field(s) of SKUs
 
 ## VariationCustomFields (object)
 + optionalFields (array[string], optional) - List with name of optional field(s) of variations
 + skuCustomFields (SKUCustomFields, optional) - Representation of SKU custom fields
 
-## SKUCustomFields (object)
-+ optionalFields (array[string], optional) - List with name of optional field(s) of SKUs
+## ProductCustomFields (object)
++ optionalFields (array[string], optional) - List with name of optional field(s) of products
++ variationCustomFields (VariationCustomFields, Optional) - Representation of variation custom fields
 
 ## ReadSize (object)
 + id (number) - Posthaus Size ID (Please inform id or partnerId)
