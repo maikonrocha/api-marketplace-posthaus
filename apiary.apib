@@ -2468,13 +2468,13 @@ or ERROR that is valid at the PRODUCT level only). In addition, at the VARIATION
             "message": ""
         }
         
-## Products Validate [/products/validate/v1/]
+## Product Validate [/rest/products/validate/v1/]
 
 + Attributes (object)
     + product (FullProduct)
     + exception (Exception)
         
-### Read Products Validate [POST]
+### Product Validate [POST]
 Validates the product data without their persistence, this way it will be possible to validate the data before sending it to persistence, making the validation and persistence process in 2 steps. These validations will only be synchronous.
 
 + Request (application/json)
