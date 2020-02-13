@@ -2535,25 +2535,98 @@ You must read the notifications requesting service GET /rest/feed/product/
 + Response 500 (application/json)
 
         {
-            "exceptionTypeName": "",
-            "message": "",
-            "attOrArgName": ""
+        "exceptionTypeName": "PosthausException",
+        "message": "An unexpected error occurred."
         }
-        
-+ Response 500 (application/json)
 
-        { 
-           "exceptions":[ 
-              { 
-                 "exceptionTypeName":"",
-                 "message":""
-              },
-              { 
-                 "exceptionTypeName":"",
-                 "message":""
-              }
-           ]
-        }         
++ Response 400 (application/json)
+
+        {
+        "exceptionTypeName": "PosthausProductPartnerIdAlreadyExistsException",
+        "message": "Product already exists (productPartnerId: ''${attribute or argument}'').",
+        "attOrArgName": "${attribute or argument}"
+        }
+
++ Response 400 (application/json)
+
+        {
+        "exceptionTypeName": "PosthausImageIndexAlreadyExistsException",
+        "message": "Image index already exists in JSON.",
+        "attOrArgName": "${attribute or argument}"
+        }
+
++ Response 400 (application/json)
+
+        {
+            "exceptions": [
+                {
+                "exceptionTypeName": "PosthausJsonRequestBodyMandatoryException",
+                "message": "Json request body is mandatory.",
+                "attOrArgName": "${attribute or argument}"
+                },
+                {
+                "exceptionTypeName": "PosthausTooSmallAttributeValueException",
+                "message": "Too small attribute value for ''${attribute or argument}''.",
+                "attOrArgName": "${attribute or argument}"
+                },
+                {
+                "exceptionTypeName": "PosthausEmptyArrayException",
+                "message": "Array ''${attribute or argument}'' is empty.",
+                "attOrArgName": "${attribute or argument}"
+                },
+                {
+                "exceptionTypeName": "PosthausSkuPartnerIdAlreadyExistsException",
+                "message": "Sku partnerId already exists in JSON.",
+                "attOrArgName": "${attribute or argument}"
+                },
+                {
+                "exceptionTypeName": "PosthausSkuBarcodeAlreadyExistsException",
+                "message": "Sku barcode already exists in JSON.",
+                "attOrArgName": "${attribute or argument}"
+                },
+                {
+                "exceptionTypeName": "PosthausSkuSizeAlreadyExistsException",
+                "message": "Sku size already exists in JSON.",
+                "attOrArgName": "${attribute or argument}"
+                },
+                {
+                "exceptionTypeName": "PosthausMandatoryAttributeException",
+                "message": "''${attribute or argument}'' attribute is mandatory.",
+                "attOrArgName": "${attribute or argument}"
+                },
+                {
+                "exceptionTypeName": "PosthausTooLargerAttributeValueException",
+                "message": "Too larger attribute value for ''{${attribute or argument}}'' (''${value}'').",
+                "attOrArgName": "${attribute or argument}"
+                },
+                {
+                "exceptionTypeName": "PosthausMandatoryArgumentException",
+                "message": "''${attribute or argument}'' argument is mandatory.",
+                "attOrArgName": "${attribute or argument}"
+                },
+                {
+                "exceptionTypeName": "PosthausMandatoryAndGreaterThanAttributeException",
+                "message": "''${attribute or argument}'' attribute is mandatory and greater than ''${value1}'' (${vallue2}: ''${value3}'').",
+                "attOrArgName": "${attribute or argument}"
+                },
+                {
+                "exceptionTypeName": "PosthausImageAlreadyExistsException",
+                "message": "Image already exists (productPartnerId: ''${attribute or argument}'', imageIndex: ''${value}'').",
+                "attOrArgName": "${attribute or argument}"
+                },
+                {
+                "exceptionTypeName": "PosthausSkusIdAlreadyExistsException",
+                "message": "Skus already exists(skus: ''${attribute or argument}'').",
+                "attOrArgName": "${attribute or argument}"
+                },
+                {
+                "exceptionTypeName": "PosthausGenderValidationException",
+                "message": "Skus already exists(skus: ''${attribute or argument}'').",
+                "attOrArgName": "${attribute or argument}"
+                }
+            ]
+            ]
+        }        
         
         
 ## Products [/rest/products/v1/{?page,limit}]
@@ -3341,25 +3414,92 @@ You must read the notifications requesting service GET /rest/feed/product/
 + Response 500 (application/json)
 
         {
-            "exceptionTypeName": "",
-            "message": "",
-            "attOrArgName": ""
+        "exceptionTypeName": "PosthausException",
+        "message": "An unexpected error occurred."
         }
-        
-+ Response 500 (application/json)
 
-        { 
-           "exceptions":[ 
-              { 
-                 "exceptionTypeName":"",
-                 "message":""
-              },
-              { 
-                 "exceptionTypeName":"",
-                 "message":""
-              }
-           ]
-        }         
++ Response 400 (application/json)
+
+        {
+        "exceptionTypeName": "PosthausProductPartnerIdAlreadyExistsException",
+        "message": "Product already exists (productPartnerId: ''${attribute or argument}'').",
+        "attOrArgName": "${attribute or argument}"
+        }
+
++ Response 400 (application/json)
+
+        {
+        "exceptionTypeName": "PosthausImageIndexAlreadyExistsException",
+        "message": "Image index already exists in JSON.",
+        "attOrArgName": "${attribute or argument}"
+        }
+
++ Response 400 (application/json)
+
+        {
+            "exceptions": [
+                {
+                "exceptionTypeName": "PosthausJsonRequestBodyMandatoryException",
+                "message": "Json request body is mandatory.",
+                "attOrArgName": "${attribute or argument}"
+                },
+                {
+                "exceptionTypeName": "PosthausTooSmallAttributeValueException",
+                "message": "Too small attribute value for ''${attribute or argument}''.",
+                "attOrArgName": "${attribute or argument}"
+                },
+                {
+                "exceptionTypeName": "PosthausEmptyArrayException",
+                "message": "Array ''${attribute or argument}'' is empty.",
+                "attOrArgName": "${attribute or argument}"
+                },
+                {
+                "exceptionTypeName": "PosthausSkuPartnerIdAlreadyExistsException",
+                "message": "Sku partnerId already exists in JSON.",
+                "attOrArgName": "${attribute or argument}"
+                },
+                {
+                "exceptionTypeName": "PosthausSkuBarcodeAlreadyExistsException",
+                "message": "Sku barcode already exists in JSON.",
+                "attOrArgName": "${attribute or argument}"
+                },
+                {
+                "exceptionTypeName": "PosthausSkuSizeAlreadyExistsException",
+                "message": "Sku size already exists in JSON.",
+                "attOrArgName": "${attribute or argument}"
+                },
+                {
+                "exceptionTypeName": "PosthausMandatoryAttributeException",
+                "message": "''${attribute or argument}'' attribute is mandatory.",
+                "attOrArgName": "${attribute or argument}"
+                },
+                {
+                "exceptionTypeName": "PosthausTooLargerAttributeValueException",
+                "message": "Too larger attribute value for ''{${attribute or argument}}'' (''${value}'').",
+                "attOrArgName": "${attribute or argument}"
+                },
+                {
+                "exceptionTypeName": "PosthausMandatoryArgumentException",
+                "message": "''${attribute or argument}'' argument is mandatory.",
+                "attOrArgName": "${attribute or argument}"
+                },
+                {
+                "exceptionTypeName": "PosthausMandatoryAndGreaterThanAttributeException",
+                "message": "''${attribute or argument}'' attribute is mandatory and greater than ''${value1}'' (${vallue2}: ''${value3}'').",
+                "attOrArgName": "${attribute or argument}"
+                },
+                {
+                "exceptionTypeName": "PosthausImageAlreadyExistsException",
+                "message": "Image already exists (productPartnerId: ''${attribute or argument}'', imageIndex: ''${value}'').",
+                "attOrArgName": "${attribute or argument}"
+                },
+                {
+                "exceptionTypeName": "PosthausSkusIdAlreadyExistsException",
+                "message": "Skus already exists(skus: ''${attribute or argument}'').",
+                "attOrArgName": "${attribute or argument}"
+                }
+            ]
+        }
         
 ## Variation by id [/rest/products/variations/v1/{product_partner_id}/]
     
@@ -3478,12 +3618,36 @@ GET a Variation.
            }
         }
         
+
 + Response 500 (application/json)
 
         {
-            "exceptionTypeName": "",
-            "message": "",
-            "attOrArgName": ""
+        "exceptionTypeName": "PosthausException",
+        "message": "An unexpected error occurred."
+        }
+
++ Response 400 (application/json)
+
+        {
+        "exceptionTypeName": "PosthausMandatoryArgumentException",
+        "message": "''${attribute or argument}'' argument is mandatory.",
+        "attOrArgName": "${attribute or argument}"
+        }
+
++ Response 400 (application/json)
+
+        {
+        "exceptionTypeName": "PosthausTooLargerAttributeValueException",
+        "message": "Too larger attribute value for ''${attribute or argument}'' (''${value}'').",
+        "attOrArgName": "${attribute or argument}"
+        }
+
++ Response 400 (application/json)
+
+        {
+        "exceptionTypeName": "PosthausVariationNotFoundException",
+        "message": "Variation not found (product_partner_id: ''${attribute or argument}'').",
+        "attOrArgName": "${attribute or argument}"
         }
 
 ## Product Images [/rest/products/variations/v1/{product_partner_id}/images/]
@@ -3534,25 +3698,60 @@ You must read the notifications requesting service GET /rest/feed/product/
 + Response 500 (application/json)
 
         {
-            "exceptionTypeName": "",
-            "message": "",
-            "attOrArgName": ""
+        "exceptionTypeName": "PosthausException",
+        "message": "An unexpected error occurred."
         }
 
-+ Response 500 (application/json)
++ Response 400 (application/json)
 
-        { 
-           "exceptions":[ 
-              { 
-                 "exceptionTypeName":"",
-                 "message":""
-              },
-              { 
-                 "exceptionTypeName":"",
-                 "message":""
-              }
-           ]
-        } 
+        {
+            "exceptionTypeName": "PosthausImageAlreadyExistsException",
+            "message": "Image already exists (productPartnerId: ''${attribute or argument}'', imageIndex: ''${value}'').",
+            "attOrArgName": "${attribute or argument}"
+        }
+
++ Response 400 (application/json)
+
+        {
+            "exceptions": [
+                    {
+                    "exceptionTypeName": "PosthausMandatoryArgumentException",
+                    "message": "''${attribute or argument}'' argument is mandatory.",
+                    "attOrArgName": "${attribute or argument}"
+                    },
+                    {
+                    "exceptionTypeName": "PosthausTooLargerAttributeValueException",
+                    "message": "Too larger attribute value for ''{${attribute or argument}}'' (''${value}'').",
+                    "attOrArgName": "${attribute or argument}"
+                    },
+                    {
+                    "exceptionTypeName": "PosthausEmptyArrayException",
+                    "message": "Array ''${attribute or argument}'' is empty.",
+                    "attOrArgName": "${attribute or argument}"
+                    },
+                    {
+                    "exceptionTypeName": "PosthausMandatoryArgumentException",
+                    "message": "''${attribute or argument}'' argument is mandatory.",
+                    "attOrArgName": "${attribute or argument}"
+                    },
+                    {
+                    "exceptionTypeName": "PosthausMandatoryAndGreaterThanAttributeException",
+                    "message": "''${attribute or argument}'' attribute is mandatory and greater than ''${value1}'' (${vallue2}: ''${value3}'').",
+                    "attOrArgName": "${attribute or argument}"
+                    },
+                    {
+                    "exceptionTypeName": "PosthausImageAlreadyExistsException",
+                    "message": "Image already exists (productPartnerId: ''${attribute or argument}'', imageIndex: ''${value}'').",
+                    "attOrArgName": "${attribute or argument}"
+                    },
+                    {
+                    "exceptionTypeName": "PosthausMandatoryAttributeException",
+                    "message": "''${attribute or argument}'' attribute is mandatory.",
+                    "attOrArgName": "${attribute or argument}"
+                    }
+                ]
+        }
+
 
 ### Get images [GET]
 Get a image list from a partner product.
@@ -3609,9 +3808,32 @@ Publish a new image list from a partner product. Index 1 is the main image.
 + Response 500 (application/json)
 
         {
-            "exceptionTypeName": "",
-            "message": "",
-            "attOrArgName": ""
+        "exceptionTypeName": "PosthausException",
+        "message": "An unexpected error occurred."
+        }
+
++ Response 404 (application/json)
+
+        {
+        "exceptionTypeName": "PosthausProductNotFoundException",
+        "message": "Product not found (product_partner_id: ''${attribute or argument}'').",
+        "attOrArgName": "${attribute or argument}"
+        }
+
++ Response 400 (application/json)
+
+        {
+        "exceptionTypeName": "PosthausMandatoryArgumentException",
+        "message": "''${attribute or argument}'' argument is mandatory.",
+        "attOrArgName": "${attribute or argument}"
+        }
+
++ Response 400 (application/json)
+
+        {
+        "exceptionTypeName": "PosthausMandatoryAttributeException",
+        "message": "''${attribute or argument}'' attribute is mandatory.",
+        "attOrArgName": "${attribute or argument}"
         }
 
 # Group SKU
@@ -3724,6 +3946,7 @@ You must read the notifications requesting service GET /rest/feed/product/
                 "weight": 5.180
             } 
 
+
 + Response 200 (application/json)
 
         {
@@ -3732,30 +3955,48 @@ You must read the notifications requesting service GET /rest/feed/product/
             "message": "SKU is going to be created asynchronously."
         }
 
-
 + Response 500 (application/json)
+        
+        {
+            "exceptionTypeName": "PosthausException",
+            "message": "An unexpected error occurred."
+        }
+
++ Response 409 (application/json)
 
         {
-            "exceptionTypeName": "",
-            "message": "",
-            "attOrArgName": ""
+            "exceptionTypeName": "PosthausSkusIdAlreadyExistsException",
+            "message": "Skus already exists(skus: ''${attribute or argument}'').",
+            "attOrArgName": "${attribute or argument}"
         }
-        
-+ Response 500 (application/json)
 
-        { 
-           "exceptions":[ 
-              { 
-                 "exceptionTypeName":"",
-                 "message":""
-              },
-              { 
-                 "exceptionTypeName":"",
-                 "message":""
-              }
-           ]
-        } 
-        
++ Response 400 (application/json)
+
+        {
+            "exceptions": [
+                {
+                    "exceptionTypeName": "PosthausMandatoryArgumentException",
+                    "message": "''${attribute or argument}'' argument is mandatory.",
+                    "attOrArgName": "${attribute or argument}"
+                },
+                {
+                    "exceptionTypeName": "PosthausTooLargerAttributeValueException",
+                    "message": "Too larger attribute value for ''${attribute or argument}'' (''${value}'').",
+                    "attOrArgName": "${attribute or argument}"
+                },
+                {
+                    "exceptionTypeName": "PosthausMandatoryAttributeException",
+                    "message": "''${attribute or argument}'' attribute is mandatory.",
+                    "attOrArgName": "${attribute or argument}"
+                },
+                {
+                    "exceptionTypeName": "PosthausMandatoryAndGreaterThanAttributeException",
+                    "message": "''${attribute or argument}'' argument is mandatory and greater than ''${value}''.",
+                    "attOrArgName": "${attribute or argument}"
+                }
+            ]
+        }
+
 ## SKUS [/rest/products/variations/v1/{product_partner_id}/skus]
 
 + Parameters
@@ -3820,9 +4061,32 @@ Returns all SKU from a product group (productGroupPartnerId).
 + Response 500 (application/json)
 
         {
-            "exceptionTypeName": "",
-            "message": "",
-            "attOrArgName": ""
+        "exceptionTypeName": "PosthausException",
+        "message": "An unexpected error occurred."
+        }
+
++ Response 400 (application/json)
+
+        {
+        "exceptionTypeName": "PosthausMandatoryArgumentException",
+        "message": "''${attribute or argument}'' argument is mandatory.",
+        "attOrArgName": "${attribute or argument}"
+        }
+
++ Response 404 (application/json)
+
+        {
+        "exceptionTypeName": "PosthausProductNotFoundException",
+        "message": "Product not found (product_partner_id: ''${attribute or argument}'').",
+        "attOrArgName": "${attribute or argument}"
+        }
+
++ Response 400 (application/json)
+
+        {
+        "exceptionTypeName": "PosthausTooLargerAttributeValueException",
+        "message": "Too larger attribute value for ''${attribute or argument}'' (''${value}'').",
+        "attOrArgName": "${attribute or argument}"
         }
         
 
@@ -3868,15 +4132,37 @@ Returns information about a SKU.
             "weight": 0.320
         }
 
-+ Response 500 (application/json)          
++ Response 500 (application/json)
 
         {
-            "exceptionTypeName": "",
-            "message": "",
-            "attOrArgName": ""
+        "exceptionTypeName": "PosthausException",
+        "message": "An unexpected error occurred."
         }
-            
-        
+
++ Response 400 (application/json)
+
+        {
+        "exceptionTypeName": "PosthausMandatoryArgumentException",
+        "message": "''${attribute or argument}'' argument is mandatory.",
+        "attOrArgName": "${attribute or argument}"
+        }
+
++ Response 404 (application/json)
+
+        {
+        "exceptionTypeName": "PosthausSkuNotFoundException",
+        "message": "SKU not found (product_partner_id: ''{${attribute or argument}}'', partner_id: ''{${value}}'').",
+        "attOrArgName": "${attribute or argument}"
+        }
+
++ Response 400 (application/json)
+
+        {
+        "exceptionTypeName": "PosthausTooLargerAttributeValueException",
+        "message": "Too larger attribute value for ''${attribute or argument}'' (''${value}'').",
+        "attOrArgName": "${attribute or argument}"
+        }
+
 
 
 ## Price [/rest/products/variations/v1/{product_partner_id}/skus/{sku_partner_id}/price/]
@@ -3935,9 +4221,56 @@ You must read the notifications requesting service GET Price Notifications
 + Response 500 (application/json)
 
         {
-            "exceptionTypeName": "",
-            "message": "",
-            "attOrArgName": ""
+        "exceptionTypeName": "PosthausException",
+        "message": "An unexpected error occurred."
+        }
+
++ Response 400 (application/json)
+
+        {
+        "exceptionTypeName": "PosthausMandatoryArgumentException",
+        "message": "''${attribute or argument}'' argument is mandatory.",
+        "attOrArgName": "${attribute or argument}"
+        }
+
++ Response 404 (application/json)
+
+        {
+        "exceptionTypeName": "PosthausSkuNotFoundException",
+        "message": "SKU not found (product_partner_id: ''{${attribute or argument}}'', partner_id: ''{${value}}'').",
+        "attOrArgName": "${attribute or argument}"
+        }
+
++ Response 400 (application/json)
+
+        {
+        "exceptionTypeName": "PosthausTooLargerAttributeValueException",
+        "message": "Too larger attribute value for ''${attribute or argument}'' (''${value}'').",
+        "attOrArgName": "${attribute or argument}"
+        }
+
++ Response 400 (application/json)
+
+        {
+        "exceptionTypeName": "PosthausPriceAndSellPriceValidationException",
+        "message": "Attribute 'sellPrice' is greather than 'price', SKU partnerId: ''${attribute or argument}''.",
+        "attOrArgName": "${attribute or argument}"
+        }
+
++ Response 404 (application/json)
+
+        {
+        "exceptionTypeName": "PosthausPriceTableNotFoundException",
+        "message": "Price table not found, SellerId: ''${attribute or argument}'' (APC0070).",
+        "attOrArgName": "${attribute or argument}"
+        }
+
++ Response 400 (application/json)
+
+        {
+        "exceptionTypeName": "PosthausJsonRequestBodyMandatoryException",
+        "message": "Json request body is mandatory.",
+        "attOrArgName": "${attribute or argument}"
         }
 
 # Group Stock
