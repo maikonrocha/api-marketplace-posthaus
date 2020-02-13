@@ -755,9 +755,32 @@ Returns the Order details by Order number.
 + Response 500 (application/json)
 
         {
-            "exceptionTypeName": "",
-            "message": "",
-            "attOrArgName": ""
+        "exceptionTypeName": "PosthausException",
+        "message": "An unexpected error occurred."
+        }
+
++ Response 400 (application/json)
+
+        {
+        "exceptionTypeName": "PosthausInvalidAttributeValueException",
+        "message": "Invalid value informed at ''${attribute or argument}''.",
+        "attOrArgName": "${attribute or argument}"
+        }
+
++ Response 400 (application/json)
+
+        {
+        "exceptionTypeName": "PosthausMandatoryArgumentException",
+        "message": "''${attribute or argument}'' argument is mandatory.",
+        "attOrArgName": "${attribute or argument}"
+        }
+
++ Response 404 (application/json)
+
+        {
+        "exceptionTypeName": "PosthausSellerOrderNotFoundException",
+        "message": "Order does not exist (order_id: ''${attribute or argument}'').",
+        "attOrArgName": "${attribute or argument}"
         }
 
 
@@ -890,9 +913,80 @@ The Estimate Date needs to be: after than Shipped Date and between 30 days backw
 + Response 500 (application/json)
 
         {
-            "exceptionTypeName": "",
-            "message": "",
-            "attOrArgName": ""
+        "exceptionTypeName": "PosthausException",
+        "message": "An unexpected error occurred."
+        }
+
++ Response 404 (application/json)
+
+        {
+        "exceptionTypeName": "PosthausSellerOrderNotFoundException",
+        "message": "Order does not exist (order_id: ''${attribute or argument}'').",
+        "attOrArgName": "${attribute or argument}"
+        }
+
++ Response 400 (application/json)
+
+        {
+        "exceptionTypeName": "PosthausOrderInvalidStatusException",
+        "message": "Integration of the Order already marked ${order_status} (order_id: ''${attribute or argument}'').",
+        "attOrArgName": "${attribute or argument}"
+        }
+
++ Response 400 (application/json)
+
+        {
+        "exceptionTypeName": "PosthausInvalidAttributeValueException",
+        "message": "Invalid value informed at ''${attribute or argument}''.",
+        "attOrArgName": "${attribute or argument}"
+        }
+
++ Response 400 (application/json)
+
+        {
+        "exceptionTypeName": "PosthausMandatoryArgumentException",
+        "message": "''${attribute or argument}'' argument is mandatory.",
+        "attOrArgName": "${attribute or argument}"
+        }
+
++ Response 400 (application/json)
+
+        {
+        "exceptionTypeName": "PosthausOrderInvalidCancelReasonException",
+        "message": "Integration of the Order already marked ${order_status} (order_id: ''${attribute or argument}'').",
+        "attOrArgName": "${attribute or argument}"
+        }
+
++ Response 409 (application/json)
+
+        {
+        "exceptionTypeName": "PosthausOrderTrackingNumberAlreadyExistsException",
+        "message": "The order tracking number already exists(order_id: ''${attribute or argument}'', tracking_number: ''${tracking_number}'').",
+        "attOrArgName": "${attribute or argument}"
+        }
+
++ Response 404 (application/json)
+
+        {
+        "exceptionTypeName": "PosthausInvoiceNotFoundException",
+        "message": "Invoice does not exist (order_id: ''${attribute or argument}'').",
+        "attOrArgName": "${attribute or argument}"
+        }
+
++ Response 400 (application/json)
+
+        {
+        "exceptionTypeName": "PosthausInvalidSentDateException",
+        "message": "Estimated delivery date or delivery date must be greater than the orders invoice date (invalid_date: '' ${attribute or argument} '').",
+        "attOrArgName": "${attribute or argument}"
+        }
+
++ Response 400 (application/json)
+
+        {
+        "exceptionTypeName": "PosthausTooLargerAttributeValueException",
+        "message": "Too larger attribute value for ''${attribute or argument}'' (''${value}'').",
+        "attOrArgName": "${attribute or argument}"
         }
 
 ### Update order status to Delivered [PUT]
@@ -1020,9 +1114,40 @@ It is the last situation of the request. Changing to this situation it is necess
 + Response 500 (application/json)
 
         {
-            "exceptionTypeName": "",
-            "message": "",
-            "attOrArgName": ""
+        "exceptionTypeName": "PosthausException",
+        "message": "An unexpected error occurred."
+        }
+
++ Response 404 (application/json)
+
+        {
+        "exceptionTypeName": "PosthausSellerOrderNotFoundException",
+        "message": "Order does not exist (order_id: ''${attribute or argument}'').",
+        "attOrArgName": "${attribute or argument}"
+        }
+
++ Response 400 (application/json)
+
+        {
+        "exceptionTypeName": "PosthausOrderInvalidStatusException",
+        "message": "Integration of the Order already marked ${order_status} (order_id: ''${attribute or argument}'').",
+        "attOrArgName": "${attribute or argument}"
+        }
+
++ Response 400 (application/json)
+
+        {
+        "exceptionTypeName": "PosthausInvalidAttributeValueException",
+        "message": "Invalid value informed at ''${attribute or argument}''.",
+        "attOrArgName": "${attribute or argument}"
+        }
+
++ Response 400 (application/json)
+
+        {
+        "exceptionTypeName": "PosthausMandatoryArgumentException",
+        "message": "''${attribute or argument}'' argument is mandatory.",
+        "attOrArgName": "${attribute or argument}"
         }
 
 ### Update order status to Canceled [PUT]
@@ -1146,9 +1271,80 @@ Attribute canceledReason values, STOCK_UNAVAILABLE, DELIVERY_UNAVAILABLE or DELI
 + Response 500 (application/json)
 
         {
-            "exceptionTypeName": "",
-            "message": "",
-            "attOrArgName": ""
+        "exceptionTypeName": "PosthausException",
+        "message": "An unexpected error occurred."
+        }
+
++ Response 404 (application/json)
+
+        {
+        "exceptionTypeName": "PosthausSellerOrderNotFoundException",
+        "message": "Order does not exist (order_id: ''${attribute or argument}'').",
+        "attOrArgName": "${attribute or argument}"
+        }
+
++ Response 400 (application/json)
+
+        {
+        "exceptionTypeName": "PosthausOrderInvalidStatusException",
+        "message": "Integration of the Order already marked ${order_status} (order_id: ''${attribute or argument}'').",
+        "attOrArgName": "${attribute or argument}"
+        }
+
++ Response 409 (application/json)
+
+        {
+        "exceptionTypeName": "PosthausOrderAlreadyDeliveredException",
+        "message": "The order already DELIVERED (order_id: ''${attribute or argument}'').",
+        "attOrArgName": "${attribute or argument}"
+        }
+
++ Response 409 (application/json)
+
+        {
+        "exceptionTypeName": "PosthausOrderAlreadyCancelException",
+        "message": "Order already canceled (order_id: ''${attribute or argument}'').",
+        "attOrArgName": "${attribute or argument}"
+        }
+
++ Response 400 (application/json)
+
+        {
+        "exceptionTypeName": "PosthausInvalidAttributeValueException",
+        "message": "Invalid value informed at ''${attribute or argument}''.",
+        "attOrArgName": "${attribute or argument}"
+        }
+
++ Response 400 (application/json)
+
+        {
+        "exceptionTypeName": "PosthausMandatoryArgumentException",
+        "message": "''${attribute or argument}'' argument is mandatory.",
+        "attOrArgName": "${attribute or argument}"
+        }
+
++ Response 400 (application/json)
+
+        {
+        "exceptionTypeName": "PosthausOrderInvalidCancelReasonException",
+        "message": "Integration of the Order already marked ${order_status} (order_id: ''${attribute or argument}'').",
+        "attOrArgName": "${attribute or argument}"
+        }
+
++ Response 400 (application/json)
+
+        {
+        "exceptionTypeName": "PosthausOrderNotInvoicedException",
+        "message": "Order needs to be invoiced (order_id: ''${attribute or argument}'').",
+        "attOrArgName": "${attribute or argument}"
+        }
+
++ Response 400 (application/json)
+
+        {
+        "exceptionTypeName": "PosthausSendEmailException",
+        "message": "Can not find a valid email code to send seller cancellation email.",
+        "attOrArgName": "${attribute or argument}"
         }
 
 ### Update order status to Invoiced [PUT]
@@ -1272,9 +1468,64 @@ Changing to this situation is necessary to inform: note number, serial number, d
 + Response 500 (application/json)
 
         {
-            "exceptionTypeName": "",
-            "message": "",
-            "attOrArgName": ""
+        "exceptionTypeName": "PosthausException",
+        "message": "An unexpected error occurred."
+        }
+
++ Response 404 (application/json)
+
+        {
+        "exceptionTypeName": "PosthausSellerOrderNotFoundException",
+        "message": "Order does not exist (order_id: ''${attribute or argument}'').",
+        "attOrArgName": "${attribute or argument}"
+        }
+
++ Response 400 (application/json)
+
+        {
+        "exceptionTypeName": "PosthausOrderInvalidStatusException",
+        "message": "Integration of the Order already marked ${order_status} (order_id: ''${attribute or argument}'').",
+        "attOrArgName": "${attribute or argument}"
+        }
+
++ Response 400 (application/json)
+
+        {
+        "exceptionTypeName": "PosthausInvalidAttributeValueException",
+        "message": "Invalid value informed at ''${attribute or argument}''.",
+        "attOrArgName": "${attribute or argument}"
+        }
+
++ Response 400 (application/json)
+
+        {
+        "exceptionTypeName": "PosthausMandatoryArgumentException",
+        "message": "''${attribute or argument}'' argument is mandatory.",
+        "attOrArgName": "${attribute or argument}"
+        }
+
++ Response 409 (application/json)
+
+        {
+        "exceptionTypeName": "PosthausOrderAlreadyInvoicedException",
+        "message": "The order already INVOICED (order_id: ''${attribute or argument}'').",
+        "attOrArgName": "${attribute or argument}"
+        }
+
++ Response 400 (application/json)
+
+        {
+        "exceptionTypeName": "PosthausInvalidDateException",
+        "message": "Invoice date must be after order date.",
+        "attOrArgName": "${attribute or argument}"
+        }
+
++ Response 400 (application/json)
+
+        {
+        "exceptionTypeName": "PosthausTooLargerAttributeValueException",
+        "message": "Too larger attribute value for ''${attribute or argument}'' (''${value}'').",
+        "attOrArgName": "${attribute or argument}"
         }
 
 ### Update order status to Integrated [PUT]
@@ -1386,9 +1637,89 @@ Changing to this situation requires the following information: List of canceled 
 + Response 500 (application/json)
 
         {
-            "exceptionTypeName": "",
-            "message": "",
-            "attOrArgName": ""
+            "exceptionTypeName": "PosthausException",
+            "message": "An unexpected error occurred."
+        }
+        
+
++ Response 404 (application/json)
+
+        {
+            "exceptionTypeName": "PosthausSellerOrderNotFoundException",
+            "message": "Order does not exist (order_id: ''${attribute or argument}'').",
+            "attOrArgName": "${attribute or argument}"
+        }
+
++ Response 400 (application/json)
+
+        {
+            "exceptionTypeName": "PosthausOrderInvalidStatusException",
+            "message": "Integration of the Order already marked ${order_status} (order_id: ''${attribute or argument}'').",
+            "attOrArgName": "${attribute or argument}"
+        }
+        
++ Response 409 (application/json)
+
+        {
+            "exceptionTypeName": "PosthausOrderAlreadyDeliveredException",
+            "message": "The order already DELIVERED (order_id: ''${attribute or argument}'').",
+            "attOrArgName": "${attribute or argument}"
+        }
+        
++ Response 400 (application/json)
+
+        {
+            "exceptionTypeName": "PosthausSkuItemInvalidException",
+            "message": "Sku (''${attribute or argument}'') informed is not valid for the Order. (order_id: ''${value}'').",
+            "attOrArgName": "${attribute or argument}"
+        }
+        
++ Response 409 (application/json)
+
+        {
+            "exceptionTypeName": "PosthausOrderAlreadyIntegratedException",
+            "message": "PartnerId: '' ${attribute or argument} '' already integrated for another Order.",
+            "attOrArgName": "${attribute or argument}"
+        }
+        
++ Response 409 (application/json)
+
+        {
+        "exceptionTypeName": "PosthausOrderAlreadyCancelException",
+        "message": "Order already canceled (order_id: ''${attribute or argument}'').",
+        "attOrArgName": "${attribute or argument}"
+        }
+        
++ Response 400 (application/json)
+
+        {
+        "exceptionTypeName": "PosthausInvalidAttributeValueException",
+        "message": "Invalid value informed at ''${attribute or argument}''.",
+        "attOrArgName": "${attribute or argument}"
+        }
+        
++ Response 400 (application/json)
+
+        {
+        "exceptionTypeName": "PosthausMandatoryArgumentException",
+        "message": "''${attribute or argument}'' argument is mandatory.",
+        "attOrArgName": "${attribute or argument}"
+        }
+        
++ Response 400 (application/json)
+
+        {
+        "exceptionTypeName": "PosthausTooLargerAttributeValueException",
+        "message": "Too larger attribute value for ''${attribute or argument}'' ('${value}').",
+        "attOrArgName": "${attribute or argument}"
+        }
+        
++ Response 409 (application/json)
+
+        {
+            "exceptionTypeName": "PosthausItemAlreadyCancelException",
+            "message": "Item already canceled (item: ''${attribute or argument}'' order_id: ''${value}'').",
+            "attOrArgName": "${attribute or argument}"
         }
 
 ### Send XML NF-e [PUT /rest/orders/v1/{order_id}/nfe]
@@ -1428,13 +1759,78 @@ Send the XMl from NF-e to the Marketplace. Only XML content should be sent.
             </NFe>
 
 + Response 204
+
 + Response 500 (application/json)
 
         {
-            "exceptionTypeName": "",
-            "message": "",
-            "attOrArgName": ""
+        "exceptionTypeName": "PosthausException",
+        "message": "An unexpected error occurred."
         }
+
++ Response 400 (application/json)
+
+        {
+        "exceptionTypeName": "PosthausInvalidAttributeValueException",
+        "message": "Invalid value informed at ''${attribute or argument}''.",
+        "attOrArgName": "${attribute or argument}"
+        }
+
++ Response 404 (application/json)
+
+        {
+        "exceptionTypeName": "PosthausSellerOrderNotFoundException",
+        "message": "Order does not exist (order_id: ''${attribute or argument}'').",
+        "attOrArgName": "${attribute or argument}"
+        }
+
++ Response 400 (application/json)
+
+        {
+        "exceptionTypeName": "PosthausOrderInvalidStatusException",
+        "message": "The order (order_id: ''${attribute or argument}'') is not INVOICED yet.",
+        "attOrArgName": "${attribute or argument}"
+        }
+
++ Response 409 (application/json)
+
+        {
+        "exceptionTypeName": "PosthausOrderAlreadyCancelException",
+        "message": "Order already canceled (order_id: ''${attribute or argument}'').",
+        "attOrArgName": "${attribute or argument}"
+        }
+
++ Response 400 (application/json)
+
+        {
+        "exceptionTypeName": "PosthausMandatoryArgumentException",
+        "message": "''${attribute or argument}'' argument is mandatory.",
+        "attOrArgName": "${attribute or argument}"
+        }
+
++ Response 409 (application/json)
+
+        {
+        "exceptionTypeName": "PosthausInvoiceAlreadyPersistedException",
+        "message": "Invoice has already been persisted (order_id: ''${attribute or argument}'').",
+        "attOrArgName": "${attribute or argument}"
+        }
+
++ Response 404 (application/json)
+
+        {
+        "exceptionTypeName": "PosthausInvoiceNotFoundException",
+        "message": "Invoice does not exist (order_id: ''${attribute or argument}'').",
+        "attOrArgName": "${attribute or argument}"
+        }
+
++ Response 400 (application/json)
+
+        {
+        "exceptionTypeName": "PosthausTooLargerAttributeValueException",
+        "message": "Too larger attribute value for ''${attribute or argument}'' (''${value}'').",
+        "attOrArgName": "${attribute or argument}"
+        }
+
 
 ## Orders [/rest/orders/v1{?page,limit,createdAfter,status,cpf}]
 Returns the order details using the filters: createdAfter, status and customer CPF. 
@@ -1587,9 +1983,40 @@ Returns the order details.
 + Response 500 (application/json)
 
         {
-            "exceptionTypeName": "",
-            "message": "",
-            "attOrArgName": ""
+        "exceptionTypeName": "PosthausException",
+        "message": "An unexpected error occurred."
+        }
+
++ Response 400 (application/json)
+
+        {
+        "exceptionTypeName": "PosthausMandatoryArgumentException",
+        "message": "''${attribute or argument}'' argument is mandatory.",
+        "attOrArgName": "${attribute or argument}"
+        }
+
++ Response 400 (application/json)
+
+        {
+        "exceptionTypeName": "PosthausInvalidAttributeValueException",
+        "message": "Invalid value informed at ''${attribute or argument}''.",
+        "attOrArgName": "${attribute or argument}"
+        }
+
++ Response 400 (application/json)
+
+        {
+        "exceptionTypeName": "PosthausMandatoryAndGreaterThanAttributeException",
+        "message": "''${attribute or argument}'' argument is mandatory and greater than ''${value}''.",
+        "attOrArgName": "${attribute or argument}"
+        }
+
++ Response 400 (application/json)
+
+        {
+        "exceptionTypeName": "PosthausInvalidDateException",
+        "message": "Invalid date ''${attribute or argument}''.",
+        "attOrArgName": "${attribute or argument}"
         }
 
 ## Cancel Order Items [/rest/orders/v1/{order_id}/cancelation/]
@@ -1752,10 +2179,50 @@ You must read the notifications requesting service GET /rest/feed/price/
 + Response 500 (application/json)
 
         {
-            "exceptionTypeName": "",
-            "message": "",
-            "attOrArgName": ""
+            "exceptionTypeName": "PosthausException",
+            "message": "An unexpected error occurred."
         }
+
++ Response 400 (application/json)
+
+        {
+            "exceptionTypeName": "PosthausMandatoryArgumentException",
+            "message": "''${attribute or argument}'' argument is mandatory.",
+            "attOrArgName": "${attribute or argument}"
+        }
+
++ Response 400 (application/json)
+
+        {
+            "exceptionTypeName": "PosthausEmptyArrayException",
+            "message": "Array ''${attribute or argument}'' is empty.",
+            "attOrArgName": "${attribute or argument}"
+        }
+
++ Response 400 (application/json)
+
+        {
+            "exceptionTypeName": "PosthausTooLargerAttributeValueException",
+            "message": "Too larger attribute value for ''${attribute or argument}'' (''${value}'').",
+            "attOrArgName": "${attribute or argument}"
+        }
+
++ Response 400 (application/json)
+
+        {
+            "exceptionTypeName": "PosthausMandatoryAndGreaterThanAttributeException",
+            "message": "''{${attribute or argument}}'' attribute is mandatory and greater than ''${value1}'' (${value2}: ''${value3}'').",
+            "attOrArgName": "${attribute or argument}"
+        }
+
++ Response 400 (application/json)
+
+        {
+            "exceptionTypeName": "PosthausJsonRequestBodyMandatoryException",
+            "message": "Json request body is mandatory.",
+            "attOrArgName": "${attribute or argument}"
+        }
+
 
 # Group Product
 
@@ -1817,9 +2284,8 @@ Returns all brands recorded.
 + Response 500 (application/json)
 
         {
-            "exceptionTypeName": "",
-            "message": "",
-            "attOrArgName": ""
+        "exceptionTypeName": "PosthausException",
+        "message": "An unexpected error occurred."
         }
 
 ## Categories [/rest/categories/v1/{?page,limit}]
@@ -3211,9 +3677,8 @@ Returns the registered Marketplace categories.
 + Response 500 (application/json)
 
         {
-            "exceptionTypeName": "",
-            "message": "",
-            "attOrArgName": ""
+        "exceptionTypeName": "PosthausException",
+        "message": "An unexpected error occurred."
         }
 
 
@@ -3568,10 +4033,66 @@ Receive a Postcode and created date.
 + Response 500 (application/json)
 
         {
-            "exceptionTypeName": "",
-            "message": "",
-            "attOrArgName": ""
+        "exceptionTypeName": "PosthausException",
+        "message": "An unexpected error occurred."
         }
+
++ Response 400 (application/json)
+
+        {
+        "exceptionTypeName": "PosthausMandatoryArgumentException",
+        "message": "''${attribute or argument}'' argument is mandatory.",
+        "attOrArgName": "${attribute or argument}"
+        }
+
++ Response 404 (application/json)
+
+        {
+        "exceptionTypeName": "PosthausReverseLogisticNotFoundException",
+        "message": "Not found reverse logistic (Authorization Postcode: ''${attribute or argument}'').",
+        "attOrArgName": "${attribute or argument}"
+        }
+
++ Response 400 (application/json)
+
+        {
+        "exceptionTypeName": "PosthausValidateDateException",
+        "message": "''{${attribute or argument}}'' ''${value1}'' cannot be greater than current date ''${value2}''.",
+        "attOrArgName": "${attribute or argument}"
+        }
+
++ Response 409 (application/json)
+
+        {
+        "exceptionTypeName": "PosthausLogisticReversePostCodeAlreadyExistsException",
+        "message": "Logistic reverse already exists (reverseId: ''${attribute or argument}'').",
+        "attOrArgName": "${attribute or argument}"
+        }
+
++ Response 400 (application/json)
+
+        {
+        "exceptionTypeName": "PosthausMandatoryAttributeException",
+        "message": "''${attribute or argument}'' attribute is mandatory.",
+        "attOrArgName": "${attribute or argument}"
+        }
+
++ Response 400 (application/json)
+
+        {
+        "exceptionTypeName": "PosthausJsonRequestBodyMandatoryException",
+        "message": "Json request body is mandatory.",
+        "attOrArgName": "${attribute or argument}"
+        }
+
++ Response 400 (application/json)
+
+        {
+        "exceptionTypeName": "PosthausTooLargerAttributeValueException",
+        "message": "Too larger attribute value for ''${attribute or argument}'' ('${value}').",
+        "attOrArgName": "${attribute or argument}"
+        }
+
         
 # Group Report/Financial
 
@@ -3628,10 +4149,26 @@ It lists all receive bills according due date. A bill has any orders installment
 + Response 500 (application/json)
 
         {
-            "exceptionTypeName": "",
-            "message": "",
-            "attOrArgName": ""
+        "exceptionTypeName": "PosthausException",
+        "message": "An unexpected error occurred."
         }
+
++ Response 400 (application/json)
+
+        {
+        "exceptionTypeName": "PosthausMandatoryArgumentException",
+        "message": "''${attribute or argument}'' argument is mandatory.",
+        "attOrArgName": "${attribute or argument}"
+        }
+
++ Response 400 (application/json)
+
+        {
+        "exceptionTypeName": "PosthausInvalidDateException",
+        "message": "Invalid dates. The interval between ''${attribute or argument}'' and ''${value1}'' grather than ''${value2}'' days.",
+        "attOrArgName": "${attribute or argument}"
+        }
+
 
 ## Commissions [/rest/reports/financial/commission{?begin_due_date,end_due_date}]
 
@@ -3689,9 +4226,24 @@ It lists all commissions according due date.
 + Response 500 (application/json)
 
         {
-            "exceptionTypeName": "",
-            "message": "",
-            "attOrArgName": ""
+        "exceptionTypeName": "PosthausException",
+        "message": "An unexpected error occurred."
+        }
+
++ Response 400 (application/json)
+
+        {
+        "exceptionTypeName": "PosthausMandatoryArgumentException",
+        "message": "''${attribute or argument}'' argument is mandatory.",
+        "attOrArgName": "${attribute or argument}"
+        }
+
++ Response 400 (application/json)
+
+        {
+        "exceptionTypeName": "PosthausInvalidDateException",
+        "message": "Invalid dates. The interval between ''${attribute or argument}'' and ''${value1}'' grather than ''${value2}'' days.",
+        "attOrArgName": "${attribute or argument}"
         }
 
 # Group Report/Devolution
