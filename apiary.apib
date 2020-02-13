@@ -83,9 +83,8 @@ Get a paginated notifications list. Events type supported: NEW_ORDER, AUTHORIZED
 + Response 500 (application/json)
 
         {
-            "exceptionTypeName": "",
-            "message": "",
-            "attOrArgName": ""
+            "exceptionTypeName": "PosthausException",
+            "message": "An unexpected error occurred."
         }
 
 
@@ -153,9 +152,8 @@ Get a paginated notifications list. Events type supported: STOCK_INCONSISTENCY.
 + Response 500 (application/json)
 
         {
-            "exceptionTypeName": "",
-            "message": "",
-            "attOrArgName": ""
+            "exceptionTypeName": "PosthausException",
+            "message": "An unexpected error occurred."
         }
 
 
@@ -244,9 +242,8 @@ Get a paginated notifications list. Events type supported: UPDATE_STOCK.
 + Response 500 (application/json)
 
         {
-            "exceptionTypeName": "",
-            "message": "",
-            "attOrArgName": ""
+            "exceptionTypeName": "PosthausException",
+            "message": "An unexpected error occurred."
         }
         
         
@@ -356,9 +353,8 @@ Get a paginated notifications list. Events type supported: UPDATE_BATCH_PRICES.
 + Response 500 (application/json)
 
         {
-            "exceptionTypeName": "",
-            "message": "",
-            "attOrArgName": ""
+            "exceptionTypeName": "PosthausException",
+            "message": "An unexpected error occurred."
         }
         
 ## Product Notifications [/rest/feed/product/v2{?page,limit}]
@@ -503,9 +499,8 @@ Get a notifications list. Events type supported: NEW_PRODUCT, UPDATE_PRODUCT, NE
 + Response 500 (application/json)
 
         {
-            "exceptionTypeName": "",
-            "message": "",
-            "attOrArgName": ""
+            "exceptionTypeName": "PosthausException",
+            "message": "An unexpected error occurred."
         }
         
         
@@ -533,12 +528,35 @@ Mark as read a notification.
 + Response 500 (application/json)
 
         {
-            "exceptionTypeName": "",
-            "message": "",
-            "attOrArgName": ""
+            "exceptionTypeName": "PosthausException",
+            "message": "An unexpected error occurred."
         }
-        
-        
+
++ Response 400 (application/json)
+
+        {
+            "exceptionTypeName": "PosthausMandatoryArgumentException",
+            "message": "''${attribute or argument}'' arguments are mandatories.",
+            "attOrArgName": "${attribute or argument}"
+        }
+
++ Response 404 (application/json)
+
+        {
+            "exceptionTypeName": "PosthausNotificationNotFoundException",
+            "message": "Notification token ''${attribute or argument}'' not found.",
+            "attOrArgName": "${attribute or argument}"
+        }
+
++ Response 409 (application/json)
+
+        {
+            "exceptionTypeName": "PosthausNotificationAlreadyReadException",
+            "message": "Notification token ''${attribute or argument}'' is already read.",
+            "attOrArgName": "${attribute or argument}"
+        }
+
+
 ## Reverse Logistic Notification [/rest/feed/logistic/reverse/authorization/v1{?page,limit}]
 
 + Parameters
@@ -601,13 +619,14 @@ notification not read/expiration of Posthaus Marketplace.
                 "number": 1
             }
         }
+
 + Response 204
+
 + Response 500 (application/json)
 
         {
-            "exceptionTypeName": "",
-            "message": "",
-            "attOrArgName": ""
+            "exceptionTypeName": "PosthausException",
+            "message": "An unexpected error occurred."
         }
 
 # Group Order
@@ -1606,11 +1625,75 @@ Requests the cancellation of items of a Order.
 
 + Response 500 (application/json)
 
+{
+"exceptionTypeName": "PosthausException",
+"message": "An unexpected error occurred."
+}
+
++ Response 400 (application/json)
+
         {
-            "exceptionTypeName": "",
-            "message": "",
-            "attOrArgName": ""
+            "exceptionTypeName": "PosthausMandatoryArgumentException",
+            "message": "''${attribute or argument}'' argument is mandatory.",
+            "attOrArgName": "${attribute or argument}"
         }
+
++ Response 400 (application/json)
+
+        {
+            "exceptionTypeName": "PosthausInvalidAttributeValueException",
+            "message": "Invalid value informed at ''${attribute or argument}''.",
+            "attOrArgName": "${attribute or argument}"
+        }
+
++ Response 409 (application/json)
+
+        {
+            "exceptionTypeName": "PosthausOrderAlreadyDeliveredException",
+            "message": "Order already delivered (order_id: ''${attribute or argument}'').",
+            "attOrArgName": "${attribute or argument}"
+        }
+
++ Response 400 (application/json)
+
+        {
+            "exceptionTypeName": "PosthausSendEmailException",
+            "message": "Can not find a valid email code to send seller cancellation email.",
+            "attOrArgName": "${attribute or argument}"
+        }
+
++ Response 404 (application/json)
+
+        {
+            "exceptionTypeName": "PosthausSellerOrderNotFoundException",
+            "message": "Order does not exist (order_id: ''${attribute or argument}'').",
+            "attOrArgName": "${attribute or argument}"
+        }
+
++ Response 409 (application/json)
+
+        {
+            "exceptionTypeName": "PosthausOrderAlreadyCancelException",
+            "message": "Order already canceled (order_id: ''${attribute or argument}'').",
+            "attOrArgName": "${attribute or argument}"
+        }
+
++ Response 404 (application/json)
+
+        {
+            "exceptionTypeName": "PosthausItemNotFoundException",
+            "message": "Item not found for Order (item: ''${attribute or argument}'' order_id: ''${value}'').",
+            "attOrArgName": "${attribute or argument}"
+        }
+
++ Response 409 (application/json)
+
+        {
+            "exceptionTypeName": "PosthausItemAlreadyCancelException",
+            "message": "Item already canceled (item: ''${attribute or argument}'' order_id: ''${value}'').",
+            "attOrArgName": "${attribute or argument}"
+        }
+
 
 # Group Price
 It will be used to perform price update.
@@ -1813,9 +1896,8 @@ Returns the registered Marketplace categories.
 + Response 500 (application/json)
 
         {
-            "exceptionTypeName": "",
-            "message": "",
-            "attOrArgName": ""
+            "exceptionTypeName": "PosthausException",
+            "message": "An unexpected error occurred."
         }
 
 ## Product [/rest/products/v1/]
@@ -2705,9 +2787,8 @@ Returns all product colors available.
 + Response 500 (application/json)
 
         {
-            "exceptionTypeName": "",
-            "message": "",
-            "attOrArgName": ""
+            "exceptionTypeName": "PosthausException",
+            "message": "An unexpected error occurred."
         }
 
 ## Variation [/rest/products/v1/{product_group_partner_id}/variations/]
