@@ -3765,23 +3765,17 @@ Get a image list from a partner product.
 + Response 200 (application/json)
 
         [  
-           {  
-              "id":78949764,
+           {
               "index":1,
               "url":"https://cdn.seusite.com.br/foto/vestido-preto-com-decote-transpassado_124342.jpg",
-              "standardUrl":"https://ph-cdn3.ecosweb.com.br/Web/posthaus/foto/moda-feminina/vestidos/vestido-preto-com-decote-transpassado_124341_600_1.jpg"
            },
-           {  
-              "id":78949765,
+           {
               "index":2,
               "url":"https://cdn.seusite.com.br/foto/vestido-preto-com-decote-transpassado_124342.jpg",
-              "standardUrl":"https://ph-cdn3.ecosweb.com.br/Web/posthaus/foto/moda-feminina/vestidos/vestido-preto-com-decote-transpassado_124341_600_2.jpg"
            },
-           {  
-              "id":78949766,
+           {
               "index":3,
               "url":"https://cdn.seusite.com.br/foto/vestido-preto-com-decote-transpassado_124342.jpg",
-              "standardUrl":"https://ph-cdn3.ecosweb.com.br/Web/posthaus/foto/moda-feminina/vestidos/vestido-preto-com-decote-transpassado_124341_600_3.jpg"
            }
         ] 
 
@@ -3793,7 +3787,7 @@ Get a image list from a partner product.
             "attOrArgName": ""
         }
 
-### Delete a image from product [DELETE /rest/products/variations/v1/{product_partner_id}/images/{imageId}] 
+### Delete a image from product [DELETE /rest/products/variations/v1/{product_partner_id}/images/{index}] 
 Publish a new image list from a partner product. Index 1 is the main image.
 
 + Request (application/json)
@@ -4996,7 +4990,7 @@ The listing is according to the seller informed in the token.
 + productGroupPartnerId: `Max. Length: 30` (string, required) - Product group in partner
 + brand  (Brand, required) - Brand of the product
 + title: `Max. Length: 65limite ` (string, required) - Only plain text and numbers
-+ description: `Max. Length: 245` (string, required) - Only plain text and numbers
++ description: `Max. Length: 500` (string, required) - Only plain text and numbers
 + gender (string, required) - F for female, M for male or  U  for others. Max. length of 1 digits
 + ageGroup (string, required) - B for Baby, I  for Infant, J para Juvenile or A for Adult. Max. length of 1 digits
 + variations (array[FullVariation], required) - Variation of product
