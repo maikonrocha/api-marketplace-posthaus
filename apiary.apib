@@ -3663,6 +3663,99 @@ Format supported : JPEG.
     + exception (Exception)   
 
 ### Publish new images [POST]
+Deprecated
+
++ Request (application/json)
+    + Headers
+
+            Accept: application/json
+            Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE0Mzg4Mjc0NDN9.POonh-FngFnKeCgDfjjoemmF3Mt8HP2CThHwDLYuYnQ
+            
+    + Body  
+
+            [
+                  {
+                    "index": 1,
+                    "url": "https://cdn.seusite.com.br/foto/vestido-preto-com-decote-transpassado_124341.jpg"
+                  },
+                  {
+                    "index": 2,
+                    "url": "https://cdn.seusite.com.br/foto/vestido-preto-com-decote-transpassado_124342.jpg"
+                  },
+                  {
+                    "index": 3,
+                    "url": "https://cdn.seusite.com.br/foto/vestido-preto-com-decote-transpassado_124343.jpg"
+                  }              
+            ]   
+            
+
+
++ Response 500 (application/json)
+
+        {
+        "exceptionTypeName": "PosthausException",
+        "message": "An unexpected error occurred."
+        }
+        
+        
++ Response 200 (application/json)    
+
+        {
+            "eventId": "168103d7-9664-4131-bad9-1b29213afdc4",
+            "message": "The image is going to be created asynchronously."
+        }
+
++ Response 400 (application/json)
+
+        {
+            "exceptionTypeName": "PosthausImageAlreadyExistsException",
+            "message": "Image already exists (productPartnerId: ''${attribute or argument}'', imageIndex: ''${value}'').",
+            "attOrArgName": "${attribute or argument}"
+        }
+
++ Response 400 (application/json)
+
+        {
+            "exceptions": [
+                    {
+                    "exceptionTypeName": "PosthausMandatoryArgumentException",
+                    "message": "''${attribute or argument}'' argument is mandatory.",
+                    "attOrArgName": "${attribute or argument}"
+                    },
+                    {
+                    "exceptionTypeName": "PosthausTooLargerAttributeValueException",
+                    "message": "Too larger attribute value for ''{${attribute or argument}}'' (''${value}'').",
+                    "attOrArgName": "${attribute or argument}"
+                    },
+                    {
+                    "exceptionTypeName": "PosthausEmptyArrayException",
+                    "message": "Array ''${attribute or argument}'' is empty.",
+                    "attOrArgName": "${attribute or argument}"
+                    },
+                    {
+                    "exceptionTypeName": "PosthausMandatoryArgumentException",
+                    "message": "''${attribute or argument}'' argument is mandatory.",
+                    "attOrArgName": "${attribute or argument}"
+                    },
+                    {
+                    "exceptionTypeName": "PosthausMandatoryAndGreaterThanAttributeException",
+                    "message": "''${attribute or argument}'' attribute is mandatory and greater than ''${value1}'' (${vallue2}: ''${value3}'').",
+                    "attOrArgName": "${attribute or argument}"
+                    },
+                    {
+                    "exceptionTypeName": "PosthausImageAlreadyExistsException",
+                    "message": "Image already exists (productPartnerId: ''${attribute or argument}'', imageIndex: ''${value}'').",
+                    "attOrArgName": "${attribute or argument}"
+                    },
+                    {
+                    "exceptionTypeName": "PosthausMandatoryAttributeException",
+                    "message": "''${attribute or argument}'' attribute is mandatory.",
+                    "attOrArgName": "${attribute or argument}"
+                    }
+                ]
+        }
+
+### Publish new images V2 [POST /rest/products/variations/v2/{product_partner_id}/images/]
 Publish new image of service we have synchronous and asynchronous process. 
 First of all, when the POST is received, the synchronous execution starting, at this time some validations are executed, 
 if in this process has some inconsistence, it is going to return one or a list of exceptions (inconsistences), 
