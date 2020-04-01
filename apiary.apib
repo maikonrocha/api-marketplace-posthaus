@@ -2052,10 +2052,10 @@ Requests the cancellation of items of a Order.
 
 + Response 500 (application/json)
 
-{
-"exceptionTypeName": "PosthausException",
-"message": "An unexpected error occurred."
-}
+        {
+            "exceptionTypeName": "PosthausException",
+            "message": "An unexpected error occurred."
+        }
 
 + Response 400 (application/json)
 
@@ -3110,7 +3110,7 @@ Validates the product data without their persistence, this way it will be possib
         {  
             "productGroupPartnerId":"15032019",
             "brand":{  
-"partnerId":"TR6757"
+              "partnerId":"TR6757"
             },
             "title":"Vestido Longo",
             "description":"Vestido com decote ombro a ombro. Confeccionado em malha de tricô de algodão. Com mangas raglan e comprimento alongado.",
@@ -4876,6 +4876,14 @@ The listing is according to the seller informed in the token.
 + number (string, required) - Invoice number
 + date: `2018-08-08T10:40:32Z` (string, required) - Date of invoice issue
 + value (number, required) - Invoice total value
++ status (string) - Invoice status, informed by Marketplace:
+        "INVOICED"
+        "SENT"
+        "CANCELED"
+        "RETURNED"
+        "LOST"
+        
+ 
 
 ## BuyerGet (object) - Objeto do consumidor
 + name (string, required) - Buyer name
