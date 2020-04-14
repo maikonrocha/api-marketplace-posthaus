@@ -7,6 +7,10 @@ This API intends to integrate the data between the Posthaus Marketplace Platform
 
 **Note:** Non-mandatory attributes and parameters will be identified with the "optional".
 
+**Rate Limiting:** This feature limit how many request a seller integration could do in the same secound. 
+Default value is 10 requests in the same one second window. When your integration exhaust this number, the response is going to be http-code 429 (Message Body: Too Many Requests). 
+According seller integration behaviour, a specific limit number could be defined.
+
 #Group Notifications
 The Marketplace Posthaus add notifications into a queue, the queue order is from the oldest to the newest notification added.
 These GET service is going to return one list ordered ascending according its creation date. After these notification is marked as readed, this notification is going to be removed from de notification feed. 
