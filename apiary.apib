@@ -4598,6 +4598,48 @@ in the registration of this new freight tariff table that has not yet been publi
         "message": "''${attribute or argument}'' argument is mandatory.",
         "attOrArgName": "${attribute or argument}"
         }
+
+### Delete a unpublished freight tariff table [DELETE /rest/freight/tariff/unpublished/v1/] 
+Deleting a freight tariff table is necessary when a new one has been created and the old one will be removed, thus keeping only one published and valid on the website.
+
++ Request (application/json)
+    + Headers
+
+            Accept: application/json
+            Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE0Mzg4Mjc0NDN9.POonh-FngFnKeCgDfjjoemmF3Mt8HP2CThHwDLYuYnQ
+
+
++ Response 204 (application/json)
+
++ Response 500 (application/json)
+
+        {
+        "exceptionTypeName": "PosthausException",
+        "message": "An unexpected error occurred."
+        }
+
++ Response 404 (application/json)
+
+        {
+        "exceptionTypeName": "PosthausFreightTariffNotFoundException",
+        "message": "Freight tariff not found ."        
+        }
+
++ Response 400 (application/json)
+
+        {
+        "exceptionTypeName": "PosthausMandatoryArgumentException",
+        "message": "''${attribute or argument}'' argument is mandatory.",
+        "attOrArgName": "${attribute or argument}"
+        }
+
++ Response 400 (application/json)
+
+        {
+        "exceptionTypeName": "PosthausMandatoryAttributeException",
+        "message": "''${attribute or argument}'' attribute is mandatory.",
+        "attOrArgName": "${attribute or argument}"
+        }
         
 # Group Reverse Logistic
 It will be used to receive information about Authorization Postcode of reverse logistic.
