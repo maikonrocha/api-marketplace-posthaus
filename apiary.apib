@@ -4640,6 +4640,7 @@ Deleting a freight tariff table is necessary when a new one has been created and
         "message": "''${attribute or argument}'' attribute is mandatory.",
         "attOrArgName": "${attribute or argument}"
         }
+        
 ## Published Freight Tariff [/rest/freight/tariff/v1/]
 
 + Attributes (object)
@@ -4750,6 +4751,78 @@ ready for the new freight tariff calculations on the website.
                 }
             ]
             ]
+        }
+
+### Read a published freight tariff [/rest/freight/tariff/v1/{?page,limit}]
+This service will return freight tariff already published and in effect on the website.
+
++ Parameters
+    + page (optional, number) 
+        Paging position
+        
+        + Default: `1`
+        
+    + limit (number, optional)
+
+        A limit on the number of objects to be returned. Limit can range
+        between 1 and 100 items.
+    
+        + Default: `100`
+
++ Request (application/json)
+
+    + Headers
+
+            Accept: application/json
+            Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE0Mzg4Mjc0NDN9.POonh-FngFnKeCgDfjjoemmF3Mt8HP2CThHwDLYuYnQ
+
+
++ Response 200 (application/json)
+
+        [
+            {
+                "startZipCode":"1111111",
+                "endZipCode":"9999999",
+                "startWeight":0.0,
+                "endWeight":99.99,
+                "startPrice":0.0,
+                "endPrice":5000.00,
+                "deliveredDate":1,
+                "crossDocking":1,
+                "freightValue":9.99,
+                "shippingMehod":"EXPRESSA",
+                "carrier":"CORREIOS",
+                "effectiveFreightDate":"2018-08-08T10:40:32Z"
+            },
+            {
+                "startZipCode":"1111111",
+                "endZipCode":"9999999",
+                "startWeight":0.0,
+                "endWeight":99.99,
+                "startPrice":0.0,
+                "endPrice":5000.00,
+                "deliveredDate":1,
+                "crossDocking":1,
+                "freightValue":9.99,
+                "shippingMehod":"",
+                "carrier":"",
+                "effectiveFreightDate":"2018-08-08T10:40:32Z"
+            }
+        ]
+
++ Response 500 (application/json)
+
+        {
+        "exceptionTypeName": "PosthausException",
+        "message": "An unexpected error occurred."
+        }
+
++ Response 400 (application/json)
+
+        {
+        "exceptionTypeName": "PosthausMandatoryArgumentException",
+        "message": "''${attribute or argument}'' argument is mandatory.",
+        "attOrArgName": "${attribute or argument}"
         }
         
 # Group Reverse Logistic
