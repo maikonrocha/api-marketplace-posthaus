@@ -4425,6 +4425,105 @@ You must read the notifications requesting service GET Stock Notifications and S
             "attOrArgName": ""
         }
 
+# Group Freight Tariff
+Carrier rates are used as the basis for calculating the freight that will be paid by the customer at the time of purchase. This tariff is calculated according to some variables, for example,
+zip code, shipping method, carrier used, etc. Therefore, each seller has their own freight tariff tables that they use. This service we provide helps the Seller
+send us your practiced rates so that we can match in our marketplace.
+
+## Unpublished Freight tariff [/rest/freight/tariff/unpublished/v1/]
+
++ Attributes (object)
+    + freightTariff (FreightTariff)
+    
+    + exception (Exception)
+
+### Create a new unpublished freight tariff table [POST]
+To create a new freight tariff table, the data is expected to be sent by the seller. After the data is consisted, it will be persisted in
+database, creating a current freight tariff table.
+
++ Request (application/json)
+
+  + Headers
+
+            Accept: application/json
+            Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE0Mzg4Mjc0NDN9.POonh-FngFnKeCgDfjjoemmF3Mt8HP2CThHwDLYuYnQ
+                        
+  + Body
+
+        {
+            "startZipCode":"1111111",
+            "endZipCode":"9999999",
+            "startWeight":0.0,
+            "endWeight":99.99,
+            "startPrice":0.0,
+            "endPrice":5000.00,
+            "carrierDeliveryTime":1,
+            "crossDocking":1,
+            "freightValue":9.99,
+            "shippingType":"EXPRESSA",
+            "carrier":"CORREIOS",
+            "effectiveFreightDate":"2018-08-08T10:40:32Z"
+        }
+
++ Response 200 (application/json)
+
+        {   
+            "eventId": "a5912bc7-ba63-45b9-bc5b-e0b29e6995d7",
+            "message": "The freight tariff was created with success."
+        }
+
++ Response 204
+
++ Response 500 (application/json)
+
+        {
+        "exceptionTypeName": "PosthausException",
+        "message": "An unexpected error occurred."
+        }
+
++ Response 400 (application/json)
+
+        {
+            "exceptions": [
+                {
+                "exceptionTypeName": "PosthausJsonRequestBodyMandatoryException",
+                "message": "Json request body is mandatory.",
+                "attOrArgName": "${attribute or argument}"
+                },
+                {
+                "exceptionTypeName": "PosthausTooSmallAttributeValueException",
+                "message": "Too small attribute value for ''${attribute or argument}''.",
+                "attOrArgName": "${attribute or argument}"
+                },
+                {
+                "exceptionTypeName": "PosthausEmptyArrayException",
+                "message": "Array ''${attribute or argument}'' is empty.",
+                "attOrArgName": "${attribute or argument}"
+                },
+                {
+                "exceptionTypeName": "PosthausMandatoryAttributeException",
+                "message": "''${attribute or argument}'' attribute is mandatory.",
+                "attOrArgName": "${attribute or argument}"
+                },
+                {
+                "exceptionTypeName": "PosthausTooLargerAttributeValueException",
+                "message": "Too larger attribute value for ''{${attribute or argument}}'' (''${value}'').",
+                "attOrArgName": "${attribute or argument}"
+                },
+                {
+                "exceptionTypeName": "PosthausMandatoryArgumentException",
+                "message": "''${attribute or argument}'' argument is mandatory.",
+                "attOrArgName": "${attribute or argument}"
+                },
+                {
+                "exceptionTypeName": "PosthausMandatoryAndGreaterThanAttributeException",
+                "message": "''${attribute or argument}'' attribute is mandatory and greater than ''${value1}'' (${vallue2}: ''${value3}'').",
+                "attOrArgName": "${attribute or argument}"
+                }
+            ]
+            ]
+        }
+        
 # Group Reverse Logistic
 It will be used to receive information about Authorization Postcode of reverse logistic.
 
@@ -5164,3 +5263,18 @@ The listing is according to the seller informed in the token.
 + partnerSKUId (string) - Partner SKU ID
 + returnReasonDescription (string) - Description of reason for product return
 + indemnityTypeDescription (string) - Description of indemnity type
+
+## FreightTariff (object)
++ startZipCode (string, required) - CEP
++ endZipCode (string, required) - CEP
++ startWeight (number, required) - Freight weight in kilograms. Max length of 7 digits with a scale of 3
++ endWeight (number, required) - Freight weight in kilograms. Max length of 7 digits with a scale of 3
++ startPrice (number, required) - Freight price. Max length of 15 digits with a scale of 2
++ endPrice (number, required) - Freight price. Max length of 15 digits with a scale of 2
++ carrierDeliveryTime (number, required) - quantity of days to carrier delivery
++ crossDocking (number, required) - cross docking
++ freightValue (number, required) - Freight total value
++ shippingType (string, required) - Shipping method
++ carrier (string, required) - Carrier name
++ effectiveFreightDate: `2018-08-08T10:40:32Z` (string, required) - effective freight date
++ message (string) - This message will tell all error details.
