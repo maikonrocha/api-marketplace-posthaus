@@ -4458,11 +4458,9 @@ database, creating a current freight tariff table.
             "startPrice":0.0,
             "endPrice":5000.00,
             "carrierDeliveryTime":1,
-            "crossDocking":1,
             "freightValue":9.99,
             "shippingType":"EXPRESSA",
-            "carrier":"CORREIOS",
-            "effectiveFreightDate":"2018-08-08T10:40:32Z"
+            "carrier":"CORREIOS"
         }
 
 + Response 200 (application/json)
@@ -4560,7 +4558,6 @@ in the registration of this new freight tariff table that has not yet been publi
                 "startPrice":0.0,
                 "endPrice":5000.00,
                 "deliveredDate":1,
-                "crossDocking":1,
                 "freightValue":9.99,
                 "shippingMehod":"EXPRESSA",
                 "carrier":"CORREIOS",
@@ -4575,7 +4572,6 @@ in the registration of this new freight tariff table that has not yet been publi
                 "startPrice":0.0,
                 "endPrice":5000.00,
                 "deliveredDate":1,
-                "crossDocking":1,
                 "freightValue":9.99,
                 "shippingMehod":"",
                 "carrier":"",
@@ -4659,40 +4655,7 @@ ready for the new freight tariff calculations on the website.
 
             Accept: application/json
             Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE0Mzg4Mjc0NDN9.POonh-FngFnKeCgDfjjoemmF3Mt8HP2CThHwDLYuYnQ
-            
- + Body
- 
-            [
-                {
-                    "startZipCode":"1111111",
-                    "endZipCode":"9999999",
-                    "startWeight":0.0,
-                    "endWeight":99.99,
-                    "startPrice":0.0,
-                    "endPrice":5000.00,
-                    "deliveredDate":1,
-                    "crossDocking":1,
-                    "freightValue":9.99,
-                    "shippingMehod":"EXPRESSA",
-                    "carrier":"CORREIOS",
-                    "effectiveFreightDate":"2018-08-08T10:40:32Z"
-                },
-                {
-                    "startZipCode":"1111111",
-                    "endZipCode":"9999999",
-                    "startWeight":0.0,
-                    "endWeight":99.99,
-                    "startPrice":0.0,
-                    "endPrice":5000.00,
-                    "deliveredDate":1,
-                    "crossDocking":1,
-                    "freightValue":9.99,
-                    "shippingMehod":"NORMAL",
-                    "carrier":"CORREIOS",
-                    "effectiveFreightDate":"2018-08-08T10:40:32Z"
-                }
-            
-            ]
+Ajustes
 
 + Response 200 (application/json)
 
@@ -5573,7 +5536,6 @@ The listing is according to the seller informed in the token.
 + startPrice (number, required) - Freight price. Max length of 15 digits with a scale of 2
 + endPrice (number, required) - Freight price. Max length of 15 digits with a scale of 2
 + carrierDeliveryTime (number, required) - quantity of days to carrier delivery
-+ crossDocking (number, required) - cross docking
 + freightValue (number, required) - Freight total value
 + shippingType (string, required) - Shipping method
 + carrier (string, required) - Carrier name
