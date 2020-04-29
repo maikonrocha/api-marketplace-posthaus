@@ -4549,36 +4549,44 @@ in the registration of this new freight tariff table that has not yet been publi
 
 + Response 200 (application/json)
 
-        [
-            {
-                "startZipCode":1111111,
-                "endZipCode":9999999,
-                "startWeight":0.0,
-                "endWeight":99.99,
-                "startPrice":0.0,
-                "endPrice":5000.00,
-                "deliveredDate":1,
-                "freightValue":9.99,
-                "shippingMehod":"EXPRESSA",
-                "carrier":"CORREIOS",
-                "effectiveFreightDate":"2018-08-08T10:40:32Z",
-                "message":""
+        {
+            "page": {
+            "size": 100,
+            "totalElements": 2,
+            "totalPages": 1,
+            "number": 1
             },
-            {
-                "startZipCode":1111111,
-                "endZipCode":9999999,
-                "startWeight":0.0,
-                "endWeight":99.99,
-                "startPrice":0.0,
-                "endPrice":5000.00,
-                "deliveredDate":1,
-                "freightValue":9.99,
-                "shippingMehod":"",
-                "carrier":"",
-                "effectiveFreightDate":"2018-08-08T10:40:32Z",
-                "message":"There are some problems in this register"
-            }
-        ]
+            "freightTariffs": [
+                {
+                    "startZipCode":1111111,
+                    "endZipCode":9999999,
+                    "startWeight":0.0,
+                    "endWeight":99.99,
+                    "startPrice":0.0,
+                    "endPrice":5000.00,
+                    "deliveredDate":1,
+                    "freightValue":9.99,
+                    "shippingMehod":"EXPRESSA",
+                    "carrier":"CORREIOS",
+                    "effectiveFreightDate":"2018-08-08T10:40:32Z",
+                    "message":""
+                },
+                {
+                    "startZipCode":1111111,
+                    "endZipCode":9999999,
+                    "startWeight":0.0,
+                    "endWeight":99.99,
+                    "startPrice":0.0,
+                    "endPrice":5000.00,
+                    "deliveredDate":1,
+                    "freightValue":9.99,
+                    "shippingMehod":"",
+                    "carrier":"",
+                    "effectiveFreightDate":"2018-08-08T10:40:32Z",
+                    "message":"There are some problems in this register"
+                }
+            ]
+}
 
 + Response 500 (application/json)
 
