@@ -4451,8 +4451,8 @@ database, creating a current freight tariff table.
   + Body
 
         {
-            "startZipCode":"1111111",
-            "endZipCode":"9999999",
+            "startZipCode":1111111,
+            "endZipCode":9999999,
             "startWeight":0.0,
             "endWeight":99.99,
             "startPrice":0.0,
@@ -4551,8 +4551,8 @@ in the registration of this new freight tariff table that has not yet been publi
 
         [
             {
-                "startZipCode":"1111111",
-                "endZipCode":"9999999",
+                "startZipCode":1111111,
+                "endZipCode":9999999,
                 "startWeight":0.0,
                 "endWeight":99.99,
                 "startPrice":0.0,
@@ -4565,8 +4565,8 @@ in the registration of this new freight tariff table that has not yet been publi
                 "message":""
             },
             {
-                "startZipCode":"1111111",
-                "endZipCode":"9999999",
+                "startZipCode":1111111,
+                "endZipCode":9999999,
                 "startWeight":0.0,
                 "endWeight":99.99,
                 "startPrice":0.0,
@@ -4743,8 +4743,8 @@ This service will return freight tariff already published and in effect on the w
 
         [
             {
-                "startZipCode":"1111111",
-                "endZipCode":"9999999",
+                "startZipCode":1111111,
+                "endZipCode":9999999,
                 "startWeight":0.0,
                 "endWeight":99.99,
                 "startPrice":0.0,
@@ -4757,8 +4757,8 @@ This service will return freight tariff already published and in effect on the w
                 "effectiveFreightDate":"2018-08-08T10:40:32Z"
             },
             {
-                "startZipCode":"1111111",
-                "endZipCode":"9999999",
+                "startZipCode":1111111,
+                "endZipCode":9999999,
                 "startWeight":0.0,
                 "endWeight":99.99,
                 "startPrice":0.0,
@@ -5528,8 +5528,8 @@ The listing is according to the seller informed in the token.
 + indemnityTypeDescription (string) - Description of indemnity type
 
 ## FreightTariff (object)
-+ startZipCode (string, required) - CEP
-+ endZipCode (string, required) - CEP
++ startZipCode (number, required) - CEP
++ endZipCode (number, required) - CEP
 + startWeight (number, required) - Freight weight in kilograms. Max length of 7 digits with a scale of 3
 + endWeight (number, required) - Freight weight in kilograms. Max length of 7 digits with a scale of 3
 + startPrice (number, required) - Freight price. Max length of 15 digits with a scale of 2
