@@ -4438,11 +4438,14 @@ send us your practiced rates so that we can match in our marketplace.
 ## Unpublished Freight tariff [/rest/freight/tariff/unpublished/v1/]
 
 + Attributes (object)
-    + freightTariff (FreightTariff)
-    
+
+    + freightTariffItem (FreightTariff)
     + exception (Exception)
 
-### Create a new unpublished freight tariff table [POST]
+### Add a new Freght Tariff Item [POST]
+
+When there is not an unpublished Freight Tariff Table, the first one Freight Tariff Item added is going to create te=he table.
+
 To create a new freight tariff table, the data is expected to be sent by the seller. After the data is consisted, it will be persisted in
 database, creating a current freight tariff table.
 
@@ -4526,9 +4529,8 @@ database, creating a current freight tariff table.
         }
 
 
-### Read unpublished freight tariffs [GET /rest/freight/tariff/unpublished/v1/{?page,limit}]
-This service will be used to return freight tariff that have not yet been published. Therefore, it is possible to analyze the criticisms returned from the inconsistencies found
-in the registration of this new freight tariff table that has not yet been published.
+### Read unpublished freight tariffs table [GET /rest/freight/tariff/unpublished/v1/{?page,limit}]
+This service return freight tariff table that have not yet been published. Therefore, it is possible to analyze the inconsistence messages, found in the registration of this new freight tariff table that has not yet been published.
 
 + Parameters
     + page (optional, number) 
@@ -4607,7 +4609,7 @@ in the registration of this new freight tariff table that has not yet been publi
         }
 
 ### Delete a unpublished freight tariff table [DELETE /rest/freight/tariff/unpublished/v1/] 
-Deleting a freight tariff table is necessary when a new one has been created and the old one will be removed, thus keeping only one published and valid on the website.
+Deleting a freight tariff table is necessary when a new one has been created and the old one will be removed, thus keeping only one unpublished.
 
 + Request (application/json)
     + Headers
@@ -4726,7 +4728,7 @@ ready for the new freight tariff calculations on the website.
             ]
         }
 
-### Read a published freight tariff [GET /rest/freight/tariff/v1/{?page,limit}]
+### Read a published freight tariff table [GET /rest/freight/tariff/v1/{?page,limit}]
 This service will return freight tariff already published and in effect on the website.
 
 + Parameters
@@ -5548,4 +5550,4 @@ The listing is according to the seller informed in the token.
 + shippingType (string, required) - Shipping method
 + carrier (string, required) - Carrier name
 + effectiveFreightDate: `2018-08-08T10:40:32Z` (string, required) - effective freight date
-+ message (string) - This message will tell all error details.
++ message (string) - This message will tell all error details. When there are any Freight Tariff with error message, the freight tariff table is going not be published.
