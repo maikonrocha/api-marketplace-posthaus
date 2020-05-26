@@ -4463,8 +4463,8 @@ database, creating a current freight tariff table.
             "endZipCode":9999999,
             "startWeight":0.0,
             "endWeight":99.99,
-            "startPrice":0.0,
-            "endPrice":5000.00,
+            "startOrderValue":0.0,
+            "endOrderValue":5000.00,
             "carrierDeliveryTime":1,
             "freightValue":9.99,
             "shippingType":"EXPRESSA",
@@ -4567,9 +4567,9 @@ This service return freight tariff table that have not yet been published. There
                     "endZipCode":9999999,
                     "startWeight":0.0,
                     "endWeight":99.99,
-                    "startPrice":0.0,
-                    "endPrice":5000.00,
-                    "deliveredDate":1,
+                    "startOrderValue":0.0,
+                    "endOrderValue":5000.00,
+                    "carrierDeliveryTime":1,
                     "freightValue":9.99,
                     "shippingMehod":"EXPRESSA",
                     "carrier":"CORREIOS",
@@ -4581,9 +4581,9 @@ This service return freight tariff table that have not yet been published. There
                     "endZipCode":9999999,
                     "startWeight":0.0,
                     "endWeight":99.99,
-                    "startPrice":0.0,
-                    "endPrice":5000.00,
-                    "deliveredDate":1,
+                    "startOrderValue":0.0,
+                    "endOrderValue":5000.00,
+                    "carrierDeliveryTime":1,
                     "freightValue":9.99,
                     "shippingMehod":"",
                     "carrier":"",
@@ -4760,9 +4760,9 @@ This service will return freight tariff already published and in effect on the w
                 "endZipCode":9999999,
                 "startWeight":0.0,
                 "endWeight":99.99,
-                "startPrice":0.0,
-                "endPrice":5000.00,
-                "deliveredDate":1,
+                "startOrderValue":0.0,
+                "endOrderValue":5000.00,
+                "carrierDeliveryTime":1,
                 "freightValue":9.99,
                 "shippingMehod":"EXPRESSA",
                 "carrier":"CORREIOS",
@@ -4773,9 +4773,9 @@ This service will return freight tariff already published and in effect on the w
                 "endZipCode":9999999,
                 "startWeight":0.0,
                 "endWeight":99.99,
-                "startPrice":0.0,
-                "endPrice":5000.00,
-                "deliveredDate":1,
+                "startOrderValue":0.0,
+                "endOrderValue":5000.00,
+                "carrierDeliveryTime":1,
                 "freightValue":9.99,
                 "shippingMehod":"NORMAL",
                 "carrier":"CORREIO",
@@ -5543,8 +5543,8 @@ The listing is according to the seller informed in the token.
 + endZipCode (number, required) - CEP
 + startWeight (number, required) - Freight weight in kilograms. Max length of 7 digits with a scale of 3
 + endWeight (number, required) - Freight weight in kilograms. Max length of 7 digits with a scale of 3
-+ startPrice (number, required) - Freight price. Max length of 15 digits with a scale of 2
-+ endPrice (number, required) - Freight price. Max length of 15 digits with a scale of 2
++ startOrderValue (number, required) - Total order value. Max length of 15 digits with a scale of 2
++ endOrderValue (number, required) - Total order value. Max length of 15 digits with a scale of 2
 + carrierDeliveryTime (number, required) - quantity of days to carrier delivery
 + freightValue (number, required) - Freight total value
 + shippingType (string, required) - Shipping method
