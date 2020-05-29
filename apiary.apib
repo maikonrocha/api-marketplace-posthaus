@@ -4563,13 +4563,6 @@ This service return freight tariff table that have not yet been published. There
         "message": "An unexpected error occurred."
         }
 
-+ Response 400 (application/json)
-
-        {
-        "exceptionTypeName": "PosthausMandatoryArgumentException",
-        "message": "''${attribute or argument}'' argument is mandatory.",
-        "attOrArgName": "${attribute or argument}"
-        }
 
 ### Delete a unpublished freight tariff table [DELETE /rest/freight/tariff/unpublished/v1/] 
 Deleting a freight tariff table is necessary when a new one has been created and the old one will be removed, thus keeping only one unpublished.
