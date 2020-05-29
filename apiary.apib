@@ -4593,14 +4593,6 @@ Deleting a freight tariff table is necessary when a new one has been created and
 + Response 400 (application/json)
 
         {
-        "exceptionTypeName": "PosthausMandatoryArgumentException",
-        "message": "''${attribute or argument}'' argument is mandatory.",
-        "attOrArgName": "${attribute or argument}"
-        }
-
-+ Response 400 (application/json)
-
-        {
         "exceptionTypeName": "PosthausMandatoryAttributeException",
         "message": "''${attribute or argument}'' attribute is mandatory.",
         "attOrArgName": "${attribute or argument}"
@@ -4635,42 +4627,19 @@ ready for the new freight tariff calculations on the website.
         "message": "An unexpected error occurred."
         }
 
++ Response 404 (application/json)
+
+        {
+        "exceptionTypeName": "PosthausFreightTariffNotFoundException",
+        "message": "This freight tariff table is not ready to publish yet. There are some errors that must to be fixed.( Total errors: 5 )"        
+        }
+
 + Response 400 (application/json)
 
         {
-            "exceptions": [
-                {
-                "exceptionTypeName": "PosthausTooSmallAttributeValueException",
-                "message": "Too small attribute value for ''${attribute or argument}''.",
-                "attOrArgName": "${attribute or argument}"
-                },
-                {
-                "exceptionTypeName": "PosthausEmptyArrayException",
-                "message": "Array ''${attribute or argument}'' is empty.",
-                "attOrArgName": "${attribute or argument}"
-                },
-                {
-                "exceptionTypeName": "PosthausMandatoryAttributeException",
-                "message": "''${attribute or argument}'' attribute is mandatory.",
-                "attOrArgName": "${attribute or argument}"
-                },
-                {
-                "exceptionTypeName": "PosthausTooLargerAttributeValueException",
-                "message": "Too larger attribute value for ''{${attribute or argument}}'' (''${value}'').",
-                "attOrArgName": "${attribute or argument}"
-                },
-                {
-                "exceptionTypeName": "PosthausMandatoryArgumentException",
-                "message": "''${attribute or argument}'' argument is mandatory.",
-                "attOrArgName": "${attribute or argument}"
-                },
-                {
-                "exceptionTypeName": "PosthausMandatoryAndGreaterThanAttributeException",
-                "message": "''${attribute or argument}'' attribute is mandatory and greater than ''${value1}'' (${vallue2}: ''${value3}'').",
-                "attOrArgName": "${attribute or argument}"
-                }
-            ]
-            ]
+        "exceptionTypeName": "PosthausMandatoryAttributeException",
+        "message": "''${attribute or argument}'' attribute is mandatory.",
+        "attOrArgName": "${attribute or argument}"
         }
 
 ### Read a published freight tariff table [GET /rest/freight/tariff/v1/{?page,limit}]
