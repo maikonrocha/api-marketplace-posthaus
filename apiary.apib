@@ -4533,10 +4533,38 @@ database, creating a current freight tariff table.
 
         {
             "exceptions": [
-                {
-                "exceptionTypeName": "PosthausJsonRequestBodyMandatoryException",
-                "message": "Json request body is mandatory."
-                }
+            {
+            "exceptionTypeName": "PosthausJsonRequestBodyMandatoryException",
+            "message": "Json request body is mandatory."
+            },
+            {
+            "exceptionTypeName": "PosthausMandatoryAttributeException",
+            "message": "''${attribute or argument}'' attribute is mandatory."
+            },
+            {
+            "exceptionTypeName": "PosthausMandatoryAndGreaterThanAttributeException",
+            "message": "''${attribute or argument}'' attribute is mandatory and greater than ''${value1}'' (${vallue2}: ''${value3}'')."
+            },
+            {
+            "exceptionTypeName": "PosthausTooLargerAttributeValueException",
+            "message": "Too larger attribute value for ''{${attribute or argument}}'' (''${value}'')."
+            },
+            {
+            "exceptionTypeName": "PosthausTooSmallAttributeValueException",
+            "message": "Too small attribute value for ''${attribute or argument}''."
+            },
+            {
+            "exceptionTypeName": "PosthausInvalidAttributeValueException",
+            "message": "Invalid value informed at ''${attribute or argument}''."
+            },
+            {
+            "exceptionTypeName": "PosthausFreightTariffAlreadyExistsException",
+            "message": "Freight Tariff already exists (line: ''${attribute or argument}'')."
+            },
+            {
+            "exceptionTypeName": "PosthausFreightTariffAlreadyExistsException",
+            "message": "Table of freight tariff already exists."
+            }
             ]
         }
 
