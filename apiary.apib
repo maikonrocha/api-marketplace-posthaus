@@ -4706,18 +4706,34 @@ ready for the new freight tariff calculations on the website.
 
 + Response 404 (application/json)
 
-        {
-        "exceptionTypeName": "PosthausFreightTariffNotFoundException",
-        "message": "This freight tariff table is not ready to publish yet. Errors that must to be fixed.( Total: 5 )"        
-        }
-
+            {
+                "exceptions": [
+                {
+                "exceptionTypeName": "PosthausFreightTariffNotFoundException",
+                "message": "This freight tariff table is not ready to publish yet. Errors that must to be fixed.( Total: 5 )"
+                },
+                {
+                "exceptionTypeName": "PosthausFreightTariffNotFoundException",
+                "message": "Freight tariff not found."
+                }
+                ]
+            }
+        
 + Response 400 (application/json)
 
-        {
-        "exceptionTypeName": "PosthausMandatoryAttributeException",
-        "message": "''${attribute or argument}'' attribute is mandatory.",
-        "attOrArgName": "${attribute or argument}"
-        }
+            {
+                "exceptions": [
+                {
+                "exceptionTypeName": "PosthausMandatoryAttributeException",
+                "message": "''${attribute or argument}'' attribute is mandatory."
+                },
+                {
+                "exceptionTypeName": "PosthausFreightTariffAlreadyExistsException",
+                "message": "Table of freight tariff already exists."
+                }
+                ]
+            }
+
 
 ### Read a published freight tariff table [GET /rest/freight/tariff/v1/{?page,limit}]
 This service will return freight tariff already published and in effect on the website.
