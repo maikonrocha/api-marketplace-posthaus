@@ -4442,9 +4442,9 @@ send us your practiced rates so that we can match in our marketplace.
     + freightTariffItem (FreightTariff)
     + exception (Exception)
 
-### Add a new Freght Tariff Item [POST]
+### Add a new Freght Tariff Items [POST]
 
-When there is not an unpublished Freight Tariff Table, the first one Freight Tariff Item added is going to create te=he table.
+When there is not an unpublished Freight Tariff Table,  the first list of Freight Tariff Items added, is going to create table.
 
 To create a new freight tariff table, the data is expected to be sent by the seller. After the data is consisted, it will be persisted in
 database, creating a current freight tariff table.
@@ -4457,20 +4457,69 @@ database, creating a current freight tariff table.
             Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE0Mzg4Mjc0NDN9.POonh-FngFnKeCgDfjjoemmF3Mt8HP2CThHwDLYuYnQ
                         
   + Body
-
+    [
         {
             "startZipCode":1111111,
             "endZipCode":9999999,
             "startWeight":0.0,
-            "endWeight":99.99,
+            "endWeight":10.00,
+            "startOrderValue":0.0,
+            "endOrderValue":5000.00,
+            "carrierDeliveryTime":1,
+            "freightValue":9.99,
+            "shippingType":"NORMAL",
+            "carrier":"CORREIOS"
+        },
+        {
+            "startZipCode":1111111,
+            "endZipCode":9999999,
+            "startWeight":10.01,
+            "endWeight":20.00,
             "startOrderValue":0.0,
             "endOrderValue":5000.00,
             "carrierDeliveryTime":1,
             "freightValue":9.99,
             "shippingType":"EXPRESSA",
             "carrier":"CORREIOS"
+        },
+        {
+            "startZipCode":1111111,
+            "endZipCode":9999999,
+            "startWeight":20.01,
+            "endWeight":30.00,
+            "startOrderValue":0.0,
+            "endOrderValue":5000.00,
+            "carrierDeliveryTime":1,
+            "freightValue":9.99,
+            "shippingType":"NORMAL",
+            "carrier":"CORREIOS"
+        },
+        {
+            "startZipCode":1111111,
+            "endZipCode":9999999,
+            "startWeight":30.01,
+            "endWeight":40.00,
+            "startOrderValue":0.0,
+            "endOrderValue":5000.00,
+            "carrierDeliveryTime":1,
+            "freightValue":9.99,
+            "shippingType":"EXPRESSA",
+            "carrier":"CORREIOS"
+        },
+        {
+            "startZipCode":1111111,
+            "endZipCode":9999999,
+            "startWeight":40.01,
+            "endWeight":50.00,
+            "startOrderValue":0.0,
+            "endOrderValue":5000.00,
+            "carrierDeliveryTime":1,
+            "freightValue":9.99,
+            "shippingType":"NORMAL",
+            "carrier":"CORREIOS"
         }
-
+    ]
+    
 + Response 204
 
 + Response 500 (application/json)
