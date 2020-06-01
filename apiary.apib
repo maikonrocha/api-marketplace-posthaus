@@ -4614,7 +4614,7 @@ This service return freight tariff table that have not yet been published. There
                     "shippingMehod":"EXPRESSA",
                     "carrier":"CORREIOS",
                     "effectiveFreightDate":"2018-08-08T10:40:32Z",
-                    "message":""
+                    "faults":""
                 },
                 {
                     "startZipCode":1111111,
@@ -4628,7 +4628,7 @@ This service return freight tariff table that have not yet been published. There
                     "shippingMehod":"",
                     "carrier":"",
                     "effectiveFreightDate":"2018-08-08T10:40:32Z",
-                    "message":"There are some problems in this register"
+                    "faults":"There are some problems in this register"
                 }
             ]
 }
@@ -5550,4 +5550,4 @@ The listing is according to the seller informed in the token.
 + shippingType (string, required) - Shipping method
 + carrier (string, required) - Carrier name
 + effectiveFreightDate: `2018-08-08T10:40:32Z` (string, required) - effective freight date
-+ message (string) - This message will tell all error details. When there are any Freight Tariff with error message, the freight tariff table is going not be published.
++ faults (string) - This message will tell all error details. When there are any Freight Tariff with error message, the freight tariff table is going not be published.
