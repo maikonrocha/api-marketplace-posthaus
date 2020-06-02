@@ -4528,7 +4528,14 @@ database, creating a current freight tariff table.
         "exceptionTypeName": "PosthausException",
         "message": "An unexpected error occurred."
         }
+        
++ Response 409 (application/json)
 
+        {
+        "exceptionTypeName": "PosthausFreightTariffAlreadyExistsException",
+        "message": "Freight Tariff already exists (line: ''${attribute or argument}'')."
+        }
+        
 + Response 400 (application/json)
 
         {
@@ -4556,14 +4563,6 @@ database, creating a current freight tariff table.
             {
             "exceptionTypeName": "PosthausInvalidAttributeValueException",
             "message": "Invalid value informed at ''${attribute or argument}''."
-            },
-            {
-            "exceptionTypeName": "PosthausFreightTariffAlreadyExistsException",
-            "message": "Freight Tariff already exists (line: ''${attribute or argument}'')."
-            },
-            {
-            "exceptionTypeName": "PosthausFreightTariffAlreadyExistsException",
-            "message": "Table of freight tariff already exists."
             }
             ]
         }
@@ -4703,7 +4702,15 @@ ready for the new freight tariff calculations on the website.
         "exceptionTypeName": "PosthausException",
         "message": "An unexpected error occurred."
         }
-
+        
++ Response 409 (application/json)
+        
+        {
+        "exceptionTypeName": "PosthausFreightTariffAlreadyExistsException",
+        "message": "Table of freight tariff already exists."
+        }
+        
+        
 + Response 404 (application/json)
 
             {
@@ -4721,19 +4728,10 @@ ready for the new freight tariff calculations on the website.
         
 + Response 400 (application/json)
 
-            {
-                "exceptions": [
-                {
-                "exceptionTypeName": "PosthausMandatoryAttributeException",
-                "message": "''${attribute or argument}'' attribute is mandatory."
-                },
-                {
-                "exceptionTypeName": "PosthausFreightTariffAlreadyExistsException",
-                "message": "Table of freight tariff already exists."
-                }
-                ]
-            }
-
+        {
+        "exceptionTypeName": "PosthausMandatoryAttributeException",
+        "message": "''${attribute or argument}'' attribute is mandatory."
+        }
 
 ### Read a published freight tariff table [GET /rest/freight/tariff/v1/{?page,limit}]
 This service will return freight tariff already published and in effect on the website.
