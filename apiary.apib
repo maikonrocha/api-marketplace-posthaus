@@ -4614,20 +4614,19 @@ This service return freight tariff table that have not yet been published. There
                 {
                     "startZipCode":1111111,
                     "endZipCode":9999999,
-                    "startWeight":0.0,
-                    "endWeight":99.99,
+                    "startWeight":20.0,
+                    "endWeight":19.99,
                     "startOrderValue":0.0,
                     "endOrderValue":5000.00,
                     "carrierDeliveryTime":1,
                     "freightValue":9.99,
                     "shippingMehod":"EXPRESSA",
                     "carrier":"CORREIOS",
-                    "effectiveFreightDate":"2018-08-08T10:40:32Z",
-                    "faults":""
+                    "faults":"[br.inf.dbr.exception.PosthausMandatoryAndGreaterThanAttributeException: The 'endWeight' attribute is mandatory and must be greater than the attribute 'startWeight' (FreighTariff: 'endWeight').]"
                 },
                 {
-                    "startZipCode":1111111,
-                    "endZipCode":9999999,
+                    "startZipCode":9999999,
+                    "endZipCode":7777777,
                     "startWeight":0.0,
                     "endWeight":99.99,
                     "startOrderValue":0.0,
@@ -4636,8 +4635,7 @@ This service return freight tariff table that have not yet been published. There
                     "freightValue":9.99,
                     "shippingMehod":"",
                     "carrier":"",
-                    "effectiveFreightDate":"2018-08-08T10:40:32Z",
-                    "faults":"There are some problems in this register"
+                    "faults":"[br.inf.dbr.exception.PosthausMandatoryAndGreaterThanAttributeException: The 'endZipCode' attribute is mandatory and must be greater than the attribute 'startZipCode' (FreighTariff: 'endZipCode').]"
                 }
             ]
 }
