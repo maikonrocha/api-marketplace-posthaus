@@ -4546,27 +4546,33 @@ database, creating a current freight tariff table.
             },
             {
             "exceptionTypeName": "PosthausMandatoryAttributeException",
-            "message": "''${attribute or argument}'' attribute is mandatory."
+            "message": "''${attribute or argument}'' attribute is mandatory.",
+            "attOrArgName": "${attribute or argument}"
             },
             {
             "exceptionTypeName": "PosthausMandatoryAndGreaterThanAttributeException",
-            "message": "''${attribute or argument}'' attribute is mandatory and greater than ''${value1}'' (${vallue2}: ''${value3}'')."
+            "message": "''${attribute or argument}'' attribute is mandatory and greater than ''${value1}'' (${vallue2}: ''${value3}'').",
+            "attOrArgName": "${attribute or argument}"
             },
             {
             "exceptionTypeName": "PosthausTooLargerAttributeValueException",
-            "message": "Too larger attribute value for ''{${attribute or argument}}'' (''${value}'')."
+            "message": "Too larger attribute value for ''{${attribute or argument}}'' (''${value}'').",
+            "attOrArgName": "${attribute or argument}"
             },
             {
             "exceptionTypeName": "PosthausTooSmallAttributeValueException",
-            "message": "Too small attribute value for ''${attribute or argument}''."
+            "message": "Too small attribute value for ''${attribute or argument}''.",
+            "attOrArgName": "${attribute or argument}"
             },
             {
             "exceptionTypeName": "PosthausInvalidAttributeValueException",
-            "message": "Invalid value informed at ''${attribute or argument}''."
+            "message": "Invalid value informed at ''${attribute or argument}''.",
+            "attOrArgName": "${attribute or argument}"
             },
             {
             "exceptionTypeName": "PosthausEmptyArrayException",
-            "message": "Array ''${attribute or argument}'' is empty."
+            "message": "Array ''${attribute or argument}'' is empty.",
+            "attOrArgName": "${attribute or argument}"
             }
             ]
         }
