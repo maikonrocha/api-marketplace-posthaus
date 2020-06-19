@@ -3118,20 +3118,20 @@ Validates the product data without their persistence, this way it will be possib
         {  
             "productGroupPartnerId":"15032019",
             "brand":{  
-              "partnerId":"TR6757"
+                "partnerId":"TR6757"
             },
             "title":"Vestido Longo",
             "description":"Vestido com decote ombro a ombro. Confeccionado em malha de tricô de algodão. Com mangas raglan e comprimento alongado.",
             "gender":"F",
             "ageGroup":"A",
             "variations":[  
-              {  
-                 "productPartnerId":"60022019",
-                 "title":"Cafe",
-                 "predominantColor":{  
+            {  
+                "productPartnerId":"60022019",
+                "title":"Cafe",
+                "predominantColor":{  
                     "id":"Marrom",
                     "partnerId":"964B00"
-                 },
+                },
                  "skus":[  
                     {  
                        "partnerId":"85022019",
@@ -4451,74 +4451,81 @@ database, creating a current freight tariff table.
 
 + Request (application/json)
 
-  + Headers
+    + Headers
 
             Accept: application/json
             Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE0Mzg4Mjc0NDN9.POonh-FngFnKeCgDfjjoemmF3Mt8HP2CThHwDLYuYnQ
                         
-  + Body
-    [
-        {
-            "startZipCode":1111111,
-            "endZipCode":9999999,
-            "startWeight":0.0,
-            "endWeight":10.00,
-            "startOrderValue":0.0,
-            "endOrderValue":5000.00,
-            "carrierDeliveryTime":1,
-            "freightValue":9.99,
-            "shippingType":"NORMAL",
-            "carrier":"CORREIOS"
-        },
-        {
-            "startZipCode":1111111,
-            "endZipCode":9999999,
-            "startWeight":10.01,
-            "endWeight":20.00,
-            "startOrderValue":0.0,
-            "endOrderValue":5000.00,
-            "carrierDeliveryTime":1,
-            "freightValue":9.99,
-            "shippingType":"EXPRESSA",
-            "carrier":"CORREIOS"
-        },
-        {
-            "startZipCode":1111111,
-            "endZipCode":9999999,
-            "startWeight":20.01,
-            "endWeight":30.00,
-            "startOrderValue":0.0,
-            "endOrderValue":5000.00,
-            "carrierDeliveryTime":1,
-            "freightValue":9.99,
-            "shippingType":"NORMAL",
-            "carrier":"CORREIOS"
-        },
-        {
-            "startZipCode":1111111,
-            "endZipCode":9999999,
-            "startWeight":30.01,
-            "endWeight":40.00,
-            "startOrderValue":0.0,
-            "endOrderValue":5000.00,
-            "carrierDeliveryTime":1,
-            "freightValue":9.99,
-            "shippingType":"EXPRESSA",
-            "carrier":"CORREIOS"
-        },
-        {
-            "startZipCode":1111111,
-            "endZipCode":9999999,
-            "startWeight":40.01,
-            "endWeight":50.00,
-            "startOrderValue":0.0,
-            "endOrderValue":5000.00,
-            "carrierDeliveryTime":1,
-            "freightValue":9.99,
-            "shippingType":"NORMAL",
-            "carrier":"CORREIOS"
-        }
-    ]
+
+    + Body
+
+            [
+                {
+                    "startZipCode":1111111,
+                    "endZipCode":9999999,
+                    "startWeight":0.0,
+                    "endWeight":10.00,
+                    "startOrderValue":0.0,
+                    "endOrderValue":5000.00,
+                    "carrierDeliveryTime":1,
+                    "freightValue":9.99,
+                    "shippingType":"NORMAL",
+                    "carrier":"CORREIOS",
+                    "lineNumberOfSheet":352
+                },
+                {
+                    "startZipCode":1111111,
+                    "endZipCode":9999999,
+                    "startWeight":10.01,
+                    "endWeight":20.00,
+                    "startOrderValue":0.0,
+                    "endOrderValue":5000.00,
+                    "carrierDeliveryTime":1,
+                    "freightValue":9.99,
+                    "shippingType":"EXPRESSA",
+                    "carrier":"CORREIOS",
+                    "lineNumberOfSheet":353
+                },
+                {
+                    "startZipCode":1111111,
+                    "endZipCode":9999999,
+                    "startWeight":20.01,
+                    "endWeight":30.00,
+                    "startOrderValue":0.0,
+                    "endOrderValue":5000.00,
+                    "carrierDeliveryTime":1,
+                    "freightValue":9.99,
+                    "shippingType":"NORMAL",
+                    "carrier":"CORREIOS",
+                    "lineNumberOfSheet":354
+                },
+                {
+                    "startZipCode":1111111,
+                    "endZipCode":9999999,
+                    "startWeight":30.01,
+                    "endWeight":40.00,
+                    "startOrderValue":0.0,
+                    "endOrderValue":5000.00,
+                    "carrierDeliveryTime":1,
+                    "freightValue":9.99,
+                    "shippingType":"EXPRESSA",
+                    "carrier":"CORREIOS",
+                    "lineNumberOfSheet":355
+                },
+                {
+                    "startZipCode":1111111,
+                    "endZipCode":9999999,
+                    "startWeight":40.01,
+                    "endWeight":50.00,
+                    "startOrderValue":0.0,
+                    "endOrderValue":5000.00,
+                    "carrierDeliveryTime":1,
+                    "freightValue":9.99,
+                    "shippingType":"NORMAL",
+                    "carrier":"CORREIOS",
+                    "lineNumberOfSheet":356
+                }
+            ]
     
 + Response 204
 
@@ -4622,7 +4629,8 @@ This service return freight tariff table that have not yet been published. There
                     "freightValue":9.99,
                     "shippingMehod":"EXPRESSA",
                     "carrier":"CORREIOS",
-                    "faults":"[br.inf.dbr.exception.PosthausMandatoryAndGreaterThanAttributeException: The 'endWeight' attribute is mandatory and must be greater than the attribute 'startWeight' (FreighTariff: 'endWeight').]"
+                    "faults":"[br.inf.dbr.exception.PosthausMandatoryAndGreaterThanAttributeException: The 'endWeight' attribute is mandatory and must be greater than the attribute 'startWeight' (FreighTariff: 'endWeight').]",
+                    "lineNumberOfSheet":455
                 },
                 {
                     "startZipCode":9999999,
@@ -4635,7 +4643,8 @@ This service return freight tariff table that have not yet been published. There
                     "freightValue":9.99,
                     "shippingMehod":"",
                     "carrier":"",
-                    "faults":"[br.inf.dbr.exception.PosthausMandatoryAndGreaterThanAttributeException: The 'endZipCode' attribute is mandatory and must be greater than the attribute 'startZipCode' (FreighTariff: 'endZipCode').]"
+                    "faults":"[br.inf.dbr.exception.PosthausMandatoryAndGreaterThanAttributeException: The 'endZipCode' attribute is mandatory and must be greater than the attribute 'startZipCode' (FreighTariff: 'endZipCode').]",
+                    "lineNumberOfSheet":1455
                 }
             ]
 }
@@ -4643,8 +4652,8 @@ This service return freight tariff table that have not yet been published. There
 + Response 500 (application/json)
 
         {
-        "exceptionTypeName": "PosthausException",
-        "message": "An unexpected error occurred."
+            "exceptionTypeName": "PosthausException",
+            "message": "An unexpected error occurred."
         }
 
 
@@ -5556,4 +5565,5 @@ The listing is according to the seller informed in the token.
 + shippingType (string, required) - Shipping method
 + carrier (string, required) - Carrier name
 + effectiveFreightDate: `2018-08-08T10:40:32Z` (string, required) - effective freight date
++ lineNumberOfSheet (number, required) - Line number of sent sheet.
 + faults (string) - This message will tell all error details. When there are any Freight Tariff with error message, the freight tariff table is going not be published.
