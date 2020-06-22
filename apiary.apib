@@ -2413,6 +2413,7 @@ You must read the notifications requesting service GET /rest/feed/product/
                   {  
                      "productPartnerId":"60022019",
                      "title":"Cafe",
+                     "additionalTime": "3",
                      "predominantColor":{  
                         "id":"Marrom",
                         "partnerId":"964B00"
@@ -2463,6 +2464,7 @@ You must read the notifications requesting service GET /rest/feed/product/
                   {  
                      "productPartnerId":"61022019",
                      "title":"Canela",
+                     "additionalTime": "3",
                      "predominantColor":{  
                         "id":"Marrom",
                         "partnerId":"964B00"
@@ -2629,8 +2631,12 @@ You must read the notifications requesting service GET /rest/feed/product/
                 "exceptionTypeName": "PosthausGenderValidationException",
                 "message": "Skus already exists(skus: ''${attribute or argument}'').",
                 "attOrArgName": "${attribute or argument}"
+                },
+                {
+                "exceptionTypeName": "PosthausInvalidAdditionalTime",
+                "message": "Additional delivery time must be between 0 and 20 days.",
+                "attOrArgName": "${attribute or argument}"
                 }
-            ]
             ]
         }        
         
@@ -2681,6 +2687,7 @@ It will be used to read information about Products in Posthaus. Returns the prod
                     {  
                       "productPartnerId": "6000641446",
                       "title": "Café",
+                      "additionalTime": 3,
                       "predominantColor": {
                         "id": "Marrom",
                         "partnerId": "964B00"
@@ -2802,6 +2809,7 @@ Returns the informations about a specific product.
                 {
                   "productPartnerId": "6000641446",
                   "title": "Café",
+                  "additionalTime": 3,
                   "predominantColor": {
                     "id": "Marrom",
                     "partnerId": "964B00"
@@ -2935,6 +2943,7 @@ If you want to remove characteristics, inform the current without the ones you w
                 "variations":[{  
                     "productPartnerId":"6000641446",
                     "title":"Café",
+                    "additionalTime": 3,
                     "predominantColor":{  
                         "partnerId":"964B00"
                     },
@@ -3374,6 +3383,7 @@ You must read the notifications requesting service GET /rest/feed/product/
                   {  
                      "productPartnerId":"6000641446",
                      "title":"Café",
+                     "additionalTime": 3,
                      "predominantColor":{  
                         "id": "Marrom",
                         "partnerId": "964B00"
@@ -3505,6 +3515,11 @@ You must read the notifications requesting service GET /rest/feed/product/
                 "exceptionTypeName": "PosthausSkusIdAlreadyExistsException",
                 "message": "Skus already exists(skus: ''${attribute or argument}'').",
                 "attOrArgName": "${attribute or argument}"
+                },
+                {
+                "exceptionTypeName": "PosthausInvalidAdditionalTime",
+                "message": "Additional delivery time must be between 0 and 20 days.",
+                "attOrArgName": "${attribute or argument}"
                 }
             ]
         }
@@ -3546,6 +3561,7 @@ GET a Variation.
               {  
                  "productPartnerId":"6000641446",
                  "title":"Café",
+                 "additionalTime": 0,
                  "predominantColor":{  
                     "id":"Marrom",
                     "partnerId":"964B00"
@@ -5420,7 +5436,7 @@ The listing is according to the seller informed in the token.
 ## FullVariation (object)
 + productPartnerId (string, required) - Seller Product ID. Max. length of 30 digits
 + title: `Max. Length: 35` (string, required) - Variance title, this information will join in the Product Title.
-+ additionalTime: `Max range: 20` (number) -This information is the delivery additional time. Is used to increase delivery time if the product has a special time to build or sent. 
++ additionalTime: `Max. Length: 2` (number) - This information is the delivery additional time. Is used to increase delivery time if the product has a special time to build or sent. This additional time must be between 0 and 20. 
 + predominantColor (PredominantColor, required) - This information is used on Product Filter.
 + skus (array[SKU], required)
 + images (array[Image], required) - Array of product images. Limit 20 records
