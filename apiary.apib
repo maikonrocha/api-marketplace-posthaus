@@ -4487,7 +4487,7 @@ database, creating a current freight tariff table.
                     "freightValue":9.99,
                     "shippingType":"NORMAL",
                     "carrier":"CORREIOS",
-                    "lineNumberOfSheet":352
+                    "freightTariffId":"352"
                 },
                 {
                     "startZipCode":1111111,
@@ -4500,7 +4500,7 @@ database, creating a current freight tariff table.
                     "freightValue":9.99,
                     "shippingType":"EXPRESSA",
                     "carrier":"CORREIOS",
-                    "lineNumberOfSheet":353
+                    "freightTariffId":"353"
                 },
                 {
                     "startZipCode":1111111,
@@ -4513,7 +4513,7 @@ database, creating a current freight tariff table.
                     "freightValue":9.99,
                     "shippingType":"NORMAL",
                     "carrier":"CORREIOS",
-                    "lineNumberOfSheet":354
+                    "freightTariffId":"354"
                 },
                 {
                     "startZipCode":1111111,
@@ -4526,7 +4526,7 @@ database, creating a current freight tariff table.
                     "freightValue":9.99,
                     "shippingType":"EXPRESSA",
                     "carrier":"CORREIOS",
-                    "lineNumberOfSheet":355
+                    "freightTariffId":"355"
                 },
                 {
                     "startZipCode":1111111,
@@ -4539,7 +4539,7 @@ database, creating a current freight tariff table.
                     "freightValue":9.99,
                     "shippingType":"NORMAL",
                     "carrier":"CORREIOS",
-                    "lineNumberOfSheet":356
+                    "freightTariffId":"356"
                 }
             ]
     
@@ -4646,7 +4646,7 @@ This service return freight tariff table that have not yet been published. There
                     "shippingMehod":"EXPRESSA",
                     "carrier":"CORREIOS",
                     "faults":"[br.inf.dbr.exception.PosthausMandatoryAndGreaterThanAttributeException: The 'endWeight' attribute is mandatory and must be greater than the attribute 'startWeight' (FreighTariff: 'endWeight').]",
-                    "lineNumberOfSheet":455
+                    "freightTariffId":"455"
                 },
                 {
                     "startZipCode":9999999,
@@ -4660,7 +4660,7 @@ This service return freight tariff table that have not yet been published. There
                     "shippingMehod":"",
                     "carrier":"",
                     "faults":"[br.inf.dbr.exception.PosthausMandatoryAndGreaterThanAttributeException: The 'endZipCode' attribute is mandatory and must be greater than the attribute 'startZipCode' (FreighTariff: 'endZipCode').]",
-                    "lineNumberOfSheet":1455
+                    "freightTariffId":"1455"
                 }
             ]
 }
@@ -5582,5 +5582,5 @@ The listing is according to the seller informed in the token.
 + shippingType (string, required) - Shipping method
 + carrier (string, required) - Carrier name
 + effectiveFreightDate: `2018-08-08T10:40:32Z` (string, required) - effective freight date
-+ lineNumberOfSheet (number, required) - Line number of sent sheet.
++ freightTariffId (string, required) - Unique freight ID.
 + faults (string) - This message will tell all error details. When there are any Freight Tariff with error message, the freight tariff table is going not be published.
