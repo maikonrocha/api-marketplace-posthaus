@@ -4485,7 +4485,7 @@ database, creating a current freight tariff table.
                     "endOrderValue":5000.00,
                     "carrierDeliveryTime":1,
                     "freightValue":9.99,
-                    "shippingType":"NORMAL",
+                    "modalityCode":3,
                     "carrier":"CORREIOS",
                     "freightTariffId":"352"
                 },
@@ -4498,7 +4498,7 @@ database, creating a current freight tariff table.
                     "endOrderValue":5000.00,
                     "carrierDeliveryTime":1,
                     "freightValue":9.99,
-                    "shippingType":"EXPRESSA",
+                    "modalityCode":2,
                     "carrier":"CORREIOS",
                     "freightTariffId":"353"
                 },
@@ -4511,7 +4511,7 @@ database, creating a current freight tariff table.
                     "endOrderValue":5000.00,
                     "carrierDeliveryTime":1,
                     "freightValue":9.99,
-                    "shippingType":"NORMAL",
+                    "modalityCode":3,
                     "carrier":"CORREIOS",
                     "freightTariffId":"354"
                 },
@@ -4524,7 +4524,7 @@ database, creating a current freight tariff table.
                     "endOrderValue":5000.00,
                     "carrierDeliveryTime":1,
                     "freightValue":9.99,
-                    "shippingType":"EXPRESSA",
+                    "modalityCode":2,
                     "carrier":"CORREIOS",
                     "freightTariffId":"355"
                 },
@@ -4537,7 +4537,7 @@ database, creating a current freight tariff table.
                     "endOrderValue":5000.00,
                     "carrierDeliveryTime":1,
                     "freightValue":9.99,
-                    "shippingType":"NORMAL",
+                    "modalityCode":3,
                     "carrier":"CORREIOS",
                     "freightTariffId":"356"
                 }
@@ -4646,9 +4646,9 @@ This service return freight tariff table that have not yet been published. There
                     "endOrderValue":5000.00,
                     "carrierDeliveryTime":1,
                     "freightValue":9.99,
-                    "shippingMehod":"EXPRESSA",
+                    "modalityCode":3,
                     "carrier":"CORREIOS",
-                    "faults":"[br.inf.dbr.exception.PosthausMandatoryAndGreaterThanAttributeException: The 'endWeight' attribute is mandatory and must be greater than the attribute 'startWeight' (FreighTariff: 'endWeight').]",
+                    "faults":"The 'endWeight' attribute is mandatory and must be greater than the attribute 'startWeight' (FreighTariff: 'endWeight').]",
                     "freightTariffId":"455"
                 },
                 {
@@ -4660,9 +4660,9 @@ This service return freight tariff table that have not yet been published. There
                     "endOrderValue":5000.00,
                     "carrierDeliveryTime":1,
                     "freightValue":9.99,
-                    "shippingMehod":"",
+                    "modalityCode":3,
                     "carrier":"",
-                    "faults":"[br.inf.dbr.exception.PosthausMandatoryAndGreaterThanAttributeException: The 'endZipCode' attribute is mandatory and must be greater than the attribute 'startZipCode' (FreighTariff: 'endZipCode').]",
+                    "faults":"The 'endZipCode' attribute is mandatory and must be greater than the attribute 'startZipCode' (FreighTariff: 'endZipCode').]",
                     "freightTariffId":"1455"
                 }
             ]
@@ -4749,25 +4749,27 @@ ready for the new freight tariff calculations on the website.
         
 + Response 404 (application/json)
 
+            
+        {
+        "exceptionTypeName": "PosthausFreightTariffNotFoundException",
+        "message": "Freight tariff not found."
+        }
+            
+        
++ Response 400 (application/json)
+            
             {
                 "exceptions": [
                 {
-                "exceptionTypeName": "PosthausFreightTariffNotFoundException",
-                "message": "This freight tariff table is not ready to publish yet. Errors that must to be fixed.( Total: 5 )"
+                "exceptionTypeName": "PosthausMandatoryAttributeException",
+                "message": "''${attribute or argument}'' attribute is mandatory."
                 },
                 {
-                "exceptionTypeName": "PosthausFreightTariffNotFoundException",
-                "message": "Freight tariff not found."
+                "exceptionTypeName": "PosthausFreightTariffNotDoneYetException",
+                "message": "This freight tariff table is not ready to publish yet. Errors that must to be fixed.( Total: 5 )"
                 }
                 ]
             }
-        
-+ Response 400 (application/json)
-
-        {
-        "exceptionTypeName": "PosthausMandatoryAttributeException",
-        "message": "''${attribute or argument}'' attribute is mandatory."
-        }
 
 ### Read a published freight tariff table [GET /rest/freight/tariff/v1/{?page,limit}]
 This service will return freight tariff already published and in effect on the website.
@@ -5582,7 +5584,7 @@ The listing is according to the seller informed in the token.
 + endOrderValue (number, required) - Total order value. Max length of 15 digits with a scale of 2
 + carrierDeliveryTime (number, required) - quantity of days to carrier delivery
 + freightValue (number, required) - Freight total value
-+ shippingType (string, required) - Shipping method
++ modalityCode (number, required) - Modality code
 + carrier (string, required) - Carrier name
 + effectiveFreightDate: `2018-08-08T10:40:32Z` (string, required) - effective freight date
 + freightTariffId (string, required) - Unique freight ID.
