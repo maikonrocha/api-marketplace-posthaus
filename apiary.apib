@@ -4569,18 +4569,21 @@ database, creating a current freight tariff table.
             },
             {
             "exceptionTypeName": "PosthausMandatoryAttributeException",
-            "message": "''${attribute or argument}'' attribute is mandatory.",
+            "message": "''${attribute or argument}'' attribute is mandatory."
+            },
+            {
+            "exceptionTypeName": "PosthausMandatoryAndGreaterThanAttributeException",
+            "message": "The ''${attribute or argument}'' attribute is mandatory and must be greater than or equals the attribute ''${value2}'' .",
             "attOrArgName": "${attribute or argument}"
             },
             {
             "exceptionTypeName": "PosthausMandatoryAndGreaterThanAttributeException",
-            "message": "''${attribute or argument}'' attribute is mandatory and greater than ''${value1}'' (${vallue2}: ''${value3}'').",
+            "message": "The ''${attribute or argument}'' attribute is mandatory and must be greater than or equals the attribute ''${value2}''.",
             "attOrArgName": "${attribute or argument}"
             },
             {
             "exceptionTypeName": "PosthausTooLargerAttributeValueException",
-            "message": "Too larger attribute value for ''{${attribute or argument}}'' (''${value}'').",
-            "attOrArgName": "${attribute or argument}"
+            "message": "Value entered in the field is too large for ''{${attribute or argument}}'' (''${value}'')."
             },
             {
             "exceptionTypeName": "PosthausTooSmallAttributeValueException",
